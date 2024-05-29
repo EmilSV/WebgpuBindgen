@@ -1,0 +1,3 @@
+[submodule "CapiGenerator"]
+	path = CapiGenerator
+	url = git@github.com:EmilSV/CapiGenerator.git
