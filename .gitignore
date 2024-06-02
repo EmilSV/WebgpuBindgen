@@ -600,3 +600,4 @@ FodyWeavers.xsd
 !Main/resources/**
 
 !**/native_lib/**
+WebGpuSharp/src/generatedCode

@@ -1,11 +1,14 @@
 ﻿using CapiGenerator;
+using CapiGenerator.CSModel;
 using CapiGenerator.Parser;
 using CapiGenerator.Translator;
 using CapiGenerator.Writer;
 using CppAst;
+using WebgpuBindgen;
 
 
-string headerFile = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
+string headerFile = Path.GetFullPath(args[0]);
+string outputDirectory = Path.GetFullPath(args[1]);
 
 if (!File.Exists(headerFile))
 {
@@ -57,55 +60,81 @@ foreach (var constant in compilationUnit.GetEnumEnumerable())
 var translationUnit = new CSTranslationUnit();
 
 translationUnit.AddTranslator([
-    new CSConstTranslator("WebGPU"),
     new CSEnumTranslator(),
-    new CSFunctionTranslator("WebGPU", "webgpu_dawn"),
+    new CSConstAndFunctionTranslator("WebGPU", "webgpu_dawn"),
     new CSStructTranslator(),
     new CSTypedefTranslator()
 ]);
 
 translationUnit.Translate([compilationUnit]);
 
+List<CSStaticClass> staticClasses = new();
+List<CSEnum> enums = new();
+List<CSStruct> structs = new();
+
+staticClasses.AddRange(translationUnit.GetCSStaticClassesEnumerable());
+enums.AddRange(translationUnit.GetCSEnumEnumerable());
+structs.AddRange(translationUnit.GetCSStructEnumerable());
+
+
+
+
+await EnumFixer.FixEnums(enums);
+
 var structWriter = new CSStructWriter();
 var enumWriter = new CSEnumWriter();
 
-foreach (var csStruct in translationUnit.GetCSStructEnumerable())
-{
-    csStruct.Namespace = "TestProject";
 
-    await structWriter.Write(csStruct, new CSWriteConfig
-    {
-        OutputDirectory = Path.Combine(Directory.GetCurrentDirectory(), "output"),
-        Usings = [
-            "System"
-        ]
-    });
+
+foreach (var csEnum in enums)
+{
+    csEnum.Namespace = "WebGpuSharp";
 }
 
-foreach (var csEnum in translationUnit.GetCSEnumEnumerable())
+foreach (var csStaticClass in staticClasses)
 {
-    csEnum.Namespace = "TestProject";
+    csStaticClass.Namespace = "WebGpuSharp";
+}
 
+foreach (var csStruct in structs)
+{
+    csStruct.Namespace = "WebGpuSharp";
+}
+
+foreach (var csEnum in enums)
+{
     await enumWriter.Write(csEnum, new CSWriteConfig
     {
-        OutputDirectory = Path.Combine(Directory.GetCurrentDirectory(), "output"),
+        OutputDirectory = outputDirectory,
         Usings = [
-            "System"
+            "System",
+            "System.Runtime.InteropServices"
         ]
     });
 }
 
-foreach (var csStaticClass in translationUnit.GetCSStaticClassesEnumerable())
+foreach (var csStaticClass in staticClasses)
 {
-    csStaticClass.Namespace = "TestProject";
-
     var staticClassWriter = new CSStaticClassWriter();
 
     await staticClassWriter.Write(csStaticClass, new CSWriteConfig
     {
-        OutputDirectory = Path.Combine(Directory.GetCurrentDirectory(), "output"),
+        OutputDirectory = outputDirectory,
         Usings = [
-            "System"
+            "System",
+            "System.Runtime.InteropServices"
+        ]
+    });
+}
+
+foreach (var csStruct in structs)
+{
+    await structWriter.Write(csStruct, new CSWriteConfig
+    {
+        OutputDirectory = outputDirectory,
+        Usings = [
+            "System",
+            "System.Runtime.InteropServices"
         ]
     });
 }
