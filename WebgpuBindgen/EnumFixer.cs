@@ -18,28 +18,28 @@ public static class EnumFixer
                 string newName = value.Name;
                 if (value.Name.StartsWith($"{name}_"))
                 {
-                    newName = value.Name.Substring(name.Length + 1);
+                    newName = value.Name[(name.Length + 1)..];
                 }
 
                 if (newName.Length > 1 && char.IsDigit(newName[0]) && newName[1] == 'D')
                 {
                     char digit = newName[0];
-                    newName = $"D{digit}{newName.Substring(2)}";
+                    newName = $"D{digit}{newName[2..]}";
                 }
             }
 
             if (name.StartsWith("WGPU"))
             {
-                item.Name = name.Substring(4);
+                item.Name = name[4..];
             }
         }
 
         return Task.CompletedTask;
     }
 
-    public static Task FixFlagEnumAttributes(List<CSEnum> enums, List<CSStruct> structs)
+    public static Task FixFlagEnumAttributes(List<CSEnum> enums, List<CSStruct> structs, List<CSStaticClass> staticClasses)
     {
-        foreach (var item in enums)
+        foreach (CSEnum item in enums)
         {
             if (item.Attributes.Any(a => a is CSAttribute<FlagsAttribute>))
             {
@@ -48,6 +48,25 @@ public static class EnumFixer
 
             string name = item.Name;
             var flagStruct = structs.Find(i => i.Name == $"{name}Flags");
+            if (flagStruct == null)
+            {
+                continue;
+            }
+
+            bool Predicate(ICSType type, out ICSType? newType)
+            {
+                if (type == flagStruct)
+                {
+                    newType = item;
+                    return true;
+                }
+                newType = null;
+                return false;
+            }
+
+            enums.ReplaceTypes(Predicate);
+
+
 
             item.Attributes.Add(CSAttribute<FlagsAttribute>.Create(
                 [],
