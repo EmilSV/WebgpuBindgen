@@ -78,7 +78,7 @@ structs.AddRange(translationUnit.GetCSStructEnumerable());
 
 
 
-
+await EnumFixer.FixFlagEnumAttributes(enums, structs, staticClasses);
 await EnumFixer.FixEnums(enums);
 
 var structWriter = new CSStructWriter();

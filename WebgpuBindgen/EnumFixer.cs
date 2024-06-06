@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using CapiGenerator.CSModel;
 
 namespace WebgpuBindgen;
@@ -26,6 +27,8 @@ public static class EnumFixer
                     char digit = newName[0];
                     newName = $"D{digit}{newName[2..]}";
                 }
+
+                value.Name = newName;
             }
 
             if (name.StartsWith("WGPU"))
@@ -53,7 +56,7 @@ public static class EnumFixer
                 continue;
             }
 
-            bool Predicate(ICSType type, out ICSType? newType)
+            bool Predicate(ICSType type, [NotNullWhen(true)] out ICSType? newType)
             {
                 if (type == flagStruct)
                 {
@@ -64,9 +67,7 @@ public static class EnumFixer
                 return false;
             }
 
-            enums.ReplaceTypes(Predicate);
-
-
+            ITypeReplace.ReplaceTypes([.. enums, .. structs, .. staticClasses], Predicate);
 
             item.Attributes.Add(CSAttribute<FlagsAttribute>.Create(
                 [],
