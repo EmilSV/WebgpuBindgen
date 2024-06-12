@@ -2,6 +2,7 @@
 using CapiGenerator.CSModel;
 using CapiGenerator.Parser;
 using CapiGenerator.Translator;
+using CapiGenerator.UtilTypes;
 using CapiGenerator.Writer;
 using CppAst;
 using WebgpuBindgen;
@@ -81,10 +82,20 @@ structs.AddRange(translationUnit.GetCSStructEnumerable());
 await EnumFixer.FixFlagEnumAttributes(enums, structs, staticClasses);
 await EnumFixer.FixEnums(enums);
 
+await StructFixer.UnwrapCallbacks(structs, staticClasses, enums);
+
+await StructFixer.CreateHandleTypes(structs, staticClasses, enums);
+
 var structWriter = new CSStructWriter();
 var enumWriter = new CSEnumWriter();
 
 
+try
+{
+    Directory.Delete(outputDirectory, true);
+}
+catch
+{ }
 
 foreach (var csEnum in enums)
 {
