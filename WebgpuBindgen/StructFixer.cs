@@ -1,6 +1,9 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using CapiGenerator.CSModel;
+using static CapiGenerator.CSModel.CSClassMemberModifierConsts;
 
 namespace WebgpuBindgen;
 
@@ -85,40 +88,71 @@ public static class StructFixer
                 IsReadOnly = true,
             });
 
-            newStruct.Methods.Add(new CSMethod(
-                new CSTypeInstance(CSUIntPtrType.Instance),
-                "",
-                [new("handle", new CSTypeInstance(newStruct))]
+            var newStructType = new CSTypeInstance(newStruct);
+            var newStructTypeNullable = new CSTypeInstance(newStruct) { IsNullable = true };
+            var boolType = new CSTypeInstance(CSPrimitiveType.Instances.Bool);
+            var uIntPtrType = new CSTypeInstance(CSUIntPtrType.Instance);
+            var objectType = new CSTypeInstance(CSPrimitiveType.Instances.Object);
+
+            newStruct.Methods.AddRange([
+                new(PUBLIC | STATIC | EXPLICIT, CSUIntPtrType.Instance, [(newStruct, "handle")])
+                {
+                    Body = "=> handle._ptr;",
+                },
+                new(PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (newStructType, "right")])
+                {
+                    Body = "=> left._ptr == right._ptr;",
+                },
+                new(PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (newStructType, "right")])
+                {
+                    Body = "=> left._ptr != right._ptr;",
+                },
+                new(PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (newStructTypeNullable, "right")])
+                {
+                    Body = "=> left._ptr == right.GetValueOrDefault()._ptr;",
+                },
+                new(PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (newStructTypeNullable, "right")])
+                {
+                    Body = "=> left._ptr != right.GetValueOrDefault()._ptr;",
+                },
+                new(PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (uIntPtrType, "right")])
+                {
+                    Body = "=> left._ptr == right;",
+                },
+                new(PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (uIntPtrType, "right")])
+                {
+                    Body = "=> left._ptr != right;",
+                },
+                new(PUBLIC, uIntPtrType ,"GetAddress", CSParameter.EmptyParameters)
+                {
+                    Body = "=> _ptr;",
+                },
+                new(PUBLIC, boolType, "Equals", [(newStructType, "other")])
+                {
+                    Body = "=> left._ptr == other._ptr;",
+                },
+                new(PUBLIC | OVERRIDE, boolType, "Equals", [(objectType, "other")])
+                {
+                    Body = new("=> (other is {0} h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);", () => newStruct.Name)
+                },
+                new(PUBLIC | OVERRIDE , boolType, "GetHashCode", CSParameter.EmptyParameters)
+                {
+                    Body = "=> _ptr.GetHashCode();",
+                },
+            ]);
+
+            newStruct.Methods.Add(new(
+                PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (newStructType, "right")]
             )
             {
-                AccessModifier = CSAccessModifier.Public,
-                IsStatic = true,
-                OperatorModifier = CSMethodOperatorModifier.Explicit,
-                Body = new("return handle._ptr;"),
+                Body = "=> left._ptr == right._ptr;"
             });
 
-            newStruct.Methods.Add(new CSMethod(
-                new CSTypeInstance(CSPrimitiveType.Instances.Bool),
-                "==",
-                [new("left", new CSTypeInstance(newStruct)), new("right", new CSTypeInstance(newStruct))]
+            newStruct.Methods.Add(new(
+                PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (newStructType, "right")]
             )
             {
-                AccessModifier = CSAccessModifier.Public,
-                IsStatic = true,
-                OperatorModifier = CSMethodOperatorModifier.Operator,
-                Body = new(" return left._ptr == right._ptr;"),
-            });
-
-            newStruct.Methods.Add(new CSMethod(
-                new CSTypeInstance(CSPrimitiveType.Instances.Bool),
-                "!=",
-                [new("left", new CSTypeInstance(newStruct)), new("right", new CSTypeInstance(newStruct))]
-            )
-            {
-                AccessModifier = CSAccessModifier.Public,
-                IsStatic = true,
-                OperatorModifier = CSMethodOperatorModifier.Operator,
-                Body = new(" return left._ptr != right._ptr;"),
+                Body = "=> left._ptr != right._ptr;",
             });
 
             newStruct.Methods.Add(new CSMethod(
@@ -199,6 +233,7 @@ public static class StructFixer
             });
 
             newStruct.Methods.Add(new CSMethod(
+
                 new CSTypeInstance(CSPrimitiveType.Instances.Int),
                 "GetHashCode",
                 []
