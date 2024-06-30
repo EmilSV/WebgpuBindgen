@@ -24,6 +24,8 @@ var options = new CppParserOptions
     ParseMacros = true,
 };
 
+options.Defines.Add("WGPU_SKIP_PROCS");
+
 options.IncludeFolders.Add(headerPath);
 
 var cppCompilation = CppParser.ParseFile(headerFile, options);
@@ -62,7 +64,7 @@ var translationUnit = new CSTranslationUnit();
 
 translationUnit.AddTranslator([
     new CSEnumTranslator(),
-    new CSConstAndFunctionTranslator("WebGPU", "webgpu_dawn"),
+    new CSConstAndFunctionTranslator("WebGPU_FFI", "webgpu_dawn"),
     new CSStructTranslator(),
     new CSTypedefTranslator()
 ]);
@@ -82,9 +84,20 @@ structs.AddRange(translationUnit.GetCSStructEnumerable());
 await EnumFixer.FixFlagEnumAttributes(enums, structs, staticClasses);
 await EnumFixer.FixEnums(enums);
 
+await StructFixer.FixStructsName(structs);
 await StructFixer.UnwrapCallbacks(structs, staticClasses, enums);
-
 await StructFixer.CreateHandleTypes(structs, staticClasses, enums);
+await StructFixer.AddStructModifiers(structs);
+await StructFixer.RemoveStructs(structs);
+
+await StaticClassFixer.RemoveMembers(staticClasses);
+await StaticClassFixer.FixMemberNames(staticClasses);
+await StaticClassFixer.MakeStaticClassesPartial(staticClasses);
+await StructFixer.FFIRenameStructs(structs);
+//await StructFixer.RemoveUsedTypes(structs, staticClasses, enums);
+await StructFixer.FixWebgpuBoolType(structs);
+await StructFixer.FieldNameFix(structs);
+await StructFixer.AddConstructorsToStructs(structs);
 
 var structWriter = new CSStructWriter();
 var enumWriter = new CSEnumWriter();
@@ -99,17 +112,17 @@ catch
 
 foreach (var csEnum in enums)
 {
-    csEnum.Namespace = "WebGpuSharp";
+    csEnum.Namespace ??= "WebGpuSharp";
 }
 
 foreach (var csStaticClass in staticClasses)
 {
-    csStaticClass.Namespace = "WebGpuSharp";
+    csStaticClass.Namespace ??= "WebGpuSharp";
 }
 
 foreach (var csStruct in structs)
 {
-    csStruct.Namespace = "WebGpuSharp";
+    csStruct.Namespace ??= "WebGpuSharp";
 }
 
 foreach (var csEnum in enums)

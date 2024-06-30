@@ -42,6 +42,8 @@ public static class EnumFixer
 
     public static Task FixFlagEnumAttributes(List<CSEnum> enums, List<CSStruct> structs, List<CSStaticClass> staticClasses)
     {
+        List<CSStruct> flagStructsToRemove = new();
+
         foreach (CSEnum item in enums)
         {
             if (item.Attributes.Any(a => a is CSAttribute<FlagsAttribute>))
@@ -49,12 +51,15 @@ public static class EnumFixer
                 continue;
             }
 
-            string name = item.Name;
-            var flagStruct = structs.Find(i => i.Name == $"{name}Flags");
+            string nonFlagName = item.Name;
+            string flagName = $"{nonFlagName}Flags";
+            var flagStruct = structs.Find(i => i.Name == flagName);
             if (flagStruct == null)
             {
                 continue;
             }
+
+            flagStructsToRemove.Add(flagStruct);
 
             bool Predicate(ICSType type, [NotNullWhen(true)] out ICSType? newType)
             {
@@ -74,6 +79,13 @@ public static class EnumFixer
                 []
             ));
         }
+
+        foreach (var item in flagStructsToRemove)
+        {
+            structs.Remove(item);
+        }
+
+        structs.RemoveAll(i => i.Name.EndsWith("Flag"));
 
         return Task.CompletedTask;
     }

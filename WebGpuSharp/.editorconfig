@@ -1,6 +1,6 @@
 [*.{cs,vb}]
 dotnet_diagnostic.IDE0001.severity = warning
-dotnet_diagnostic.IDE0005.severity = warning
+dotnet_diagnostic.IDE0002.severity = warning
 dotnet_diagnostic.IDE0047.severity = warning
 dotnet_diagnostic.IDE0049.severity = warning
 dotnet_diagnostic.IDE0250.severity = warning
