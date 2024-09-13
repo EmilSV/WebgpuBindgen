@@ -1,4 +1,5 @@
 using WebgpuBindgen.SpecDocRepresentation.Defaults;
+using WebgpuBindgen.SpecDocRepresentation.Types;
 
 namespace WebgpuBindgen.SpecDocRepresentation;
 

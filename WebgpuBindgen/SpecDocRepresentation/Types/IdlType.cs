@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace WebgpuBindgen.SpecDocRepresentation;
+namespace WebgpuBindgen.SpecDocRepresentation.Types;
 
 public class IdlType
 {

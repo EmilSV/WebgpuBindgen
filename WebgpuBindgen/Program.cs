@@ -1,8 +1,7 @@
-﻿using CapiGenerator;
+using CapiGenerator;
 using CapiGenerator.CSModel;
 using CapiGenerator.Parser;
 using CapiGenerator.Translator;
-using CapiGenerator.UtilTypes;
 using CapiGenerator.Writer;
 using CppAst;
 using WebgpuBindgen;
@@ -29,6 +28,7 @@ options.Defines.Add("WGPU_SKIP_PROCS");
 options.IncludeFolders.Add(headerPath);
 
 var cppCompilation = CppParser.ParseFile(headerFile, options);
+
 
 if (cppCompilation.HasErrors)
 {
