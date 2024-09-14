@@ -8,7 +8,7 @@ public class FieldMember : WebidlMemberBase
 {
     public required string Name { get; set; }
     public required object[] ExtAttrs { get; set; }
-    public required IdlType IdlType { get; set; }
+    public required IdlTypeBase IdlType { get; set; }
     public DefaultValueBase? Default { get; set; }
     public required bool Required { get; set; }
 }

@@ -1,6 +1,11 @@
+using WebgpuBindgen.SpecDocRepresentation.Members;
+
 namespace WebgpuBindgen.SpecDocRepresentation.Types;
 
 public class NamespaceWebidlType : RootWebidlTypeBase
 {
-    public required string[] Members { get; set; }
+    public string? Inheritance { get; set; }
+    public required WebidlMemberBase[] Members { get; set; }
+    public required object[] ExtAttrs { get; set; }
+    public required bool Partial { get; set; }
 }
