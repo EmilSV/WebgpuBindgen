@@ -12,6 +12,6 @@ public class ConstMember : WebidlMemberBase
 
     public required string Name { get; set; }
     public required IdlTypeBase IdlType { get; set; }
-    public required object[] ExtAttrs { get; set; }
+    public required ExtendedAttribute[] ExtAttrs { get; set; }
     public required ConstValue Value { get; set; }
 }

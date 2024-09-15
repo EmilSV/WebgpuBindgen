@@ -11,7 +11,7 @@ namespace WebgpuBindgen.SpecDocRepresentation.Types;
 public abstract class IdlTypeBase
 {
     public required string Type { get; set; }
-    public required object[] ExtAttrs { get; set; }
+    public required ExtendedAttribute[] ExtAttrs { get; set; }
     public required string Generic { get; set; }
     public required bool Nullable { get; set; }
     public required bool Union { get; set; }

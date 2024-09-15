@@ -9,5 +9,5 @@ public class EnumWebidlType : RootWebidlTypeBase
     }
 
     public required EnumValue[] Values { get; set; }
-    public required object[] ExtAttrs { get; set; }
+    public required ExtendedAttribute[] ExtAttrs { get; set; }
 }
