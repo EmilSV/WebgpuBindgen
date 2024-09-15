@@ -11,6 +11,5 @@ namespace WebgpuBindgen.SpecDocRepresentation.Types;
 [JsonDerivedType(typeof(TypedefWebidlType), typeDiscriminator: "typedef")]
 public abstract class RootWebidlTypeBase
 {
-    public required string Type { get; set; }
     public required string Name { get; set; }
 }

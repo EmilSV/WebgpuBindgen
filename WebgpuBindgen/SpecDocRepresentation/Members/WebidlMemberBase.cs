@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using WebgpuBindgen.SpecDocRepresentation.Comments;
 
 namespace WebgpuBindgen.SpecDocRepresentation.Members;
 
@@ -12,5 +13,5 @@ namespace WebgpuBindgen.SpecDocRepresentation.Members;
 [JsonDerivedType(typeof(ConstructorMember), typeDiscriminator: "constructor")]
 public abstract class WebidlMemberBase
 {
-    public required string Type { get; set; }
+    public CommentElement[]? Comment { get; set; }
 }

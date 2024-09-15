@@ -10,5 +10,4 @@ namespace WebgpuBindgen.SpecDocRepresentation.Defaults;
 [JsonDerivedType(typeof(DefaultBoolean), typeDiscriminator: "boolean")]
 public abstract class DefaultValueBase
 {
-    public required string Type { get; set; }
 }

@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CapiGenerator\CapiGenerator\CapiGenerator.csproj" />
+    <EmbeddedResource Include="SpecDocRepresentation\index.json" />
   </ItemGroup>
-
-
 </Project>

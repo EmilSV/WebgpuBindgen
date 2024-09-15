@@ -8,9 +8,10 @@ namespace WebgpuBindgen.SpecDocRepresentation.Types;
 [JsonDerivedType(typeof(IdlTypeConst), typeDiscriminator: "const-type")]
 [JsonDerivedType(typeof(IdlTypeDictionary), typeDiscriminator: "dictionary-type")]
 [JsonDerivedType(typeof(IdlTypeReturn), typeDiscriminator: "return-type")]
+[JsonDerivedType(typeof(IdlTypeNull), typeDiscriminator: "null")]
+[JsonDerivedType(typeof(IdlTypeArgument), typeDiscriminator: "argument-type")]
 public abstract class IdlTypeBase
 {
-    public required string Type { get; set; }
     public required ExtendedAttribute[] ExtAttrs { get; set; }
     public required string Generic { get; set; }
     public required bool Nullable { get; set; }
