@@ -7,55 +7,29 @@ using CapiGenerator.Translator;
 using CapiGenerator.Writer;
 using CppAst;
 using WebgpuBindgen;
-using WebgpuBindgen.SpecDocRepresentation.Defaults;
-using WebgpuBindgen.SpecDocRepresentation.Members;
 using WebgpuBindgen.SpecDocRepresentation.Types;
 
-var assembly = Assembly.GetExecutingAssembly();
-var resourceName = "WebgpuBindgen.SpecDocRepresentation.index.json";
-var jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+string headerFile = Path.GetFullPath(args[0]);
+string outputDirectory = Path.GetFullPath(args[1]);
+string? jsonFile = args.Length > 2 ? Path.GetFullPath(args[2]) : null;
 
-// const string testJson =
-// """
-
-//       {
-//         "type": "setlike",
-//         "idlType": [
-//           {
-//             "type": "null",
-//             "extAttrs": [],
-//             "generic": "",
-//             "nullable": false,
-//             "union": false,
-//             "idlType": "DOMString"
-//           }
-//         ],
-//         "arguments": [],
-//         "extAttrs": [],
-//         "readonly": true,
-//         "async": false
-//       }
-
-// """;
-
-// var jsonIdl = JsonSerializer.Deserialize<WebidlMemberBase>(testJson, jsonOptions)!;
-
-// Console.WriteLine(jsonIdl);
-// return 1;
-
-
-using (Stream stream = assembly.GetManifestResourceStream(resourceName)!)
-using (StreamReader reader = new(stream))
+if (jsonFile != null && !File.Exists(jsonFile))
 {
+    Console.WriteLine($"JSON file {jsonFile} does not exist.");
+    return 1;
+}
+
+Dictionary<string, RootWebidlTypeBase>? jsonLookup = null;
+
+if (jsonFile != null)
+{
+    using Stream stream = File.OpenRead(jsonFile!);
+    using StreamReader reader = new(stream);
     try
     {
-        var json = await JsonSerializer.DeserializeAsync<Dictionary<string, RootWebidlTypeBase>>(stream, jsonOptions)!;
-        var gpuTextureDescriptor = json["GPUTextureDescriptor"] as DictionaryWebidlType;
-        var mipLevelCount = gpuTextureDescriptor!.Members.OfType<FieldMember>().First(i => i.Name == "mipLevelCount");
-        var defaultValue = mipLevelCount.Default as DefaultNumber;
-
-        Console.WriteLine(defaultValue!.Value);
-        return 1;
+        jsonLookup = await JsonSerializer.DeserializeAsync<Dictionary<string, RootWebidlTypeBase>>(
+            stream, JsonOptions.Value
+        )!;
     }
     catch (JsonException ex)
     {
@@ -64,9 +38,6 @@ using (StreamReader reader = new(stream))
     }
 }
 
-
-string headerFile = Path.GetFullPath(args[0]);
-string outputDirectory = Path.GetFullPath(args[1]);
 
 if (!File.Exists(headerFile))
 {
@@ -103,7 +74,7 @@ if (cppCompilation.HasErrors)
 var compilationUnit = new CCompilationUnit();
 
 compilationUnit.AddParser([
-    new ConstantParser(),
+    new WebgpuBindgenConstantParser(),
     new EnumParser(),
     new FunctionParser(),
     new StructParser(),
