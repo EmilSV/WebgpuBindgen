@@ -89,6 +89,7 @@ foreach (var constant in compilationUnit.GetEnumEnumerable())
     Console.WriteLine(constant.Name);
 }
 
+
 var translationUnit = new CSTranslationUnit();
 
 translationUnit.AddTranslator([
@@ -110,7 +111,7 @@ structs.AddRange(translationUnit.GetCSStructEnumerable());
 
 
 
-await EnumFixer.FixFlagEnumAttributes(enums, structs, staticClasses);
+await EnumFixer.FixFlagEnums(enums, structs, staticClasses);
 await EnumFixer.FixEnums(enums);
 
 await StructFixer.FixStructsName(structs);

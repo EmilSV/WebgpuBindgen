@@ -307,6 +307,7 @@ public static class StructFixer
     public static Task RemoveStructs(List<CSStruct> structs)
     {
         structs.RemoveAll(i => i.Name == "Proc" || i.Name == "WGPUProc");
+        structs.RemoveAll(i => i.Name.StartsWith("INTERNAL__"));
 
         return Task.CompletedTask;
     }

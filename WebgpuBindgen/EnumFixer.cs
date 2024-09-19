@@ -12,8 +12,11 @@ public static class EnumFixer
         foreach (var item in enums)
         {
             string name = item.Name;
-            var force32BitItem = item.Values.First(i => i.Name.EndsWith("_Force32"));
-            item.Values.Remove(force32BitItem);
+            var force32BitItem = item.Values.FirstOrDefault(i => i.Name.EndsWith("_Force32"));
+            if (force32BitItem != null)
+            {
+                item.Values.Remove(force32BitItem);
+            }
             foreach (var value in item.Values)
             {
                 string newName = value.Name;
@@ -40,53 +43,134 @@ public static class EnumFixer
         return Task.CompletedTask;
     }
 
-    public static Task FixFlagEnumAttributes(List<CSEnum> enums, List<CSStruct> structs, List<CSStaticClass> staticClasses)
+    public static Task FixFlagEnums(List<CSEnum> enums, List<CSStruct> structs, List<CSStaticClass> staticClasses)
     {
-        List<CSStruct> flagStructsToRemove = new();
+        HashSet<CSStruct> flagStructsToRemove = [];
 
-        foreach (CSEnum item in enums)
+        List<CSStruct> flagStructTypedefs = structs.Where(i =>
         {
-            if (item.Attributes.Any(a => a is CSAttribute<FlagsAttribute>))
+            if (i.Fields.Count != 1)
             {
-                continue;
-            }
-
-            string nonFlagName = item.Name;
-            string flagName = $"{nonFlagName}Flags";
-            var flagStruct = structs.Find(i => i.Name == flagName);
-            if (flagStruct == null)
-            {
-                continue;
-            }
-
-            flagStructsToRemove.Add(flagStruct);
-
-            bool Predicate(ICSType type, [NotNullWhen(true)] out ICSType? newType)
-            {
-                if (type == flagStruct)
-                {
-                    newType = item;
-                    return true;
-                }
-                newType = null;
                 return false;
             }
 
-            ITypeReplace.ReplaceTypes([.. enums, .. structs, .. staticClasses], Predicate);
+            var field = i.Fields.First();
+            if (field.Type.Type is null)
+            {
+                return false;
+            }
 
-            item.Attributes.Add(CSAttribute<FlagsAttribute>.Create(
+            var type = field.Type.Type;
+            if (type is CSStruct structType && structType.Name.EndsWith("Flags"))
+            {
+                flagStructsToRemove.Add(structType);
+                return true;
+            }
+
+            return false;
+        }).ToList();
+
+        Dictionary<CSStruct, List<CSField>> flagStructsToConstFelids = [];
+
+        List<(CSStaticClass, CSField)> staticClassFieldsToRemove = [];
+
+        foreach (var staticClass in staticClasses)
+        {
+            foreach (var field in staticClass.Fields)
+            {
+                foreach (var structTypedefs in flagStructTypedefs)
+                {
+                    if (field.Name.Contains($"{structTypedefs.Name}_"))
+                    {
+                        if (!flagStructsToConstFelids.TryGetValue(structTypedefs, out var list))
+                        {
+                            list = [];
+                            flagStructsToConstFelids.Add(structTypedefs, list);
+                        }
+                        list.Add(field);
+                        staticClassFieldsToRemove.Add((staticClass, field));
+                        break;
+                    }
+                }
+            }
+        }
+
+        Dictionary<CSStruct, CSEnum> structsToReplace = [];
+
+        foreach (var (flagStruct, fields) in flagStructsToConstFelids)
+        {
+            if (!TryGetInnerPrimitiveType(flagStruct, out var innerType))
+            {
+                continue;
+            }
+
+            CSEnum newEnumType = new()
+            {
+                Name = flagStruct.Name,
+                Type = innerType,
+                Namespace = flagStruct.Namespace,
+            };
+            newEnumType.Attributes.Add(CSAttribute<FlagsAttribute>.Create(
                 [],
                 []
             ));
+
+            enums.Add(newEnumType);
+            foreach (var field in fields)
+            {
+                newEnumType.Values.Add(new()
+                {
+                    Name = field.Name,
+                    Expression = field.DefaultValue.ToCSConstantExpression()!
+                });
+            }
+
+            structsToReplace.Add(flagStruct, newEnumType);
+            enums.Add(newEnumType);
         }
 
-        foreach (var item in flagStructsToRemove)
+        ITypeReplace.ReplaceTypes([structs, staticClasses, enums], type =>
         {
-            structs.Remove(item);
+            if (type is CSStruct structType && structsToReplace.TryGetValue(structType, out var newEnumType))
+            {
+                return (true, newEnumType);
+            }
+
+            return (false, default);
+        });
+
+        foreach (var (staticClass, field) in staticClassFieldsToRemove)
+        {
+            staticClass.Fields.Remove(field);
         }
 
-        structs.RemoveAll(i => i.Name.EndsWith("Flag"));
+        structs.RemoveAll(flagStructsToRemove.Contains);
+        structs.RemoveAll(flagStructTypedefs.Contains);
 
         return Task.CompletedTask;
+    }
+
+    public static bool TryGetInnerPrimitiveType(CSStruct csStruct, [NotNullWhen(true)] out CSPrimitiveType? innerType)
+    {
+        if (csStruct.Fields.Count != 1)
+        {
+            innerType = null;
+            return false;
+        }
+
+        var field = csStruct.Fields.First();
+        if (field.Type.Type is CSPrimitiveType primitiveType)
+        {
+            innerType = primitiveType;
+            return true;
+        }
+
+        if (field.Type.Type is CSStruct structType)
+        {
+            return TryGetInnerPrimitiveType(structType, out innerType);
+        }
+
+        innerType = null;
+        return false;
     }
 }
