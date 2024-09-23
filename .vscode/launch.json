@@ -12,8 +12,9 @@
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/WebgpuBindgen/bin/Debug/net8.0/win-x64/WebgpuBindgen.dll",
             "args": [
-                "C:\\Users\\emils\\git_repos\\WebgpuBindgen\\webgpu.h",
-                "C:\\Users\\emils\\git_repos\\WebgpuBindgen\\WebGpuSharp\\src\\generatedCode"
+                "${workspaceFolder}/webgpu.h",
+                "${workspaceFolder}/WebGpuSharp/src/generatedCode",
+                "${workspaceFolder}/index.json"
             ],
             "cwd": "${workspaceFolder}/WebgpuBindgen",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console

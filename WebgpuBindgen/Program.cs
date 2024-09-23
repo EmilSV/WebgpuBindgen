@@ -7,6 +7,7 @@ using CapiGenerator.Translator;
 using CapiGenerator.Writer;
 using CppAst;
 using WebgpuBindgen;
+using WebgpuBindgen.SpecDocRepresentation;
 using WebgpuBindgen.SpecDocRepresentation.Types;
 
 string headerFile = Path.GetFullPath(args[0]);
@@ -109,6 +110,17 @@ staticClasses.AddRange(translationUnit.GetCSStaticClassesEnumerable());
 enums.AddRange(translationUnit.GetCSEnumEnumerable());
 structs.AddRange(translationUnit.GetCSStructEnumerable());
 
+SpecDocLookup? specDocLookup = null;
+if (jsonLookup != null)
+{
+    specDocLookup = new SpecDocLookup(jsonLookup);
+    specDocLookup.AddTypeNameOverride("Extent3D", "GPUExtent3DDict");
+    specDocLookup.AddTypeNameOverride("Origin2D", "GPUOrigin2DDict");
+    specDocLookup.AddTypeNameOverride("Origin3D", "GPUOrigin3DDict");
+    specDocLookup.AddTypeNameOverride("Color", "GPUColorDict");
+}
+
+
 
 
 await EnumFixer.FixFlagEnums(enums, structs, staticClasses);
@@ -127,8 +139,13 @@ await StructFixer.FFIRenameStructs(structs);
 //await StructFixer.RemoveUsedTypes(structs, staticClasses, enums);
 await StructFixer.FixWebgpuBoolType(structs);
 await StructFixer.FieldNameFix(structs);
-await StructFixer.AddConstructorsToStructs(structs);
+await StructFixer.AddEmptyConstructorsToStructs(structs);
+//await StructFixer.AddConstructorsToStructs(structs);
 
+if (specDocLookup != null)
+{
+    await DefaultFixer.FixDefaults(structs, specDocLookup);
+}
 var structWriter = new CSStructWriter();
 var enumWriter = new CSEnumWriter();
 

@@ -14,5 +14,5 @@ namespace WebgpuBindgen.SpecDocRepresentation.Comments;
 [JsonDerivedType(typeof(CommentDfnElement), typeDiscriminator: "dfn")]
 public abstract class ChildCommentItem : CommentElement
 {
-    
+
 }

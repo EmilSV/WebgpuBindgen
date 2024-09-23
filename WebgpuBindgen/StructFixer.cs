@@ -415,9 +415,9 @@ public static class StructFixer
                     case CSAccessModifier.Public when !char.IsUpper(name[0]):
                         field.Name = name switch
                         {
-                        [] => name,
-                        [var first] => char.ToUpper(first).ToString(),
-                        [var first, .. var rest] => char.ToUpper(first) + rest
+                            [] => name,
+                            [var first] => char.ToUpper(first).ToString(),
+                            [var first, .. var rest] => char.ToUpper(first) + rest
                         };
                         break;
 
@@ -459,8 +459,8 @@ public static class StructFixer
             {
                 var name = field.Name switch
                 {
-                ['_', ..] => field.Name[1..],
-                [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
+                    ['_', ..] => field.Name[1..],
+                    [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
                     _ => field.Name,
                 };
 
@@ -495,6 +495,31 @@ public static class StructFixer
             item.Constructors.Add(new(PUBLIC, parameters.ToArray())
             {
                 Body = body2.ToString(),
+            });
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public static Task AddEmptyConstructorsToStructs(List<CSStruct> structs)
+    {
+        foreach (var item in structs)
+        {
+            if (item.Fields.Count == 0)
+            {
+                continue;
+            }
+
+            var anyPrivateField = item.Fields.Any(i => i.AccessModifier == CSAccessModifier.Private);
+            if (anyPrivateField)
+            {
+                continue;
+            }
+
+
+            item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
+            {
+                Body = "",
             });
         }
 

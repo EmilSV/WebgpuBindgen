@@ -1,4 +1,4 @@
-namespace  WebgpuBindgen.SpecDocRepresentation.Comments;
+namespace WebgpuBindgen.SpecDocRepresentation.Comments;
 
 public sealed class CommentExampleElement : CommentElement
 {
