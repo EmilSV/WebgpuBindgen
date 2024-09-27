@@ -43,4 +43,9 @@ public class SpecDocLookup
             return _jsonLookup.TryGetValue(typeName, out type) ? type : null;
         }
     }
+
+    public IEnumerable<RootWebidlTypeBase> GetTypes()
+    {
+        return _jsonLookup.Values;
+    }
 }

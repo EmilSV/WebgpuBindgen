@@ -1,6 +1,6 @@
 namespace WebgpuBindgen.SpecDocRepresentation.Comments;
 
-public sealed class CommentSpecCommentElement : CommentElement
+public sealed class CommentSpecCommentElement : ChildCommentItem
 {
-    public required ChildCommentItem[] Items;
+    public required ChildCommentItem[] Items { get; set; }
 }

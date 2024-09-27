@@ -16,5 +16,4 @@ namespace WebgpuBindgen.SpecDocRepresentation.Comments;
 [JsonDerivedType(typeof(CommentDfnElement), typeDiscriminator: "dfn")]
 public abstract class CommentElement
 {
-    public required string Tag;
 }

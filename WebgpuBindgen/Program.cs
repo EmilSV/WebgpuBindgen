@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
 using CapiGenerator;
@@ -8,6 +9,7 @@ using CapiGenerator.Writer;
 using CppAst;
 using WebgpuBindgen;
 using WebgpuBindgen.SpecDocRepresentation;
+using WebgpuBindgen.SpecDocRepresentation.Comments;
 using WebgpuBindgen.SpecDocRepresentation.Types;
 
 string headerFile = Path.GetFullPath(args[0]);
@@ -149,7 +151,14 @@ if (specDocLookup != null)
 var structWriter = new CSStructWriter();
 var enumWriter = new CSEnumWriter();
 
+if (specDocLookup != null)
+{
+    var csTypeLookup = new CsTypeLookup(structs, enums, staticClasses);
+    var commentConvert = new CommentConvert(csTypeLookup);
+    var commentAssigner = new CommentAssigner(csTypeLookup, commentConvert);
 
+    commentAssigner.AssignComment(specDocLookup);
+}
 try
 {
     Directory.Delete(outputDirectory, true);

@@ -4,9 +4,9 @@ public sealed class CommentParamElement : CommentElement
 {
     public class ParamItems
     {
-        public required string Name;
-        public required ChildCommentItem[] description;
+        public required string Name { get; set; }
+        public required ChildCommentItem[] Description { get; set; }
     }
 
-    public required ParamItems[] Items;
+    public required ParamItems[] Items { get; set; }
 }
