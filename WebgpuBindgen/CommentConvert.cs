@@ -102,10 +102,16 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
             return string.Join(".", item.path.Select(ToWebgpuSharpNameFromTypeLink));
         }
 
-        string cref;
-        if (csType.Namespace != null)
+        var namespaceName = csType.Namespace;
+        if (namespaceName != null && namespaceName.EndsWith(".FFI"))
         {
-            cref = string.Join(".", [csType.Namespace, .. item.path.Select(ToWebgpuSharpNameFromTypeLink)]);
+            namespaceName = namespaceName[0..^".FFI".Length];
+        }
+
+        string cref;
+        if (namespaceName != null)
+        {
+            cref = string.Join(".", [namespaceName, .. item.path.Select(ToWebgpuSharpNameFromTypeLink)]);
         }
         else
         {
@@ -189,6 +195,11 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
 
     static string ToWebgpuSharpNameFromTypeLink(string name)
     {
+        if (name.StartsWith('"') && name.EndsWith('"'))
+        {
+            name = name[1..^1];
+        }
+
         if (name.StartsWith("GPU"))
         {
             name = name[3..];
@@ -207,6 +218,29 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
         if (name.EndsWith("()"))
         {
             name = name[0..^"()".Length];
+        }
+
+        if (name.Length > 0 && char.IsNumber(name[0]))
+        {
+            int lastNumberIndex = 0;
+            for (int i = 1; i < name.Length; i++)
+            {
+                if (char.IsNumber(name[i]))
+                {
+                    lastNumberIndex = i;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            //But number at the end
+            name = name[(lastNumberIndex + 1)..] + name[0..(lastNumberIndex + 1)];
+        }
+
+        if (name.Length > 1 && char.IsLower(name[0]))
+        {
+            name = char.ToUpper(name[0]) + name[1..];
         }
 
         return name;

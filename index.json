@@ -48,7 +48,7 @@
           {
             "tag": "text",
             "items": [
-              "The initial value of"
+              "The initial value of "
             ]
           },
           {
@@ -863,7 +863,7 @@
           {
             "tag": "text",
             "items": [
-              "Requests an"
+              "Requests an "
             ]
           },
           {
@@ -877,7 +877,7 @@
           {
             "tag": "text",
             "items": [
-              "from the user agent.\n",
+              " from the user agent.\n",
               "The user agent chooses whether to return an adapter, and, if so,\n",
               "chooses according to the provided options."
             ]
@@ -918,7 +918,7 @@
           {
             "tag": "text",
             "items": [
-              "Returns an optimal"
+              "Returns an optimal "
             ]
           },
           {
@@ -933,8 +933,8 @@
           {
             "tag": "text",
             "items": [
-              "for displaying 8-bit depth, standard dynamic range\n",
-              "content on this system. Must only return"
+              " for displaying 8-bit depth, standard dynamic range\n",
+              "content on this system. Must only return "
             ]
           },
           {
@@ -950,7 +950,7 @@
           {
             "tag": "text",
             "items": [
-              "or"
+              " or\n"
             ]
           },
           {
@@ -967,7 +967,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "The returned value can be passed as the"
+              "The returned value can be passed as the "
             ]
           },
           {
@@ -983,7 +983,7 @@
           {
             "tag": "text",
             "items": [
-              "to"
+              " to\n"
             ]
           },
           {
@@ -999,7 +999,7 @@
           {
             "tag": "text",
             "items": [
-              "calls on a"
+              " calls on a "
             ]
           },
           {
@@ -1014,7 +1014,7 @@
           {
             "tag": "text",
             "items": [
-              "to ensure the associated\n",
+              " to ensure the associated\n",
               "canvas is able to display its contents efficiently.\n",
               "Note: Canvases which are not displayed to the screen may or may not benefit from using this\n",
               "format."
@@ -1256,12 +1256,11 @@
           }
         ],
         "extAttrs": [],
-        "comment": 
-        [
+        "comment": [
           {
             "tag": "text",
             "items": [
-              "Requests a"
+              "Requests a "
             ]
           },
           {
@@ -1275,7 +1274,7 @@
           {
             "tag": "text",
             "items": [
-              "from the"
+              " from the "
             ]
           },
           {
@@ -1317,7 +1316,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Description of the"
+                      "Description of the "
                     ]
                   },
                   {
@@ -1332,7 +1331,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to request."
+                      " to request."
                     ]
                   }
                 ]
@@ -1403,7 +1402,7 @@
           {
             "tag": "text",
             "items": [
-              "Specifies the"
+              "Specifies the "
             ]
           },
           {
@@ -1417,7 +1416,7 @@
           {
             "tag": "text",
             "items": [
-              "that are required by the device request.\n",
+              " that are required by the device request.\n",
               "The request will fail if the adapter cannot provide these features.\n",
               "Exactly the specified set of features, and no more or less, will be allowed in validation\n",
               "of API calls on the resulting device."
@@ -1462,7 +1461,7 @@
           {
             "tag": "text",
             "items": [
-              "Specifies the"
+              "Specifies the "
             ]
           },
           {
@@ -1476,9 +1475,9 @@
           {
             "tag": "text",
             "items": [
-              "that are required by the device request.\n",
+              " that are required by the device request.\n",
               "The request will fail if the adapter cannot provide these limits.\n",
-              "Each key must be the name of a member of"
+              "Each key must be the name of a member of "
             ]
           },
           {
@@ -1494,7 +1493,7 @@
             "items": [
               ".\n",
               "API calls on the resulting device perform validation according to the exact limits of the\n",
-              "device (not the adapter; see"
+              "device (not the adapter; see "
             ]
           },
           {
@@ -1508,7 +1507,7 @@
           {
             "tag": "text",
             "items": [
-              ")."
+              ").\n"
             ]
           },
           {
@@ -1517,10 +1516,10 @@
               {
                 "tag": "text",
                 "items": [
-                  "If we ever need limit types other than GPUSize32/GPUSize64, we can change the value\n",
+                  " If we ever need limit types other than GPUSize32/GPUSize64, we can change the value\n",
                   "type to `double` or `any` in the future and write out the type conversion explicitly (by\n",
                   "reference to WebIDL spec). Or change the entire type to `any` and add back a `dictionary\n",
-                  "GPULimits` and define the conversion of the whole object by reference to WebIDL."
+                  "GPULimits` and define the conversion of the whole object by reference to WebIDL. "
                 ]
               }
             ]
@@ -1547,7 +1546,7 @@
           {
             "tag": "text",
             "items": [
-              "The descriptor for the default"
+              "The descriptor for the default "
             ]
           },
           {
@@ -1804,7 +1803,7 @@
           {
             "tag": "text",
             "items": [
-              "Maps the given range of the"
+              "Maps the given range of the "
             ]
           },
           {
@@ -1819,7 +1818,7 @@
           {
             "tag": "text",
             "items": [
-              "and resolves the returned"
+              " and resolves the returned "
             ]
           },
           {
@@ -1834,7 +1833,7 @@
           {
             "tag": "text",
             "items": [
-              "when the"
+              " when the\n"
             ]
           },
           {
@@ -1849,7 +1848,7 @@
           {
             "tag": "text",
             "items": [
-              "'s content is ready to be accessed with"
+              "'s content is ready to be accessed with "
             ]
           },
           {
@@ -1866,7 +1865,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "The resolution of the returned"
+              "The resolution of the returned "
             ]
           },
           {
@@ -1881,8 +1880,8 @@
           {
             "tag": "text",
             "items": [
-              "**only** indicates that the buffer has been mapped.\n",
-              "It does not guarantee the completion of any other operations visible to the"
+              " **only** indicates that the buffer has been mapped.\n",
+              "It does not guarantee the completion of any other operations visible to the "
             ]
           },
           {
@@ -1897,7 +1896,7 @@
             "tag": "text",
             "items": [
               ",\n",
-              "and in particular does not imply that any other"
+              "and in particular does not imply that any other "
             ]
           },
           {
@@ -1912,7 +1911,7 @@
           {
             "tag": "text",
             "items": [
-              "returned from"
+              " returned from\n"
             ]
           },
           {
@@ -1928,7 +1927,7 @@
           {
             "tag": "text",
             "items": [
-              "or"
+              " or "
             ]
           },
           {
@@ -1944,7 +1943,7 @@
           {
             "tag": "text",
             "items": [
-              "on other"
+              " on other "
             ]
           },
           {
@@ -1961,7 +1960,7 @@
             "items": [
               "s\n",
               "have resolved.\n",
-              "The resolution of the"
+              "The resolution of the "
             ]
           },
           {
@@ -1976,7 +1975,7 @@
           {
             "tag": "text",
             "items": [
-              "returned from"
+              " returned from "
             ]
           },
           {
@@ -1992,7 +1991,8 @@
           {
             "tag": "text",
             "items": [
-              "**does** imply the completion of"
+              "\n",
+              "**does** imply the completion of\n"
             ]
           },
           {
@@ -2008,8 +2008,8 @@
           {
             "tag": "text",
             "items": [
-              "calls made prior to that call,\n",
-              "on"
+              " calls made prior to that call,\n",
+              "on "
             ]
           },
           {
@@ -2121,7 +2121,7 @@
           {
             "tag": "text",
             "items": [
-              "Returns an"
+              "Returns an "
             ]
           },
           {
@@ -2136,7 +2136,7 @@
           {
             "tag": "text",
             "items": [
-              "with the contents of the"
+              " with the contents of the "
             ]
           },
           {
@@ -2151,7 +2151,7 @@
           {
             "tag": "text",
             "items": [
-              "in the given mapped range."
+              " in the given mapped range."
             ]
           },
           {
@@ -2174,7 +2174,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Size in bytes of the"
+                      "Size in bytes of the "
                     ]
                   },
                   {
@@ -2189,7 +2189,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to return."
+                      " to return."
                     ]
                   }
                 ]
@@ -2216,7 +2216,7 @@
           {
             "tag": "text",
             "items": [
-              "Unmaps the mapped range of the"
+              "Unmaps the mapped range of the "
             ]
           },
           {
@@ -2231,7 +2231,7 @@
           {
             "tag": "text",
             "items": [
-              "and makes its contents available for use by the\n",
+              " and makes its contents available for use by the\n",
               "GPU again."
             ]
           }
@@ -2255,7 +2255,7 @@
           {
             "tag": "text",
             "items": [
-              "Destroys the"
+              "Destroys the "
             ]
           },
           {
@@ -2396,7 +2396,7 @@
           {
             "tag": "text",
             "items": [
-              "If `true` creates the buffer in an already mapped state, allowing"
+              "If `true` creates the buffer in an already mapped state, allowing\n"
             ]
           },
           {
@@ -2412,7 +2412,7 @@
           {
             "tag": "text",
             "items": [
-              "to be called immediately. It is valid to set"
+              " to be called immediately. It is valid to set\n"
             ]
           },
           {
@@ -2428,7 +2428,7 @@
           {
             "tag": "text",
             "items": [
-              "to `true` even if"
+              " to `true` even if "
             ]
           },
           {
@@ -2444,7 +2444,8 @@
           {
             "tag": "text",
             "items": [
-              "does not contain"
+              "\n",
+              "does not contain "
             ]
           },
           {
@@ -2460,7 +2461,7 @@
           {
             "tag": "text",
             "items": [
-              "or"
+              " or "
             ]
           },
           {
@@ -2838,7 +2839,7 @@
           {
             "tag": "text",
             "items": [
-              "Creates a"
+              "Creates a "
             ]
           },
           {
@@ -2865,7 +2866,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Description of the"
+                      "Description of the "
                     ]
                   },
                   {
@@ -2880,7 +2881,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to create."
+                      " to create."
                     ]
                   }
                 ]
@@ -2907,7 +2908,7 @@
           {
             "tag": "text",
             "items": [
-              "Destroys the"
+              "Destroys the "
             ]
           },
           {
@@ -3149,7 +3150,7 @@
           {
             "tag": "text",
             "items": [
-              "The sample count of the texture. A"
+              "The sample count of the texture. A "
             ]
           },
           {
@@ -3165,7 +3166,7 @@
           {
             "tag": "text",
             "items": [
-              "&gt; `1` indicates\n",
+              " &gt; `1` indicates\n",
               "a multisampled texture."
             ]
           }
@@ -3273,7 +3274,7 @@
           {
             "tag": "text",
             "items": [
-              "Specifies what view"
+              "Specifies what view "
             ]
           },
           {
@@ -3289,7 +3290,7 @@
           {
             "tag": "text",
             "items": [
-              "values will be allowed when calling"
+              " values will be allowed when calling\n"
             ]
           },
           {
@@ -3305,7 +3306,7 @@
           {
             "tag": "text",
             "items": [
-              "on this texture (in addition to the texture's actual"
+              " on this texture (in addition to the texture's actual\n"
             ]
           },
           {
@@ -3321,7 +3322,7 @@
           {
             "tag": "text",
             "items": [
-              ")."
+              ").\n"
             ]
           },
           {
@@ -3330,11 +3331,12 @@
               {
                 "tag": "text",
                 "items": [
+                  "\n",
                   "Adding a format to this list may have a significant performance impact, so it is best\n",
                   "to avoid adding formats unnecessarily.\n",
                   "The actual performance impact is highly dependent on the target system; developers must\n",
                   "test various systems to find out the impact on their particular application.\n",
-                  "For example, on some systems any texture with a"
+                  "For example, on some systems any texture with a "
                 ]
               },
               {
@@ -3350,7 +3352,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "or"
+                  " or\n"
                 ]
               },
               {
@@ -3366,7 +3368,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "entry including"
+                  " entry including\n"
                 ]
               },
               {
@@ -3382,7 +3384,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "will perform less optimally than a"
+                  " will perform less optimally than a\n"
                 ]
               },
               {
@@ -3398,8 +3400,8 @@
               {
                 "tag": "text",
                 "items": [
-                  "texture which does not.\n",
-                  "Similar caveats exist for other formats and pairs of formats on other systems."
+                  " texture which does not.\n",
+                  "Similar caveats exist for other formats and pairs of formats on other systems.\n"
                 ]
               }
             ]
@@ -3407,7 +3409,8 @@
           {
             "tag": "text",
             "items": [
-              "Formats in this list must be"
+              "\n",
+              "Formats in this list must be "
             ]
           },
           {
@@ -3421,7 +3424,7 @@
           {
             "tag": "text",
             "items": [
-              "with the texture format."
+              " with the texture format.\n"
             ]
           },
           {
@@ -3430,7 +3433,8 @@
               {
                 "tag": "text",
                 "items": [
-                  "Two"
+                  "\n",
+                  "Two "
                 ]
               },
               {
@@ -3445,7 +3449,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "s |format| and |viewFormat| are"
+                  "s |format| and |viewFormat| are "
                 ]
               },
               {
@@ -3457,9 +3461,9 @@
               {
                 "tag": "text",
                 "items": [
-                  "if:\n",
+                  " if:\n",
                   "- |format| equals |viewFormat|, or\n",
-                  "- |format| and |viewFormat| differ only in whether they are `srgb` formats (have the `-srgb` suffix)."
+                  "- |format| and |viewFormat| differ only in whether they are `srgb` formats (have the `-srgb` suffix).\n"
                 ]
               }
             ]
@@ -3680,7 +3684,7 @@
           {
             "tag": "text",
             "items": [
-              "The format of the texture view. Must be either the"
+              "The format of the texture view. Must be either the "
             ]
           },
           {
@@ -3696,8 +3700,8 @@
           {
             "tag": "text",
             "items": [
-              "of the\n",
-              "texture or one of the"
+              " of the\n",
+              "texture or one of the "
             ]
           },
           {
@@ -3713,7 +3717,7 @@
           {
             "tag": "text",
             "items": [
-              "specified during its creation."
+              " specified during its creation."
             ]
           }
         ],
@@ -3762,7 +3766,7 @@
           {
             "tag": "text",
             "items": [
-              "Which"
+              "Which "
             ]
           },
           {
@@ -3777,7 +3781,7 @@
           {
             "tag": "text",
             "items": [
-              "of the texture are accessible to the texture view."
+              " of the texture are accessible to the texture view."
             ]
           }
         ],
@@ -3826,7 +3830,7 @@
           {
             "tag": "text",
             "items": [
-              "How many mipmap levels, starting with"
+              "How many mipmap levels, starting with "
             ]
           },
           {
@@ -3892,7 +3896,7 @@
           {
             "tag": "text",
             "items": [
-              "How many array layers, starting with"
+              "How many array layers, starting with "
             ]
           },
           {
@@ -4427,7 +4431,7 @@
             "tag": "text",
             "items": [
               "The video source to import the external texture from. Source size is determined as described\n",
-              "by the"
+              "by the "
             ]
           },
           {
@@ -4441,7 +4445,7 @@
           {
             "tag": "text",
             "items": [
-              "table."
+              " table."
             ]
           }
         ],
@@ -4467,7 +4471,7 @@
           {
             "tag": "text",
             "items": [
-              "The color space the image contents of"
+              "The color space the image contents of "
             ]
           },
           {
@@ -4483,7 +4487,7 @@
           {
             "tag": "text",
             "items": [
-              "will be\n",
+              " will be\n",
               "converted into when reading."
             ]
           }
@@ -4588,7 +4592,7 @@
           {
             "tag": "text",
             "items": [
-              "Specifies the"
+              "Specifies the "
             ]
           },
           {
@@ -4603,7 +4607,7 @@
           {
             "tag": "text",
             "items": [
-              "for the texture width, height, and depth\n",
+              " for the texture width, height, and depth\n",
               "coordinates, respectively."
             ]
           }
@@ -4728,7 +4732,7 @@
           {
             "tag": "text",
             "items": [
-              "Specifies the minimum and maximum"
+              "Specifies the minimum and maximum "
             ]
           },
           {
@@ -4766,7 +4770,7 @@
           {
             "tag": "text",
             "items": [
-              "When provided the sampler will be a comparison sampler with the specified"
+              "When provided the sampler will be a comparison sampler with the specified\n"
             ]
           },
           {
@@ -4817,7 +4821,7 @@
             "tag": "text",
             "items": [
               "Specifies the maximum anisotropy value clamp used by the sampler. Anisotropic filtering is\n",
-              "enabled when"
+              "enabled when "
             ]
           },
           {
@@ -4833,9 +4837,9 @@
           {
             "tag": "text",
             "items": [
-              "is &gt; 1 and the implementation supports it.\n",
+              " is &gt; 1 and the implementation supports it.\n",
               "Anisotropic filtering improves the image quality of textures sampled at oblique viewing\n",
-              "angles. Higher"
+              "angles. Higher "
             ]
           },
           {
@@ -4851,8 +4855,8 @@
           {
             "tag": "text",
             "items": [
-              "values indicate the maximum ratio of\n",
-              "anisotropy supported when filtering."
+              " values indicate the maximum ratio of\n",
+              "anisotropy supported when filtering.\n"
             ]
           },
           {
@@ -4861,7 +4865,8 @@
               {
                 "tag": "text",
                 "items": [
-                  "Most implementations support"
+                  "\n",
+                  "Most implementations support "
                 ]
               },
               {
@@ -4877,8 +4882,8 @@
               {
                 "tag": "text",
                 "items": [
-                  "values in range\n",
-                  "between 1 and 16, inclusive. The used value of"
+                  " values in range\n",
+                  "between 1 and 16, inclusive. The used value of "
                 ]
               },
               {
@@ -4894,8 +4899,9 @@
               {
                 "tag": "text",
                 "items": [
+                  "\n",
                   "will be clamped to the maximum value that the platform supports.\n",
-                  "The precise filtering behavior is implementation-dependent."
+                  "The precise filtering behavior is implementation-dependent.\n"
                 ]
               }
             ]
@@ -5089,7 +5095,7 @@
           {
             "tag": "text",
             "items": [
-              "A unique identifier for a resource binding within the"
+              "A unique identifier for a resource binding within the "
             ]
           },
           {
@@ -5105,7 +5111,7 @@
             "tag": "text",
             "items": [
               ", corresponding\n",
-              "to a"
+              "to a "
             ]
           },
           {
@@ -5121,7 +5127,7 @@
           {
             "tag": "text",
             "items": [
-              "and a"
+              " and a "
             ]
           },
           {
@@ -5135,7 +5141,8 @@
           {
             "tag": "text",
             "items": [
-              "attribute in the"
+              "\n",
+              "attribute in the "
             ]
           },
           {
@@ -5173,7 +5180,7 @@
           {
             "tag": "text",
             "items": [
-              "A bitset of the members of"
+              "A bitset of the members of "
             ]
           },
           {
@@ -5189,7 +5196,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "Each set bit indicates that a"
+              "Each set bit indicates that a "
             ]
           },
           {
@@ -5228,7 +5235,7 @@
           {
             "tag": "text",
             "items": [
-              "When"
+              "When "
             ]
           },
           {
@@ -5243,7 +5250,7 @@
           {
             "tag": "text",
             "items": [
-              ", indicates the"
+              ", indicates the "
             ]
           },
           {
@@ -5257,7 +5264,7 @@
           {
             "tag": "text",
             "items": [
-              "for this"
+              " for this "
             ]
           },
           {
@@ -5272,7 +5279,8 @@
           {
             "tag": "text",
             "items": [
-              "is"
+              "\n",
+              "is "
             ]
           },
           {
@@ -5310,7 +5318,7 @@
           {
             "tag": "text",
             "items": [
-              "When"
+              "When "
             ]
           },
           {
@@ -5325,7 +5333,7 @@
           {
             "tag": "text",
             "items": [
-              ", indicates the"
+              ", indicates the "
             ]
           },
           {
@@ -5339,7 +5347,7 @@
           {
             "tag": "text",
             "items": [
-              "for this"
+              " for this "
             ]
           },
           {
@@ -5354,7 +5362,8 @@
           {
             "tag": "text",
             "items": [
-              "is"
+              "\n",
+              "is "
             ]
           },
           {
@@ -5392,7 +5401,7 @@
           {
             "tag": "text",
             "items": [
-              "When"
+              "When "
             ]
           },
           {
@@ -5407,7 +5416,7 @@
           {
             "tag": "text",
             "items": [
-              ", indicates the"
+              ", indicates the "
             ]
           },
           {
@@ -5421,7 +5430,7 @@
           {
             "tag": "text",
             "items": [
-              "for this"
+              " for this "
             ]
           },
           {
@@ -5436,7 +5445,8 @@
           {
             "tag": "text",
             "items": [
-              "is"
+              "\n",
+              "is "
             ]
           },
           {
@@ -5474,7 +5484,7 @@
           {
             "tag": "text",
             "items": [
-              "When"
+              "When "
             ]
           },
           {
@@ -5489,7 +5499,7 @@
           {
             "tag": "text",
             "items": [
-              ", indicates the"
+              ", indicates the "
             ]
           },
           {
@@ -5503,7 +5513,7 @@
           {
             "tag": "text",
             "items": [
-              "for this"
+              " for this "
             ]
           },
           {
@@ -5518,7 +5528,8 @@
           {
             "tag": "text",
             "items": [
-              "is"
+              "\n",
+              "is "
             ]
           },
           {
@@ -5556,7 +5567,7 @@
           {
             "tag": "text",
             "items": [
-              "When"
+              "When "
             ]
           },
           {
@@ -5571,7 +5582,7 @@
           {
             "tag": "text",
             "items": [
-              ", indicates the"
+              ", indicates the "
             ]
           },
           {
@@ -5585,7 +5596,7 @@
           {
             "tag": "text",
             "items": [
-              "for this"
+              " for this "
             ]
           },
           {
@@ -5600,7 +5611,8 @@
           {
             "tag": "text",
             "items": [
-              "is"
+              "\n",
+              "is "
             ]
           },
           {
@@ -5824,7 +5836,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the minimum"
+              "Indicates the minimum "
             ]
           },
           {
@@ -5840,8 +5852,8 @@
           {
             "tag": "text",
             "items": [
-              "of a buffer binding used with this bind point.\n",
-              "Bindings are always validated against this size in"
+              " of a buffer binding used with this bind point.\n",
+              "Bindings are always validated against this size in "
             ]
           },
           {
@@ -5858,7 +5870,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "If this *is not* `0`, pipeline creation additionally"
+              "If this *is not* `0`, pipeline creation additionally "
             ]
           },
           {
@@ -5869,7 +5881,8 @@
           {
             "tag": "text",
             "items": [
-              "that this value &ge; the"
+              "\n",
+              "that this value &ge; the "
             ]
           },
           {
@@ -5883,8 +5896,8 @@
           {
             "tag": "text",
             "items": [
-              "of the variable.\n",
-              "If this *is* `0`, it is ignored by pipeline creation, and instead draw/dispatch commands"
+              " of the variable.\n",
+              "If this *is* `0`, it is ignored by pipeline creation, and instead draw/dispatch commands\n"
             ]
           },
           {
@@ -5895,7 +5908,7 @@
           {
             "tag": "text",
             "items": [
-              "that each binding in the"
+              " that each binding in the "
             ]
           },
           {
@@ -5910,7 +5923,8 @@
           {
             "tag": "text",
             "items": [
-              "satisfies the"
+              "\n",
+              "satisfies the "
             ]
           },
           {
@@ -5924,10 +5938,10 @@
           {
             "tag": "text",
             "items": [
-              "of the variable.\n",
+              " of the variable.\n",
               "Note:\n",
               "Similar execution-time validation is theoretically possible for other\n",
-              "binding-related fields specified for early validation, like"
+              "binding-related fields specified for early validation, like\n"
             ]
           },
           {
@@ -5943,7 +5957,7 @@
           {
             "tag": "text",
             "items": [
-              "and"
+              " and "
             ]
           },
           {
@@ -5962,7 +5976,7 @@
               ",\n",
               "which currently can only be validated in pipeline creation.\n",
               "However, such execution-time validation could be costly or unnecessarily complex, so it is\n",
-              "available only for"
+              "available only for "
             ]
           },
           {
@@ -5978,7 +5992,7 @@
           {
             "tag": "text",
             "items": [
-              "which is expected to have the\n",
+              " which is expected to have the\n",
               "most ergonomic impact."
             ]
           }
@@ -6121,7 +6135,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the required"
+              "Indicates the required "
             ]
           },
           {
@@ -6137,7 +6151,7 @@
           {
             "tag": "text",
             "items": [
-              "for texture views bound to\n",
+              " for texture views bound to\n",
               "this binding."
             ]
           }
@@ -6241,7 +6255,7 @@
           {
             "tag": "text",
             "items": [
-              "The required"
+              "The required "
             ]
           },
           {
@@ -6257,7 +6271,7 @@
           {
             "tag": "text",
             "items": [
-              "of texture views bound to this binding."
+              " of texture views bound to this binding."
             ]
           }
         ],
@@ -6283,7 +6297,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the required"
+              "Indicates the required "
             ]
           },
           {
@@ -6299,7 +6313,7 @@
           {
             "tag": "text",
             "items": [
-              "for texture views bound to\n",
+              " for texture views bound to\n",
               "this binding."
             ]
           }
@@ -6371,7 +6385,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -6386,7 +6400,7 @@
           {
             "tag": "text",
             "items": [
-              "the entries of this bind group will conform to."
+              " the entries of this bind group will conform to."
             ]
           }
         ],
@@ -6419,7 +6433,7 @@
             "tag": "text",
             "items": [
               "A list of entries describing the resources to expose to the shader for each binding\n",
-              "described by the"
+              "described by the "
             ]
           },
           {
@@ -6513,7 +6527,7 @@
           {
             "tag": "text",
             "items": [
-              "A unique identifier for a resource binding within the"
+              "A unique identifier for a resource binding within the "
             ]
           },
           {
@@ -6528,7 +6542,7 @@
           {
             "tag": "text",
             "items": [
-              ", corresponding to a"
+              ", corresponding to a\n"
             ]
           },
           {
@@ -6544,7 +6558,7 @@
           {
             "tag": "text",
             "items": [
-              "and a"
+              " and a "
             ]
           },
           {
@@ -6558,7 +6572,8 @@
           {
             "tag": "text",
             "items": [
-              "attribute in the"
+              "\n",
+              "attribute in the "
             ]
           },
           {
@@ -6596,7 +6611,7 @@
           {
             "tag": "text",
             "items": [
-              "The resource to bind, which may be a"
+              "The resource to bind, which may be a "
             ]
           },
           {
@@ -6611,7 +6626,7 @@
           {
             "tag": "text",
             "items": [
-              ","
+              ", "
             ]
           },
           {
@@ -6626,7 +6641,7 @@
           {
             "tag": "text",
             "items": [
-              ","
+              ",\n"
             ]
           },
           {
@@ -6641,7 +6656,7 @@
           {
             "tag": "text",
             "items": [
-              ", or"
+              ", or "
             ]
           },
           {
@@ -6688,7 +6703,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -6703,7 +6718,7 @@
           {
             "tag": "text",
             "items": [
-              "to bind."
+              " to bind."
             ]
           }
         ],
@@ -6729,7 +6744,7 @@
           {
             "tag": "text",
             "items": [
-              "The offset, in bytes, from the beginning of"
+              "The offset, in bytes, from the beginning of "
             ]
           },
           {
@@ -6745,7 +6760,7 @@
           {
             "tag": "text",
             "items": [
-              "to the\n",
+              " to the\n",
               "beginning of the range exposed to the shader by the buffer binding."
             ]
           }
@@ -6770,7 +6785,7 @@
             "tag": "text",
             "items": [
               "The size, in bytes, of the buffer binding.\n",
-              "If not"
+              "If not "
             ]
           },
           {
@@ -6785,7 +6800,7 @@
           {
             "tag": "text",
             "items": [
-              ", specifies the range starting at"
+              ", specifies the range starting at\n"
             ]
           },
           {
@@ -6801,7 +6816,7 @@
           {
             "tag": "text",
             "items": [
-              "and ending at the end of"
+              " and ending at the end of "
             ]
           },
           {
@@ -6889,7 +6904,7 @@
           {
             "tag": "text",
             "items": [
-              "A list of"
+              "A list of "
             ]
           },
           {
@@ -6904,7 +6919,7 @@
           {
             "tag": "text",
             "items": [
-              "s the pipeline will use. Each element corresponds to a"
+              "s the pipeline will use. Each element corresponds to a\n"
             ]
           },
           {
@@ -6918,7 +6933,7 @@
           {
             "tag": "text",
             "items": [
-              "attribute in the"
+              " attribute in the "
             ]
           },
           {
@@ -6975,7 +6990,7 @@
           {
             "tag": "text",
             "items": [
-              "Returns any messages generated during the"
+              "Returns any messages generated during the "
             ]
           },
           {
@@ -6991,7 +7006,7 @@
             "tag": "text",
             "items": [
               "'s compilation.\n",
-              "The locations, order, and contents of messages are"
+              "The locations, order, and contents of messages are "
             ]
           },
           {
@@ -7005,7 +7020,8 @@
           {
             "tag": "text",
             "items": [
-              "In particular, messages may not be ordered by"
+              "\n",
+              "In particular, messages may not be ordered by "
             ]
           },
           {
@@ -7076,7 +7092,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -7087,7 +7103,7 @@
           {
             "tag": "text",
             "items": [
-              "source code for the shader\n",
+              " source code for the shader\n",
               "module."
             ]
           }
@@ -7111,7 +7127,7 @@
           {
             "tag": "text",
             "items": [
-              "If defined, **may** be interpreted in the"
+              "If defined, **may** be interpreted in the "
             ]
           },
           {
@@ -7125,14 +7141,14 @@
           {
             "tag": "text",
             "items": [
-              "v3 format.\n",
+              " v3 format.\n",
               "If an implementation supports this option but is unable to process the provided value,\n",
               "it should show a developer-visible warning but must not produce any application-observable\n",
               "error.\n",
               "Note:\n",
               "Source map support is optional, but serves as a semi-standardized way to support dev-tool\n",
               "integration such as source-language debugging.\n",
-              "WGSL names (identifiers) in source maps follow the rules defined in"
+              "WGSL names (identifiers) in source maps follow the rules defined in "
             ]
           },
           {
@@ -7181,7 +7197,7 @@
           {
             "tag": "text",
             "items": [
-              "A list of"
+              "A list of "
             ]
           },
           {
@@ -7199,7 +7215,7 @@
               "s.\n",
               "Any hint provided by an application **should** contain information about one entry point of\n",
               "a pipeline that will eventually be created from the entry point.\n",
-              "Implementations **should** use any information present in the"
+              "Implementations **should** use any information present in the "
             ]
           },
           {
@@ -7214,7 +7230,8 @@
           {
             "tag": "text",
             "items": [
-              "to perform as much compilation as is possible within"
+              "\n",
+              "to perform as much compilation as is possible within "
             ]
           },
           {
@@ -7231,7 +7248,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "Aside from type-checking, these hints are not validated in any way."
+              "Aside from type-checking, these hints are not validated in any way.\n"
             ]
           },
           {
@@ -7240,7 +7257,8 @@
               {
                 "tag": "text",
                 "items": [
-                  "Supplying information in"
+                  "\n",
+                  "Supplying information in "
                 ]
               },
               {
@@ -7256,12 +7274,12 @@
               {
                 "tag": "text",
                 "items": [
-                  "does not have any\n",
+                  " does not have any\n",
                   "observable effect, other than performance. It may be detrimental to performance to\n",
                   "provide hints for pipelines that never end up being created.\n",
                   "Because a single shader module can hold multiple entry points, and multiple pipelines\n",
                   "can be created from a single shader module, it can be more performant for an\n",
-                  "implementation to do as much compilation as possible once in"
+                  "implementation to do as much compilation as possible once in\n"
                 ]
               },
               {
@@ -7277,7 +7295,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "rather than multiple times in the multiple calls to"
+                  " rather than multiple times in the multiple calls to\n"
                 ]
               },
               {
@@ -7293,7 +7311,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "or"
+                  " or "
                 ]
               },
               {
@@ -7311,7 +7329,7 @@
                 "items": [
                   ".\n",
                   "Hints are only applied to the entry points they explicitly name.\n",
-                  "Unlike"
+                  "Unlike "
                 ]
               },
               {
@@ -7328,7 +7346,7 @@
                 "tag": "text",
                 "items": [
                   ",\n",
-                  "there is no default, even if only one entry point is present in the module."
+                  "there is no default, even if only one entry point is present in the module.\n"
                 ]
               }
             ]
@@ -7336,6 +7354,7 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "Note:\n",
               "Hints are not validated in an observable way, but user agents **may** surface identifiable\n",
               "errors (like unknown entry point names or incompatible pipeline layouts) to developers,\n",
@@ -7403,7 +7422,7 @@
           {
             "tag": "text",
             "items": [
-              "A"
+              "A "
             ]
           },
           {
@@ -7418,7 +7437,7 @@
           {
             "tag": "text",
             "items": [
-              "that the"
+              " that the "
             ]
           },
           {
@@ -7433,7 +7452,7 @@
           {
             "tag": "text",
             "items": [
-              "may be used with in a future"
+              " may be used with in a future\n"
             ]
           },
           {
@@ -7449,7 +7468,7 @@
           {
             "tag": "text",
             "items": [
-              "or"
+              " or "
             ]
           },
           {
@@ -7465,8 +7484,8 @@
           {
             "tag": "text",
             "items": [
-              "call.\n",
-              "If set to"
+              " call.\n",
+              "If set to "
             ]
           },
           {
@@ -7482,7 +7501,7 @@
           {
             "tag": "text",
             "items": [
-              "the layout will be the"
+              " the layout will be the "
             ]
           },
           {
@@ -7493,6 +7512,7 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "for the entry point associated with this hint will be used."
             ]
           }
@@ -7895,7 +7915,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -7910,7 +7930,7 @@
           {
             "tag": "text",
             "items": [
-              "for this pipeline, or"
+              " for this pipeline, or "
             ]
           },
           {
@@ -7926,9 +7946,9 @@
           {
             "tag": "text",
             "items": [
-              "to generate\n",
+              " to generate\n",
               "the pipeline layout automatically.\n",
-              "Note: If"
+              "Note: If "
             ]
           },
           {
@@ -7944,7 +7964,7 @@
           {
             "tag": "text",
             "items": [
-              "is used the pipeline cannot share"
+              " is used the pipeline cannot share "
             ]
           },
           {
@@ -8016,7 +8036,7 @@
           {
             "tag": "text",
             "items": [
-              "Gets a"
+              "Gets a "
             ]
           },
           {
@@ -8031,7 +8051,7 @@
           {
             "tag": "text",
             "items": [
-              "that is compatible with the"
+              " that is compatible with the "
             ]
           },
           {
@@ -8046,7 +8066,7 @@
           {
             "tag": "text",
             "items": [
-              "'s"
+              "'s\n"
             ]
           },
           {
@@ -8061,7 +8081,7 @@
           {
             "tag": "text",
             "items": [
-              "at `index`."
+              " at `index`."
             ]
           },
           {
@@ -8088,7 +8108,6 @@
                     "tag": "text",
                     "items": [
                       "}}\n",
-                      "",
                       "sequence."
                     ]
                   }
@@ -8125,7 +8144,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -8140,7 +8159,7 @@
           {
             "tag": "text",
             "items": [
-              "containing the code that this programmable stage will execute."
+              " containing the code that this programmable stage will execute."
             ]
           }
         ],
@@ -8163,7 +8182,7 @@
           {
             "tag": "text",
             "items": [
-              "The name of the function in"
+              "The name of the function in "
             ]
           },
           {
@@ -8179,9 +8198,9 @@
           {
             "tag": "text",
             "items": [
-              "that this stage will use to\n",
+              " that this stage will use to\n",
               "perform its work.\n",
-              "NOTE: Since the"
+              "NOTE: Since the "
             ]
           },
           {
@@ -8197,8 +8216,8 @@
           {
             "tag": "text",
             "items": [
-              "dictionary member is\n",
-              "not required, methods which consume a"
+              " dictionary member is\n",
+              "not required, methods which consume a "
             ]
           },
           {
@@ -8213,7 +8232,7 @@
           {
             "tag": "text",
             "items": [
-              "must use the\n",
+              " must use the\n",
               "\""
             ]
           },
@@ -8266,7 +8285,7 @@
           {
             "tag": "text",
             "items": [
-              "Specifies the values of"
+              "Specifies the values of "
             ]
           },
           {
@@ -8280,7 +8299,7 @@
           {
             "tag": "text",
             "items": [
-              "constants in the shader module"
+              " constants in the shader module\n"
             ]
           },
           {
@@ -8297,7 +8316,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "Each such"
+              "Each such "
             ]
           },
           {
@@ -8311,7 +8330,7 @@
           {
             "tag": "text",
             "items": [
-              "constant is uniquely identified by a single"
+              " constant is uniquely identified by a single\n"
             ]
           },
           {
@@ -8325,7 +8344,7 @@
           {
             "tag": "text",
             "items": [
-              ", representing the"
+              ", representing the "
             ]
           },
           {
@@ -8339,9 +8358,9 @@
           {
             "tag": "text",
             "items": [
-              "of the constant if its declaration specifies one, and otherwise the\n",
+              " of the constant if its declaration specifies one, and otherwise the\n",
               "constant's identifier name.\n",
-              "The key of each key-value pair must equal the"
+              "The key of each key-value pair must equal the\n"
             ]
           },
           {
@@ -8355,8 +8374,9 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "of one such constant, with the comparison performed\n",
-              "according to the rules for"
+              "according to the rules for "
             ]
           },
           {
@@ -8372,7 +8392,7 @@
             "items": [
               ".\n",
               "When the pipeline is executed, that constant will have the specified value.\n",
-              "Values are specified as"
+              "Values are specified as "
             ]
           },
           {
@@ -8384,7 +8404,7 @@
           {
             "tag": "text",
             "items": [
-              ", which is a"
+              ", which is a "
             ]
           },
           {
@@ -8400,7 +8420,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "They are converted"
+              "They are converted "
             ]
           },
           {
@@ -8411,8 +8431,8 @@
           {
             "tag": "text",
             "items": [
-              "of the pipeline-overridable constant (`bool`/`i32`/`u32`/`f32`/`f16`).\n",
-              "If conversion fails, a validation error is generated."
+              " of the pipeline-overridable constant (`bool`/`i32`/`u32`/`f32`/`f16`).\n",
+              "If conversion fails, a validation error is generated.\n"
             ]
           },
           {
@@ -8421,6 +8441,7 @@
               {
                 "tag": "text",
                 "items": [
+                  "\n",
                   "Pipeline-overridable constants defined in WGSL:\n",
                   "<pre highlight=wgsl>\n",
                   "@id(0)      override has_point_light: bool = true;  // Algorithmic control.\n",
@@ -8460,7 +8481,7 @@
                   "height: 15, // \"height\"\n",
                   "}\n",
                   "}\n",
-                  "</pre>"
+                  "</pre>\n"
                 ]
               }
             ]
@@ -8538,7 +8559,7 @@
           {
             "tag": "text",
             "items": [
-              "Describes the compute shader entry point of the"
+              "Describes the compute shader entry point of the "
             ]
           },
           {
@@ -8615,7 +8636,7 @@
           {
             "tag": "text",
             "items": [
-              "Describes the vertex shader entry point of the"
+              "Describes the vertex shader entry point of the "
             ]
           },
           {
@@ -8629,7 +8650,7 @@
           {
             "tag": "text",
             "items": [
-              "and its input buffer layouts."
+              " and its input buffer layouts."
             ]
           }
         ],
@@ -8654,7 +8675,7 @@
           {
             "tag": "text",
             "items": [
-              "Describes the primitive-related properties of the"
+              "Describes the primitive-related properties of the "
             ]
           },
           {
@@ -8716,7 +8737,7 @@
           {
             "tag": "text",
             "items": [
-              "Describes the multi-sampling properties of the"
+              "Describes the multi-sampling properties of the "
             ]
           },
           {
@@ -8753,7 +8774,7 @@
           {
             "tag": "text",
             "items": [
-              "Describes the fragment shader entry point of the"
+              "Describes the fragment shader entry point of the "
             ]
           },
           {
@@ -8767,8 +8788,8 @@
           {
             "tag": "text",
             "items": [
-              "and its output colors. If\n",
-              "not"
+              " and its output colors. If\n",
+              "not "
             ]
           },
           {
@@ -8783,7 +8804,7 @@
           {
             "tag": "text",
             "items": [
-              ", the"
+              ", the "
             ]
           },
           {
@@ -8797,7 +8818,7 @@
           {
             "tag": "text",
             "items": [
-              "mode is enabled."
+              " mode is enabled."
             ]
           }
         ],
@@ -8872,7 +8893,7 @@
           {
             "tag": "text",
             "items": [
-              "or"
+              " or "
             ]
           },
           {
@@ -8906,7 +8927,7 @@
           {
             "tag": "text",
             "items": [
-              "/`0xFFFF` or"
+              "/`0xFFFF` or "
             ]
           },
           {
@@ -8943,7 +8964,7 @@
           {
             "tag": "text",
             "items": [
-              "or"
+              " or "
             ]
           },
           {
@@ -8961,7 +8982,7 @@
             "items": [
               "),\n",
               "this must be set, and it must match the index buffer format used with the draw call\n",
-              "(set in"
+              "(set in "
             ]
           },
           {
@@ -8978,7 +8999,7 @@
             "tag": "text",
             "items": [
               ").\n",
-              "See"
+              "See "
             ]
           },
           {
@@ -8992,7 +9013,7 @@
           {
             "tag": "text",
             "items": [
-              "for additional details."
+              " for additional details."
             ]
           }
         ],
@@ -9018,7 +9039,7 @@
           {
             "tag": "text",
             "items": [
-              "Defines which polygons are considered"
+              "Defines which polygons are considered "
             ]
           },
           {
@@ -9084,7 +9105,7 @@
           {
             "tag": "text",
             "items": [
-              "If true, indicates that"
+              "If true, indicates that "
             ]
           },
           {
@@ -9098,8 +9119,8 @@
           {
             "tag": "text",
             "items": [
-              "is disabled.\n",
-              "Requires the"
+              " is disabled.\n",
+              "Requires the "
             ]
           },
           {
@@ -9115,7 +9136,7 @@
           {
             "tag": "text",
             "items": [
-              "feature to be enabled."
+              " feature to be enabled."
             ]
           }
         ],
@@ -9211,7 +9232,7 @@
           {
             "tag": "text",
             "items": [
-              "Number of samples per pixel. This"
+              "Number of samples per pixel. This "
             ]
           },
           {
@@ -9226,7 +9247,7 @@
           {
             "tag": "text",
             "items": [
-              "will be compatible only\n",
+              " will be compatible only\n",
               "with attachment textures ("
             ]
           },
@@ -9243,7 +9264,8 @@
           {
             "tag": "text",
             "items": [
-              "and"
+              "\n",
+              "and "
             ]
           },
           {
@@ -9260,7 +9282,7 @@
             "tag": "text",
             "items": [
               ")\n",
-              "with matching"
+              "with matching "
             ]
           },
           {
@@ -9370,7 +9392,7 @@
           {
             "tag": "text",
             "items": [
-              "A list of"
+              "A list of "
             ]
           },
           {
@@ -9385,7 +9407,7 @@
           {
             "tag": "text",
             "items": [
-              "defining the formats and behaviors of the color targets\n",
+              " defining the formats and behaviors of the color targets\n",
               "this pipeline writes to."
             ]
           }
@@ -9418,7 +9440,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -9433,7 +9455,7 @@
           {
             "tag": "text",
             "items": [
-              "of this color target. The pipeline will only be compatible with"
+              " of this color target. The pipeline will only be compatible with\n"
             ]
           },
           {
@@ -9448,7 +9470,7 @@
           {
             "tag": "text",
             "items": [
-              "s which use a"
+              "s which use a "
             ]
           },
           {
@@ -9463,7 +9485,7 @@
           {
             "tag": "text",
             "items": [
-              "of this format in the\n",
+              " of this format in the\n",
               "corresponding color attachment."
             ]
           }
@@ -9741,7 +9763,7 @@
           {
             "tag": "text",
             "items": [
-              "Defines the"
+              "Defines the "
             ]
           },
           {
@@ -9756,7 +9778,7 @@
           {
             "tag": "text",
             "items": [
-              "used to calculate the values written to the target\n",
+              " used to calculate the values written to the target\n",
               "attachment components."
             ]
           }
@@ -9783,7 +9805,7 @@
           {
             "tag": "text",
             "items": [
-              "Defines the"
+              "Defines the "
             ]
           },
           {
@@ -9798,7 +9820,7 @@
           {
             "tag": "text",
             "items": [
-              "operation to be performed on values from the fragment shader."
+              " operation to be performed on values from the fragment shader."
             ]
           }
         ],
@@ -9824,7 +9846,7 @@
           {
             "tag": "text",
             "items": [
-              "Defines the"
+              "Defines the "
             ]
           },
           {
@@ -9839,7 +9861,7 @@
           {
             "tag": "text",
             "items": [
-              "operation to be performed on values from the target attachment."
+              " operation to be performed on values from the target attachment."
             ]
           }
         ],
@@ -9973,7 +9995,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -9989,7 +10011,7 @@
           {
             "tag": "text",
             "items": [
-              "of"
+              " of "
             ]
           },
           {
@@ -10005,7 +10027,8 @@
           {
             "tag": "text",
             "items": [
-              "this"
+              "\n",
+              "this "
             ]
           },
           {
@@ -10020,7 +10043,7 @@
           {
             "tag": "text",
             "items": [
-              "will be compatible with."
+              " will be compatible with."
             ]
           }
         ],
@@ -10043,7 +10066,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates if this"
+              "Indicates if this "
             ]
           },
           {
@@ -10058,7 +10081,7 @@
           {
             "tag": "text",
             "items": [
-              "can modify"
+              " can modify\n"
             ]
           },
           {
@@ -10074,7 +10097,7 @@
           {
             "tag": "text",
             "items": [
-              "depth values."
+              " depth values."
             ]
           }
         ],
@@ -10097,7 +10120,7 @@
           {
             "tag": "text",
             "items": [
-              "The comparison operation used to test fragment depths against"
+              "The comparison operation used to test fragment depths against\n"
             ]
           },
           {
@@ -10113,7 +10136,7 @@
           {
             "tag": "text",
             "items": [
-              "depth values."
+              " depth values."
             ]
           }
         ],
@@ -10189,7 +10212,7 @@
           {
             "tag": "text",
             "items": [
-              "Bitmask controlling which"
+              "Bitmask controlling which "
             ]
           },
           {
@@ -10205,7 +10228,7 @@
           {
             "tag": "text",
             "items": [
-              "stencil value\n",
+              " stencil value\n",
               "bits are read when performing stencil comparison tests."
             ]
           }
@@ -10232,7 +10255,7 @@
           {
             "tag": "text",
             "items": [
-              "Bitmask controlling which"
+              "Bitmask controlling which "
             ]
           },
           {
@@ -10248,7 +10271,7 @@
           {
             "tag": "text",
             "items": [
-              "stencil value\n",
+              " stencil value\n",
               "bits are written to when performing stencil operations."
             ]
           }
@@ -10275,7 +10298,7 @@
           {
             "tag": "text",
             "items": [
-              "Constant depth bias added to each triangle fragment. See"
+              "Constant depth bias added to each triangle fragment. See "
             ]
           },
           {
@@ -10286,7 +10309,7 @@
           {
             "tag": "text",
             "items": [
-              "for details."
+              " for details."
             ]
           }
         ],
@@ -10312,7 +10335,7 @@
           {
             "tag": "text",
             "items": [
-              "Depth bias that scales with the triangle fragment’s slope. See"
+              "Depth bias that scales with the triangle fragment’s slope. See "
             ]
           },
           {
@@ -10323,7 +10346,7 @@
           {
             "tag": "text",
             "items": [
-              "for details."
+              " for details."
             ]
           }
         ],
@@ -10349,7 +10372,7 @@
           {
             "tag": "text",
             "items": [
-              "The maximum depth bias of a triangle fragment. See"
+              "The maximum depth bias of a triangle fragment. See "
             ]
           },
           {
@@ -10360,7 +10383,7 @@
           {
             "tag": "text",
             "items": [
-              "for details."
+              " for details."
             ]
           }
         ],
@@ -10395,7 +10418,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -10410,7 +10433,7 @@
           {
             "tag": "text",
             "items": [
-              "used when testing fragments against"
+              " used when testing fragments against\n"
             ]
           },
           {
@@ -10426,7 +10449,7 @@
           {
             "tag": "text",
             "items": [
-              "stencil values."
+              " stencil values."
             ]
           }
         ],
@@ -10452,7 +10475,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -10467,7 +10490,7 @@
           {
             "tag": "text",
             "items": [
-              "performed if the fragment stencil comparison test described by"
+              " performed if the fragment stencil comparison test described by\n"
             ]
           },
           {
@@ -10483,7 +10506,7 @@
           {
             "tag": "text",
             "items": [
-              "fails."
+              " fails."
             ]
           }
         ],
@@ -10509,7 +10532,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -10524,7 +10547,7 @@
           {
             "tag": "text",
             "items": [
-              "performed if the fragment depth comparison described by"
+              " performed if the fragment depth comparison described by\n"
             ]
           },
           {
@@ -10540,7 +10563,7 @@
           {
             "tag": "text",
             "items": [
-              "fails."
+              " fails."
             ]
           }
         ],
@@ -10566,7 +10589,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -10581,7 +10604,7 @@
           {
             "tag": "text",
             "items": [
-              "performed if the fragment stencil comparison test described by"
+              " performed if the fragment stencil comparison test described by\n"
             ]
           },
           {
@@ -10597,7 +10620,7 @@
           {
             "tag": "text",
             "items": [
-              "passes."
+              " passes."
             ]
           }
         ],
@@ -10841,7 +10864,7 @@
           {
             "tag": "text",
             "items": [
-              "A list of"
+              "A list of "
             ]
           },
           {
@@ -10979,7 +11002,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -10994,7 +11017,7 @@
           {
             "tag": "text",
             "items": [
-              "of the attribute."
+              " of the attribute."
             ]
           }
         ],
@@ -11040,7 +11063,7 @@
           {
             "tag": "text",
             "items": [
-              "The numeric location associated with this attribute, which will correspond with a"
+              "The numeric location associated with this attribute, which will correspond with a\n"
             ]
           },
           {
@@ -11051,7 +11074,8 @@
           {
             "tag": "text",
             "items": [
-              "declared in the"
+              "\n",
+              "declared in the "
             ]
           },
           {
@@ -11118,7 +11142,7 @@
           {
             "tag": "text",
             "items": [
-              "The offset, in bytes, from the beginning of the image data source (such as a"
+              "The offset, in bytes, from the beginning of the image data source (such as a\n"
             ]
           },
           {
@@ -11158,7 +11182,7 @@
           {
             "tag": "text",
             "items": [
-              "The stride, in bytes, between the beginning of each"
+              "The stride, in bytes, between the beginning of each "
             ]
           },
           {
@@ -11172,7 +11196,7 @@
           {
             "tag": "text",
             "items": [
-              "and the subsequent"
+              " and the subsequent\n"
             ]
           },
           {
@@ -11187,7 +11211,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "Required if there are multiple"
+              "Required if there are multiple "
             ]
           },
           {
@@ -11201,7 +11225,7 @@
           {
             "tag": "text",
             "items": [
-              "(i.e. the copy height or depth is more\n",
+              " (i.e. the copy height or depth is more\n",
               "than one block)."
             ]
           }
@@ -11225,7 +11249,7 @@
           {
             "tag": "text",
             "items": [
-              "Number of"
+              "Number of "
             ]
           },
           {
@@ -11239,7 +11263,7 @@
           {
             "tag": "text",
             "items": [
-              "per single"
+              " per single "
             ]
           },
           {
@@ -11253,7 +11277,7 @@
           {
             "tag": "text",
             "items": [
-              "of the"
+              " of the "
             ]
           },
           {
@@ -11267,7 +11291,7 @@
           {
             "tag": "text",
             "items": [
-              "."
+              ".\n"
             ]
           },
           {
@@ -11283,7 +11307,7 @@
           {
             "tag": "text",
             "items": [
-              "&times;"
+              " &times;\n"
             ]
           },
           {
@@ -11299,7 +11323,7 @@
           {
             "tag": "text",
             "items": [
-              "is the stride, in bytes, between the beginning of each"
+              " is the stride, in bytes, between the beginning of each\n"
             ]
           },
           {
@@ -11313,7 +11337,7 @@
           {
             "tag": "text",
             "items": [
-              "of data and the subsequent"
+              " of data and the subsequent "
             ]
           },
           {
@@ -11328,7 +11352,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "Required if there are multiple"
+              "Required if there are multiple "
             ]
           },
           {
@@ -11342,7 +11366,7 @@
           {
             "tag": "text",
             "items": [
-              "(i.e. the copy depth is more than one)."
+              " (i.e. the copy depth is more than one)."
             ]
           }
         ],
@@ -11433,7 +11457,7 @@
           {
             "tag": "text",
             "items": [
-              "Mip-map level of the"
+              "Mip-map level of the "
             ]
           },
           {
@@ -11449,7 +11473,7 @@
           {
             "tag": "text",
             "items": [
-              "to copy to/from."
+              " to copy to/from."
             ]
           }
         ],
@@ -11501,7 +11525,7 @@
           {
             "tag": "text",
             "items": [
-              "Defines which aspects of the"
+              "Defines which aspects of the "
             ]
           },
           {
@@ -11517,7 +11541,7 @@
           {
             "tag": "text",
             "items": [
-              "to copy to/from."
+              " to copy to/from."
             ]
           }
         ],
@@ -11553,7 +11577,7 @@
             "tag": "text",
             "items": [
               "Describes the color space and encoding used to encode data into the destination texture.\n",
-              "This"
+              "This "
             ]
           },
           {
@@ -11567,11 +11591,11 @@
           {
             "tag": "text",
             "items": [
-              "in values outside of the range [0, 1]\n",
+              " in values outside of the range [0, 1]\n",
               "being written to the target texture, if its format can represent them.\n",
               "Otherwise, the results are clamped to the target texture format's range.\n",
               "Note:\n",
-              "If"
+              "If "
             ]
           },
           {
@@ -11587,8 +11611,8 @@
           {
             "tag": "text",
             "items": [
-              "matches the source image,\n",
-              "conversion may not be necessary. See"
+              " matches the source image,\n",
+              "conversion may not be necessary. See "
             ]
           },
           {
@@ -11630,7 +11654,7 @@
             "items": [
               "Describes whether the data written into the texture should have its RGB channels\n",
               "premultiplied by the alpha channel, or not.\n",
-              "If this option is set to `true` and the"
+              "If this option is set to `true` and the "
             ]
           },
           {
@@ -11646,11 +11670,11 @@
           {
             "tag": "text",
             "items": [
-              "is also\n",
+              " is also\n",
               "premultiplied, the source RGB values must be preserved even if they exceed their\n",
               "corresponding alpha values.\n",
               "Note:\n",
-              "If"
+              "If "
             ]
           },
           {
@@ -11666,8 +11690,8 @@
           {
             "tag": "text",
             "items": [
-              "matches the source image,\n",
-              "conversion may not be necessary. See"
+              " matches the source image,\n",
+              "conversion may not be necessary. See "
             ]
           },
           {
@@ -11783,7 +11807,7 @@
           {
             "tag": "text",
             "items": [
-              "The source of the"
+              "The source of the "
             ]
           },
           {
@@ -11797,7 +11821,7 @@
           {
             "tag": "text",
             "items": [
-              ". The copy source data is captured at the moment that"
+              ". The copy source data is captured at the moment that\n"
             ]
           },
           {
@@ -11813,8 +11837,8 @@
           {
             "tag": "text",
             "items": [
-              "is issued. Source size is determined as described\n",
-              "by the"
+              " is issued. Source size is determined as described\n",
+              "by the "
             ]
           },
           {
@@ -11828,7 +11852,7 @@
           {
             "tag": "text",
             "items": [
-              "table."
+              " table."
             ]
           }
         ],
@@ -11883,7 +11907,7 @@
               "Describes whether the source image is vertically flipped, or not.\n",
               "If this option is set to `true`, the copy is flipped vertically: the bottom row of the source\n",
               "region is copied into the first row of the destination region, and so on.\n",
-              "The"
+              "The "
             ]
           },
           {
@@ -11899,7 +11923,7 @@
           {
             "tag": "text",
             "items": [
-              "option is still relative to the top-left corner\n",
+              " option is still relative to the top-left corner\n",
               "of the source image, increasing downward."
             ]
           }
@@ -12008,7 +12032,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Description of the"
+                      "Description of the "
                     ]
                   },
                   {
@@ -12023,7 +12047,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to create."
+                      " to create."
                     ]
                   }
                 ]
@@ -12165,7 +12189,7 @@
           {
             "tag": "text",
             "items": [
-              "Encode a command into the"
+              "Encode a command into the "
             ]
           },
           {
@@ -12180,7 +12204,7 @@
           {
             "tag": "text",
             "items": [
-              "that copies data from a sub-region of a"
+              " that copies data from a sub-region of a\n"
             ]
           },
           {
@@ -12195,7 +12219,7 @@
           {
             "tag": "text",
             "items": [
-              "to a sub-region of another"
+              " to a sub-region of another "
             ]
           },
           {
@@ -12222,7 +12246,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "The"
+                      "The "
                     ]
                   },
                   {
@@ -12237,7 +12261,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to copy from."
+                      " to copy from."
                     ]
                   }
                 ]
@@ -12259,7 +12283,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "The"
+                      "The "
                     ]
                   },
                   {
@@ -12274,7 +12298,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to copy to."
+                      " to copy to."
                     ]
                   }
                 ]
@@ -12372,7 +12396,7 @@
           {
             "tag": "text",
             "items": [
-              "Encode a command into the"
+              "Encode a command into the "
             ]
           },
           {
@@ -12387,7 +12411,7 @@
           {
             "tag": "text",
             "items": [
-              "that copies data from a sub-region of a"
+              " that copies data from a sub-region of a\n"
             ]
           },
           {
@@ -12402,7 +12426,7 @@
           {
             "tag": "text",
             "items": [
-              "to a sub-region of one or multiple continuous"
+              " to a sub-region of one or multiple continuous "
             ]
           },
           {
@@ -12439,7 +12463,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the destination"
+                      "Combined with |copySize|, defines the region of the destination "
                     ]
                   },
                   {
@@ -12454,7 +12478,6 @@
                     "tag": "text",
                     "items": [
                       ".\n",
-                      "",
                       "|copySize|:"
                     ]
                   }
@@ -12531,7 +12554,7 @@
           {
             "tag": "text",
             "items": [
-              "Encode a command into the"
+              "Encode a command into the "
             ]
           },
           {
@@ -12546,8 +12569,8 @@
           {
             "tag": "text",
             "items": [
-              "that copies data from a sub-region of one or\n",
-              "multiple continuous"
+              " that copies data from a sub-region of one or\n",
+              "multiple continuous "
             ]
           },
           {
@@ -12561,7 +12584,7 @@
           {
             "tag": "text",
             "items": [
-              "to a sub-region of a"
+              " to a sub-region of a "
             ]
           },
           {
@@ -12588,7 +12611,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the source"
+                      "Combined with |copySize|, defines the region of the source "
                     ]
                   },
                   {
@@ -12614,7 +12637,6 @@
                     "tag": "text",
                     "items": [
                       "Combined with |copySize|, defines the region of the destination buffer.\n",
-                      "",
                       "|copySize|:"
                     ]
                   }
@@ -12691,7 +12713,7 @@
           {
             "tag": "text",
             "items": [
-              "Encode a command into the"
+              "Encode a command into the "
             ]
           },
           {
@@ -12706,8 +12728,8 @@
           {
             "tag": "text",
             "items": [
-              "that copies data from a sub-region of one\n",
-              "or multiple contiguous"
+              " that copies data from a sub-region of one\n",
+              "or multiple contiguous "
             ]
           },
           {
@@ -12721,8 +12743,8 @@
           {
             "tag": "text",
             "items": [
-              "to another sub-region of one or\n",
-              "multiple continuous"
+              " to another sub-region of one or\n",
+              "multiple continuous "
             ]
           },
           {
@@ -12748,7 +12770,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the source"
+                      "Combined with |copySize|, defines the region of the source "
                     ]
                   },
                   {
@@ -12773,7 +12795,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the destination"
+                      "Combined with |copySize|, defines the region of the destination "
                     ]
                   },
                   {
@@ -12788,7 +12810,6 @@
                     "tag": "text",
                     "items": [
                       ".\n",
-                      "",
                       "|copySize|:"
                     ]
                   }
@@ -12868,7 +12889,7 @@
           {
             "tag": "text",
             "items": [
-              "Encode a command into the"
+              "Encode a command into the "
             ]
           },
           {
@@ -12883,7 +12904,7 @@
           {
             "tag": "text",
             "items": [
-              "that fills a sub-region of a"
+              " that fills a sub-region of a\n"
             ]
           },
           {
@@ -12898,7 +12919,7 @@
           {
             "tag": "text",
             "items": [
-              "with zeros."
+              " with zeros."
             ]
           },
           {
@@ -12910,7 +12931,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "The"
+                      "The "
                     ]
                   },
                   {
@@ -12925,7 +12946,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "to clear."
+                      " to clear."
                     ]
                   }
                 ]
@@ -13055,7 +13076,7 @@
           {
             "tag": "text",
             "items": [
-              "Resolves query results from a"
+              "Resolves query results from a "
             ]
           },
           {
@@ -13070,7 +13091,7 @@
           {
             "tag": "text",
             "items": [
-              "out into a range of a"
+              " out into a range of a "
             ]
           },
           {
@@ -13127,7 +13148,7 @@
           {
             "tag": "text",
             "items": [
-              "Completes recording of the commands sequence and returns a corresponding"
+              "Completes recording of the commands sequence and returns a corresponding "
             ]
           },
           {
@@ -13266,7 +13287,7 @@
           {
             "tag": "text",
             "items": [
-              "Sets the current"
+              "Sets the current "
             ]
           },
           {
@@ -13281,7 +13302,7 @@
           {
             "tag": "text",
             "items": [
-              "for the given index."
+              " for the given index."
             ]
           }
         ],
@@ -13465,7 +13486,7 @@
           {
             "tag": "text",
             "items": [
-              "Ends the labeled debug group most recently started by"
+              "Ends the labeled debug group most recently started by "
             ]
           },
           {
@@ -13586,7 +13607,7 @@
           {
             "tag": "text",
             "items": [
-              "Sets the current"
+              "Sets the current "
             ]
           },
           {
@@ -13695,7 +13716,7 @@
           {
             "tag": "text",
             "items": [
-              "Dispatch work to be performed with the current"
+              "Dispatch work to be performed with the current "
             ]
           },
           {
@@ -13711,7 +13732,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "See"
+              "See "
             ]
           },
           {
@@ -13725,7 +13746,7 @@
           {
             "tag": "text",
             "items": [
-              "for the detailed specification."
+              " for the detailed specification."
             ]
           },
           {
@@ -13819,7 +13840,7 @@
           {
             "tag": "text",
             "items": [
-              "Dispatch work to be performed with the current"
+              "Dispatch work to be performed with the current "
             ]
           },
           {
@@ -13834,8 +13855,8 @@
           {
             "tag": "text",
             "items": [
-              "using parameters read\n",
-              "from a"
+              " using parameters read\n",
+              "from a "
             ]
           },
           {
@@ -13851,7 +13872,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "See"
+              "See "
             ]
           },
           {
@@ -13865,9 +13886,9 @@
           {
             "tag": "text",
             "items": [
-              "for the detailed specification.\n",
+              " for the detailed specification.\n",
               "packed block of **three 32-bit unsigned integer values (12 bytes total)**,\n",
-              "given in the same order as the arguments for"
+              "given in the same order as the arguments for "
             ]
           },
           {
@@ -13896,7 +13917,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Buffer containing the"
+                      "Buffer containing the "
                     ]
                   },
                   {
@@ -14003,7 +14024,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -14018,7 +14039,7 @@
           {
             "tag": "text",
             "items": [
-              ", of type"
+              ", of type "
             ]
           },
           {
@@ -14058,7 +14079,7 @@
           {
             "tag": "text",
             "items": [
-              "If defined, indicates the query index in"
+              "If defined, indicates the query index in "
             ]
           },
           {
@@ -14074,7 +14095,7 @@
           {
             "tag": "text",
             "items": [
-              "into\n",
+              " into\n",
               "which the timestamp at the beginning of the compute pass will be written."
             ]
           }
@@ -14098,7 +14119,7 @@
           {
             "tag": "text",
             "items": [
-              "If defined, indicates the query index in"
+              "If defined, indicates the query index in "
             ]
           },
           {
@@ -14114,7 +14135,7 @@
           {
             "tag": "text",
             "items": [
-              "into\n",
+              " into\n",
               "which the timestamp at the end of the compute pass will be written."
             ]
           }
@@ -14276,7 +14297,7 @@
           {
             "tag": "text",
             "items": [
-              "Sets the viewport used during the rasterization stage to linearly map from"
+              "Sets the viewport used during the rasterization stage to linearly map from\n"
             ]
           },
           {
@@ -14290,7 +14311,7 @@
           {
             "tag": "text",
             "items": [
-              "to"
+              " to "
             ]
           },
           {
@@ -14464,7 +14485,7 @@
             "tag": "text",
             "items": [
               "Sets the scissor rectangle used during the rasterization stage.\n",
-              "After transformation into"
+              "After transformation into "
             ]
           },
           {
@@ -14478,7 +14499,7 @@
           {
             "tag": "text",
             "items": [
-              "any fragments which fall outside the scissor\n",
+              " any fragments which fall outside the scissor\n",
               "rectangle will be discarded."
             ]
           },
@@ -14568,7 +14589,7 @@
           {
             "tag": "text",
             "items": [
-              "Sets the constant blend color and alpha values used with"
+              "Sets the constant blend color and alpha values used with "
             ]
           },
           {
@@ -14584,7 +14605,8 @@
           {
             "tag": "text",
             "items": [
-              "and"
+              "\n",
+              "and "
             ]
           },
           {
@@ -14595,6 +14617,12 @@
             "path": [
               "GPUBlendFactor",
               "\"one-minus-constant\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " "
             ]
           },
           {
@@ -14680,7 +14708,7 @@
             "tag": "text",
             "items": [
               "}} value used during stencil tests with\n",
-              "the"
+              "the "
             ]
           },
           {
@@ -14691,6 +14719,12 @@
             "path": [
               "GPUStencilOperation",
               "\"replace\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " "
             ]
           },
           {
@@ -14836,7 +14870,7 @@
           {
             "tag": "text",
             "items": [
-              "Executes the commands previously recorded into the given"
+              "Executes the commands previously recorded into the given "
             ]
           },
           {
@@ -14853,7 +14887,7 @@
             "items": [
               "s as part of\n",
               "this render pass.\n",
-              "When a"
+              "When a "
             ]
           },
           {
@@ -14868,8 +14902,8 @@
           {
             "tag": "text",
             "items": [
-              "is executed, it does not inherit the render pass's pipeline, bind\n",
-              "groups, or vertex and index buffers. After a"
+              " is executed, it does not inherit the render pass's pipeline, bind\n",
+              "groups, or vertex and index buffers. After a "
             ]
           },
           {
@@ -14884,11 +14918,11 @@
           {
             "tag": "text",
             "items": [
-              "has executed, the render\n",
+              " has executed, the render\n",
               "pass's pipeline, bind group, and vertex/index buffer state is cleared\n",
               "(to the initial, empty values).\n",
               "Note: The state is cleared, not restored to the previous state.\n",
-              "This occurs even if zero"
+              "This occurs even if zero "
             ]
           },
           {
@@ -14903,7 +14937,7 @@
           {
             "tag": "text",
             "items": [
-              "are executed."
+              " are executed."
             ]
           },
           {
@@ -14997,7 +15031,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -15012,7 +15046,7 @@
           {
             "tag": "text",
             "items": [
-              ", of type"
+              ", of type "
             ]
           },
           {
@@ -15052,7 +15086,7 @@
           {
             "tag": "text",
             "items": [
-              "If defined, indicates the query index in"
+              "If defined, indicates the query index in "
             ]
           },
           {
@@ -15068,7 +15102,7 @@
           {
             "tag": "text",
             "items": [
-              "into\n",
+              " into\n",
               "which the timestamp at the beginning of the render pass will be written."
             ]
           }
@@ -15092,7 +15126,7 @@
           {
             "tag": "text",
             "items": [
-              "If defined, indicates the query index in"
+              "If defined, indicates the query index in "
             ]
           },
           {
@@ -15108,7 +15142,7 @@
           {
             "tag": "text",
             "items": [
-              "into\n",
+              " into\n",
               "which the timestamp at the end of the render pass will be written."
             ]
           }
@@ -15150,7 +15184,7 @@
           {
             "tag": "text",
             "items": [
-              "The set of"
+              "The set of "
             ]
           },
           {
@@ -15165,9 +15199,9 @@
           {
             "tag": "text",
             "items": [
-              "values in this sequence defines which\n",
+              " values in this sequence defines which\n",
               "color attachments will be output to when executing this render pass.\n",
-              "Due to"
+              "Due to "
             ]
           },
           {
@@ -15205,7 +15239,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -15220,9 +15254,9 @@
           {
             "tag": "text",
             "items": [
-              "value that defines the depth/stencil\n",
+              " value that defines the depth/stencil\n",
               "attachment that will be output to and tested against when executing this render pass.\n",
-              "Due to"
+              "Due to "
             ]
           },
           {
@@ -15260,7 +15294,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -15275,7 +15309,7 @@
           {
             "tag": "text",
             "items": [
-              "value defines where the occlusion query results will be stored for this pass."
+              " value defines where the occlusion query results will be stored for this pass."
             ]
           }
         ],
@@ -15358,7 +15392,7 @@
           {
             "tag": "text",
             "items": [
-              "A"
+              "A "
             ]
           },
           {
@@ -15373,7 +15407,7 @@
           {
             "tag": "text",
             "items": [
-              "describing the texture"
+              " describing the texture "
             ]
           },
           {
@@ -15387,7 +15421,7 @@
           {
             "tag": "text",
             "items": [
-              "that will be output to for this\n",
+              " that will be output to for this\n",
               "color attachment."
             ]
           }
@@ -15411,7 +15445,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the depth slice index of"
+              "Indicates the depth slice index of "
             ]
           },
           {
@@ -15422,6 +15456,12 @@
             "path": [
               "GPUTextureViewDimension",
               "\"3d\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " "
             ]
           },
           {
@@ -15437,6 +15477,7 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "that will be output to for this color attachment."
             ]
           }
@@ -15460,7 +15501,7 @@
           {
             "tag": "text",
             "items": [
-              "A"
+              "A "
             ]
           },
           {
@@ -15475,7 +15516,7 @@
           {
             "tag": "text",
             "items": [
-              "describing the texture"
+              " describing the texture "
             ]
           },
           {
@@ -15489,8 +15530,8 @@
           {
             "tag": "text",
             "items": [
-              "that will receive the resolved\n",
-              "output for this color attachment if"
+              " that will receive the resolved\n",
+              "output for this color attachment if "
             ]
           },
           {
@@ -15506,7 +15547,7 @@
           {
             "tag": "text",
             "items": [
-              "is\n",
+              " is\n",
               "multisampled."
             ]
           }
@@ -15530,7 +15571,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the value to clear"
+              "Indicates the value to clear "
             ]
           },
           {
@@ -15546,8 +15587,8 @@
           {
             "tag": "text",
             "items": [
-              "to prior to executing the\n",
-              "render pass. If not"
+              " to prior to executing the\n",
+              "render pass. If not "
             ]
           },
           {
@@ -15563,7 +15604,7 @@
             "tag": "text",
             "items": [
               ", defaults to `{r: 0, g: 0, b: 0, a: 0}`. Ignored\n",
-              "if"
+              "if "
             ]
           },
           {
@@ -15579,7 +15620,7 @@
           {
             "tag": "text",
             "items": [
-              "is not"
+              " is not "
             ]
           },
           {
@@ -15596,7 +15637,7 @@
             "tag": "text",
             "items": [
               ".\n",
-              "The components of"
+              "The components of "
             ]
           },
           {
@@ -15612,8 +15653,8 @@
           {
             "tag": "text",
             "items": [
-              "are all double values.\n",
-              "They are converted"
+              " are all double values.\n",
+              "They are converted "
             ]
           },
           {
@@ -15624,7 +15665,7 @@
           {
             "tag": "text",
             "items": [
-              "matching the render attachment.\n",
+              " matching the render attachment.\n",
               "If conversion fails, a validation error is generated."
             ]
           }
@@ -15648,7 +15689,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the load operation to perform on"
+              "Indicates the load operation to perform on "
             ]
           },
           {
@@ -15664,9 +15705,9 @@
           {
             "tag": "text",
             "items": [
-              "prior to\n",
+              " prior to\n",
               "executing the render pass.\n",
-              "Note: It is recommended to prefer clearing; see"
+              "Note: It is recommended to prefer clearing; see "
             ]
           },
           {
@@ -15682,7 +15723,7 @@
           {
             "tag": "text",
             "items": [
-              "for details."
+              " for details."
             ]
           }
         ],
@@ -15705,7 +15746,7 @@
           {
             "tag": "text",
             "items": [
-              "The store operation to perform on"
+              "The store operation to perform on "
             ]
           },
           {
@@ -15721,6 +15762,7 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "after executing the render pass."
             ]
           }
@@ -15753,7 +15795,7 @@
           {
             "tag": "text",
             "items": [
-              "A"
+              "A "
             ]
           },
           {
@@ -15768,7 +15810,7 @@
           {
             "tag": "text",
             "items": [
-              "describing the texture"
+              " describing the texture "
             ]
           },
           {
@@ -15782,7 +15824,7 @@
           {
             "tag": "text",
             "items": [
-              "that will be output to\n",
+              " that will be output to\n",
               "and read from for this depth/stencil attachment."
             ]
           }
@@ -15806,7 +15848,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the value to clear"
+              "Indicates the value to clear "
             ]
           },
           {
@@ -15823,7 +15865,7 @@
             "tag": "text",
             "items": [
               "'s depth component\n",
-              "to prior to executing the render pass. Ignored if"
+              "to prior to executing the render pass. Ignored if "
             ]
           },
           {
@@ -15839,7 +15881,8 @@
           {
             "tag": "text",
             "items": [
-              "is not"
+              "\n",
+              "is not "
             ]
           },
           {
@@ -15855,7 +15898,7 @@
           {
             "tag": "text",
             "items": [
-              ". Must be between 0.0 and 1.0, inclusive."
+              ". Must be between 0.0 and 1.0, inclusive.\n"
             ]
           },
           {
@@ -15864,7 +15907,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "POSTV1(unrestricted-depth): unless unrestricted depth is enabled"
+                  " POSTV1(unrestricted-depth): unless unrestricted depth is enabled "
                 ]
               }
             ]
@@ -15889,7 +15932,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the load operation to perform on"
+              "Indicates the load operation to perform on "
             ]
           },
           {
@@ -15907,7 +15950,7 @@
             "items": [
               "'s\n",
               "depth component prior to executing the render pass.\n",
-              "Note: It is recommended to prefer clearing; see"
+              "Note: It is recommended to prefer clearing; see "
             ]
           },
           {
@@ -15923,7 +15966,7 @@
           {
             "tag": "text",
             "items": [
-              "for details."
+              " for details."
             ]
           }
         ],
@@ -15946,7 +15989,7 @@
           {
             "tag": "text",
             "items": [
-              "The store operation to perform on"
+              "The store operation to perform on "
             ]
           },
           {
@@ -15989,7 +16032,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates that the depth component of"
+              "Indicates that the depth component of "
             ]
           },
           {
@@ -16005,6 +16048,7 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "is read only."
             ]
           }
@@ -16031,7 +16075,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the value to clear"
+              "Indicates the value to clear "
             ]
           },
           {
@@ -16048,7 +16092,7 @@
             "tag": "text",
             "items": [
               "'s stencil component\n",
-              "to prior to executing the render pass. Ignored if"
+              "to prior to executing the render pass. Ignored if "
             ]
           },
           {
@@ -16064,7 +16108,8 @@
           {
             "tag": "text",
             "items": [
-              "is not"
+              "\n",
+              "is not "
             ]
           },
           {
@@ -16082,7 +16127,7 @@
             "items": [
               ".\n",
               "The value will be converted to the type of the stencil aspect of |view| by taking the same\n",
-              "number of LSBs as the number of bits in the stencil aspect of one"
+              "number of LSBs as the number of bits in the stencil aspect of one "
             ]
           },
           {
@@ -16096,7 +16141,7 @@
           {
             "tag": "text",
             "items": [
-              "of |view|."
+              " of |view|."
             ]
           }
         ],
@@ -16119,7 +16164,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates the load operation to perform on"
+              "Indicates the load operation to perform on "
             ]
           },
           {
@@ -16137,7 +16182,7 @@
             "items": [
               "'s\n",
               "stencil component prior to executing the render pass.\n",
-              "Note: It is recommended to prefer clearing; see"
+              "Note: It is recommended to prefer clearing; see "
             ]
           },
           {
@@ -16153,7 +16198,7 @@
           {
             "tag": "text",
             "items": [
-              "for details."
+              " for details."
             ]
           }
         ],
@@ -16176,7 +16221,7 @@
           {
             "tag": "text",
             "items": [
-              "The store operation to perform on"
+              "The store operation to perform on "
             ]
           },
           {
@@ -16219,7 +16264,7 @@
           {
             "tag": "text",
             "items": [
-              "Indicates that the stencil component of"
+              "Indicates that the stencil component of "
             ]
           },
           {
@@ -16235,6 +16280,7 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "is read only."
             ]
           }
@@ -16306,7 +16352,7 @@
           {
             "tag": "text",
             "items": [
-              "A list of the"
+              "A list of the "
             ]
           },
           {
@@ -16344,7 +16390,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -16359,7 +16405,7 @@
           {
             "tag": "text",
             "items": [
-              "of the depth/stencil attachment for this pass or bundle."
+              " of the depth/stencil attachment for this pass or bundle."
             ]
           }
         ],
@@ -16434,7 +16480,7 @@
           {
             "tag": "text",
             "items": [
-              "Sets the current"
+              "Sets the current "
             ]
           },
           {
@@ -16602,7 +16648,6 @@
                     "tag": "text",
                     "items": [
                       "Size in bytes of the index data in |buffer|.\n",
-                      "",
                       "Defaults to the size of the buffer minus the offset."
                     ]
                   }
@@ -16744,7 +16789,6 @@
                     "tag": "text",
                     "items": [
                       "Size in bytes of the vertex data in |buffer|.\n",
-                      "",
                       "Defaults to the size of the buffer minus the offset."
                     ]
                   }
@@ -16847,7 +16891,7 @@
             "tag": "text",
             "items": [
               "Draws primitives.\n",
-              "See"
+              "See "
             ]
           },
           {
@@ -16861,7 +16905,7 @@
           {
             "tag": "text",
             "items": [
-              "for the detailed specification."
+              " for the detailed specification."
             ]
           },
           {
@@ -17262,7 +17306,7 @@
           {
             "tag": "text",
             "items": [
-              "If `true`, indicates that the render bundle does not modify the depth component of the"
+              "If `true`, indicates that the render bundle does not modify the depth component of the\n"
             ]
           },
           {
@@ -17277,9 +17321,9 @@
           {
             "tag": "text",
             "items": [
-              "of any render pass the render bundle is executed\n",
+              " of any render pass the render bundle is executed\n",
               "in.\n",
-              "See"
+              "See "
             ]
           },
           {
@@ -17319,7 +17363,7 @@
           {
             "tag": "text",
             "items": [
-              "If `true`, indicates that the render bundle does not modify the stencil component of the"
+              "If `true`, indicates that the render bundle does not modify the stencil component of the\n"
             ]
           },
           {
@@ -17334,9 +17378,9 @@
           {
             "tag": "text",
             "items": [
-              "of any render pass the render bundle is executed\n",
+              " of any render pass the render bundle is executed\n",
               "in.\n",
-              "See"
+              "See "
             ]
           },
           {
@@ -17548,7 +17592,7 @@
           {
             "tag": "text",
             "items": [
-              "Issues a write operation of the provided data into a"
+              "Issues a write operation of the provided data into a "
             ]
           },
           {
@@ -17609,7 +17653,6 @@
                     "tag": "text",
                     "items": [
                       "Offset in into |data| to begin writing from. Given in elements if\n",
-                      "",
                       "|data| is a `TypedArray` and bytes otherwise."
                     ]
                   }
@@ -17622,7 +17665,6 @@
                     "tag": "text",
                     "items": [
                       "Size of content to write from |data| to |buffer|. Given in elements if\n",
-                      "",
                       "|data| is a `TypedArray` and bytes otherwise."
                     ]
                   }
@@ -17715,7 +17757,7 @@
           {
             "tag": "text",
             "items": [
-              "Issues a write operation of the provided data into a"
+              "Issues a write operation of the provided data into a "
             ]
           },
           {
@@ -17742,7 +17784,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "The"
+                      "The "
                     ]
                   },
                   {
@@ -17756,7 +17798,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "and origin to write to."
+                      " and origin to write to."
                     ]
                   }
                 ]
@@ -17867,7 +17909,7 @@
             "items": [
               "Issues a copy operation of the contents of a platform image/canvas\n",
               "into the destination texture.\n",
-              "This operation performs"
+              "This operation performs "
             ]
           },
           {
@@ -17881,8 +17923,8 @@
           {
             "tag": "text",
             "items": [
-              "into the destination\n",
-              "encoding according to the parameters of"
+              " into the destination\n",
+              "encoding according to the parameters of "
             ]
           },
           {
@@ -17901,7 +17943,7 @@
               "Copying into a `-srgb` texture results in the same texture bytes, not the same decoded\n",
               "values, as copying into the corresponding non-`-srgb` format.\n",
               "Thus, after a copy operation, sampling the destination texture has\n",
-              "different results depending on whether its format is `-srgb`, all else unchanged."
+              "different results depending on whether its format is `-srgb`, all else unchanged.\n"
             ]
           },
           {
@@ -17910,7 +17952,7 @@
               {
                 "tag": "text",
                 "items": [
-                  "POSTV1(srgb-linear): If added, explain here how it interacts."
+                  " POSTV1(srgb-linear): If added, explain here how it interacts. "
                 ]
               }
             ]
@@ -17935,7 +17977,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "The"
+                      "The "
                     ]
                   },
                   {
@@ -17949,7 +17991,7 @@
                   {
                     "tag": "text",
                     "items": [
-                      "and origin to write to, and its encoding metadata."
+                      " and origin to write to, and its encoding metadata."
                     ]
                   }
                 ]
@@ -18019,7 +18061,7 @@
           {
             "tag": "text",
             "items": [
-              "Destroys the"
+              "Destroys the "
             ]
           },
           {
@@ -18119,7 +18161,7 @@
           {
             "tag": "text",
             "items": [
-              "The type of queries managed by"
+              "The type of queries managed by "
             ]
           },
           {
@@ -18157,7 +18199,7 @@
           {
             "tag": "text",
             "items": [
-              "The number of queries managed by"
+              "The number of queries managed by "
             ]
           },
           {
@@ -18269,7 +18311,7 @@
             "tag": "text",
             "items": [
               "Configures the context for this canvas.\n",
-              "This clears the drawing buffer to transparent black (in"
+              "This clears the drawing buffer to transparent black (in "
             ]
           },
           {
@@ -18342,7 +18384,7 @@
           {
             "tag": "text",
             "items": [
-              "Get the"
+              "Get the "
             ]
           },
           {
@@ -18357,7 +18399,7 @@
           {
             "tag": "text",
             "items": [
-              "that will be composited to the document by the"
+              " that will be composited to the document by the "
             ]
           },
           {
@@ -18372,8 +18414,9 @@
           {
             "tag": "text",
             "items": [
+              "\n",
               "next.\n",
-              "Note: The same"
+              "Note: The same "
             ]
           },
           {
@@ -18388,8 +18431,8 @@
           {
             "tag": "text",
             "items": [
-              "object will be returned by every\n",
-              "call to"
+              " object will be returned by every\n",
+              "call to "
             ]
           },
           {
@@ -18405,7 +18448,7 @@
           {
             "tag": "text",
             "items": [
-              "until \""
+              " until \""
             ]
           },
           {
@@ -18417,7 +18460,7 @@
             "tag": "text",
             "items": [
               "\"\n",
-              "runs, even if that"
+              "runs, even if that "
             ]
           },
           {
@@ -18432,7 +18475,7 @@
           {
             "tag": "text",
             "items": [
-              "is destroyed, failed validation, or failed to allocate."
+              " is destroyed, failed validation, or failed to allocate."
             ]
           }
         ],
@@ -18544,7 +18587,7 @@
           {
             "tag": "text",
             "items": [
-              "The"
+              "The "
             ]
           },
           {
@@ -18559,7 +18602,7 @@
           {
             "tag": "text",
             "items": [
-              "that textures returned by"
+              " that textures returned by "
             ]
           },
           {
@@ -18575,7 +18618,7 @@
           {
             "tag": "text",
             "items": [
-              "will be\n",
+              " will be\n",
               "compatible with."
             ]
           }
@@ -18599,7 +18642,7 @@
           {
             "tag": "text",
             "items": [
-              "The format that textures returned by"
+              "The format that textures returned by "
             ]
           },
           {
@@ -18615,8 +18658,8 @@
           {
             "tag": "text",
             "items": [
-              "will have.\n",
-              "Must be one of the"
+              " will have.\n",
+              "Must be one of the "
             ]
           },
           {
@@ -18656,7 +18699,7 @@
           {
             "tag": "text",
             "items": [
-              "The usage that textures returned by"
+              "The usage that textures returned by "
             ]
           },
           {
@@ -18672,7 +18715,7 @@
           {
             "tag": "text",
             "items": [
-              "will have."
+              " will have.\n"
             ]
           },
           {
@@ -18688,8 +18731,8 @@
           {
             "tag": "text",
             "items": [
-              "is the default, but is not automatically included\n",
-              "if the usage is explicitly set. Be sure to include"
+              " is the default, but is not automatically included\n",
+              "if the usage is explicitly set. Be sure to include "
             ]
           },
           {
@@ -18705,7 +18748,8 @@
           {
             "tag": "text",
             "items": [
-              "when setting a custom usage if you wish to use textures returned by"
+              "\n",
+              "when setting a custom usage if you wish to use textures returned by\n"
             ]
           },
           {
@@ -18721,7 +18765,7 @@
           {
             "tag": "text",
             "items": [
-              "as color targets for a render pass."
+              " as color targets for a render pass."
             ]
           }
         ],
@@ -18756,7 +18800,7 @@
           {
             "tag": "text",
             "items": [
-              "The formats that views created from textures returned by"
+              "The formats that views created from textures returned by\n"
             ]
           },
           {
@@ -18772,7 +18816,7 @@
           {
             "tag": "text",
             "items": [
-              "may use."
+              " may use."
             ]
           }
         ],
@@ -18798,7 +18842,7 @@
           {
             "tag": "text",
             "items": [
-              "The color space that values written into textures returned by"
+              "The color space that values written into textures returned by\n"
             ]
           },
           {
@@ -18814,7 +18858,7 @@
           {
             "tag": "text",
             "items": [
-              "should be displayed with."
+              " should be displayed with."
             ]
           }
         ],
@@ -18839,7 +18883,7 @@
           {
             "tag": "text",
             "items": [
-              "The tone mapping determines how the content of textures returned by"
+              "The tone mapping determines how the content of textures returned by\n"
             ]
           },
           {
@@ -18855,7 +18899,7 @@
           {
             "tag": "text",
             "items": [
-              "are to be displayed."
+              " are to be displayed."
             ]
           }
         ],
@@ -18881,7 +18925,7 @@
           {
             "tag": "text",
             "items": [
-              "Determines the effect that alpha values will have on the content of textures returned by"
+              "Determines the effect that alpha values will have on the content of textures returned by\n"
             ]
           },
           {
@@ -18897,7 +18941,7 @@
           {
             "tag": "text",
             "items": [
-              "when read, displayed, or used as an image source."
+              " when read, displayed, or used as an image source."
             ]
           }
         ],
@@ -19961,7 +20005,7 @@
             "tag": "text",
             "items": [
               "The depth of the extent or the number of array layers it contains.\n",
-              "If used with a"
+              "If used with a "
             ]
           },
           {
@@ -19976,7 +20020,7 @@
           {
             "tag": "text",
             "items": [
-              "with a"
+              " with a "
             ]
           },
           {
@@ -19991,7 +20035,7 @@
           {
             "tag": "text",
             "items": [
-              "of"
+              " of "
             ]
           },
           {
@@ -20007,7 +20051,8 @@
           {
             "tag": "text",
             "items": [
-              "defines the depth of the texture. If used with a"
+              "\n",
+              "defines the depth of the texture. If used with a "
             ]
           },
           {
@@ -20022,7 +20067,7 @@
           {
             "tag": "text",
             "items": [
-              "with a"
+              " with a "
             ]
           },
           {
@@ -20037,7 +20082,8 @@
           {
             "tag": "text",
             "items": [
-              "of"
+              "\n",
+              "of "
             ]
           },
           {
@@ -20053,7 +20099,7 @@
           {
             "tag": "text",
             "items": [
-              "defines the number of array layers in the texture."
+              " defines the number of array layers in the texture."
             ]
           }
         ],
