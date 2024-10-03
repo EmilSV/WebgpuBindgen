@@ -28,10 +28,14 @@ public static class AddHandlerMethods
                 string name = GetMethodName(typeNameWithoutHandle, methodsToAdd, method);
                 var parameter = method.Parameters.Skip(1).ToArray();
                 var returnType = method.ReturnType;
-                item.Methods.Add(new(PUBLIC, returnType, name, parameter)
+                CSMethod newMethod = new(PUBLIC, returnType, name, parameter)
                 {
                     Body = $"=> {method.GetFullName()}({string.Join(", ", ["this", .. parameter.Select(i => i.Name)])});",
-                });
+                };
+
+                newMethod.EnrichingDataStore.Set(new FromStaticFFIMethodData() { Method = method });
+
+                item.Methods.Add(newMethod);
             }
         }
 

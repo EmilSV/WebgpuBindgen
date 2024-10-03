@@ -163,11 +163,11 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
     {
         if (item.DisplayText != null)
         {
-            return $" <a href=\"{item.Url}\">{item.DisplayText}</a>";
+            return $" <seealso href=\"{item.Url}\">{item.DisplayText}</seealso>";
         }
         else
         {
-            return $" <a href=\"{item.Url}\"/>";
+            return $" <seealso href=\"{item.Url}\"/>";
         }
     }
 

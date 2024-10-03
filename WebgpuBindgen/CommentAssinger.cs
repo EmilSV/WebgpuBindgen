@@ -49,90 +49,121 @@ public class CommentAssigner(
 
         foreach (var operationMember in operationMembers)
         {
+            if (operationMember.Comment is null or [])
+            {
+                continue;
+            }
+
             var method = type.Methods.FirstOrDefault(i => Compare(i.Name!, operationMember.Name));
             if (method == null)
             {
                 continue;
             }
 
-            if (operationMember.Comment != null)
-            {
-                method.Comments = commentConvert.Convert(operationMember.Comment);
-            }
+            method.Comments = commentConvert.Convert(operationMember.Comment);
         }
 
         foreach (var fieldMember in fieldMembers)
         {
+            if (fieldMember.Comment is null or [])
+            {
+                continue;
+            }
+
             var field = type.Fields.FirstOrDefault(i => Compare(i.Name, fieldMember.Name));
             if (field == null)
             {
                 continue;
             }
 
-            if (fieldMember.Comment != null)
-            {
-                field.Comments = commentConvert.Convert(fieldMember.Comment);
-            }
+            field.Comments = commentConvert.Convert(fieldMember.Comment);
         }
 
         foreach (var attributeMember in attributeMembers)
         {
+            if (attributeMember.Comment is null or [])
+            {
+                continue;
+            }
+
             var field = type.Fields.FirstOrDefault(i => Compare(i.Name, attributeMember.Name));
             if (field == null)
             {
                 continue;
             }
 
-            if (attributeMember.Comment != null)
-            {
-                field.Comments = commentConvert.Convert(attributeMember.Comment);
-            }
+            field.Comments = commentConvert.Convert(attributeMember.Comment);
         }
 
     }
 
     void AssignCommentToStructMembers(CSStruct type, WebidlMemberBase[] specMembers)
     {
+        var operationMembers = specMembers.OfType<OperationMember>().ToList();
         var fieldMembers = specMembers.OfType<FieldMember>().ToList();
         var attributeMembers = specMembers.OfType<AttributeMember>().ToList();
 
+        foreach (var operationMember in operationMembers)
+        {
+            if (operationMember.Comment is null or [])
+            {
+                continue;
+            }
+
+            var method = type.Methods.FirstOrDefault(i => Compare(i.Name!, operationMember.Name));
+            if (method == null)
+            {
+                continue;
+            }
+
+            method.Comments = commentConvert.Convert(operationMember.Comment);
+
+            if (method.EnrichingDataStore.TryGetValue<FromStaticFFIMethodData>(out var data))
+            {
+                data.Method.Comments = commentConvert.Convert(operationMember.Comment);
+            }
+        }
+
         foreach (var fieldMember in fieldMembers)
         {
+            if (fieldMember.Comment is null or [])
+            {
+                continue;
+            }
+
             var field = type.Fields.FirstOrDefault(i => Compare(i.Name, fieldMember.Name));
             if (field == null)
             {
                 continue;
             }
 
-            if (fieldMember.Comment != null)
-            {
-                field.Comments = commentConvert.Convert(fieldMember.Comment);
-            }
+            field.Comments = commentConvert.Convert(fieldMember.Comment);
         }
 
         foreach (var attributeMember in attributeMembers)
         {
+            if (attributeMember.Comment is null or [])
+            {
+                continue;
+            }
+
             var field = type.Fields.FirstOrDefault(i => Compare(i.Name, attributeMember.Name));
             if (field == null)
             {
                 continue;
             }
 
-            if (attributeMember.Comment != null)
-            {
-                field.Comments = commentConvert.Convert(attributeMember.Comment);
-            }
+            field.Comments = commentConvert.Convert(attributeMember.Comment);
         }
     }
 
-    WebidlMemberBase[] GetMemberBases(RootWebidlTypeBase type) => type switch
+    static WebidlMemberBase[] GetMemberBases(RootWebidlTypeBase type) => type switch
     {
-        DictionaryWebidlType dictionary => dictionary.Members.ToArray(),
-        InterfaceMixinWebidlType interfaceMixin => interfaceMixin.Members.ToArray(),
-        InterfaceWebidlType interfaceMixin => interfaceMixin.Members.ToArray(),
-        NamespaceWebidlType namespaceWebidlType => namespaceWebidlType.Members.ToArray(),
-        EnumWebidlType enumType => [],
-        TypedefWebidlType typedefWebidlType => [],
+        DictionaryWebidlType dictionary => [.. dictionary.Members],
+        InterfaceMixinWebidlType interfaceMixin => [.. interfaceMixin.Members],
+        InterfaceWebidlType interfaceMixin => [.. interfaceMixin.Members],
+        NamespaceWebidlType namespaceWebidlType => [.. namespaceWebidlType.Members],
+        EnumWebidlType or TypedefWebidlType => [],
         _ => []
     };
 
