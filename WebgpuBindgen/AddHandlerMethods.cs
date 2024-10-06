@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using CapiGenerator.CSModel;
 using static CapiGenerator.CSModel.CSClassMemberModifierConsts;
 
@@ -5,6 +6,15 @@ namespace WebgpuBindgen;
 
 public static class AddHandlerMethods
 {
+    private readonly static IImmutableSet<string> BannedMethodsNames = [
+        "GetAddress",
+        "Equals",
+        "GetHashCode",
+        "ToString",
+        "Dispose",
+        "GetType"
+    ];
+
     public static Task AddMethods(List<CSStruct> structs, CSStaticClass staticClass)
     {
         foreach (var item in structs)
@@ -26,6 +36,13 @@ public static class AddHandlerMethods
             foreach (var method in methodsToAdd)
             {
                 string name = GetMethodName(typeNameWithoutHandle, methodsToAdd, method);
+
+                if (BannedMethodsNames.Contains(name))
+                {
+                    continue;
+                }
+
+
                 var parameter = method.Parameters.Skip(1).ToArray();
                 var returnType = method.ReturnType;
                 CSMethod newMethod = new(PUBLIC, returnType, name, parameter)

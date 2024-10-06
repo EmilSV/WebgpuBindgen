@@ -173,6 +173,7 @@ public static class StructFixer
                 Name = structType.Name.Replace("Impl", "Handle"),
                 IsPartial = true,
                 IsReadOnly = true,
+                IsUnsafe = true,
                 Namespace = "WebGpuSharp.FFI",
             };
 
@@ -415,9 +416,9 @@ public static class StructFixer
                     case CSAccessModifier.Public when !char.IsUpper(name[0]):
                         field.Name = name switch
                         {
-                            [] => name,
-                            [var first] => char.ToUpper(first).ToString(),
-                            [var first, .. var rest] => char.ToUpper(first) + rest
+                        [] => name,
+                        [var first] => char.ToUpper(first).ToString(),
+                        [var first, .. var rest] => char.ToUpper(first) + rest
                         };
                         break;
 
@@ -459,8 +460,8 @@ public static class StructFixer
             {
                 var name = field.Name switch
                 {
-                    ['_', ..] => field.Name[1..],
-                    [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
+                ['_', ..] => field.Name[1..],
+                [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
                     _ => field.Name,
                 };
 

@@ -13,6 +13,7 @@ namespace WebgpuBindgen.SpecDocRepresentation.Comments;
 [JsonDerivedType(typeof(CommentAbstractOpLinkElement), typeDiscriminator: "abstractOpLink")]
 [JsonDerivedType(typeof(CommentTextElement), typeDiscriminator: "text")]
 [JsonDerivedType(typeof(CommentDfnElement), typeDiscriminator: "dfn")]
+[JsonDerivedType(typeof(CommentValueElement), typeDiscriminator: "value")]
 public abstract class ChildCommentItem : CommentElement
 {
 

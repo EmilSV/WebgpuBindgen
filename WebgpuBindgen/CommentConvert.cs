@@ -1,3 +1,4 @@
+using CapiGenerator.CModel;
 using CapiGenerator.CSModel;
 using CapiGenerator.CSModel.Comments;
 using WebgpuBindgen.SpecDocRepresentation.Comments;
@@ -9,17 +10,17 @@ namespace WebgpuBindgen;
 
 public class CommentConvert(CsTypeLookup csTypeLookup)
 {
-    public CommentSummery Convert(CommentElement[] items)
+    public CommentSummery Convert(CommentElement[] items, BaseCSAstItem member)
     {
         var param = items.OfType<CommentParamElement>().ToList();
         var noParam = items.Where(i => !param.Contains(i)).ToArray();
 
         return new()
         {
-            SummaryText = string.Join("", noParam.Select(i => Convert(i))),
+            SummaryText = string.Join("", noParam.Select(i => Convert(i, member))),
             Params = param.SelectMany(i =>
             {
-                var values = Convert(i);
+                var values = Convert(i, member);
                 return values.Select(j => new CommentParameter()
                 {
                     Name = j.name,
@@ -30,24 +31,21 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
     }
 
 
-    string Convert(CommentElement item)
+    string Convert(CommentElement item, BaseCSAstItem member) => item switch
     {
-        return item switch
-        {
-            CommentTextElement text => Convert(text),
-            CommentSpecCommentElement specComment => Convert(specComment),
-            CommentTypeLinkElement typeLink => Convert(typeLink),
-            CommentDocLinkElement docLink => Convert(docLink),
-            CommentNoteElement note => Convert(note),
-            CommentAlgorithmElement algorithm => Convert(algorithm),
-            CommentExampleElement example => Convert(example),
-            CommentWebLinkElement webLink => Convert(webLink),
-            CommentAbstractOpLinkElement abstractOpLink => Convert(abstractOpLink),
-            CommentDfnElement dfn => Convert(dfn),
-            _ => "",
-        };
-    }
-
+        CommentTextElement text => Convert(text),
+        CommentSpecCommentElement specComment => Convert(specComment),
+        CommentTypeLinkElement typeLink => Convert(typeLink),
+        CommentDocLinkElement docLink => Convert(docLink),
+        CommentNoteElement note => Convert(note, member),
+        CommentAlgorithmElement algorithm => Convert(algorithm),
+        CommentExampleElement example => Convert(example),
+        CommentWebLinkElement webLink => Convert(webLink),
+        CommentAbstractOpLinkElement abstractOpLink => Convert(abstractOpLink),
+        CommentDfnElement dfn => Convert(dfn),
+        CommentValueElement value => Convert(value, member),
+        _ => "",
+    };
 
     string Convert(CommentDfnElement item)
     {
@@ -69,13 +67,13 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
         return string.Join("", item.Items);
     }
 
-    (string name, string value)[] Convert(CommentParamElement item)
+    (string name, string value)[] Convert(CommentParamElement item, BaseCSAstItem member)
     {
         var list = new List<(string name, string value)>();
         foreach (var param in item.Items)
         {
             string name = param.Name;
-            string value = string.Join("", param.Description.Select(i => Convert(i)));
+            string value = string.Join("", param.Description.Select(i => Convert(i, member)));
             list.Add((name, value));
         }
 
@@ -85,6 +83,25 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
     string Convert(CommentSpecCommentElement item)
     {
         return "";
+    }
+
+    static string Convert(CommentValueElement item, BaseCSAstItem member)
+    {
+        var text = item.Text;
+        if (member is CSMethod method)
+        {
+            var paramName = method.Parameters.FirstOrDefault(
+                i => i.Name.Equals(item.Text, StringComparison.CurrentCultureIgnoreCase)
+            )?.Name;
+            if (paramName == null)
+            {
+                return text;
+            }
+
+            return $"""<paramref name="{paramName}"/>""";
+        }
+
+        return text;
     }
 
     string Convert(CommentTypeLinkElement item)
@@ -138,9 +155,9 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
         return string.Join(".", item.Path);
     }
 
-    string Convert(CommentNoteElement item)
+    string Convert(CommentNoteElement item, BaseCSAstItem member)
     {
-        var text = string.Join("", item.Items.Select(i => Convert(i)));
+        var text = string.Join("", item.Items.Select(i => Convert(i, member)));
         return
         $"""
         <remarks>

@@ -60,7 +60,7 @@ public class CommentAssigner(
                 continue;
             }
 
-            method.Comments = commentConvert.Convert(operationMember.Comment);
+            method.Comments = commentConvert.Convert(operationMember.Comment, method);
         }
 
         foreach (var fieldMember in fieldMembers)
@@ -76,7 +76,7 @@ public class CommentAssigner(
                 continue;
             }
 
-            field.Comments = commentConvert.Convert(fieldMember.Comment);
+            field.Comments = commentConvert.Convert(fieldMember.Comment, field);
         }
 
         foreach (var attributeMember in attributeMembers)
@@ -92,7 +92,7 @@ public class CommentAssigner(
                 continue;
             }
 
-            field.Comments = commentConvert.Convert(attributeMember.Comment);
+            field.Comments = commentConvert.Convert(attributeMember.Comment, field);
         }
 
     }
@@ -116,11 +116,11 @@ public class CommentAssigner(
                 continue;
             }
 
-            method.Comments = commentConvert.Convert(operationMember.Comment);
+            method.Comments = commentConvert.Convert(operationMember.Comment, method);
 
             if (method.EnrichingDataStore.TryGetValue<FromStaticFFIMethodData>(out var data))
             {
-                data.Method.Comments = commentConvert.Convert(operationMember.Comment);
+                data.Method.Comments = commentConvert.Convert(operationMember.Comment, method);
             }
         }
 
@@ -137,7 +137,7 @@ public class CommentAssigner(
                 continue;
             }
 
-            field.Comments = commentConvert.Convert(fieldMember.Comment);
+            field.Comments = commentConvert.Convert(fieldMember.Comment, field);
         }
 
         foreach (var attributeMember in attributeMembers)
@@ -153,7 +153,7 @@ public class CommentAssigner(
                 continue;
             }
 
-            field.Comments = commentConvert.Convert(attributeMember.Comment);
+            field.Comments = commentConvert.Convert(attributeMember.Comment, field);
         }
     }
 

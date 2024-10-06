@@ -3449,7 +3449,27 @@
               {
                 "tag": "text",
                 "items": [
-                  "s |format| and |viewFormat| are "
+                  "s "
+                ]
+              },
+              {
+                "tag": "value",
+                "text": "format"
+              },
+              {
+                "tag": "text",
+                "items": [
+                  " and "
+                ]
+              },
+              {
+                "tag": "value",
+                "text": "viewFormat"
+              },
+              {
+                "tag": "text",
+                "items": [
+                  " are "
                 ]
               },
               {
@@ -3462,8 +3482,48 @@
                 "tag": "text",
                 "items": [
                   " if:\n",
-                  "- |format| equals |viewFormat|, or\n",
-                  "- |format| and |viewFormat| differ only in whether they are `srgb` formats (have the `-srgb` suffix).\n"
+                  "- "
+                ]
+              },
+              {
+                "tag": "value",
+                "text": "format"
+              },
+              {
+                "tag": "text",
+                "items": [
+                  " equals "
+                ]
+              },
+              {
+                "tag": "value",
+                "text": "viewFormat"
+              },
+              {
+                "tag": "text",
+                "items": [
+                  ", or\n",
+                  "- "
+                ]
+              },
+              {
+                "tag": "value",
+                "text": "format"
+              },
+              {
+                "tag": "text",
+                "items": [
+                  " and "
+                ]
+              },
+              {
+                "tag": "value",
+                "text": "viewFormat"
+              },
+              {
+                "tag": "text",
+                "items": [
+                  " differ only in whether they are `srgb` formats (have the `-srgb` suffix).\n"
                 ]
               }
             ]
@@ -12020,7 +12080,17 @@
           {
             "tag": "text",
             "items": [
-              "Begins encoding a render pass described by |descriptor|."
+              "Begins encoding a render pass described by "
+            ]
+          },
+          {
+            "tag": "value",
+            "text": "descriptor"
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
             ]
           },
           {
@@ -12272,7 +12342,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |source| to begin copying from."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "source"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to begin copying from."
                     ]
                   }
                 ]
@@ -12309,7 +12389,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |destination| to place the copied data."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "destination"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to place the copied data."
                     ]
                   }
                 ]
@@ -12452,7 +12542,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the source buffer."
+                      "Combined with "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ", defines the region of the source buffer."
                     ]
                   }
                 ]
@@ -12463,7 +12563,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the destination "
+                      "Combined with "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ", defines the region of the destination "
                     ]
                   },
                   {
@@ -12477,8 +12587,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      ".\n",
-                      "|copySize|:"
+                      ".\n"
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ":"
                     ]
                   }
                 ]
@@ -12611,7 +12730,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the source "
+                      "Combined with "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ", defines the region of the source "
                     ]
                   },
                   {
@@ -12636,8 +12765,27 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the destination buffer.\n",
-                      "|copySize|:"
+                      "Combined with "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ", defines the region of the destination buffer.\n"
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ":"
                     ]
                   }
                 ]
@@ -12770,7 +12918,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the source "
+                      "Combined with "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ", defines the region of the source "
                     ]
                   },
                   {
@@ -12795,7 +12953,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Combined with |copySize|, defines the region of the destination "
+                      "Combined with "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ", defines the region of the destination "
                     ]
                   },
                   {
@@ -12809,8 +12977,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      ".\n",
-                      "|copySize|:"
+                      ".\n"
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "copySize"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ":"
                     ]
                   }
                 ]
@@ -12957,7 +13134,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |buffer| where the sub-region to clear begins."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " where the sub-region to clear begins."
                     ]
                   }
                 ]
@@ -12968,7 +13155,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Size in bytes of the sub-region to clear. Defaults to the size of the buffer minus |offset|."
+                      "Size in bytes of the sub-region to clear. Defaults to the size of the buffer minus "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "offset"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -13942,7 +14139,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |indirectBuffer| where the dispatch data begins."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "indirectBuffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " where the dispatch data begins."
                     ]
                   }
                 ]
@@ -16126,7 +16333,17 @@
             "tag": "text",
             "items": [
               ".\n",
-              "The value will be converted to the type of the stencil aspect of |view| by taking the same\n",
+              "The value will be converted to the type of the stencil aspect of "
+            ]
+          },
+          {
+            "tag": "value",
+            "text": "view"
+          },
+          {
+            "tag": "text",
+            "items": [
+              " by taking the same\n",
               "number of LSBs as the number of bits in the stencil aspect of one "
             ]
           },
@@ -16141,7 +16358,17 @@
           {
             "tag": "text",
             "items": [
-              " of |view|."
+              " of "
+            ]
+          },
+          {
+            "tag": "value",
+            "text": "view"
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
             ]
           }
         ],
@@ -16625,7 +16852,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Format of the index data contained in |buffer|."
+                      "Format of the index data contained in "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -16636,7 +16873,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |buffer| where the index data begins. Defaults to `0`."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " where the index data begins. Defaults to `0`."
                     ]
                   }
                 ]
@@ -16647,7 +16894,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Size in bytes of the index data in |buffer|.\n",
+                      "Size in bytes of the index data in "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ".\n",
                       "Defaults to the size of the buffer minus the offset."
                     ]
                   }
@@ -16777,7 +17034,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |buffer| where the vertex data begins. Defaults to `0`."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " where the vertex data begins. Defaults to `0`."
                     ]
                   }
                 ]
@@ -16788,7 +17055,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Size in bytes of the vertex data in |buffer|.\n",
+                      "Size in bytes of the vertex data in "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ".\n",
                       "Defaults to the size of the buffer minus the offset."
                     ]
                   }
@@ -17630,7 +17907,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in bytes into |buffer| to begin writing at."
+                      "Offset in bytes into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to begin writing at."
                     ]
                   }
                 ]
@@ -17641,7 +17928,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Data to write into |buffer|."
+                      "Data to write into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -17652,8 +17949,27 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Offset in into |data| to begin writing from. Given in elements if\n",
-                      "|data| is a `TypedArray` and bytes otherwise."
+                      "Offset in into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "data"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to begin writing from. Given in elements if\n"
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "data"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " is a `TypedArray` and bytes otherwise."
                     ]
                   }
                 ]
@@ -17664,8 +17980,37 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Size of content to write from |data| to |buffer|. Given in elements if\n",
-                      "|data| is a `TypedArray` and bytes otherwise."
+                      "Size of content to write from "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "data"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "buffer"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      ". Given in elements if\n"
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "data"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " is a `TypedArray` and bytes otherwise."
                     ]
                   }
                 ]
@@ -17809,7 +18154,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Data to write into |destination|."
+                      "Data to write into "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "destination"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -17820,7 +18175,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Layout of the content in |data|."
+                      "Layout of the content in "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "data"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -17831,7 +18196,27 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Extents of the content to write from |data| to |destination|."
+                      "Extents of the content to write from "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "data"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "destination"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -17966,7 +18351,17 @@
                   {
                     "tag": "text",
                     "items": [
-                      "source image and origin to copy to |destination|."
+                      "source image and origin to copy to "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "destination"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]
@@ -18002,7 +18397,27 @@
                   {
                     "tag": "text",
                     "items": [
-                      "Extents of the content to write from |source| to |destination|."
+                      "Extents of the content to write from "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "source"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      " to "
+                    ]
+                  },
+                  {
+                    "tag": "value",
+                    "text": "destination"
+                  },
+                  {
+                    "tag": "text",
+                    "items": [
+                      "."
                     ]
                   }
                 ]

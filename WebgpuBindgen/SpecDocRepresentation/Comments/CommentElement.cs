@@ -14,6 +14,7 @@ namespace WebgpuBindgen.SpecDocRepresentation.Comments;
 [JsonDerivedType(typeof(CommentWebLinkElement), typeDiscriminator: "webLink")]
 [JsonDerivedType(typeof(CommentAbstractOpLinkElement), typeDiscriminator: "abstractOpLink")]
 [JsonDerivedType(typeof(CommentDfnElement), typeDiscriminator: "dfn")]
+[JsonDerivedType(typeof(CommentValueElement), typeDiscriminator: "value")]
 public abstract class CommentElement
 {
 }
