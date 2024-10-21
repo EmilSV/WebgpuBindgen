@@ -1,3 +1,5 @@
+using WebgpuBindgen.SpecDocRepresentation.Comments;
+
 namespace WebgpuBindgen.SpecDocRepresentation.Types;
 
 public class EnumWebidlType : RootWebidlTypeBase
@@ -6,6 +8,7 @@ public class EnumWebidlType : RootWebidlTypeBase
     {
         public required string Type { get; set; }
         public required string Value { get; set; }
+        public CommentElement[]? Comment { get; set; }
     }
 
     public required EnumValue[] Values { get; set; }

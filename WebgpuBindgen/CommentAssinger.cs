@@ -26,7 +26,7 @@ public class CommentAssigner(
                     AssignCommentToStructMembers(structType, members);
                     break;
                 case CSEnum enumType:
-                    AssignCommentToEnumMembers(enumType, members);
+                    AssignCommentToEnumMembers(enumType, type);
                     break;
                 case CSStaticClass staticClass:
                     AssignCommentToStaticClassMembers(staticClass, members);
@@ -35,9 +35,33 @@ public class CommentAssigner(
         }
     }
 
-    static void AssignCommentToEnumMembers(CSEnum type, WebidlMemberBase[] specMembers)
+    void AssignCommentToEnumMembers(CSEnum type, RootWebidlTypeBase specMembers)
     {
-        return; // TODO
+        if (specMembers is not EnumWebidlType webidlEnumType)
+        {
+            return;
+        }
+
+        var enumValues = webidlEnumType.Values.ToList();
+        foreach (var enumValue in enumValues)
+        {
+            if (enumValue.Comment is null or [])
+            {
+                continue;
+            }
+
+            var name = ToCsEnumName(enumValue.Value);
+            var field = type.Values.FirstOrDefault(i => Compare(i.Name, name));
+            if (field == null)
+            {
+                continue;
+            }
+
+            field.Comments = commentConvert.Convert(enumValue.Comment, field);
+        }
+
+
+        return;
     }
 
 
@@ -169,6 +193,9 @@ public class CommentAssigner(
 
     static bool Compare(string name, string otherName) =>
      name.Equals(otherName, StringComparison.CurrentCultureIgnoreCase);
+
+    static string ToCsEnumName(string name) =>
+        string.Join("", name.Split("-").Select(i => i.FirstCharToUpper()));
 
     static string ToWebgpuSharpName(string name)
     {

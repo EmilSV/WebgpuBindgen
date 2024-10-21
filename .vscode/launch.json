@@ -14,7 +14,7 @@
             "args": [
                 "${workspaceFolder}/webgpu.h",
                 "${workspaceFolder}/WebGpuSharp/src/generatedCode",
-                "${workspaceFolder}/index.json"
+                "${workspaceFolder}/webgpu_spec.json"
             ],
             "cwd": "${workspaceFolder}/WebgpuBindgen",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console

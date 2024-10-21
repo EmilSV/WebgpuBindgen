@@ -244,7 +244,7 @@ public static class StructFixer
                 },
                 new(PUBLIC | OVERRIDE, intType, "GetHashCode", CSParameter.EmptyParameters)
                 {
-                    Body = "=> _ptr.GetHashCode();",
+                    Body = "return _ptr.GetHashCode();",
                 },
             ]);
 

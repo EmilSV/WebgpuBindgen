@@ -411,21 +411,6 @@
       },
       {
         "type": "attribute",
-        "name": "maxInterStageShaderComponents",
-        "idlType": {
-          "type": "attribute-type",
-          "extAttrs": [],
-          "generic": "",
-          "nullable": false,
-          "union": false,
-          "idlType": "unsigned long"
-        },
-        "extAttrs": [],
-        "special": "",
-        "readonly": true
-      },
-      {
-        "type": "attribute",
         "name": "maxInterStageShaderVariables",
         "idlType": {
           "type": "attribute-type",
@@ -1079,6 +1064,21 @@
     "members": [
       {
         "type": "field",
+        "name": "featureLevel",
+        "extAttrs": [],
+        "idlType": {
+          "type": "dictionary-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "DOMString"
+        },
+        "default": null,
+        "required": false
+      },
+      {
+        "type": "field",
         "name": "powerPreference",
         "extAttrs": [],
         "idlType": {
@@ -1120,10 +1120,52 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Indicates a request to prioritize power savings over performance.\n",
+              "Note:\n",
+              "Generally, content should use this if it is unlikely to be constrained by drawing\n",
+              "performance; for example, if it renders only one frame per second, draws only relatively\n",
+              "simple geometry with simple shaders, or uses a small HTML canvas element.\n",
+              "Developers are encouraged to use this value if their content allows, since it may\n",
+              "significantly improve battery life on portable devices."
+            ]
+          }
+        ],
         "value": "low-power"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Indicates a request to prioritize performance over power consumption.\n",
+              "Note:\n",
+              "By choosing this value, developers should be aware that, for "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "devices"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " created on the\n",
+              "resulting adapter, user agents are more likely to force device loss, in order to save\n",
+              "power by switching to a lower-power adapter.\n",
+              "Developers are encouraged to only specify this value if they believe it is absolutely\n",
+              "necessary, since it may significantly decrease battery life on portable devices."
+            ]
+          }
+        ],
         "value": "high-performance"
       }
     ],
@@ -1449,8 +1491,25 @@
               "extAttrs": [],
               "generic": "",
               "nullable": false,
-              "union": false,
-              "idlType": "GPUSize64"
+              "union": true,
+              "idlType": [
+                {
+                  "type": "dictionary-type",
+                  "extAttrs": [],
+                  "generic": "",
+                  "nullable": false,
+                  "union": false,
+                  "idlType": "GPUSize64"
+                },
+                {
+                  "type": "dictionary-type",
+                  "extAttrs": [],
+                  "generic": "",
+                  "nullable": false,
+                  "union": false,
+                  "idlType": "undefined"
+                }
+              ]
             }
           ]
         },
@@ -1477,7 +1536,7 @@
             "items": [
               " that are required by the device request.\n",
               "The request will fail if the adapter cannot provide these limits.\n",
-              "Each key must be the name of a member of "
+              "Each key with a non-`undefined` value must be the name of a member of "
             ]
           },
           {
@@ -1601,6 +1660,10 @@
       },
       {
         "type": "enum-value",
+        "value": "texture-compression-astc-sliced-3d"
+      },
+      {
+        "type": "enum-value",
         "value": "timestamp-query"
       },
       {
@@ -1622,6 +1685,10 @@
       {
         "type": "enum-value",
         "value": "float32-filterable"
+      },
+      {
+        "type": "enum-value",
+        "value": "float32-blendable"
       },
       {
         "type": "enum-value",
@@ -2312,14 +2379,87 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The buffer is not mapped for use by `this`."
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "function",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUBuffer",
+              "getMappedRange()"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "unmapped"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A mapping of the buffer has been requested, but is pending.\n",
+              "It may succeed, or fail validation in "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "function",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUBuffer",
+              "mapAsync()"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "pending"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The buffer is mapped and `this`."
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "function",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUBuffer",
+              "getMappedRange()"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " may be used."
+            ]
+          }
+        ],
         "value": "mapped"
       }
     ],
@@ -3541,14 +3681,102 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Specifies a texture that has one dimension, width. "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTextureDimension",
+              "\"1d\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " textures\n",
+              "cannot have mipmaps, be multisampled, use compressed or depth/stencil formats, or be used as\n",
+              "a render target."
+            ]
+          }
+        ],
         "value": "1d"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Specifies a texture that has a width and height, and may have layers."
+            ]
+          }
+        ],
         "value": "2d"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Specifies a texture that has a width, height, and depth. "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTextureDimension",
+              "\"3d\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "\n",
+              "textures cannot be multisampled, and their format must support 3d textures\n",
+              "(all "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": "plain color formats",
+            "path": [
+              "#plain-color-formats"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " and some "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": "packed/compressed formats",
+            "path": [
+              "#packed-formats"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ")."
+            ]
+          }
+        ],
         "value": "3d"
       }
     ],
@@ -3808,6 +4036,130 @@
       },
       {
         "type": "field",
+        "name": "usage",
+        "extAttrs": [],
+        "idlType": {
+          "type": "dictionary-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "GPUTextureUsageFlags"
+        },
+        "default": {
+          "type": "number",
+          "value": "0"
+        },
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The allowed "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": "usage(s)",
+            "path": [
+              "GPUTextureUsage"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " for the texture view. Must be a subset of the\n"
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTexture",
+              "usage"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " flags of the texture. If 0, defaults to the full set of\n"
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTexture",
+              "usage"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " flags of the texture.\n",
+              "Note: If the view's "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTextureViewDescriptor",
+              "format"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " doesn't support all of the\n",
+              "texture's "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTextureDescriptor",
+              "usage"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "s, the default will fail,\n",
+              "and the view's "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTextureViewDescriptor",
+              "usage"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " must be specified explicitly."
+            ]
+          }
+        ],
+        "required": false
+      },
+      {
+        "type": "field",
         "name": "aspect",
         "extAttrs": [],
         "idlType": {
@@ -3989,26 +4341,161 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The texture is viewed as a 1-dimensional image.\n",
+              "Corresponding WGSL types:\n",
+              "- `texture_1d`\n",
+              "- `texture_storage_1d`"
+            ]
+          }
+        ],
         "value": "1d"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The texture is viewed as a single 2-dimensional image.\n",
+              "Corresponding WGSL types:\n",
+              "- `texture_2d`\n",
+              "- `texture_storage_2d`\n",
+              "- `texture_multisampled_2d`\n",
+              "- `texture_depth_2d`\n",
+              "- `texture_depth_multisampled_2d`"
+            ]
+          }
+        ],
         "value": "2d"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The texture view is viewed as an array of 2-dimensional images.\n",
+              "Corresponding WGSL types:\n",
+              "- `texture_2d_array`\n",
+              "- `texture_storage_2d_array`\n",
+              "- `texture_depth_2d_array`"
+            ]
+          }
+        ],
         "value": "2d-array"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The texture is viewed as a cubemap.\n",
+              "The view has 6 array layers, each corresponding to a face of the cube in the order\n",
+              "`[+X, -X, +Y, -Y, +Z, -Z]` and the following orientations:\n",
+              "<figure>\n",
+              "<figcaption>\n",
+              "Cubemap faces.\n",
+              "The +U/+V axes indicate the individual faces' texture coordinates,\n",
+              "and thus the "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "image copy"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " memory layout of each face.\n",
+              "</figcaption>\n",
+              "<object type=\"image/svg+xml\" data=\"img/cubemap.svg\" width=350 height=260></object>\n",
+              "</figure>\n",
+              "Note: When viewed from the inside, this results in a left-handed coordinate system\n",
+              "where +X is right, +Y is up, and +Z is forward.\n",
+              "Sampling is done seamlessly across the faces of the cubemap.\n",
+              "Corresponding WGSL types:\n",
+              "- `texture_cube`\n",
+              "- `texture_depth_cube`"
+            ]
+          }
+        ],
         "value": "cube"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The texture is viewed as a packed array of "
+            ]
+          },
+          {
+            "tag": "value",
+            "text": "n"
+          },
+          {
+            "tag": "text",
+            "items": [
+              " cubemaps,\n",
+              "each with 6 array layers behaving like one "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUTextureViewDimension",
+              "\"cube\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " view,\n",
+              "for 6"
+            ]
+          },
+          {
+            "tag": "value",
+            "text": "n"
+          },
+          {
+            "tag": "text",
+            "items": [
+              " array layers in total.\n",
+              "Corresponding WGSL types:\n",
+              "- `texture_cube_array`\n",
+              "- `texture_depth_cube_array`"
+            ]
+          }
+        ],
         "value": "cube-array"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The texture is viewed as a 3-dimensional image.\n",
+              "Corresponding WGSL types:\n",
+              "- `texture_3d`\n",
+              "- `texture_storage_3d`"
+            ]
+          }
+        ],
         "value": "3d"
       }
     ],
@@ -4020,14 +4507,192 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "All available aspects of the texture format will be accessible to the texture view. For\n",
+              "color formats the color aspect will be accessible. For\n"
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "combined depth-stencil format"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "s both the depth and stencil aspects will be accessible.\n"
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "Depth-or-stencil format"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "s with a single aspect will only make that aspect accessible.\n",
+              "The "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "GPUTextureAspect",
+              "set of aspects"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": null,
+            "path": [
+              "=aspect",
+              "color=], [=aspect",
+              "depth=], [=aspect",
+              "stencil="
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "all"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Only the stencil aspect of a "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "depth-or-stencil format"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " format will be accessible to the\n",
+              "texture view.\n",
+              "The "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "GPUTextureAspect",
+              "set of aspects"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": null,
+            "path": [
+              "=aspect",
+              "stencil="
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "stencil-only"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Only the depth aspect of a "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "depth-or-stencil format"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " format will be accessible to the\n",
+              "texture view.\n",
+              "The "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "GPUTextureAspect",
+              "set of aspects"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": null,
+            "path": [
+              "=aspect",
+              "depth="
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "depth-only"
       }
     ],
@@ -4979,14 +5644,39 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Texture coordinates are clamped between 0.0 and 1.0, inclusive."
+            ]
+          }
+        ],
         "value": "clamp-to-edge"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Texture coordinates wrap to the other side of the texture."
+            ]
+          }
+        ],
         "value": "repeat"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Texture coordinates wrap to the other side of the texture, but the texture is flipped\n",
+              "when the integer part of the coordinate is odd."
+            ]
+          }
+        ],
         "value": "mirror-repeat"
       }
     ],
@@ -4998,10 +5688,26 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Return the value of the texel nearest to the texture coordinates."
+            ]
+          }
+        ],
         "value": "nearest"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Select two texels in each dimension and return a linear interpolation between their values."
+            ]
+          }
+        ],
         "value": "linear"
       }
     ],
@@ -5028,34 +5734,98 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Comparison tests never pass."
+            ]
+          }
+        ],
         "value": "never"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A provided value passes the comparison test if it is less than the sampled value."
+            ]
+          }
+        ],
         "value": "less"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A provided value passes the comparison test if it is equal to the sampled value."
+            ]
+          }
+        ],
         "value": "equal"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A provided value passes the comparison test if it is less than or equal to the sampled value."
+            ]
+          }
+        ],
         "value": "less-equal"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A provided value passes the comparison test if it is greater than the sampled value."
+            ]
+          }
+        ],
         "value": "greater"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A provided value passes the comparison test if it is not equal to the sampled value."
+            ]
+          }
+        ],
         "value": "not-equal"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "A provided value passes the comparison test if it is greater than or equal to the sampled value."
+            ]
+          }
+        ],
         "value": "greater-equal"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Comparison tests always pass."
+            ]
+          }
+        ],
         "value": "always"
       }
     ],
@@ -7172,64 +7942,6 @@
       },
       {
         "type": "field",
-        "name": "sourceMap",
-        "extAttrs": [],
-        "idlType": {
-          "type": "dictionary-type",
-          "extAttrs": [],
-          "generic": "",
-          "nullable": false,
-          "union": false,
-          "idlType": "object"
-        },
-        "default": null,
-        "comment": [
-          {
-            "tag": "text",
-            "items": [
-              "If defined, **may** be interpreted in the "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "heading",
-            "displayText": null,
-            "path": [
-              "!SourceMap"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " v3 format.\n",
-              "If an implementation supports this option but is unable to process the provided value,\n",
-              "it should show a developer-visible warning but must not produce any application-observable\n",
-              "error.\n",
-              "Note:\n",
-              "Source map support is optional, but serves as a semi-standardized way to support dev-tool\n",
-              "integration such as source-language debugging.\n",
-              "WGSL names (identifiers) in source maps follow the rules defined in "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": null,
-            "path": [
-              "WGSL identifier\ncomparison"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "."
-            ]
-          }
-        ],
-        "required": false
-      },
-      {
-        "type": "field",
         "name": "compilationHints",
         "extAttrs": [],
         "idlType": {
@@ -8340,7 +9052,9 @@
             }
           ]
         },
-        "default": null,
+        "default": {
+          "type": "dictionary"
+        },
         "comment": [
           {
             "tag": "text",
@@ -9212,22 +9926,63 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Each vertex defines a point primitive."
+            ]
+          }
+        ],
         "value": "point-list"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Each consecutive pair of two vertices defines a line primitive."
+            ]
+          }
+        ],
         "value": "line-list"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Each vertex after the first defines a line primitive between it and the previous vertex."
+            ]
+          }
+        ],
         "value": "line-strip"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Each consecutive triplet of three vertices defines a triangle primitive."
+            ]
+          }
+        ],
         "value": "triangle-list"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Each vertex after the first two defines a triangle primitive between it and the previous\n",
+              "two vertices."
+            ]
+          }
+        ],
         "value": "triangle-strip"
       }
     ],
@@ -9239,10 +9994,56 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Polygons with vertices whose framebuffer coordinates are given in counter-clockwise order\n",
+              "are considered "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "front-facing"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "ccw"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Polygons with vertices whose framebuffer coordinates are given in clockwise order are\n",
+              "considered "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "front-facing"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "cw"
       }
     ],
@@ -9254,14 +10055,54 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "No polygons are discarded."
+            ]
+          }
+        ],
         "value": "none"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "Front-facing"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " polygons are discarded."
+            ]
+          }
+        ],
         "value": "front"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "Back-facing"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " polygons are discarded."
+            ]
+          }
+        ],
         "value": "back"
       }
     ],
@@ -10493,7 +11334,22 @@
           {
             "tag": "text",
             "items": [
-              " used when testing fragments against\n"
+              " used when testing the {{RenderState/"
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": null,
+            "path": [
+              "stencilReference"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "}} value\n",
+              "against the fragment's "
             ]
           },
           {
@@ -10696,34 +11552,163 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Keep the current stencil value."
+            ]
+          }
+        ],
         "value": "keep"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Set the stencil value to `0`."
+            ]
+          }
+        ],
         "value": "zero"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Set the stencil value to {{RenderState/"
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": null,
+            "path": [
+              "stencilReference"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "}}."
+            ]
+          }
+        ],
         "value": "replace"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Bitwise-invert the current stencil value."
+            ]
+          }
+        ],
         "value": "invert"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Increments the current stencil value, clamping to the maximum representable value of the\n"
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPURenderPassDescriptor",
+              "depthStencilAttachment"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "'s stencil aspect."
+            ]
+          }
+        ],
         "value": "increment-clamp"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Decrement the current stencil value, clamping to `0`."
+            ]
+          }
+        ],
         "value": "decrement-clamp"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Increments the current stencil value, wrapping to zero if the value exceeds the maximum\n",
+              "representable value of the "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPURenderPassDescriptor",
+              "depthStencilAttachment"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "'s stencil\n",
+              "aspect."
+            ]
+          }
+        ],
         "value": "increment-wrap"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Decrement the current stencil value, wrapping to the maximum representable value of the\n"
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPURenderPassDescriptor",
+              "depthStencilAttachment"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "'s stencil aspect if the value goes below\n",
+              "`0`."
+            ]
+          }
+        ],
         "value": "decrement-wrap"
       }
     ],
@@ -10881,10 +11866,59 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The address is advanced by "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUVertexBufferLayout",
+              "arrayStride"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " for each vertex,\n",
+              "and reset between instances."
+            ]
+          }
+        ],
         "value": "vertex"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "The address is advanced by "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUVertexBufferLayout",
+              "arrayStride"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " for each instance."
+            ]
+          }
+        ],
         "value": "instance"
       }
     ],
@@ -16524,10 +17558,80 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Loads the existing value for this attachment into the render pass."
+            ]
+          }
+        ],
         "value": "load"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Loads a clear value for this attachment into the render pass.\n",
+              "Note:\n",
+              "On some GPU hardware (primarily mobile), "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPULoadOp",
+              "\"clear\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is significantly cheaper\n",
+              "because it avoids loading data from main memory into tile-local memory.\n",
+              "On other GPU hardware, there isn't a significant difference. As a result, it is\n",
+              "recommended to use "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPULoadOp",
+              "\"clear\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " rather than "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPULoadOp",
+              "\"load\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " in cases where the\n",
+              "initial value doesn't matter (e.g. the render target will be cleared using a skybox)."
+            ]
+          }
+        ],
         "value": "clear"
       }
     ],
@@ -16539,10 +17643,59 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Stores the resulting value of the render pass for this attachment."
+            ]
+          }
+        ],
         "value": "store"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Discards the resulting value of the render pass for this attachment.\n",
+              "Note: Discarded attachments\n",
+              "behave as if they are cleared to zero, but implementations are not required to perform a\n",
+              "clear at the end of the render pass. Implementations which do not explicitly clear discarded\n",
+              "attachments at the end of a pass must lazily clear them prior to the reading the attachment\n",
+              "contents, which occurs via sampling, copies, attaching to a later render pass with\n"
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPULoadOp",
+              "\"load\""
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ", displaying or reading back the canvas\n",
+              "("
+            ]
+          },
+          {
+            "tag": "abstractOpLink",
+            "text": "get a copy of the image contents of a context",
+            "displayText": null
+          },
+          {
+            "tag": "text",
+            "items": [
+              "), etc."
+            ]
+          }
+        ],
         "value": "discard"
       }
     ],
@@ -18784,6 +19937,29 @@
       },
       {
         "type": "operation",
+        "name": "getConfiguration",
+        "idlType": {
+          "type": "return-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": true,
+          "union": false,
+          "idlType": "GPUCanvasConfiguration"
+        },
+        "arguments": [],
+        "extAttrs": [],
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Returns the context configuration."
+            ]
+          }
+        ],
+        "special": ""
+      },
+      {
+        "type": "operation",
         "name": "getCurrentTexture",
         "idlType": {
           "type": "return-type",
@@ -18929,10 +20105,89 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Read RGB as opaque and ignore alpha values.\n",
+              "If the content is not already opaque, the alpha channel is cleared to 1.0\n",
+              "in \""
+            ]
+          },
+          {
+            "tag": "abstractOpLink",
+            "text": "get a copy of the image contents of a context",
+            "displayText": null
+          },
+          {
+            "tag": "text",
+            "items": [
+              "\"."
+            ]
+          }
+        ],
         "value": "opaque"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Read RGBA as premultiplied: color values are premultiplied by their alpha value.\n",
+              "100% red at 50% alpha is `[0.5, 0, 0, 0.5]`.\n",
+              "If the canvas texture contains "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "out-of-gamut premultiplied RGBA values"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " at the time the\n",
+              "canvas contents are read, the behavior depends on whether the canvas is:\n",
+              "<dl class=switch>\n",
+              ": "
+            ]
+          },
+          {
+            "tag": "abstractOpLink",
+            "text": "get a copy of the image contents of a context",
+            "displayText": "used as an image source"
+          },
+          {
+            "tag": "text",
+            "items": [
+              "\n",
+              "Values are preserved, as described in "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "heading",
+            "displayText": "color space conversion",
+            "path": [
+              "#color-space-conversions"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ".\n",
+              ": displayed to the screen\n",
+              "Compositing results are undefined.\n",
+              "Note:\n",
+              "This is true even if color space conversion would produce in-gamut values before\n",
+              "compositing, because the intermediate format for compositing is not specified."
+            ]
+          }
+        ],
         "value": "premultiplied"
       }
     ],
@@ -18944,10 +20199,76 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Color values within the standard dynamic range of the screen are unchanged, and\n",
+              "all other color values are projected to the standard dynamic range of the screen.\n",
+              "Note:\n",
+              "This projection is often accomplished by clamping color values in the color space\n",
+              "of the screen to the `[0, 1]` interval.\n"
+            ]
+          },
+          {
+            "tag": "text-example",
+            "items": [
+              {
+                "tag": "text",
+                "items": [
+                  "\n",
+                  "For example, suppose that the value `(1.035, -0.175, -0.140)` is written to an\n",
+                  "`'srgb'` canvas.\n",
+                  "If this is presented to an sRGB screen, then this will be converted to sRGB\n",
+                  "(which is a no-op, because the canvas is sRGB), then projected into the display's space.\n",
+                  "Using component-wise clamping, this results in the sRGB value `(1.0, 0.0, 0.0)`.\n",
+                  "If this is presented to a Display P3 screen, then this will be converted to\n",
+                  "the value `(0.948, 0.106, 0.01)` in the Display P3 color space, and no\n",
+                  "clamping will be needed.\n"
+                ]
+              }
+            ]
+          }
+        ],
         "value": "standard"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Color values in the extended dynamic range of the screen are unchanged, and all\n",
+              "other color values are projected to the extended dynamic range of the screen.\n",
+              "Note:\n",
+              "This projection is often accomplished by clamping color values in the color space of\n",
+              "the screen to the interval of values that the screen is capable of displaying,\n",
+              "which may include values greater than `1`.\n"
+            ]
+          },
+          {
+            "tag": "text-example",
+            "items": [
+              {
+                "tag": "text",
+                "items": [
+                  "\n",
+                  "For example, suppose that the value `(2.5, -0.15, -0.15)` is written to an\n",
+                  "`'srgb'` canvas.\n",
+                  "If this is presented to an sRGB screen that is capable of displaying values\n",
+                  "in the `[0, 4]` interval in sRGB space, then this will be converted to sRGB\n",
+                  "(which is a no-op, because the canvas is sRGB), then projected into the display's space.\n",
+                  "If using component-wise clamping, this results in the sRGB value `(2.5, 0.0, 0.0)`.\n",
+                  "If this is presented to a Display P3 screen that is capable of displaying\n",
+                  "values in the `[0, 2]` interval in Display P3 space, then this will be\n",
+                  "converted to the value `(2.3, 0.545, 0.386)` in the Display P3 color space,\n",
+                  "then projected into the display's space.\n",
+                  "If using component-wise clamping, this results in the Display P3 value `(2.0, 0.545, 0.386)`.\n"
+                ]
+              }
+            ]
+          }
+        ],
         "value": "extended"
       }
     ],
@@ -19658,14 +20979,83 @@
     "values": [
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Indicates that the error scope will catch a "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUValidationError"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "validation"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Indicates that the error scope will catch a "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUOutOfMemoryError"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "out-of-memory"
       },
       {
         "type": "enum-value",
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Indicates that the error scope will catch a "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUInternalError"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
         "value": "internal"
       }
     ],

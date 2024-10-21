@@ -11,8 +11,11 @@ public static class StaticClassFixer
             var method = item.Methods.First(i => i.Name?.EndsWith("GetProcAddress") ?? false);
             item.Methods.Remove(method);
 
-            var method2 = item.Methods.First(i => i.Name?.EndsWith("GetProcAddress2") ?? false);
-            item.Methods.Remove(method2);
+            var method2 = item.Methods.FirstOrDefault(i => i.Name?.EndsWith("GetProcAddress2") ?? false);
+            if(method2 != null)
+            {
+                item.Methods.Remove(method2);
+            }
 
             var field = item.Fields.First(i => i.Name?.EndsWith("SKIP_PROCS") ?? false);
             item.Fields.Remove(field);
