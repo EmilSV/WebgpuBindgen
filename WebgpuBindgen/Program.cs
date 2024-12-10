@@ -149,8 +149,8 @@ if (specDocLookup != null)
 {
     await DefaultFixer.FixDefaults(structs, specDocLookup);
 }
-var structWriter = new CSStructWriter();
-var enumWriter = new CSEnumWriter();
+await StringViewFixer.FixStringViewClassMembers(structs, staticClasses);
+await StructFixer.AddDefaultValueFromStructFelids(structs);
 
 if (specDocLookup != null)
 {
@@ -184,6 +184,7 @@ foreach (var csStruct in structs)
 
 foreach (var csEnum in enums)
 {
+    var enumWriter = new CSEnumWriter();
     await enumWriter.Write(csEnum, new CSWriteConfig
     {
         OutputDirectory = outputDirectory,
@@ -210,6 +211,7 @@ foreach (var csStaticClass in staticClasses)
 
 foreach (var csStruct in structs)
 {
+    var structWriter = new CSStructWriter();
     await structWriter.Write(csStruct, new CSWriteConfig
     {
         OutputDirectory = outputDirectory,

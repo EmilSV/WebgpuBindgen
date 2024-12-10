@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using CapiGenerator.CModel;
 using CapiGenerator.CSModel;
+using CapiGenerator.CSModel.ConstantToken;
 using static CapiGenerator.CSModel.CSClassMemberModifierConsts;
 
 namespace WebgpuBindgen;
@@ -183,7 +184,7 @@ public static class StructFixer
             var newStructTypeNullable = new CSTypeInstance(newStruct) { IsNullable = true };
             var boolType = new CSTypeInstance(CSPrimitiveType.Instances.Bool);
             var intType = new CSTypeInstance(CSPrimitiveType.Instances.Int);
-            var uIntPtrType = new CSTypeInstance(CSUIntPtrType.Instance);
+            var uIntPtrType = new CSTypeInstance(CSPrimitiveType.Instances.NUInt);
             var objectType = new CSTypeInstance(CSPrimitiveType.Instances.Object);
             var nullableObjectType = new CSTypeInstance(CSPrimitiveType.Instances.Object) { IsNullable = true };
 
@@ -244,7 +245,7 @@ public static class StructFixer
                 },
                 new(PUBLIC | OVERRIDE, intType, "GetHashCode", CSParameter.EmptyParameters)
                 {
-                    Body = "return _ptr.GetHashCode();",
+                    Body = "=> _ptr.GetHashCode();",
                 },
             ]);
 
@@ -450,7 +451,7 @@ public static class StructFixer
 
             item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
             {
-                Body = "",
+                Body = "{}",
             });
 
             List<CSParameter> parameters = [];
@@ -520,8 +521,78 @@ public static class StructFixer
 
             item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
             {
-                Body = "",
+                Body = "{}",
             });
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public static Task AddDefaultValueFromStructFelids(List<CSStruct> structs)
+    {
+        string[] useDefaultValueList = [
+            "TextureBindingLayout",
+            "BufferBindingLayout",
+            "SamplerBindingLayout",
+            "StorageTextureBindingLayout"
+        ];
+
+        static bool IsPointer(CSTypeInstance type)
+        {
+            var modifiers = type.GetModifiersAsSpan();
+            foreach (var modifier in modifiers)
+            {
+                if (modifier == CsPointerType.Instance)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        static bool IsEnum(CSTypeInstance type)
+        {
+            return type.Type is CSEnum;
+        }
+
+        static bool HasRequiredMembers(CSTypeInstance type)
+        {
+            return type.Type is CSStruct structType && structType.Fields.Any(i => i.IsRequired);
+        }
+
+        foreach (var item in structs)
+        {
+            var members = item.Fields.Where(
+                    x =>
+                    !x.IsRequired &&
+                    x.GetterBody is null &&
+                    x.SetterBody is null &&
+                    !x.Name.EndsWith("chain", StringComparison.OrdinalIgnoreCase) &&
+                    x.Type.Type is not CSPrimitiveType &&
+                    x.Type.Type!.TryGetName(out var name) &&
+                    !name.EndsWith("Handle", StringComparison.OrdinalIgnoreCase) &&
+                    !IsPointer(x.Type) &&
+                    !IsEnum(x.Type) &&
+                    !HasRequiredMembers(x.Type)).ToList();
+            foreach (var member in members)
+            {
+                var memberTypeName = member.Type.Type.TryGetName(out var name) ? name : null;
+                if (memberTypeName is null)
+                {
+                    continue;
+                }
+
+                if (useDefaultValueList.Any(i => i.Contains(memberTypeName, StringComparison.OrdinalIgnoreCase)))
+                {
+                     member.DefaultValue = new([new CSArbitraryCodeToken("default")]);
+                }
+
+                if (member.DefaultValue == CSDefaultValue.NullValue)
+                {
+                    member.DefaultValue = new([new CSArbitraryCodeToken("new()")]);
+                }
+            }
         }
 
         return Task.CompletedTask;
