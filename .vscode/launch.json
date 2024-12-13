@@ -13,6 +13,7 @@
             "program": "${workspaceFolder}/WebgpuBindgen/bin/Debug/net8.0/win-x64/WebgpuBindgen.dll",
             "args": [
                 "${workspaceFolder}/webgpu.h",
+                "${workspaceFolder}/webgpu_ref.h",
                 "${workspaceFolder}/WebGpuSharp/src/generatedCode",
                 "${workspaceFolder}/webgpu_spec.json"
             ],
