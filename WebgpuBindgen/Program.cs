@@ -5,6 +5,7 @@ string headerFile = Path.GetFullPath(args[0]);
 string headerRefFile = Path.GetFullPath(args[1]);
 string outputDirectory = Path.GetFullPath(args[2]);
 string? jsonFile = args.Length > 2 ? Path.GetFullPath(args[3]) : null;
+XmlCommentDocs? doc = args.Length > 3 ? await XmlCommentDocs.Create(Path.GetFullPath(args[3])) : null;
 
 var specDocLookup = await SpecLoader.LoadSpecDocLookup(jsonFile);
 var translationResult = await MainTranslationFlow.Translate(headerFile, specDocLookup);
@@ -40,6 +41,8 @@ foreach (var csStruct in structs)
 
 foreach (var csEnum in enums)
 {
+    doc?.AssignComment(csEnum);
+
     var enumWriter = new CSEnumWriter();
     await enumWriter.Write(csEnum, new CSWriteConfig
     {
@@ -53,6 +56,8 @@ foreach (var csEnum in enums)
 
 foreach (var csStaticClass in staticClasses)
 {
+    doc?.AssignComment(csStaticClass);
+
     var staticClassWriter = new CSStaticClassWriter();
 
     await staticClassWriter.Write(csStaticClass, new CSWriteConfig
@@ -67,6 +72,8 @@ foreach (var csStaticClass in staticClasses)
 
 foreach (var csStruct in structs)
 {
+    doc?.AssignComment(csStruct);
+
     var structWriter = new CSStructWriter();
     await structWriter.Write(csStruct, new CSWriteConfig
     {

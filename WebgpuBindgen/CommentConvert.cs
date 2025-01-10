@@ -10,15 +10,15 @@ namespace WebgpuBindgen;
 
 public class CommentConvert(CsTypeLookup csTypeLookup)
 {
-    public CommentSummery Convert(CommentElement[] items, BaseCSAstItem member)
+    public DocComment Convert(CommentElement[] items, BaseCSAstItem member)
     {
         var param = items.OfType<CommentParamElement>().ToList();
         var noParam = items.Where(i => !param.Contains(i)).ToArray();
 
         return new()
         {
-            SummaryText = string.Join("", noParam.Select(i => Convert(i, member))),
-            Params = param.SelectMany(i =>
+            Summary = new() { Description = string.Join("", noParam.Select(i => Convert(i, member))) },
+            Parameters = param.SelectMany(i =>
             {
                 var values = Convert(i, member);
                 return values.Select(j => new CommentParameter()
@@ -128,7 +128,7 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
         string cref;
         if (namespaceName != null)
         {
-            cref = string.Join(".", [namespaceName, .. item.path.Select(ToWebgpuSharpNameFromTypeLink)]);
+            cref = string.Join(".", (ReadOnlySpan<string>)[namespaceName, .. item.path.Select(ToWebgpuSharpNameFromTypeLink)]);
         }
         else
         {
