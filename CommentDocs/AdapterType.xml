@@ -1,0 +1,14 @@
+<root>
+    <Comment location="WebGpuSharp.AdapterType.DiscreteGPU">
+        <summary>Discrete GPU with separate CPU/GPU memory.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.AdapterType.IntegratedGPU">
+        <summary>Integrated GPU with shared CPU/GPU memory.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.AdapterType.CPU">
+        <summary>Cpu / Software Rendering.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.AdapterType.Unknown">
+        <summary>Unknown or other</summary>
+    </Comment>
+</root>

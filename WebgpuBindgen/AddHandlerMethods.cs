@@ -40,8 +40,7 @@ public static class AddHandlerMethods
                 if (BannedMethodsNames.Contains(name))
                 {
                     continue;
-                }
-
+                    }
 
                 var parameter = method.Parameters.Skip(1).ToArray();
                 var returnType = method.ReturnType;

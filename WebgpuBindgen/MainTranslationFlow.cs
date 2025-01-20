@@ -11,7 +11,7 @@ namespace WebgpuBindgen;
 public static class MainTranslationFlow
 {
     public static async Task<TranslationResult> Translate(
-        string headerFilePath, SpecDocLookup specDocLookup)
+        string headerFilePath, SpecDocLookup? specDocLookup)
     {
         string headerPath = FakeCStdHeader.CreateFakeStdHeaderFolder();
 

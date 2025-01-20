@@ -2,7 +2,6 @@ using CapiGenerator.CSModel;
 
 namespace WebgpuBindgen;
 
-
 public class TranslationResult
 {
     public List<CSStaticClass> StaticClasses { get; set; } = [];

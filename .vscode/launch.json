@@ -10,12 +10,13 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/WebgpuBindgen/bin/Debug/net8.0/win-x64/WebgpuBindgen.dll",
+            "program": "${workspaceFolder}/WebgpuBindgen/bin/Debug/net9.0/win-x64/WebgpuBindgen.dll",
             "args": [
                 "${workspaceFolder}/webgpu.h",
                 "${workspaceFolder}/webgpu_ref.h",
                 "${workspaceFolder}/WebGpuSharp/src/generatedCode",
-                "${workspaceFolder}/webgpu_spec.json"
+                "${workspaceFolder}/webgpu_spec.json",
+                "${workspaceFolder}/CommentDocs"
             ],
             "cwd": "${workspaceFolder}/WebgpuBindgen",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console

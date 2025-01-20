@@ -1,0 +1,47 @@
+<root prefix="WebGpuSharp.FFI.AdapterInfoFFI.">
+    <Comment location="Vendor">
+        <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.Architecture">
+        <summary>The name of the family or class of GPUs the adapter belongs to. Returns an empty
+            string if it is not available.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.Device">
+        <summary>A vendor-specific identifier for the adapter. Returns an empty string if it is not
+            available.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.Description">
+        <summary>A human-readable string describing the adapter. Returns an empty string if it is
+            not available.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.BackendType">
+        <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.AdapterType">
+        <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.VendorID">
+        <summary>
+            Backend-specific vendor ID of the adapter
+
+            This generally is a 16-bit PCI vendor ID in the least significant bytes of this field.
+            However, more significant bytes may be non-zero if the backend uses a different
+            representation.
+
+            For Vulkan backend, the VkPhysicalDeviceProperties::vendorID is used, which is a
+            superset of PCI IDs.
+        </summary>
+    </Comment>
+    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.DeviceID">
+        <summary>
+            Backend-specific device ID of the adapter
+
+            This generally is a 16-bit PCI device ID in the least significant bytes of this field.
+            However, more significant bytes may be non-zero if the backend uses a different
+            representation.
+
+            For Vulkan backend, the VkPhysicalDeviceProperties::vendorID is used, which is a
+            superset of PCI IDs.
+        </summary>
+    </Comment>
+</root>
