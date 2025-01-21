@@ -1,9 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace WebgpuBindgen.XmlComments;
-
 
 public static partial class XmlCommentParser
 {
@@ -17,7 +17,7 @@ public static partial class XmlCommentParser
     {
         var root = doc.Root;
         var localName = root?.Name.LocalName;
-        if (localName is not "group" or "Group")
+        if (localName is not ("group" or "Group"))
         {
             throw new Exception("Root element must be group or Group");
         }
@@ -37,15 +37,15 @@ public static partial class XmlCommentParser
         };
 
 
-        foreach (var childComments in element.Descendants(".//Comment|.//comment"))
+        foreach (var childComments in element.XPathSelectElements(".//Comment|.//comment"))
         {
-            foreach (var commentElement in ParseCommentElement(childComments, prefix))
+            foreach (var commentElement in ParseCommentElement(childComments, groupElement))
             {
                 yield return commentElement;
             }
         }
 
-        foreach (var childGroup in element.Descendants(".//Group|.//group"))
+        foreach (var childGroup in element.XPathSelectElements(".//Group|.//group"))
         {
             foreach (var commentElement in ParseGroup(childGroup))
             {
@@ -69,29 +69,29 @@ public static partial class XmlCommentParser
             CloneFromLocation = RemoveWhitespace(cloneFromLocation),
         };
 
-        foreach (var childComments in element.Descendants(".//Value|.//value"))
+        foreach (var childComments in element.XPathSelectElements(".//Value|.//value"))
         {
             yield return ParseValueElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.Descendants(".//Summary|.//summary"))
+        foreach (var childComments in element.XPathSelectElements(".//Summary|.//summary"))
         {
             yield return ParseSummaryElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.Descendants(".//Return|.//return"))
+        foreach (var childComments in element.XPathSelectElements(".//Returns|.//returns"))
         {
-            yield return ParseValueElement(childComments, commentElement);
+            yield return ParseReturnElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.Descendants(".//Remark|.//remark"))
+        foreach (var childComments in element.XPathSelectElements(".//Remark|.//remark"))
         {
-            yield return ParseValueElement(childComments, commentElement);
+            yield return ParseRemarkElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.Descendants(".//Param|.//param"))
+        foreach (var childComments in element.XPathSelectElements(".//Param|.//param"))
         {
-            yield return ParseValueElement(childComments, commentElement);
+            yield return ParseParamElement(childComments, commentElement);
         }
     }
 
@@ -227,7 +227,7 @@ public static partial class XmlCommentParser
         };
     }
 
-    private static RemarkElement ParseParamElement(XElement element, CommentElement parentComment)
+    private static ParamElement ParseParamElement(XElement element, CommentElement parentComment)
     {
         var applyToLocation = element.Attribute("location")?.Value;
         if (string.IsNullOrEmpty(applyToLocation))
@@ -250,9 +250,16 @@ public static partial class XmlCommentParser
         }
 
         applyToLocation = RemoveWhitespace(applyToLocation);
+        var name = element.Attribute("name")?.Value;
 
-        return new RemarkElement()
+        if (name == null)
         {
+            throw new Exception("Param element must have name attribute");
+        }
+
+        return new ParamElement()
+        {
+            Name = name,
             Priority = priority ?? 0,
             ApplyToLocation = applyToLocation,
             Description = description,
@@ -291,7 +298,7 @@ public static partial class XmlCommentParser
         {
             return str;
         }
-        return GetWhiteSpaceRegex().Replace(str, " ");
+        return GetWhiteSpaceRegex().Replace(str, "");
     }
 
     private static string ReadInnerXml(XElement element)
@@ -299,7 +306,7 @@ public static partial class XmlCommentParser
         var reader = element.CreateReader();
         reader.MoveToContent();
 
-        return reader.ReadInnerXml();
+        return TrimXml(reader.ReadInnerXml());
     }
 
     [GeneratedRegex(@"\s+")]

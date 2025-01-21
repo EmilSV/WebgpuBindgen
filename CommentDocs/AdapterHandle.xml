@@ -1,26 +1,26 @@
-<root>
-    <Comment location="WebGpuSharp.FFI.AdapterHandle.GetFeatures">
+<Group prefix="WebGpuSharp.FFI.AdapterHandle.">
+    <Comment location="GetFeatures">
         <summary>Get the features supported by the adapter.</summary>
         <param name="info">The features to fill in.</param>
         <returns>the status of the call.</returns>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterHandle.GetInfo">
+    <Comment location="GetInfo">
         <summary>Get info about the adapter itself.</summary>
         <param name="info">The info to fill in.</param>
         <returns>the status of the call.</returns>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterHandle.GetLimits">
+    <Comment location="GetLimits">
         <summary>The best limits which can be used to create devices on this adapter.</summary>
         <param name="limits">The limits to fill in.</param>
         <returns>the status of the call.</returns>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterHandle.HasFeature">
+    <Comment location="HasFeature">
         <summary>Check if and additional functionality is supported by the adapter.</summary>
         <param name="feature">The feature to check.</param>
         <returns>true if the feature is supported.</returns>
     </Comment>
     <Comment
-        location="WebGpuSharp.FFI.AdapterHandle.RequestDevice(DeviceDescriptorFFI*, delegate* unmanaged[Cdecl]&lt;RequestDeviceStatus, DeviceHandle, StringViewFFI, void*, void>, void*)">
+        location="RequestDevice(WebGpuSharp.FFI.DeviceDescriptorFFI*, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.RequestDeviceStatus, WebGpuSharp.FFI.DeviceHandle, WebGpuSharp.FFI.StringViewFFI, void*, void>, void*)">
         <summary>
             Requests a device from the adapter.
             This is a one-time action: if a device is returned successfully,
@@ -31,8 +31,9 @@
         <param name="userdata">The userdata to pass to the callback.</param>
     </Comment>
     <Comment
-        location="WebGpuSharp.FFI.AdapterHandle.RequestDevice(DeviceDescriptorFFI*, RequestDeviceCallbackInfo2FFI)">
-        <summary>
+        location="RequestDevice(WebGpuSharp.FFI.DeviceDescriptorFFI*, WebGpuSharp.FFI.RequestDeviceCallbackInfo2FFI)"
+    >
+        <summary priority="-1">
             Requests a device from the adapter.
             This is a one-time action: if a device is returned successfully,
             the adapter then enters a "consumed" state
@@ -41,5 +42,4 @@
         <param name="callbackInfo">The callback to call when the device is ready.</param>
         <returns>the future for the callback.</returns>
     </Comment>
-
-</root>
+</Group>

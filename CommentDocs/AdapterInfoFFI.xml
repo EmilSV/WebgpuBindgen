@@ -1,26 +1,26 @@
-<root prefix="WebGpuSharp.FFI.AdapterInfoFFI.">
+<Group prefix="WebGpuSharp.FFI.AdapterInfoFFI.">
     <Comment location="Vendor">
         <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.Architecture">
+    <Comment location="Architecture">
         <summary>The name of the family or class of GPUs the adapter belongs to. Returns an empty
             string if it is not available.</summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.Device">
+    <Comment location="Device">
         <summary>A vendor-specific identifier for the adapter. Returns an empty string if it is not
             available.</summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.Description">
+    <Comment location="Description">
         <summary>A human-readable string describing the adapter. Returns an empty string if it is
             not available.</summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.BackendType">
+    <Comment location="BackendType">
         <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.AdapterType">
+    <Comment location="AdapterType">
         <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.VendorID">
+    <Comment location="VendorID">
         <summary>
             Backend-specific vendor ID of the adapter
 
@@ -32,7 +32,7 @@
             superset of PCI IDs.
         </summary>
     </Comment>
-    <Comment location="WebGpuSharp.FFI.AdapterInfoFFI.DeviceID">
+    <Comment location="DeviceID">
         <summary>
             Backend-specific device ID of the adapter
 
@@ -44,4 +44,4 @@
             superset of PCI IDs.
         </summary>
     </Comment>
-</root>
+</Group>

@@ -1,5 +1,6 @@
 using CapiGenerator.Writer;
 using WebgpuBindgen;
+using WebgpuBindgen.XmlComments;
 
 string headerFile = Path.GetFullPath(args[0]);
 string headerRefFile = Path.GetFullPath(args[1]);
@@ -39,10 +40,10 @@ foreach (var csStruct in structs)
     csStruct.Namespace ??= "WebGpuSharp";
 }
 
+doc?.AssignComment(translationResult);
+
 foreach (var csEnum in enums)
 {
-    doc?.AssignComment(csEnum);
-
     var enumWriter = new CSEnumWriter();
     await enumWriter.Write(csEnum, new CSWriteConfig
     {
@@ -56,8 +57,6 @@ foreach (var csEnum in enums)
 
 foreach (var csStaticClass in staticClasses)
 {
-    doc?.AssignComment(csStaticClass);
-
     var staticClassWriter = new CSStaticClassWriter();
 
     await staticClassWriter.Write(csStaticClass, new CSWriteConfig
@@ -72,8 +71,6 @@ foreach (var csStaticClass in staticClasses)
 
 foreach (var csStruct in structs)
 {
-    doc?.AssignComment(csStruct);
-
     var structWriter = new CSStructWriter();
     await structWriter.Write(csStruct, new CSWriteConfig
     {

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using CapiGenerator.CSModel;
@@ -121,7 +122,7 @@ public static partial class XmlCommentFinder
         }
 
         var RegexWhitespace = WhiteSpaceRegex();
-        return RegexWhitespace.Replace(str, " ");
+        return RegexWhitespace.Replace(str, "");
     }
 
     [GeneratedRegex(@"\s+")]
