@@ -1,0 +1,14 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceTextureFFI
+{
+	public WebGpuSharp.FFI.TextureHandle Texture;
+	public WebGpuSharp.WebGPUBool Suboptimal = new();
+	public WebGpuSharp.SurfaceGetCurrentTextureStatus Status;
+	
+public SurfaceTextureFFI(){}
+
+}

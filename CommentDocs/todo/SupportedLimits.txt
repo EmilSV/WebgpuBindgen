@@ -1,0 +1,13 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public unsafe partial struct SupportedLimits
+{
+	public WebGpuSharp.ChainedStructOut* NextInChain;
+	public WebGpuSharp.Limits Limits = new();
+	
+public SupportedLimits(){}
+
+}

@@ -1,0 +1,15 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct BufferMapCallbackInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.BufferMapAsyncStatus, void*, void> Callback;
+	public void* Userdata;
+	
+public BufferMapCallbackInfoFFI(){}
+
+}

@@ -1,0 +1,14 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceSourceWindowsHWNDFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public void* Hinstance;
+	public void* Hwnd;
+	
+public SurfaceSourceWindowsHWNDFFI(){}
+
+}

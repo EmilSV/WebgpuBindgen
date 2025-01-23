@@ -1,0 +1,95 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct DeviceHandle : IEquatable<DeviceHandle>
+{
+	private readonly nuint _ptr;
+	public static WebGpuSharp.FFI.DeviceHandle Null{
+get => new(nuint.Zero);
+}
+	
+public DeviceHandle(nuint ptr)=> _ptr = ptr;
+
+	public static explicit operator nuint (WebGpuSharp.FFI.DeviceHandle handle)=> handle._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle right)=> left._ptr == right._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle right)=> left._ptr != right._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle? right)=> left._ptr == right.GetValueOrDefault()._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle? right)=> left._ptr != right.GetValueOrDefault()._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.DeviceHandle left, nuint right)=> left._ptr == right;
+
+	public static bool operator !=(WebGpuSharp.FFI.DeviceHandle left, nuint right)=> left._ptr != right;
+
+	public nuint GetAddress()=> _ptr;
+
+	public bool Equals(WebGpuSharp.FFI.DeviceHandle other)=> _ptr == other._ptr;
+
+	public override bool Equals(object? other)=> (other is DeviceHandle h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);
+
+	public override int GetHashCode()=> _ptr.GetHashCode();
+
+	public WebGpuSharp.FFI.BindGroupHandle CreateBindGroup(WebGpuSharp.FFI.BindGroupDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateBindGroup(this, descriptor);
+
+	public WebGpuSharp.FFI.BindGroupLayoutHandle CreateBindGroupLayout(WebGpuSharp.FFI.BindGroupLayoutDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateBindGroupLayout(this, descriptor);
+
+	public WebGpuSharp.FFI.BufferHandle CreateBuffer(WebGpuSharp.FFI.BufferDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateBuffer(this, descriptor);
+
+	public WebGpuSharp.FFI.CommandEncoderHandle CreateCommandEncoder(WebGpuSharp.FFI.CommandEncoderDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateCommandEncoder(this, descriptor);
+
+	public WebGpuSharp.FFI.ComputePipelineHandle CreateComputePipeline(WebGpuSharp.FFI.ComputePipelineDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateComputePipeline(this, descriptor);
+
+	public void CreateComputePipelineAsync(WebGpuSharp.FFI.ComputePipelineDescriptorFFI* descriptor, delegate* unmanaged[Cdecl]<WebGpuSharp.CreatePipelineAsyncStatus, WebGpuSharp.FFI.ComputePipelineHandle, WebGpuSharp.FFI.StringViewFFI, void*, void> callback, void* userdata)=> WebGPU_FFI.DeviceCreateComputePipelineAsync(this, descriptor, callback, userdata);
+
+	public WebGpuSharp.Future CreateComputePipelineAsync(WebGpuSharp.FFI.ComputePipelineDescriptorFFI* descriptor, WebGpuSharp.FFI.CreateComputePipelineAsyncCallbackInfo2FFI callbackInfo)=> WebGPU_FFI.DeviceCreateComputePipelineAsync2(this, descriptor, callbackInfo);
+
+	public WebGpuSharp.FFI.PipelineLayoutHandle CreatePipelineLayout(WebGpuSharp.FFI.PipelineLayoutDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreatePipelineLayout(this, descriptor);
+
+	public WebGpuSharp.FFI.QuerySetHandle CreateQuerySet(WebGpuSharp.FFI.QuerySetDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateQuerySet(this, descriptor);
+
+	public WebGpuSharp.FFI.RenderBundleEncoderHandle CreateRenderBundleEncoder(WebGpuSharp.FFI.RenderBundleEncoderDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateRenderBundleEncoder(this, descriptor);
+
+	public WebGpuSharp.FFI.RenderPipelineHandle CreateRenderPipeline(WebGpuSharp.FFI.RenderPipelineDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateRenderPipeline(this, descriptor);
+
+	public void CreateRenderPipelineAsync(WebGpuSharp.FFI.RenderPipelineDescriptorFFI* descriptor, delegate* unmanaged[Cdecl]<WebGpuSharp.CreatePipelineAsyncStatus, WebGpuSharp.FFI.RenderPipelineHandle, WebGpuSharp.FFI.StringViewFFI, void*, void> callback, void* userdata)=> WebGPU_FFI.DeviceCreateRenderPipelineAsync(this, descriptor, callback, userdata);
+
+	public WebGpuSharp.Future CreateRenderPipelineAsync(WebGpuSharp.FFI.RenderPipelineDescriptorFFI* descriptor, WebGpuSharp.FFI.CreateRenderPipelineAsyncCallbackInfo2FFI callbackInfo)=> WebGPU_FFI.DeviceCreateRenderPipelineAsync2(this, descriptor, callbackInfo);
+
+	public WebGpuSharp.FFI.SamplerHandle CreateSampler(WebGpuSharp.FFI.SamplerDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateSampler(this, descriptor);
+
+	public WebGpuSharp.FFI.ShaderModuleHandle CreateShaderModule(WebGpuSharp.FFI.ShaderModuleDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateShaderModule(this, descriptor);
+
+	public WebGpuSharp.FFI.TextureHandle CreateTexture(WebGpuSharp.FFI.TextureDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateTexture(this, descriptor);
+
+	public void Destroy()=> WebGPU_FFI.DeviceDestroy(this);
+
+	public WebGpuSharp.Status GetAdapterInfo(WebGpuSharp.FFI.AdapterInfoFFI* adapterInfo)=> WebGPU_FFI.DeviceGetAdapterInfo(this, adapterInfo);
+
+	public void GetFeatures(WebGpuSharp.FFI.SupportedFeaturesFFI* features)=> WebGPU_FFI.DeviceGetFeatures(this, features);
+
+	public WebGpuSharp.Status GetLimits(WebGpuSharp.SupportedLimits* limits)=> WebGPU_FFI.DeviceGetLimits(this, limits);
+
+	public WebGpuSharp.Future GetLostFuture()=> WebGPU_FFI.DeviceGetLostFuture(this);
+
+	public WebGpuSharp.FFI.QueueHandle GetQueue()=> WebGPU_FFI.DeviceGetQueue(this);
+
+	public WebGpuSharp.WebGPUBool HasFeature(WebGpuSharp.FeatureName feature)=> WebGPU_FFI.DeviceHasFeature(this, feature);
+
+	public void PopErrorScope(delegate* unmanaged[Cdecl]<WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void> oldCallback, void* userdata)=> WebGPU_FFI.DevicePopErrorScope(this, oldCallback, userdata);
+
+	public WebGpuSharp.Future PopErrorScope(WebGpuSharp.FFI.PopErrorScopeCallbackInfo2FFI callbackInfo)=> WebGPU_FFI.DevicePopErrorScope2(this, callbackInfo);
+
+	public void PushErrorScope(WebGpuSharp.ErrorFilter filter)=> WebGPU_FFI.DevicePushErrorScope(this, filter);
+
+	public void SetLabel(WebGpuSharp.FFI.StringViewFFI label)=> WebGPU_FFI.DeviceSetLabel(this, label);
+
+	public void AddRef()=> WebGPU_FFI.DeviceAddRef(this);
+
+	public void Release()=> WebGPU_FFI.DeviceRelease(this);
+
+}

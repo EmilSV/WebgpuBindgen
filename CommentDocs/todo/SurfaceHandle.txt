@@ -1,0 +1,53 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceHandle : IEquatable<SurfaceHandle>
+{
+	private readonly nuint _ptr;
+	public static WebGpuSharp.FFI.SurfaceHandle Null{
+get => new(nuint.Zero);
+}
+	
+public SurfaceHandle(nuint ptr)=> _ptr = ptr;
+
+	public static explicit operator nuint (WebGpuSharp.FFI.SurfaceHandle handle)=> handle._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.SurfaceHandle left, WebGpuSharp.FFI.SurfaceHandle right)=> left._ptr == right._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.SurfaceHandle left, WebGpuSharp.FFI.SurfaceHandle right)=> left._ptr != right._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.SurfaceHandle left, WebGpuSharp.FFI.SurfaceHandle? right)=> left._ptr == right.GetValueOrDefault()._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.SurfaceHandle left, WebGpuSharp.FFI.SurfaceHandle? right)=> left._ptr != right.GetValueOrDefault()._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.SurfaceHandle left, nuint right)=> left._ptr == right;
+
+	public static bool operator !=(WebGpuSharp.FFI.SurfaceHandle left, nuint right)=> left._ptr != right;
+
+	public nuint GetAddress()=> _ptr;
+
+	public bool Equals(WebGpuSharp.FFI.SurfaceHandle other)=> _ptr == other._ptr;
+
+	public override bool Equals(object? other)=> (other is SurfaceHandle h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);
+
+	public override int GetHashCode()=> _ptr.GetHashCode();
+
+	public void Configure(WebGpuSharp.FFI.SurfaceConfigurationFFI* config)=> WebGPU_FFI.SurfaceConfigure(this, config);
+
+	public WebGpuSharp.Status GetCapabilities(WebGpuSharp.FFI.AdapterHandle adapter, WebGpuSharp.FFI.SurfaceCapabilitiesFFI* capabilities)=> WebGPU_FFI.SurfaceGetCapabilities(this, adapter, capabilities);
+
+	public void GetCurrentTexture(WebGpuSharp.FFI.SurfaceTextureFFI* surfaceTexture)=> WebGPU_FFI.SurfaceGetCurrentTexture(this, surfaceTexture);
+
+	public void Present()=> WebGPU_FFI.SurfacePresent(this);
+
+	public void SetLabel(WebGpuSharp.FFI.StringViewFFI label)=> WebGPU_FFI.SurfaceSetLabel(this, label);
+
+	public void Unconfigure()=> WebGPU_FFI.SurfaceUnconfigure(this);
+
+	public void AddRef()=> WebGPU_FFI.SurfaceAddRef(this);
+
+	public void Release()=> WebGPU_FFI.SurfaceRelease(this);
+
+}

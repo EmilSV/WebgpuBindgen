@@ -36,8 +36,7 @@ public static partial class XmlCommentParser
             Prefix = prefix ?? ""
         };
 
-
-        foreach (var childComments in element.XPathSelectElements(".//Comment|.//comment"))
+        foreach (var childComments in element.XPathSelectElements("./Comment|./comment"))
         {
             foreach (var commentElement in ParseCommentElement(childComments, groupElement))
             {
@@ -45,9 +44,9 @@ public static partial class XmlCommentParser
             }
         }
 
-        foreach (var childGroup in element.XPathSelectElements(".//Group|.//group"))
+        foreach (var childGroup in element.XPathSelectElements("./Group|./group"))
         {
-            foreach (var commentElement in ParseGroup(childGroup))
+            foreach (var commentElement in ParseGroup(childGroup, groupElement))
             {
                 yield return commentElement;
             }
@@ -60,7 +59,7 @@ public static partial class XmlCommentParser
         var applyToLocation = element.Attribute("location")?.Value;
         var cloneFromLocation = element.Attribute("cloneFrom")?.Value;
 
-        applyToLocation = parentGroup.Prefix + applyToLocation;
+        applyToLocation = parentGroup.Prefix + applyToLocation ?? "";
         var commentElement = new CommentElement()
         {
             Parent = parentGroup,
@@ -69,27 +68,27 @@ public static partial class XmlCommentParser
             CloneFromLocation = RemoveWhitespace(cloneFromLocation),
         };
 
-        foreach (var childComments in element.XPathSelectElements(".//Value|.//value"))
+        foreach (var childComments in element.XPathSelectElements("./Value|./value"))
         {
             yield return ParseValueElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.XPathSelectElements(".//Summary|.//summary"))
+        foreach (var childComments in element.XPathSelectElements("./Summary|./summary"))
         {
             yield return ParseSummaryElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.XPathSelectElements(".//Returns|.//returns"))
+        foreach (var childComments in element.XPathSelectElements("./Returns|./returns"))
         {
             yield return ParseReturnElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.XPathSelectElements(".//Remark|.//remark"))
+        foreach (var childComments in element.XPathSelectElements("./Remark|./remark"))
         {
             yield return ParseRemarkElement(childComments, commentElement);
         }
 
-        foreach (var childComments in element.XPathSelectElements(".//Param|.//param"))
+        foreach (var childComments in element.XPathSelectElements("./Param|./param"))
         {
             yield return ParseParamElement(childComments, commentElement);
         }
@@ -118,6 +117,7 @@ public static partial class XmlCommentParser
         }
 
         applyToLocation = RemoveWhitespace(applyToLocation);
+        cloneFromLocation = RemoveWhitespace(cloneFromLocation);
 
         return new ValueElement()
         {
@@ -151,6 +151,7 @@ public static partial class XmlCommentParser
         }
 
         applyToLocation = RemoveWhitespace(applyToLocation);
+        cloneFromLocation = RemoveWhitespace(cloneFromLocation);
 
         return new SummaryElement()
         {
@@ -184,6 +185,7 @@ public static partial class XmlCommentParser
         }
 
         applyToLocation = RemoveWhitespace(applyToLocation);
+        cloneFromLocation = RemoveWhitespace(cloneFromLocation);
 
         return new ReturnElement()
         {
@@ -217,6 +219,7 @@ public static partial class XmlCommentParser
         }
 
         applyToLocation = RemoveWhitespace(applyToLocation);
+        cloneFromLocation = RemoveWhitespace(cloneFromLocation);
 
         return new RemarkElement()
         {
@@ -250,6 +253,7 @@ public static partial class XmlCommentParser
         }
 
         applyToLocation = RemoveWhitespace(applyToLocation);
+        cloneFromLocation = RemoveWhitespace(cloneFromLocation);
         var name = element.Attribute("name")?.Value;
 
         if (name == null)

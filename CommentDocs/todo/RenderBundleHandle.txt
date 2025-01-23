@@ -1,0 +1,43 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct RenderBundleHandle : IEquatable<RenderBundleHandle>
+{
+	private readonly nuint _ptr;
+	public static WebGpuSharp.FFI.RenderBundleHandle Null{
+get => new(nuint.Zero);
+}
+	
+public RenderBundleHandle(nuint ptr)=> _ptr = ptr;
+
+	public static explicit operator nuint (WebGpuSharp.FFI.RenderBundleHandle handle)=> handle._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.RenderBundleHandle left, WebGpuSharp.FFI.RenderBundleHandle right)=> left._ptr == right._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.RenderBundleHandle left, WebGpuSharp.FFI.RenderBundleHandle right)=> left._ptr != right._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.RenderBundleHandle left, WebGpuSharp.FFI.RenderBundleHandle? right)=> left._ptr == right.GetValueOrDefault()._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.RenderBundleHandle left, WebGpuSharp.FFI.RenderBundleHandle? right)=> left._ptr != right.GetValueOrDefault()._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.RenderBundleHandle left, nuint right)=> left._ptr == right;
+
+	public static bool operator !=(WebGpuSharp.FFI.RenderBundleHandle left, nuint right)=> left._ptr != right;
+
+	public nuint GetAddress()=> _ptr;
+
+	public bool Equals(WebGpuSharp.FFI.RenderBundleHandle other)=> _ptr == other._ptr;
+
+	public override bool Equals(object? other)=> (other is RenderBundleHandle h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);
+
+	public override int GetHashCode()=> _ptr.GetHashCode();
+
+	public void SetLabel(WebGpuSharp.FFI.StringViewFFI label)=> WebGPU_FFI.RenderBundleSetLabel(this, label);
+
+	public void AddRef()=> WebGPU_FFI.RenderBundleAddRef(this);
+
+	public void Release()=> WebGPU_FFI.RenderBundleRelease(this);
+
+}

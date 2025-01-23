@@ -1,0 +1,15 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CreateComputePipelineAsyncCallbackInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.CreatePipelineAsyncStatus, WebGpuSharp.FFI.ComputePipelineHandle, WebGpuSharp.FFI.StringViewFFI, void*, void> Callback;
+	public void* Userdata;
+	
+public CreateComputePipelineAsyncCallbackInfoFFI(){}
+
+}

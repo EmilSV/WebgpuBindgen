@@ -1,0 +1,24 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct VertexBufferLayoutFFI
+{
+/// <summary>
+/// The stride, in bytes, between elements of this array.
+/// </summary>
+	public required ulong ArrayStride;
+/// <summary>
+/// Whether each element of this array represents per-vertex data or per-instance data
+/// </summary>
+	public WebGpuSharp.VertexStepMode StepMode = WebGpuSharp.VertexStepMode.Vertex;
+	public nuint AttributeCount;
+/// <summary>
+/// An array defining the layout of the vertex attributes within each element.
+/// </summary>
+	public required WebGpuSharp.VertexAttribute* Attributes;
+	
+public VertexBufferLayoutFFI(){}
+
+}

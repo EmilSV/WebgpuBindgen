@@ -1,0 +1,14 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CompilationInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public nuint MessageCount;
+	public WebGpuSharp.FFI.CompilationMessageFFI* Messages;
+	
+public CompilationInfoFFI(){}
+
+}

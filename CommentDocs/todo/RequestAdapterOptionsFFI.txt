@@ -1,0 +1,17 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct RequestAdapterOptionsFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.SurfaceHandle CompatibleSurface;
+	public WebGpuSharp.PowerPreference PowerPreference;
+	public WebGpuSharp.BackendType BackendType;
+	public WebGpuSharp.WebGPUBool ForceFallbackAdapter = false;
+	public WebGpuSharp.WebGPUBool CompatibilityMode = new();
+	
+public RequestAdapterOptionsFFI(){}
+
+}

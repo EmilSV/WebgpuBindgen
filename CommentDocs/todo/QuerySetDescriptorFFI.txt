@@ -1,0 +1,21 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct QuerySetDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+/// <summary>
+/// The type of queries managed by  <see cref="WebGpuSharp.QuerySet"/>.
+/// </summary>
+	public required WebGpuSharp.QueryType Type;
+/// <summary>
+/// The number of queries managed by  <see cref="WebGpuSharp.QuerySet"/>.
+/// </summary>
+	public required uint Count;
+	
+public QuerySetDescriptorFFI(){}
+
+}

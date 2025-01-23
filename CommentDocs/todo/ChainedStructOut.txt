@@ -1,0 +1,13 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public unsafe partial struct ChainedStructOut
+{
+	public WebGpuSharp.ChainedStructOut* Next;
+	public WebGpuSharp.SType SType;
+	
+public ChainedStructOut(){}
+
+}

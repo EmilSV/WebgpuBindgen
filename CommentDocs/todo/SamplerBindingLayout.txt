@@ -1,0 +1,16 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public unsafe partial struct SamplerBindingLayout
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+/// <summary>
+/// Indicates the required type of a sampler bound to this bindings.
+/// </summary>
+	public WebGpuSharp.SamplerBindingType Type = WebGpuSharp.SamplerBindingType.Filtering;
+	
+public SamplerBindingLayout(){}
+
+}

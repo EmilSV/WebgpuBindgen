@@ -1,0 +1,17 @@
+<Group prefix="WebGpuSharp.FFI.">
+	<comment location="BindGroupDescriptorFFI">
+		Describes a group of bindings and the resources to be bound.
+	</comment>
+
+	<Group prefix="BindGroupDescriptorFFI.">
+		<comment location="Label">
+			Debug label of the bind group
+		</comment>
+		<comment location="Layout"> The <see cref="WebGpuSharp.BindGroupLayout" /> the entries of
+			this bind group will conform to. </comment>
+		<comment location="EntryCount"> the number of entries at <see
+				cref="WebGpuSharp.FFI.BindGroupDescriptorFFI.Entries" />
+		</comment>
+	</Group>
+
+</Group>

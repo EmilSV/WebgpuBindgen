@@ -1,0 +1,16 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct ProgrammableStageDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.ShaderModuleHandle Module;
+	public WebGpuSharp.FFI.StringViewFFI EntryPoint = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	public nuint ConstantCount;
+	public WebGpuSharp.FFI.ConstantEntryFFI* Constants;
+	
+public ProgrammableStageDescriptorFFI(){}
+
+}

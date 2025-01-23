@@ -1,0 +1,24 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public partial struct BlendComponent
+{
+/// <summary>
+/// Defines the  <see cref="BlendOperation"/> used to calculate the values written to the target
+/// attachment components.
+/// </summary>
+	public WebGpuSharp.BlendOperation Operation = WebGpuSharp.BlendOperation.Add;
+/// <summary>
+/// Defines the  <see cref="BlendFactor"/> operation to be performed on values from the fragment shader.
+/// </summary>
+	public WebGpuSharp.BlendFactor SrcFactor = WebGpuSharp.BlendFactor.One;
+/// <summary>
+/// Defines the  <see cref="BlendFactor"/> operation to be performed on values from the target attachment.
+/// </summary>
+	public WebGpuSharp.BlendFactor DstFactor = WebGpuSharp.BlendFactor.Zero;
+	
+public BlendComponent(){}
+
+}

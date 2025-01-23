@@ -1,0 +1,31 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public partial struct StencilFaceState
+{
+/// <summary>
+/// The  <see cref="CompareFunction"/> used when testing the {{RenderState/stencilReference}} value
+/// against the fragment's  <see cref="WebGpuSharp.RenderPassDescriptor.DepthStencilAttachment"/> stencil values.
+/// </summary>
+	public WebGpuSharp.CompareFunction Compare = WebGpuSharp.CompareFunction.Always;
+/// <summary>
+/// The  <see cref="StencilOperation"/> performed if the fragment stencil comparison test described by
+///  <see cref="StencilFaceState.Compare"/> fails.
+/// </summary>
+	public WebGpuSharp.StencilOperation FailOp = WebGpuSharp.StencilOperation.Keep;
+/// <summary>
+/// The  <see cref="StencilOperation"/> performed if the fragment depth comparison described by
+///  <see cref="DepthStencilState.DepthCompare"/> fails.
+/// </summary>
+	public WebGpuSharp.StencilOperation DepthFailOp = WebGpuSharp.StencilOperation.Keep;
+/// <summary>
+/// The  <see cref="StencilOperation"/> performed if the fragment stencil comparison test described by
+///  <see cref="StencilFaceState.Compare"/> passes.
+/// </summary>
+	public WebGpuSharp.StencilOperation PassOp = WebGpuSharp.StencilOperation.Keep;
+	
+public StencilFaceState(){}
+
+}

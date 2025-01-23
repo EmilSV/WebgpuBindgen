@@ -1,0 +1,17 @@
+using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct ComputePassDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+/// <summary>
+/// Defines which timestamp values will be written for this pass, and where to write them to.
+/// </summary>
+	public WebGpuSharp.FFI.ComputePassTimestampWritesFFI* TimestampWrites;
+	
+public ComputePassDescriptorFFI(){}
+
+}
