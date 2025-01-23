@@ -1,0 +1,19 @@
+<Group prefix="WebGPUSharp.">
+    <Comment location="TextureViewDimension">
+
+    </Comment>
+    <Group prefix="TextureViewDimension.">
+        <Comment location="D1">
+            <summary>The texture is viewed as a 1-dimensional image.</summary>
+            <Remark> Corresponding WGSL types: <list type="bullet">
+                    <item>
+                        <description>texture_1d</description>
+                    </item>
+                    <item>
+                        <description>texture_storage_1d</description>
+                    </item>
+                </list>
+            </Remark>
+        </Comment>
+    </Group>
+</Group>

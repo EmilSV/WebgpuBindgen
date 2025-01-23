@@ -1,0 +1,48 @@
+<Group prefix="WebGPUSharp.FFI.">
+    <Comment location="VertexStateFFI">
+        Describes the vertex processing in a render pipeline.
+        For use in a <see cref="WebGPUSharp.RenderPipelineDescriptor"/>.
+    </Comment>
+    <Group prefix="VertexStateFFI">
+        <Comment location="NextInChain">
+            <Summary>
+
+            </Summary>
+        </Comment>
+        <Comment location="Module">
+            <Summary>
+                The compiled shader module for this stage.
+            </Summary>
+        </Comment>
+        <Comment location="EntryPoint">
+            <Summary> The name of the function in the module that this stage will use to perform its
+                work. The corresponding shader function must have the @vertex attribute to be
+                identified as this entry point. See <see
+                    href="https://gpuweb.github.io/gpuweb/wgsl/#entry-point-decl">Entry Point
+                Declaration</see> for more information. </Summary>
+            <Remark>
+                You can omit the EntryPoint property if your
+                shader code contains a single function with the @vertex attribute set — this will be
+                then default entry point. If entryPoint is omitted and no default entry can be
+                determined, a ValidationError is generated and the resulting RenderPipeline will be
+                invalid.
+            </Remark>
+        </Comment>
+        <Comment location="ConstantCount">
+            <Summary>
+                The number of constants in the sequence.
+            </Summary>
+        </Comment>
+        <Comment location="Constants">
+            <Summary>
+                A sequence of unique key value pair, representing override values for 
+                <see href="https://gpuweb.github.io/gpuweb/#typedefdef-gpupipelineconstantvalue">WGSL constants that can be overridden in the pipeline.</see>
+            </Summary>
+        </Comment>
+        <Comment location="BufferCount">
+            <Summary>
+                The number of buffers in the sequence.
+            </Summary>
+        </Comment>
+    </Group>
+</Group>
