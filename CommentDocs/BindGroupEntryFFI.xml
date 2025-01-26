@@ -1,37 +1,43 @@
-using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp.FFI;
-
-public unsafe partial struct BindGroupEntryFFI
-{
-public WebGpuSharp.ChainedStruct* NextInChain;
-///
-<summary> /// A unique identifier for a resource binding within the <see
-		cref="WebGpuSharp.BindGroup" />, corresponding to a /// <see
-		cref="BindGroupLayoutEntry.Binding">GPUBindGroupLayoutEntry.binding</see> and a @binding ///
-	attribute in the <see cref="WebGpuSharp.ShaderModule" />. /// </summary>
-public required uint Binding;
-public WebGpuSharp.FFI.BufferHandle Buffer;
-public ulong Offset;
-public ulong Size;
-public WebGpuSharp.FFI.SamplerHandle Sampler;
-public WebGpuSharp.FFI.TextureViewHandle TextureView;
-
-public BindGroupEntryFFI(){}
-
-}
-
-
 <Group prefix="WebGpuSharp.FFI.">
-	<comment location="BindGroupEntryFFI"> 
-		A single binding entry in a <see cref="WebGpuSharp.BindGroup" />. 
+	<comment location="BindGroupEntryFFI">
+		<summary>
+			A single binding entry in a <see cref="WebGpuSharp.BindGroup" />.
+			A BindGroupEntry can either bind a one of either a <see cref="WebGpuSharp.FFI.BufferHandle" /> with offset and size, 
+			or a <see cref="WebGpuSharp.FFI.SamplerHandle" /> or <see cref="WebGpuSharp.FFI.TextureViewHandle" />.
+		</summary>
 	</comment>
 	<Group prefix="BindGroupEntryFFI.">
 		<comment location="Binding">
-			A unique identifier for a resource binding within the <see cref="WebGpuSharp.BindGroup" />, 
-			corresponding to a <see cref="WebGpuSharp.BindGroupLayoutEntry.Binding" /> and 
-			a @binding attribute in the GPUShaderModule.
+			<summary>
+				A unique identifier for a resource binding within the <see cref="WebGpuSharp.BindGroup" />, 
+				corresponding to a <see cref="WebGpuSharp.BindGroupLayoutEntry.Binding" /> and 
+				a @binding attribute in the ShaderModule.
+			</summary>
+		</comment>
+		<comment location="Buffer">
+			<summary>
+				The Buffer object you want to bind.
+			</summary>
+		</comment>
+		<comment location="Offset">
+			<summary>
+				The offset, in bytes, from the beginning of the buffer to the beginning of the range exposed to the shader by the buffer binding.
+			</summary>
+		</comment>
+		<comment location="Size">
+			<summary>
+				The size, in bytes, of the buffer binding
+			</summary>
+		</comment>
+		<comment location="Sampler">
+			<summary>
+				The Sampler object you want to bind.
+			</summary>
+		</comment>
+		<comment location="TextureView">
+			<summary>
+				The TextureView object you want to bind.
+			</summary>
 		</comment>
 	</Group>
 </Group>

@@ -1,0 +1,13 @@
+<Group prefix="WebGpuSharp.FFI.">
+	<comment location="BindGroupHandle">
+		<summary>
+			A handle to a <see cref="WebGpuSharp.BindGroup" />.
+		</summary>
+	</comment>
+	<Group prefix="BindGroupHandle.">
+        <Comment location="SetLabel">
+            <summary>Set the label of the bind group.</summary>
+            <param name="label">The label to set.</param>
+        </Comment>
+	</Group>
+</Group>
