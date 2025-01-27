@@ -1,6 +1,6 @@
 <Group prefix="WebGPUSharp.">
     <Comment location="TextureViewDimension">
-
+        <summary>Dimensions of a particular texture view.</summary>
     </Comment>
     <Group prefix="TextureViewDimension.">
         <Comment location="D1">

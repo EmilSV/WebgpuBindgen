@@ -1,0 +1,19 @@
+<Group prefix="WebGpuSharp.FFI.">
+	<Comment location="BindGroupLayoutDescriptorFFI">
+		<summary> 
+			Describes a <see cref="WebGpuSharp.FFI.BindGroupLayoutHandle"/>
+		</summary>
+	</Comment>
+	<Group prefix="BindGroupLayoutDescriptorFFI.">
+		<Comment location="Label">
+			<summary>
+				A label to apply to the bind group layout.
+			</summary>
+		</Comment>
+		<Comment location="EntryCount">
+			<summary>
+				The number of entries in the <see cref="Entries"/> array.
+			</summary>
+		</Comment>
+	</Group>
+</Group>
