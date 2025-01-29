@@ -1,0 +1,99 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BlendFactor">
+		<summary>
+			Defines how either a source or destination blend factors is calculated
+		</summary>
+	</comment>
+	<group prefix="BlendFactor.">
+		<comment location="Undefined">
+			<summary>
+
+			</summary>
+		</comment>
+		<comment location="Zero">
+			<summary>
+				0
+			</summary>
+		</comment>
+		<comment location="One">
+			<summary>
+				1.0
+			</summary>
+		</comment>
+		<comment location="Src">
+			<summary>
+				S.component
+			</summary>
+		</comment>
+		<comment location="OneMinusSrc">
+			<summary>
+				1.0 - S.component
+			</summary>
+		</comment>
+		<comment location="SrcAlpha">
+			<summary>
+				S.alpha
+			</summary>
+		</comment>
+		<comment location="OneMinusSrcAlpha">
+			<summary>
+				1.0 - S.alpha
+			</summary>
+		</comment>
+		<comment location="Dst">
+			<summary>
+				D.component
+			</summary>
+		</comment>
+		<comment location="OneMinusDst">
+			<summary>
+				1.0 - D.component
+			</summary>
+		</comment>
+		<comment location="DstAlpha">
+			<summary>
+				D.alpha
+			</summary>
+		</comment>
+		<comment location="OneMinusDstAlpha">
+			<summary>
+				1.0 - D.alpha
+			</summary>
+		</comment>
+		<comment location="SrcAlphaSaturated">
+			<summary>
+				min(S.alpha, 1.0 - D.alpha)
+			</summary>
+		</comment>
+		<comment location="Constant">
+			<summary>
+				Constant
+			</summary>
+		</comment>
+		<comment location="OneMinusConstant">
+			<summary>
+				1.0 - Constant
+			</summary>
+		</comment>
+		<comment location="Src1">
+			<summary>
+				S1.component
+			</summary>
+		</comment>
+		<comment location="OneMinusSrc1">
+			<summary>
+				1.0 - S1.component
+			</summary>
+		</comment>
+		<comment location="Src1Alpha">
+			<summary>
+				S1.alpha
+			</summary>
+		</comment>
+		<comment location="OneMinusSrc1Alpha">
+			<summary>
+				1.0 - S1.alpha
+			</summary>
+		</comment>
+	</group>
+</group>

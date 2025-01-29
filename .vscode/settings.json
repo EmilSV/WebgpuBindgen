@@ -5,5 +5,14 @@
         "Setlike",
         "Webgpu",
         "Webidl"
-    ]
+    ],
+    "xml.fileAssociations": [
+        {
+            "pattern": "**/*.xmlc",
+            "systemId": "./xmlSchema/commentDocs.xsd"
+        }
+    ],
+    "files.associations": {
+        "**/*.xmlc": "xml"
+    }
 }

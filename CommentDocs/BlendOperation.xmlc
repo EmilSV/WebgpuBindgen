@@ -1,0 +1,25 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BlendOperation">
+		<summary> defines the algorithm used to combine source and destination blend factors </summary>
+	</comment>
+	<group prefix="BlendOperation.">
+		<comment location="Undefined">
+			<summary></summary>
+		</comment>
+		<comment location="Add">
+			<summary>Src + Dst</summary>
+		</comment>
+		<comment location="Subtract">
+			<summary>Src - Dst</summary>
+		</comment>
+		<comment location="ReverseSubtract">
+			<summary>Dst - Src</summary>
+		</comment>
+		<comment location="Min">
+			<summary>min(Src, Dst)</summary>
+		</comment>
+		<comment location="Max">
+			<summary>max(Src, Dst)</summary>
+		</comment>
+	</group>
+</group>

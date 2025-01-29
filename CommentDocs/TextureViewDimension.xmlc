@@ -1,14 +1,11 @@
-<Group prefix="WebGPUSharp.">
-    <Comment location="TextureViewDimension">
+<group prefix="WebGPUSharp.">
+    <comment location="TextureViewDimension">
         <summary>Dimensions of a particular texture view.</summary>
-    </Comment>
-    <Group prefix="TextureViewDimension.">
-        <Comment location="D1">
-            <summary>
-                The texture is viewed as a 1-dimensional image.
-
-                Corresponding WGSL types: 
-                <list type="bullet">
+    </comment>
+    <group prefix="TextureViewDimension.">
+        <comment location="D1">
+            <summary> The texture is viewed as a 1-dimensional image. Corresponding WGSL types: <list
+                    type="bullet">
                     <item>
                         <description>texture_1d</description>
                     </item>
@@ -17,13 +14,10 @@
                     </item>
                 </list>
             </summary>
-        </Comment>
-        <Comment location="D2">
-            <summary>
-                The texture is viewed as a single 2-dimensional image.
-
-                Corresponding WGSL types:
-                 <list type="bullet">
+        </comment>
+        <comment location="D2">
+            <summary> The texture is viewed as a single 2-dimensional image. Corresponding WGSL
+                types: <list type="bullet">
                     <item>
                         <description>texture_2d</description>
                     </item>
@@ -41,13 +35,10 @@
                     </item>
                 </list>
             </summary>
-        </Comment>
-        <Comment location="D2Array">
-            <summary>
-                The texture view is viewed as an array of 2-dimensional images.
-
-                Corresponding WGSL types:
-                 <list type="bullet">
+        </comment>
+        <comment location="D2Array">
+            <summary> The texture view is viewed as an array of 2-dimensional images. Corresponding
+                WGSL types: <list type="bullet">
                     <item>
                         <description>texture_2d_array</description>
                     </item>
@@ -59,16 +50,12 @@
                     </item>
                 </list>
             </summary>
-        </Comment>
-        <Comment location="Cube">
-            <summary>
-                The texture is viewed as a cubemap.
-
-                The view has 6 array layers, each corresponding to a face of the cube in the order [+X, -X, +Y, -Y, +Z, -Z].
-                Sampling is done seamlessly across the faces of the cubemap.
-
-                Corresponding WGSL types:
-                 <list type="bullet">
+        </comment>
+        <comment location="Cube">
+            <summary> The texture is viewed as a cubemap. The view has 6 array layers, each
+                corresponding to a face of the cube in the order [+X, -X, +Y, -Y, +Z, -Z]. Sampling
+                is done seamlessly across the faces of the cubemap. Corresponding WGSL types: <list
+                    type="bullet">
                     <item>
                         <description>texture_cube</description>
                     </item>
@@ -77,15 +64,11 @@
                     </item>
                 </list>
             </summary>
-        </Comment>
-        <Comment location="CubeArray">
-            <summary>
-                The texture is viewed as a packed array of n cubemaps,
-                each with 6 array layers behaving like one  <see cref="Cube"/> view,
-                for 6n array layers in total.
-
-                Corresponding WGSL types:
-                 <list type="bullet">
+        </comment>
+        <comment location="CubeArray">
+            <summary> The texture is viewed as a packed array of n cubemaps, each with 6 array
+                layers behaving like one <see cref="Cube" /> view, for 6n array layers in total.
+                Corresponding WGSL types: <list type="bullet">
                     <item>
                         <description>texture_cube_array</description>
                     </item>
@@ -94,13 +77,10 @@
                     </item>
                 </list>
             </summary>
-        </Comment>
-        <Comment location="D3">
-            <summary>
-                The texture is viewed as a 3-dimensional image.
-
-                Corresponding WGSL types:
-                 <list type="bullet">
+        </comment>
+        <comment location="D3">
+            <summary> The texture is viewed as a 3-dimensional image. Corresponding WGSL types: <list
+                    type="bullet">
                     <item>
                         <description>texture_3d</description>
                     </item>
@@ -109,6 +89,6 @@
                     </item>
                 </list>
             </summary>
-        </Comment>
-    </Group>
-</Group>
+        </comment>
+    </group>
+</group>

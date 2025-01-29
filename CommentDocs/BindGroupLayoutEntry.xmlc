@@ -1,0 +1,6 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BindGroupLayoutEntry">
+		<summary> Describes a single resource binding within a <see
+				cref="WebGpuSharp.BindGroupLayout" />. </summary>
+	</comment>
+</group>

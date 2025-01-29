@@ -1,13 +1,13 @@
-<Group prefix="WebGpuSharp.">
-	<Comment location="AddressMode">
+<group prefix="WebGpuSharp.">
+	<comment location="AddressMode">
 		<summary>
 			describes the behavior of the sampler if the sampled texels extend beyond the
 			bounds of the sampled texture.
 		</summary>
-	</Comment>
-	<Group prefix="AddressMode.">
-		<Comment location="Undefined">
+	</comment>
+	<group prefix="AddressMode.">
+		<comment location="Undefined">
 			<summary>No address mode is specified. (uses default address mode)</summary>
-		</Comment>
-	</Group>
-</Group>
+		</comment>
+	</group>
+</group>

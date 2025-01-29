@@ -1,26 +1,26 @@
-<Group prefix="WebGpuSharp.FFI.AdapterInfoFFI.">
-    <Comment location="Vendor">
+<group prefix="WebGpuSharp.FFI.AdapterInfoFFI.">
+    <comment location="Vendor">
         <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
-    </Comment>
-    <Comment location="Architecture">
+    </comment>
+    <comment location="Architecture">
         <summary>The name of the family or class of GPUs the adapter belongs to. Returns an empty
             string if it is not available.</summary>
-    </Comment>
-    <Comment location="Device">
+    </comment>
+    <comment location="Device">
         <summary>A vendor-specific identifier for the adapter. Returns an empty string if it is not
             available.</summary>
-    </Comment>
-    <Comment location="Description">
+    </comment>
+    <comment location="Description">
         <summary>A human-readable string describing the adapter. Returns an empty string if it is
             not available.</summary>
-    </Comment>
-    <Comment location="BackendType">
+    </comment>
+    <comment location="BackendType">
         <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
-    </Comment>
-    <Comment location="AdapterType">
+    </comment>
+    <comment location="AdapterType">
         <summary>The name of the adapter vendor. Returns an empty string if it is not available.</summary>
-    </Comment>
-    <Comment location="VendorID">
+    </comment>
+    <comment location="VendorID">
         <summary>
             Backend-specific vendor ID of the adapter
 
@@ -31,8 +31,8 @@
             For Vulkan backend, the VkPhysicalDeviceProperties::vendorID is used, which is a
             superset of PCI IDs.
         </summary>
-    </Comment>
-    <Comment location="DeviceID">
+    </comment>
+    <comment location="DeviceID">
         <summary>
             Backend-specific device ID of the adapter
 
@@ -43,5 +43,5 @@
             For Vulkan backend, the VkPhysicalDeviceProperties::vendorID is used, which is a
             superset of PCI IDs.
         </summary>
-    </Comment>
-</Group>
+    </comment>
+</group>

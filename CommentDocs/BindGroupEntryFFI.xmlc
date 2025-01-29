@@ -1,16 +1,16 @@
-<Group prefix="WebGpuSharp.FFI.">
-	<comment location="BindGroupEntryFFI">
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="BindgroupEntryFFI">
 		<summary>
-			A single binding entry in a <see cref="WebGpuSharp.BindGroup" />.
-			A BindGroupEntry can either bind a one of either a <see cref="WebGpuSharp.FFI.BufferHandle" /> with offset and size, 
+			A single binding entry in a <see cref="WebGpuSharp.Bindgroup" />.
+			A BindgroupEntry can either bind a one of either a <see cref="WebGpuSharp.FFI.BufferHandle" /> with offset and size, 
 			or a <see cref="WebGpuSharp.FFI.SamplerHandle" /> or <see cref="WebGpuSharp.FFI.TextureViewHandle" />.
 		</summary>
 	</comment>
-	<Group prefix="BindGroupEntryFFI.">
+	<group prefix="BindgroupEntryFFI.">
 		<comment location="Binding">
 			<summary>
-				A unique identifier for a resource binding within the <see cref="WebGpuSharp.BindGroup" />, 
-				corresponding to a <see cref="WebGpuSharp.BindGroupLayoutEntry.Binding" /> and 
+				A unique identifier for a resource binding within the <see cref="WebGpuSharp.Bindgroup" />, 
+				corresponding to a <see cref="WebGpuSharp.BindgroupLayoutEntry.Binding" /> and 
 				a @binding attribute in the ShaderModule.
 			</summary>
 		</comment>
@@ -39,5 +39,5 @@
 				The TextureView object you want to bind.
 			</summary>
 		</comment>
-	</Group>
-</Group>
+	</group>
+</group>

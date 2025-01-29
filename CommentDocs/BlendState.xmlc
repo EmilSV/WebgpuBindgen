@@ -1,0 +1,7 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BlendState">
+		<summary> Describe the blend state of a render pipeline, within <see
+				cref="WebGpuSharp.FFI.ColorTargetStateFFI" />
+		</summary>
+	</comment>
+</group>

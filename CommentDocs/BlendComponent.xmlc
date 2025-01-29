@@ -1,0 +1,7 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BlendComponent">
+		<summary>
+			Describe how the color or alpha components of a fragment are blended:
+		</summary>
+	</comment>
+</group>
