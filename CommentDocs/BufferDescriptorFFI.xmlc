@@ -1,0 +1,10 @@
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="BufferDescriptorFFI">
+		<summary> Describes a Buffer. For use with Device.CreateBuffer.</summary>
+	</comment>
+	<group prefix="BufferDescriptorFFI.">
+		<comment location="Label">
+			<summary> Debug label of the Buffer</summary>
+		</comment>
+	</group>
+</group>

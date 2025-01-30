@@ -1,0 +1,18 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BufferBindingType">
+		<summary> BufferBindingType is used to define the type of a buffer binding. </summary>
+	</comment>
+	<group prefix="BufferBindingType.">
+		<comment location="Undefined">
+		</comment>
+		<comment location="Uniform">
+			<summary>A buffer for uniform values</summary>
+		</comment>
+		<comment location="Storage">
+			<summary>A storage buffer.</summary>
+		</comment>
+		<comment location="ReadOnlyStorage">
+			<summary>A storage buffer. The buffer can only be read in the shader</summary>
+		</comment>
+	</group>
+</group>

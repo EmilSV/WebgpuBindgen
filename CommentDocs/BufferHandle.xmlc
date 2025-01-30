@@ -1,0 +1,32 @@
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="BufferHandle">
+		<summary>The Buffer represents a block of memory that can be used to store raw data to use
+			in GPU operations.</summary>
+	</comment>
+	<group prefix="BufferHandle.">
+		<comment location="GetMapState">
+			<summary>An enumerated value representing the mapped state of the Buffer.</summary>
+		</comment>
+		<comment location="GetSize">
+			<summary>Returns the size of the buffer in bytes.</summary>
+		</comment>
+		<comment location="GetUsage">
+			<summary>Returns the allowed usages of the Buffer</summary>
+		</comment>
+		<comment
+			location="MapAsync(WebGpuSharp.MapMode, nuint, nuint, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.BufferMapAsyncStatus, void*, void>, void*)">
+			<param name="callback">Callback to be called when the buffer is mapped.</param>
+			<param name="userdata">User data to be passed to the callback.</param>
+		</comment>
+		<comment
+			location="MapAsync(WebGpuSharp.MapMode, nuint, nuint, WebGpuSharp.FFI.BufferMapCallbackInfo2FFI)"
+			cloneFrom="WebGpuSharp.FFI.BufferHandle.MapAsync(WebGpuSharp.MapMode, nuint, nuint, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.BufferMapAsyncStatus, void*, void>, void*)">
+			<param name="callbackInfo">Callback to be called when the buffer is mapped.</param>
+			<returns>The future for the callback.</returns>
+		</comment>
+		<comment location="SetLabel">
+			<summary>Sets a label on the Buffer.</summary>
+			<param name="label">The label to set.</param>
+		</comment>
+	</group>
+</group>

@@ -1,0 +1,57 @@
+<group prefix="WebGpuSharp.">
+	<comment location="BufferMapAsyncStatus">
+		<summary>The status of a buffer mapping operation.</summary>
+	</comment>
+	<group prefix="BufferMapAsyncStatus.">
+		<comment location="Success">
+			<summary> 
+				The Buffer is successfully mapped, GetMappedRange can be called.
+			</summary>
+		</comment>
+		<comment location="InstanceDropped">
+			<summary>
+				The instance was dropped before the callback was called.
+			</summary>
+		</comment>
+		<comment location="ValidationError">
+			<summary>
+				The buffer is not valid for mapping.
+			</summary>
+		</comment>
+		<comment location="Unknown">
+			<summary>
+				An unknown error has occurred.
+			</summary>
+		</comment>
+		<comment location="DeviceLost">
+			<summary>
+				The device was lost before the callback was called.
+			</summary>
+		</comment>
+		<comment location="DestroyedBeforeCallback">
+			<summary>
+				Buffer was destroyed before the callback was called.
+			</summary>
+		</comment>
+		<comment location="UnmappedBeforeCallback">
+			<summary>
+				Buffer was unmapped before the callback was called.
+			</summary>
+		</comment>
+		<comment location="MappingAlreadyPending">
+			<summary>
+				Mapping was already requested.
+			</summary>
+		</comment>
+		<comment location="OffsetOutOfRange">
+			<summary>
+				The range isn’t fully contained in the buffer.
+			</summary>
+		</comment>
+		<comment location="SizeOutOfRange">
+			<summary>
+				The range isn’t fully contained in the buffer.
+			</summary>
+		</comment>
+	</group>
+</group>
