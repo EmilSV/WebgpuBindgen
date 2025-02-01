@@ -11,7 +11,7 @@ public sealed class XmlCommentDocs
 
     public static async Task<XmlCommentDocs> Create(string folderPath)
     {
-        var xmlFiles = Directory.GetFiles(folderPath, "*.xml", SearchOption.AllDirectories)
+        var xmlFiles = Directory.GetFiles(folderPath, "*.xmlc", SearchOption.AllDirectories)
        .Select(i => XmlCommentParser.Parse(File.OpenRead(i)))
        .ToList();
 
