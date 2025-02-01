@@ -1,0 +1,5 @@
+<group prefix="WebGpuSharp.">
+	<comment location="WebGPUBool">
+		<summary>32bit boolean value.</summary>
+	</comment>
+</group>

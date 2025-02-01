@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -11,4 +11,11 @@ public enum WaitStatus
 	UnsupportedCount = 4,
 	UnsupportedMixedSources = 5,
 	Unknown = 6,
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="WaitStatus">
+		<summary>The status of a wait operation.</summary>
+	</comment>
+</group>
