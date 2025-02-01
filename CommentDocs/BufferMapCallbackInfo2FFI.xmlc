@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -13,4 +13,11 @@ public unsafe partial struct BufferMapCallbackInfo2FFI
 	
 public BufferMapCallbackInfo2FFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="BufferMapCallbackInfo2FFI">
+		<summary>Callback info for Buffer.MapAsync with two userdata pointers.</summary>
+	</comment>
+</group>

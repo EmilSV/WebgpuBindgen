@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -18,4 +18,11 @@ public enum BufferMapState
 /// The buffer is mapped and `this`. <see cref="WebGpuSharp.Buffer.GetMappedRange"/> may be used.
 /// </summary>
 	Mapped = 3,
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="BufferMapState">
+		<summary>The state of a buffer mapping.</summary>
+	</comment>
+</group>

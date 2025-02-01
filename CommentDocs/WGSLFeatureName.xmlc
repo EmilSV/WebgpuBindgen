@@ -1,0 +1,56 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum WGSLFeatureName
+{
+	ReadonlyAndReadwriteStorageTextures = 1,
+	Packed4x8IntegerDotProduct = 2,
+	UnrestrictedPointerParameters = 3,
+	PointerCompositeAccess = 4,
+	ChromiumTestingUnimplemented = 327680,
+	ChromiumTestingUnsafeExperimental = 327681,
+	ChromiumTestingExperimental = 327682,
+	ChromiumTestingShippedWithKillswitch = 327683,
+	ChromiumTestingShipped = 327684,
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="WGSLFeatureName">
+		<summary>The name of a WebGPU Shading Language feature.</summary>
+	</comment>
+	<group prefix="WGSLFeatureName.">
+		<comment location="ReadonlyAndReadwriteStorageTextures">
+			<summary> When the ReadonlyAndReadwriteStorageTextures WGSL language extension is
+				present, you can set StorageTexture access to either "read-write" or "read-only"
+				when creating a bind group layout. </summary>
+		</comment>
+		<comment location="Packed4x8IntegerDotProduct">
+			<summary> When the Packed4x8IntegerDotProduct WGSL language extension is present, then
+				you can use 32-bit integer scalars packing 4-component vectors of 8-bit integers as
+				inputs to the dot product instructions in your WGSL shader code with the
+				dot4U8Packed and dot4I8Packed built-in functions. You can also use packing and
+				unpacking instructions with packed 4-component vectors of 8-bit integers with
+				pack4xI8, pack4xU8, pack4xI8Clamp, pack4xU8Clamp, unpack4xI8, and unpack4xU8 WGSL
+				built-in functions. </summary>
+		</comment>
+		<comment location="UnrestrictedPointerParameters">
+			<summary>
+				The UnrestrictedPointerParameters WGSL language extension loosens
+				restrictions on which pointers can be passed to WGSL functions: <list type="bullet">
+                    <item>
+                        <description>Parameter pointers of storage, uniform and workgroup address spaces to user declared functions.</description>
+                    </item>
+                    <item>
+                        <description>Passing Parameter pointers to structure members and array elements to user declared functions.</description>
+                    </item>
+                </list> 
+			</summary>
+		</comment>
+		<comment location="PointerCompositeAccess">
+			<summary>The feature is supported.</summary>
+		</comment>
+	</group>
+</group>
