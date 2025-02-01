@@ -1,0 +1,27 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct BufferMapCallbackInfo2FFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.MapAsyncStatus, WebGpuSharp.FFI.StringViewFFI, void*,
+void*, void> Callback;
+	public void* Userdata1;
+	public void* Userdata2;
+	
+public BufferMapCallbackInfo2FFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI">
+	<comment location="BufferMapCallbackInfo2FFI">
+		<summary> CallbackInfo for Buffer.MapAsync.</summary>
+	</comment>
+	<group>
+	
+	</group>
+</group>

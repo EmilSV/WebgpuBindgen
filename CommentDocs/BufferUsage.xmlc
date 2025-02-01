@@ -1,0 +1,35 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+[System.FlagsAttribute]
+public enum BufferUsage : ulong
+{
+	None = 0,
+	MapRead = 1,
+	MapWrite = 2,
+	CopySrc = 4,
+	CopyDst = 8,
+	Index = 16,
+	Vertex = 32,
+	Uniform = 64,
+	Storage = 128,
+	Indirect = 256,
+	QueryResolve = 512,
+} -->
+
+<group prefix="WebGpuSharp">
+	<comment location="BufferUsage">
+		<summary> Describes how a buffer is expected to be used.</summary>
+	</comment>
+	<group prefix="BufferUsage.">
+		<comment location="MapRead">
+			<summary> 
+				The buffer can be mapped for reading, for example when calling mapAsync() with
+				a mode of GPUMapMode.READ. This flag may only be combined with
+				GPUBufferUsage.COPY_DST. 
+			</summary>
+		</comment>
+	</group>
+</group>
