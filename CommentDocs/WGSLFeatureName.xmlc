@@ -1,56 +1,61 @@
-<!-- using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp;
-
-public enum WGSLFeatureName
-{
-	ReadonlyAndReadwriteStorageTextures = 1,
-	Packed4x8IntegerDotProduct = 2,
-	UnrestrictedPointerParameters = 3,
-	PointerCompositeAccess = 4,
-	ChromiumTestingUnimplemented = 327680,
-	ChromiumTestingUnsafeExperimental = 327681,
-	ChromiumTestingExperimental = 327682,
-	ChromiumTestingShippedWithKillswitch = 327683,
-	ChromiumTestingShipped = 327684,
-} -->
-
-
 <group prefix="WebGpuSharp.">
 	<comment location="WGSLFeatureName">
 		<summary>The name of a WebGPU Shading Language feature.</summary>
 	</comment>
 	<group prefix="WGSLFeatureName.">
 		<comment location="ReadonlyAndReadwriteStorageTextures">
-			<summary> When the ReadonlyAndReadwriteStorageTextures WGSL language extension is
-				present, you can set StorageTexture access to either "read-write" or "read-only"
-				when creating a bind group layout. </summary>
-		</comment>
-		<comment location="Packed4x8IntegerDotProduct">
-			<summary> When the Packed4x8IntegerDotProduct WGSL language extension is present, then
-				you can use 32-bit integer scalars packing 4-component vectors of 8-bit integers as
-				inputs to the dot product instructions in your WGSL shader code with the
-				dot4U8Packed and dot4I8Packed built-in functions. You can also use packing and
-				unpacking instructions with packed 4-component vectors of 8-bit integers with
-				pack4xI8, pack4xU8, pack4xI8Clamp, pack4xU8Clamp, unpack4xI8, and unpack4xU8 WGSL
-				built-in functions. </summary>
-		</comment>
-		<comment location="UnrestrictedPointerParameters">
-			<summary>
-				The UnrestrictedPointerParameters WGSL language extension loosens
-				restrictions on which pointers can be passed to WGSL functions: <list type="bullet">
-                    <item>
-                        <description>Parameter pointers of storage, uniform and workgroup address spaces to user declared functions.</description>
-                    </item>
-                    <item>
-                        <description>Passing Parameter pointers to structure members and array elements to user declared functions.</description>
-                    </item>
-                </list> 
+			<summary> 
+				Allows the use of <see href="https://www.w3.org/TR/WGSL/#access-read">read</see>
+				and <see href="https://www.w3.org/TR/WGSL/#access-mode">read_write</see> access modes with 
+				<see href="https://www.w3.org/TR/WGSL/#type-storage-texture">storage textures</see>. Additionally, adds the
+				<see href="https://www.w3.org/TR/WGSL/#textureBarrier-builtin">textureBarrier</see> built-in function. 
 			</summary>
 		</comment>
+		<comment location="Packed4x8IntegerDotProduct">
+			<summary> 
+			Supports using 32-bit integer scalars packing 4-component vectors of 8-bit
+				integers as inputs to the dot product instructions with <see href="https://www.w3.org/TR/WGSL/#dot4U8Packed-builtin">dot4U8Packed</see> and
+				<see href="https://www.w3.org/TR/WGSL/#dot4I8Packed-builtin">dot4I8Packed</see> built-in functions. Additionally, adds packing and unpacking
+				instructions with packed 4-component vectors of 8-bit integers with <see href="https://www.w3.org/TR/WGSL/#dot4I8Packed-builtin">pack4xI8</see>,
+				<see href="https://www.w3.org/TR/WGSL/#pack4xI8-builtin">pack4xU8</see>, 
+				<see href="https://www.w3.org/TR/WGSL/#pack4xU8-builtin">pack4xI8Clamp</see>, 
+				<see href="https://www.w3.org/TR/WGSL/#pack4xU8Clamp-builtin">pack4xU8Clamp</see>, 
+				<see href="https://www.w3.org/TR/WGSL/#unpack4xI8-builtin">unpack4xI8</see>, and 
+				<see href="https://www.w3.org/TR/WGSL/#unpack4xU8-builtin">unpack4xU8</see> built-in
+				functions. 
+			</summary>
+		</comment>
+		<comment location="UnrestrictedPointerParameters">
+			<summary> Removes the following <see href="https://www.w3.org/TR/WGSL/#function-restriction">restrictions</see> from <see href="https://www.w3.org/TR/WGSL/#user-defined-function">user-defined functions</see>: For
+				<see href="https://www.w3.org/TR/WGSL/#user-defined-function">user-defined functions</see>, a parameter of pointer type <see href="https://www.w3.org/TR/WGSL/#shader-creation-error">must</see> be in one of the following
+				address spaces: <list type="bullet">
+					<item>
+						<description><see href="https://www.w3.org/TR/WGSL/#address-spaces-function">function</see></description>
+					</item>
+					<item>
+						<description><see href="https://www.w3.org/TR/WGSL/#address-spaces-private">private</see></description>
+					</item>
+				</list>
+				Each argument of pointer type to a <see href="https://www.w3.org/TR/WGSL/#user-defined-function">user-defined</see> function <see href="https://www.w3.org/TR/WGSL/#shader-creation-error">must</see> 
+				have the same <see href="https://www.w3.org/TR/WGSL/#memory-view">memory view</see> as its <see href="https://www.w3.org/TR/WGSL/#root-identifier">root identifier</see>. 
+			</summary>
+			<remark> 
+				This means no 
+				<see href="https://www.w3.org/TR/WGSL/#vector">vector</see>, 
+				<see href="https://www.w3.org/TR/WGSL/#matrix">matrix</see>, 
+				<see href="https://www.w3.org/TR/WGSL/#array">array</see>, or 
+				<see href="https://www.w3.org/TR/WGSL/#struct">struct</see> access expressions can be
+				applied to produce a <see href="https://www.w3.org/TR/WGSL/#memory-view">memory view</see> into the <see href="https://www.w3.org/TR/WGSL/#root-identifier">root identifier</see> when traced from the
+				argument back through all the <see href="https://www.w3.org/TR/WGSL/#let-declaration">let-declarations</see>. 
+			</remark>
+		</comment>
 		<comment location="PointerCompositeAccess">
-			<summary>The feature is supported.</summary>
+			<summary> 
+				Supports <see href="https://www.w3.org/TR/WGSL/#composite-value-decomposition-expr">composite-value decomposition expressions</see> where the root expression
+				is a pointer, yielding a reference. For example, if p is a pointer to a structure
+				with member m, then p.m is a reference to the memory locations for m inside the
+				structure p points to. Similarly, if pa is a pointer to an array, then pa[i] is a
+				reference to the memory locations for the i’th element of the array pa points to. </summary>
 		</comment>
 	</group>
 </group>
