@@ -1,0 +1,75 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CommandBufferHandle : IEquatable<CommandBufferHandle>
+{
+	private readonly nuint _ptr;
+	public static WebGpuSharp.FFI.CommandBufferHandle Null{
+get => new(nuint.Zero);
+}
+	
+public CommandBufferHandle(nuint ptr)=> _ptr = ptr;
+
+	public static explicit operator nuint (WebGpuSharp.FFI.CommandBufferHandle handle)=> handle._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.CommandBufferHandle left,
+WebGpuSharp.FFI.CommandBufferHandle right)=> left._ptr == right._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.CommandBufferHandle left,
+WebGpuSharp.FFI.CommandBufferHandle right)=> left._ptr != right._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.CommandBufferHandle left,
+WebGpuSharp.FFI.CommandBufferHandle? right)=> left._ptr == right.GetValueOrDefault()._ptr;
+
+	public static bool operator !=(WebGpuSharp.FFI.CommandBufferHandle left,
+WebGpuSharp.FFI.CommandBufferHandle? right)=> left._ptr != right.GetValueOrDefault()._ptr;
+
+	public static bool operator ==(WebGpuSharp.FFI.CommandBufferHandle left, nuint right)=> left._ptr
+== right;
+
+	public static bool operator !=(WebGpuSharp.FFI.CommandBufferHandle left, nuint right)=> left._ptr
+!= right;
+
+	public nuint GetAddress()=> _ptr;
+
+	public bool Equals(WebGpuSharp.FFI.CommandBufferHandle other)=> _ptr == other._ptr;
+
+	public override bool Equals(object? other)=> (other is CommandBufferHandle h && Equals(h)) ||
+(other is null && _ptr == UIntPtr.Zero);
+
+	public override int GetHashCode()=> _ptr.GetHashCode();
+
+	public void SetLabel(WebGpuSharp.FFI.StringViewFFI label)=> WebGPU_FFI.CommandBufferSetLabel(this,
+label);
+
+	public void AddRef()=> WebGPU_FFI.CommandBufferAddRef(this);
+
+	public void Release()=> WebGPU_FFI.CommandBufferRelease(this);
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="CommandBufferHandle">
+		<summary> 
+			Handle to a command buffer on the GPU. 
+		
+			A CommandBuffer represents a complete sequence of commands that may be submitted to a command queue with Queue.Submit(). 
+			A CommandBuffer is obtained by recording a series of commands to a CommandEncoder and then
+			calling CommandEncoder.Finish().
+		</summary>
+	</comment>
+
+	<group prefix="CommandBufferHandle.">
+		<comment location="SetLabel">
+			<summary>
+				 Set debug label of this command buffer. 
+			</summary>
+			<param name="label">
+				 The new label.
+			</param>
+		</comment>
+	</group>
+</group>

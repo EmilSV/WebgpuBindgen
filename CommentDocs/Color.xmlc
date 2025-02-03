@@ -1,0 +1,47 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public partial struct Color
+{
+/// <summary>
+/// The red channel value.
+/// </summary>
+	public required double R;
+/// <summary>
+/// The green channel value.
+/// </summary>
+	public required double G;
+/// <summary>
+/// The blue channel value.
+/// </summary>
+	public required double B;
+/// <summary>
+/// The alpha channel value.
+/// </summary>
+	public required double A;
+	
+public Color(){}
+
+} -->
+
+<group prefix="WebGpuSharp.">
+	<comment location="Color">
+		<summary> A color with red, green, blue and alpha channels. </summary>
+	</comment>
+	<!-- <group prefix="Color.">
+		<comment location="R">
+			<summary> The red channel value. </summary>
+		</comment>
+		<comment location="G">
+			<summary> The green channel value. </summary>
+		</comment>
+		<comment location="B">
+			<summary> The blue channel value. </summary>
+		</comment>
+		<comment location="A">
+			<summary> The alpha channel value. </summary>
+		</comment>
+	</group> -->
+</group>

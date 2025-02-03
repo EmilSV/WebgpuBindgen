@@ -1,0 +1,25 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CommandBufferDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	
+public CommandBufferDescriptorFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment>
+		<summary location="CommandBufferDescriptorFFI"> Describes a <see cref="WebGpuSharp.FFI.CommandBufferHandle" /> to be created. </summary>
+	</comment>
+	<group prefix="CommandBufferDescriptorFFI.">
+		<comment location="Label">
+			<summary>Debug label of this command buffer. </summary>
+		</comment>
+	</group>
+</group>

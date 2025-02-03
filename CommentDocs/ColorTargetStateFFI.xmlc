@@ -1,0 +1,7 @@
+<group prefix="WebGpuSharp.FFI.">
+	<comment>
+		<summary location="ColorTargetStateFFI">
+			Describes the color state of a render pipeline.
+		</summary>
+	</comment>
+</group>

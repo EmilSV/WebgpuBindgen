@@ -1,0 +1,27 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CommandEncoderDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	
+public CommandEncoderDescriptorFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="CommandEncoderDescriptorFFI">
+		<summary> Describes a CommandEncoder. For use with <see
+				cref="WebGpuSharp.FFI.DeviceHandle.CreateCommandEncoder(WebGpuSharp.FFI.CommandEncoderDescriptorFFI*)" />
+		</summary>
+	</comment>
+	<group prefix="CommandEncoderDescriptorFFI.">
+		<comment location="Label">
+			<summary>The debug label of the command encoder.</summary>
+		</comment>
+	</group>
+</group>

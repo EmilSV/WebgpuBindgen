@@ -1,0 +1,26 @@
+<group prefix="WebGpuSharp.">
+	<comment>
+		<summary location="ColorWriteMask"> Bitmask controlling which channels are are written to
+			when drawing to this color target. </summary>
+	</comment>
+	<group prefix="ColorWriteMask.">
+		<comment location="None">
+			<summary> No channels are written to. </summary>
+		</comment>
+		<comment location="Red">
+			<summary> The red channel is written to. </summary>
+		</comment>
+		<comment location="Green">
+			<summary> The green channel is written to. </summary>
+		</comment>
+		<comment location="Blue">
+			<summary> The blue channel is written to. </summary>
+		</comment>
+		<comment location="Alpha">
+			<summary> The alpha channel is written to. </summary>
+		</comment>
+		<comment location="All">
+			<summary> All channels are written to. </summary>
+		</comment>
+	</group>
+</group>
