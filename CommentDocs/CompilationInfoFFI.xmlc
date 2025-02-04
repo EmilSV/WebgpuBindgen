@@ -1,0 +1,27 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CompilationInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public nuint MessageCount;
+	public WebGpuSharp.FFI.CompilationMessageFFI* Messages;
+	
+public CompilationInfoFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="CompilationInfoFFI">
+		<summary> Compilation information for a shader module. </summary>
+	</comment>
+	<group prefix="CompilationInfoFFI.">
+		<comment location="Messages">
+			<summary>The messages from the shader compilation process.</summary>
+		</comment>
+	</group>
+
+</group>
