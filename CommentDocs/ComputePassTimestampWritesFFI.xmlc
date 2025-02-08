@@ -1,0 +1,6 @@
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ComputePassTimestampWritesFFI">
+		<summary> Defines which timestamp values will be written for this pass, and where to write
+			them to.</summary>
+	</comment>
+</group>
