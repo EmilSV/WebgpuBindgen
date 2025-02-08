@@ -1,0 +1,16 @@
+<group prefix="WebGpuSharp.">
+	<comment location="CompilationMessageType">
+		<summary>The type of a compilation message.</summary>
+	</comment>
+	<group prefix="CompilationMessageType.">
+		<comment location="Error">
+			<summary>An error message.</summary>
+		</comment>
+		<comment location="Warning">
+			<summary>A warning message.</summary>
+		</comment>
+		<comment location="Info">
+			<summary>An informational message.</summary>
+		</comment>
+	</group>
+</group>

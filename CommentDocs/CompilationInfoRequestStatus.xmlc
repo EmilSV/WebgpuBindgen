@@ -1,0 +1,16 @@
+<group prefix="WebGpuSharp.">
+	<comment location="CompilationInfoRequestStatus">
+	</comment>
+	<group prefix="CompilationInfoRequestStatus.">
+		<comment location="Success">
+		</comment>
+		<comment location="InstanceDropped">
+		</comment>
+		<comment location="Error">
+		</comment>
+		<comment location="DeviceLost">
+		</comment>
+		<comment location="Unknown">
+		</comment>
+	</group>
+</group>
