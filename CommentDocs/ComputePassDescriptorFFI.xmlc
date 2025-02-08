@@ -1,0 +1,13 @@
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ComputePassDescriptorFFI">
+		<summary>
+			Describes the attachments of a compute pass.
+			For use with <see cref="WebGpuSharp.FFI.CommandEncoder.BeginComputePass"/>.
+		</summary>
+	</comment>
+	<group prefix="ComputePassDescriptorFFI.">
+		<comment location="Label">
+			<summary>Debug label of the compute pass.</summary>
+		</comment>
+	</group>
+</group>

@@ -1,0 +1,37 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum CompositeAlphaMode
+{
+	Auto = 0,
+	Opaque = 1,
+	Premultiplied = 2,
+	Unpremultiplied = 3,
+	Inherit = 4,
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="CompositeAlphaMode">
+		<summary>Specifies how the alpha channel of the textures should be handled during compositing.</summary>
+	</comment>
+	<group prefix="CompositeAlphaMode.">
+		<comment location="Auto">
+			<summary>Chooses either Opaque or Inherit automatically, depending on the AlphaMode that the current surface can support.</summary>
+		</comment>
+		<comment location="Opaque">
+			<summary>The alpha channel, if it exists, of the textures is ignored in the compositing process. Instead, the textures is treated as if it has a constant alpha of 1.0.</summary>
+		</comment>
+		<comment location="Premultiplied">
+			<summary>The alpha channel, if it exists, of the textures is respected in the compositing process. The non-alpha channels of the textures are expected to already be multiplied by the alpha channel by the application.</summary>
+		</comment>
+		<comment location="Unpremultiplied">
+			<summary>The alpha channel, if it exists, of the textures is respected in the compositing process. The non-alpha channels of the textures are not expected to already be multiplied by the alpha channel by the application; instead, the compositor will multiply the non-alpha channels of the texture by the alpha channel during compositing.</summary>
+		</comment>
+		<comment location="Inherit">
+			<summary>The alpha channel, if it exists, of the textures is unknown for processing during compositing. Instead, the application is responsible for setting the composite alpha blending mode using native WSI command. If not set, then a platform-specific default will be used.</summary>
+		</comment>
+	</group>
+</group>
