@@ -1,0 +1,29 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct ConstantEntryFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Key = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	public double Value;
+	
+public ConstantEntryFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ConstantEntryFFI">
+		<summary> A key-value pair used for fragment, vertex, and compute shader constants. </summary>
+	</comment>
+	<group prefix="ConstantEntryFFI.">
+		<comment location="Key">
+			<summary> The name of the constant. </summary>
+		</comment>
+		<comment location="Value">
+			<summary> The value of the constant. </summary>
+		</comment>
+	</group>
+</group>
