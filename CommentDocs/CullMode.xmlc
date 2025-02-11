@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -18,4 +18,11 @@ public enum CullMode
 /// Back-facing polygons are discarded.
 /// </summary>
 	Back = 3,
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="CullMode">
+		<summary> The face culling mode. </summary>
+	</comment>
+</group>

@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -92,4 +92,78 @@ public DeviceHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.DeviceRelease(this);
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="DeviceHandle.">
+		<summary>A DeviceHandle encapsulates a graphics/compute device and exposes the functionality of that device.</summary> 
+	</comment>
+	<group prefix="DeviceHandle.">
+		<comment location="CreateBindGroup">
+			<summary>Creates a BindGroup.</summary>
+		</comment>
+		<comment location="CreateBindGroupLayout">
+			<summary>Creates a BindGroupLayout.</summary>
+		</comment>
+		<comment location="CreateBuffer">
+			<summary>Creates a Buffer.</summary>
+		</comment>
+		<comment location="CreateCommandEncoder">
+			<summary>Creates a CommandEncoder.</summary>
+		</comment>
+		<comment location="CreateComputePipeline">
+			<summary>Creates a ComputePipeline using immediate pipeline creation.</summary>
+		</comment>
+		<comment location="CreateComputePipelineAsync">
+			<summary>
+				Creates a GPUComputePipeline using async pipeline creation. 
+				The returned future resolves when the created pipeline is ready to be used without additional delay.
+			</summary>
+			<remark>
+				Use of this method is preferred whenever possible, as it prevents blocking the queue timeline work on pipeline compilation.
+			</remark>
+		</comment>
+		<comment location="CreatePipelineLayout">
+			<summary>Creates a PipelineLayout.</summary>
+		</comment>
+		<comment location="CreateQuerySet">
+			<summary>Creates a QuerySet.</summary>
+		</comment>
+		<comment location="CreateRenderBundleEncoder">
+			<summary>Creates a RenderBundleEncoder.</summary>
+		</comment>
+		<comment location="CreateRenderPipeline">
+			<summary>Creates a RenderPipeline.</summary>
+		</comment>
+		<comment location="CreateRenderPipelineAsync">
+			<summary>Creates a RenderPipeline.</summary>
+		</comment>
+		<comment location="CreateSampler">
+		</comment>
+		<comment location="CreateShaderModule">
+		</comment>
+		<comment location="CreateTexture">
+		</comment>
+		<comment location="Destroy">
+		</comment>
+		<comment location="GetAdapterInfo">
+		</comment>
+		<comment location="GetFeatures">
+		</comment>
+		<comment location="GetLimits">
+		</comment>
+		<comment location="GetLostFuture">
+		</comment>
+		<comment location="GetQueue">
+		</comment>
+		<comment location="HasFeature">
+		</comment>
+		<comment location="PopErrorScope">
+		</comment>
+		<comment location="PushErrorScope">
+		</comment>
+		<comment location="SetLabel">
+		</comment>
+	</group>
+</group>

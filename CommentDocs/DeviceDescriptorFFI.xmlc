@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -33,4 +33,19 @@ public unsafe partial struct DeviceDescriptorFFI
 	
 public DeviceDescriptorFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="DeviceDescriptorFFI">
+		<summary>Describes a Device.</summary>
+	</comment>
+	<group prefix="DeviceDescriptorFFI.">
+		<comment location="Label">
+			<summary>Debug label for the device.</summary>
+		</comment>
+		<comment location="RequiredFeatureCount">
+			<summary>the number of required features in the requiredFeatures sequence.</summary>
+		</comment>
+	</group>
+</group>

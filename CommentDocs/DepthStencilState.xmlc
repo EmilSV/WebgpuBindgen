@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -54,4 +54,11 @@ public unsafe partial struct DepthStencilState
 	
 public DepthStencilState(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="DepthStencilState">
+		<summary>Describes the depth/stencil state in a render pipeline.</summary>
+	</comment>
+</group>
