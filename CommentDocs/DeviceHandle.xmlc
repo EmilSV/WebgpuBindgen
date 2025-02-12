@@ -1,100 +1,3 @@
-<!-- using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp.FFI;
-
-public unsafe partial struct DeviceHandle : IEquatable<DeviceHandle>
-{
-	private readonly nuint _ptr;
-	public static WebGpuSharp.FFI.DeviceHandle Null{
-get => new(nuint.Zero);
-}
-	
-public DeviceHandle(nuint ptr)=> _ptr = ptr;
-
-	public static explicit operator nuint (WebGpuSharp.FFI.DeviceHandle handle)=> handle._ptr;
-
-	public static bool operator ==(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle right)=> left._ptr == right._ptr;
-
-	public static bool operator !=(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle right)=> left._ptr != right._ptr;
-
-	public static bool operator ==(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle? right)=> left._ptr == right.GetValueOrDefault()._ptr;
-
-	public static bool operator !=(WebGpuSharp.FFI.DeviceHandle left, WebGpuSharp.FFI.DeviceHandle? right)=> left._ptr != right.GetValueOrDefault()._ptr;
-
-	public static bool operator ==(WebGpuSharp.FFI.DeviceHandle left, nuint right)=> left._ptr == right;
-
-	public static bool operator !=(WebGpuSharp.FFI.DeviceHandle left, nuint right)=> left._ptr != right;
-
-	public nuint GetAddress()=> _ptr;
-
-	public bool Equals(WebGpuSharp.FFI.DeviceHandle other)=> _ptr == other._ptr;
-
-	public override bool Equals(object? other)=> (other is DeviceHandle h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);
-
-	public override int GetHashCode()=> _ptr.GetHashCode();
-
-	public WebGpuSharp.FFI.BindGroupHandle CreateBindGroup(WebGpuSharp.FFI.BindGroupDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateBindGroup(this, descriptor);
-
-	public WebGpuSharp.FFI.BindGroupLayoutHandle CreateBindGroupLayout(WebGpuSharp.FFI.BindGroupLayoutDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateBindGroupLayout(this, descriptor);
-
-	public WebGpuSharp.FFI.BufferHandle CreateBuffer(WebGpuSharp.FFI.BufferDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateBuffer(this, descriptor);
-
-	public WebGpuSharp.FFI.CommandEncoderHandle CreateCommandEncoder(WebGpuSharp.FFI.CommandEncoderDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateCommandEncoder(this, descriptor);
-
-	public WebGpuSharp.FFI.ComputePipelineHandle CreateComputePipeline(WebGpuSharp.FFI.ComputePipelineDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateComputePipeline(this, descriptor);
-
-	public void CreateComputePipelineAsync(WebGpuSharp.FFI.ComputePipelineDescriptorFFI* descriptor, delegate* unmanaged[Cdecl]<WebGpuSharp.CreatePipelineAsyncStatus, WebGpuSharp.FFI.ComputePipelineHandle, WebGpuSharp.FFI.StringViewFFI, void*, void> callback, void* userdata)=> WebGPU_FFI.DeviceCreateComputePipelineAsync(this, descriptor, callback, userdata);
-
-	public WebGpuSharp.Future CreateComputePipelineAsync(WebGpuSharp.FFI.ComputePipelineDescriptorFFI* descriptor, WebGpuSharp.FFI.CreateComputePipelineAsyncCallbackInfo2FFI callbackInfo)=> WebGPU_FFI.DeviceCreateComputePipelineAsync2(this, descriptor, callbackInfo);
-
-	public WebGpuSharp.FFI.PipelineLayoutHandle CreatePipelineLayout(WebGpuSharp.FFI.PipelineLayoutDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreatePipelineLayout(this, descriptor);
-
-	public WebGpuSharp.FFI.QuerySetHandle CreateQuerySet(WebGpuSharp.FFI.QuerySetDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateQuerySet(this, descriptor);
-
-	public WebGpuSharp.FFI.RenderBundleEncoderHandle CreateRenderBundleEncoder(WebGpuSharp.FFI.RenderBundleEncoderDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateRenderBundleEncoder(this, descriptor);
-
-	public WebGpuSharp.FFI.RenderPipelineHandle CreateRenderPipeline(WebGpuSharp.FFI.RenderPipelineDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateRenderPipeline(this, descriptor);
-
-	public void CreateRenderPipelineAsync(WebGpuSharp.FFI.RenderPipelineDescriptorFFI* descriptor, delegate* unmanaged[Cdecl]<WebGpuSharp.CreatePipelineAsyncStatus, WebGpuSharp.FFI.RenderPipelineHandle, WebGpuSharp.FFI.StringViewFFI, void*, void> callback, void* userdata)=> WebGPU_FFI.DeviceCreateRenderPipelineAsync(this, descriptor, callback, userdata);
-
-	public WebGpuSharp.Future CreateRenderPipelineAsync(WebGpuSharp.FFI.RenderPipelineDescriptorFFI* descriptor, WebGpuSharp.FFI.CreateRenderPipelineAsyncCallbackInfo2FFI callbackInfo)=> WebGPU_FFI.DeviceCreateRenderPipelineAsync2(this, descriptor, callbackInfo);
-
-	public WebGpuSharp.FFI.SamplerHandle CreateSampler(WebGpuSharp.FFI.SamplerDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateSampler(this, descriptor);
-
-	public WebGpuSharp.FFI.ShaderModuleHandle CreateShaderModule(WebGpuSharp.FFI.ShaderModuleDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateShaderModule(this, descriptor);
-
-	public WebGpuSharp.FFI.TextureHandle CreateTexture(WebGpuSharp.FFI.TextureDescriptorFFI* descriptor)=> WebGPU_FFI.DeviceCreateTexture(this, descriptor);
-
-	public void Destroy()=> WebGPU_FFI.DeviceDestroy(this);
-
-	public WebGpuSharp.Status GetAdapterInfo(WebGpuSharp.FFI.AdapterInfoFFI* adapterInfo)=> WebGPU_FFI.DeviceGetAdapterInfo(this, adapterInfo);
-
-	public void GetFeatures(WebGpuSharp.FFI.SupportedFeaturesFFI* features)=> WebGPU_FFI.DeviceGetFeatures(this, features);
-
-	public WebGpuSharp.Status GetLimits(WebGpuSharp.SupportedLimits* limits)=> WebGPU_FFI.DeviceGetLimits(this, limits);
-
-	public WebGpuSharp.Future GetLostFuture()=> WebGPU_FFI.DeviceGetLostFuture(this);
-
-	public WebGpuSharp.FFI.QueueHandle GetQueue()=> WebGPU_FFI.DeviceGetQueue(this);
-
-	public WebGpuSharp.WebGPUBool HasFeature(WebGpuSharp.FeatureName feature)=> WebGPU_FFI.DeviceHasFeature(this, feature);
-
-	public void PopErrorScope(delegate* unmanaged[Cdecl]<WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void> oldCallback, void* userdata)=> WebGPU_FFI.DevicePopErrorScope(this, oldCallback, userdata);
-
-	public WebGpuSharp.Future PopErrorScope(WebGpuSharp.FFI.PopErrorScopeCallbackInfo2FFI callbackInfo)=> WebGPU_FFI.DevicePopErrorScope2(this, callbackInfo);
-
-	public void PushErrorScope(WebGpuSharp.ErrorFilter filter)=> WebGPU_FFI.DevicePushErrorScope(this, filter);
-
-	public void SetLabel(WebGpuSharp.FFI.StringViewFFI label)=> WebGPU_FFI.DeviceSetLabel(this, label);
-
-	public void AddRef()=> WebGPU_FFI.DeviceAddRef(this);
-
-	public void Release()=> WebGPU_FFI.DeviceRelease(this);
-
-} -->
-
-
 <group prefix="WebGpuSharp.FFI.">
 	<comment location="DeviceHandle.">
 		<summary>A DeviceHandle encapsulates a graphics/compute device and exposes the functionality of that device.</summary> 
@@ -102,61 +5,90 @@ public DeviceHandle(nuint ptr)=> _ptr = ptr;
 	<group prefix="DeviceHandle.">
 		<comment location="CreateBindGroup">
 			<summary>Creates a BindGroup.</summary>
+			<param name="descriptor">The descriptor to use for the BindGroup</param>
+			<returns>A new BindGroup</returns>
 		</comment>
 		<comment location="CreateBindGroupLayout">
 			<summary>Creates a BindGroupLayout.</summary>
+			<param name="descriptor">The descriptor to use for the BindGroupLayout</param>
+			<returns>A new BindGroupLayout</returns>
 		</comment>
 		<comment location="CreateBuffer">
 			<summary>Creates a Buffer.</summary>
+			<param name="descriptor">The descriptor to use for the Buffer</param>
+			<returns>A new Buffer</returns>
 		</comment>
 		<comment location="CreateCommandEncoder">
 			<summary>Creates a CommandEncoder.</summary>
+			<param name="descriptor">The descriptor to use for the CommandEncoder</param>
+			<returns>A new CommandEncoder</returns>
 		</comment>
 		<comment location="CreateComputePipeline">
 			<summary>Creates a ComputePipeline using immediate pipeline creation.</summary>
+			<param name="descriptor">The descriptor to use for the ComputePipeline</param>
+			<returns>A new ComputePipeline</returns>
 		</comment>
 		<comment location="CreateComputePipelineAsync">
 			<summary>
 				Creates a GPUComputePipeline using async pipeline creation. 
 				The returned future resolves when the created pipeline is ready to be used without additional delay.
 			</summary>
+			<param name="descriptor">The descriptor to use for the ComputePipeline</param>
+			<param name="callbackInfo">The callbackInfo to use for the ComputePipeline</param>
 			<remark>
 				Use of this method is preferred whenever possible, as it prevents blocking the queue timeline work on pipeline compilation.
 			</remark>
+			<returns>A future resolving when the pipeline is ready</returns>
 		</comment>
 		<comment location="CreatePipelineLayout">
 			<summary>Creates a PipelineLayout.</summary>
 		</comment>
 		<comment location="CreateQuerySet">
 			<summary>Creates a QuerySet.</summary>
+			<param name="descriptor"> The descriptor to use for the QuerySet</param>
+			<returns>A new QuerySet</returns>
 		</comment>
 		<comment location="CreateRenderBundleEncoder">
 			<summary>Creates a RenderBundleEncoder.</summary>
+			<param name="descriptor">The descriptor to use for the RenderBundleEncoder</param>
+			<returns>A new RenderBundleEncoder</returns>
 		</comment>
 		<comment location="CreateRenderPipeline">
 			<summary>Creates a GPURenderPipeline using immediate pipeline creation.</summary>
+			<param name="descriptor">The descriptor to use for the RenderPipeline</param>
+			<returns>A new RenderPipeline</returns>
 		</comment>
 		<comment location="CreateRenderPipelineAsync">
 			<summary>
 				Creates a GPURenderPipeline using async pipeline creation. 
 				The returned future resolves when the created pipeline is ready to be used without additional delay.
 			</summary>
+			<param name="descriptor">The descriptor to use for the RenderPipeline</param>
+			<param name="callbackInfo">The callbackInfo to use for the RenderPipeline</param>
 			<remark>
 				Use of this method is preferred whenever possible, as it prevents blocking the queue timeline work on pipeline compilation.
 			</remark>
+			<returns>A future resolving when the pipeline is ready</returns>
 		</comment>
 		<comment location="CreateSampler">
 			<summary>Creates a Sampler.</summary>
+			<param name="descriptor">The descriptor to use for the Sampler</param>
+			<returns>A new Sampler</returns>
 		</comment>
 		<comment location="CreateShaderModule">
 			<summary>Creates a ShaderModule.</summary>
+			<param name="descriptor">The descriptor to use for the ShaderModule</param>
+			<returns>A new ShaderModule</returns>
 		</comment>
 		<comment location="CreateTexture">
 			<summary>Creates a Texture.</summary>
+			<param name="descriptor">The descriptor to use for the Texture</param>
+			<returns>A new Texture</returns>
 		</comment>
 		<comment location="Destroy">
 			<summary>Destroys the device, preventing further operations on it. Outstanding asynchronous operations will fail.</summary>
 			<remark> It is valid to destroy a device multiple times.</remark>
+			<returns>A future resolving when the device is destroyed</returns>
 		</comment>
 		<comment location="GetAdapterInfo">
 			<summary>
@@ -164,7 +96,8 @@ public DeviceHandle(nuint ptr)=> _ptr = ptr;
 
 				For a given GPUDevice, the GPUAdapterInfo values exposed are constant over time.
 			</summary>
-			<returns> Return a new adapter info for this device</returns>
+			<param name="adapterInfo">The adapterInfo to insert the adapter info into</param>
+			<returns> the status of the operation</returns>
 		</comment>
 		<comment location="GetFeatures">
 			<summary>Get the features supported by the device</summary>
@@ -184,9 +117,12 @@ public DeviceHandle(nuint ptr)=> _ptr = ptr;
 			<summary>
 				Get the primary Queue for this device.
 			</summary>
+			<param name="queue">Get the queue to insert command into</param>
+			<returns>the queue</returns>
 		</comment>
 		<comment location="HasFeature">
 			<summary>Check if the feature is supported</summary>
+			<param name="feature">The feature to check</param>
 			<returns>true if the feature is supported false otherwise</returns>
 		</comment>
 		<comment location="PopErrorScope(delegate* unmanaged[Cdecl]&lt;WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void>, void*)">
@@ -208,6 +144,8 @@ public DeviceHandle(nuint ptr)=> _ptr = ptr;
 			<param name="filter">Which class of errors this error scope observes</param>
 		</comment>
 		<comment location="SetLabel">
+			<summary>Set debug label of this device</summary>
+			<param name="label">The label to set</param>
 		</comment>
 	</group>
 </group>

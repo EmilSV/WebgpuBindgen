@@ -1,0 +1,19 @@
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="DeviceLostCallbackInfo2FFI">
+		<summary>A DeviceLostCallbackInfo2FFI is a callback info struct used to register a callback for when a device is lost.</summary>
+	</comment>
+	<group prefix="DeviceLostCallbackInfo2FFI.">
+		<comment location="Callback">
+			<summary>The callback to call when the device is lost.</summary>
+		</comment>
+		<comment location="Mode">
+			<summary>The callback mode.</summary>
+		</comment>
+		<comment location="Userdata1">
+			<summary>The userdata1.</summary>
+		</comment>
+		<comment location="Userdata2">
+			<summary>The userdata2.</summary>
+		</comment>
+	</group>
+</group>
