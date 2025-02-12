@@ -134,34 +134,78 @@ public DeviceHandle(nuint ptr)=> _ptr = ptr;
 			<summary>Creates a RenderBundleEncoder.</summary>
 		</comment>
 		<comment location="CreateRenderPipeline">
-			<summary>Creates a RenderPipeline.</summary>
+			<summary>Creates a GPURenderPipeline using immediate pipeline creation.</summary>
 		</comment>
 		<comment location="CreateRenderPipelineAsync">
-			<summary>Creates a RenderPipeline.</summary>
+			<summary>
+				Creates a GPURenderPipeline using async pipeline creation. 
+				The returned future resolves when the created pipeline is ready to be used without additional delay.
+			</summary>
+			<remark>
+				Use of this method is preferred whenever possible, as it prevents blocking the queue timeline work on pipeline compilation.
+			</remark>
 		</comment>
 		<comment location="CreateSampler">
+			<summary>Creates a Sampler.</summary>
 		</comment>
 		<comment location="CreateShaderModule">
+			<summary>Creates a ShaderModule.</summary>
 		</comment>
 		<comment location="CreateTexture">
+			<summary>Creates a Texture.</summary>
 		</comment>
 		<comment location="Destroy">
+			<summary>Destroys the device, preventing further operations on it. Outstanding asynchronous operations will fail.</summary>
+			<remark> It is valid to destroy a device multiple times.</remark>
 		</comment>
 		<comment location="GetAdapterInfo">
+			<summary>
+				Information about the physical adapter which created the device that this GPUDevice refers to.
+
+				For a given GPUDevice, the GPUAdapterInfo values exposed are constant over time.
+			</summary>
+			<returns> Return a new adapter info for this device</returns>
 		</comment>
 		<comment location="GetFeatures">
+			<summary>Get the features supported by the device</summary>
+			<param name="features">an pointer to a SupportedFeaturesFFI to insert the supported features into</param>
 		</comment>
 		<comment location="GetLimits">
+			<summary>
+				Get the limits which can be used on this device.
+				No better limits can be used, even if the underlying adapter can support them.
+			</summary>
+			<param name="limits">an pointer to a SupportedLimits to insert the limits into</param>
+			<returns>Return status of the operation</returns>
 		</comment>
 		<comment location="GetLostFuture">
 		</comment>
 		<comment location="GetQueue">
+			<summary>
+				Get the primary Queue for this device.
+			</summary>
 		</comment>
 		<comment location="HasFeature">
+			<summary>Check if the feature is supported</summary>
+			<returns>true if the feature is supported false otherwise</returns>
 		</comment>
-		<comment location="PopErrorScope">
+		<comment location="PopErrorScope(delegate* unmanaged[Cdecl]&lt;WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void>, void*)">
+			<summary>
+				Pops a error scope off the errorScopeStack for this and resolves to any error observed by the error scope, or null if none.
+			</summary>
+			<param name="oldCallback">The callback to call when the error scope is popped.</param>
+			<param name="userdata">The userdata to pass to the callback.</param>
+		</comment>
+		<comment location="PopErrorScope(WebGpuSharp.FFI.PopErrorScopeCallbackInfo2FFI)">
+			<summary>
+				Pops a error scope off the errorScopeStack for this device and resolves to any error observed by the error scope, or null if none.
+			</summary>
+			<param name="callbackInfo">The callback to call when the error scope is popped.</param>
+			<returns>a future resolving when the error from the error scope is ready to be observed</returns>
 		</comment>
 		<comment location="PushErrorScope">
+			<summary>Pushes a new error scope onto the errorScopeStack for this device</summary>
+			<param name="filter">Which class of errors this error scope observes</param>
 		</comment>
 		<comment location="SetLabel">
 		</comment>
