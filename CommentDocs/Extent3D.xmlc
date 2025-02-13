@@ -1,0 +1,5 @@
+<group prefix="WebGpuSharp.">
+	<comment location="Extent3D">
+		<summary>Extent of a texture related operation.</summary>
+	</comment>
+</group>

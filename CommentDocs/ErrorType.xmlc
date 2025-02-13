@@ -1,0 +1,45 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum ErrorType
+{
+	NoError = 1,
+	Validation = 2,
+	OutOfMemory = 3,
+	Internal = 4,
+	Unknown = 5,
+	DeviceLost = 6,
+} -->
+
+<group prefix="WebGpuSharp.">
+	<comment location="ErrorType">
+		<summary>An error type from the error stack</summary>
+	</comment>
+
+	<group prefix="ErrorType.">
+		<comment location="NoError">
+			<summary>No error</summary>
+		</comment>
+		<comment location="Validation">
+			<summary>Validation error, signifying a bug in code or data</summary>
+		</comment>
+		<comment location="OutOfMemory">
+			<summary>Out of memory error</summary>
+		</comment>
+		<comment location="Internal">
+			<summary>
+				Internal error. Used for signalling any failures not explicitly expected by WebGPU.
+
+				These could be due to internal implementation or system limits being reached.
+			</summary>
+		</comment>
+		<comment location="Unknown">
+			<summary>Unknown error</summary>
+		</comment>
+		<comment location="DeviceLost">
+			<summary>Device lost</summary>
+		</comment>
+	</group>
+</group>

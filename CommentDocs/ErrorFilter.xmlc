@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -17,4 +17,11 @@ public enum ErrorFilter
 /// Indicates that the error scope will catch a InternalError.
 /// </summary>
 	Internal = 3,
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="ErrorFilter">
+		<summary>Specifies which errors should be caught by the error scope.</summary>
+	</comment>
+</group>

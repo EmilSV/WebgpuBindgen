@@ -1,0 +1,33 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum DeviceLostReason
+{
+	Unknown = 1,
+	Destroyed = 2,
+	InstanceDropped = 3,
+	FailedCreation = 4,
+} -->
+
+
+<group prefix="WebGpuSharp">
+	<comment location="DeviceLostReason">
+		<summary>Reason for “lose the device”.</summary>
+	</comment>
+	<group prefix="DeviceLostReason.">
+		<comment location="Unknown">
+			<summary>Triggered by driver</summary>
+		</comment>
+		<comment location="Destroyed">
+			<summary>The device was destroyed by <see cref="WebGpuSharp.Device.Destroy()"/></summary>
+		</comment>
+		<comment location="InstanceDropped">
+			<summary>The device was lost because the instance was dropped.</summary>
+		</comment>
+		<comment location="FailedCreation">
+			<summary>The device was lost because it failed to be created.</summary>
+		</comment>
+</group>
+</group>
