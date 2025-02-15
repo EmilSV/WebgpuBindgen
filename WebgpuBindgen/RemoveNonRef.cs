@@ -126,7 +126,7 @@ public static class RemoveNonRefHandler
             return true;
         }
 
-        if(typeNameA == null || typeNameB == null)
+        if (typeNameA == null || typeNameB == null)
         {
             return false;
         }
@@ -191,7 +191,16 @@ public static class RemoveNonRefHandler
             structType.Methods.RemoveWhere(i => !refStructType.Methods.Any(j => CompareTypeNames(j.Name, i.Name)));
         }
 
+        var featureName = enumStartingPoint.Find(i => i.Name == "FeatureName");
 
+        if (featureName != null)
+        {
+            var translationResultRefFeatureName = translationResultRef.Enums.First(i => i.Name == "FeatureName");
+            if (translationResultRefFeatureName != null)
+            {
+                featureName.Values.RemoveWhere(i => !translationResultRefFeatureName.Values.Any(j => CompareTypeNames(j.Name, i.Name)));
+            }
+        }
 
         var deepFindStructsHashSet = new HashSet<CSStruct>();
         var deepFindEnumsHashSet = new HashSet<CSEnum>();

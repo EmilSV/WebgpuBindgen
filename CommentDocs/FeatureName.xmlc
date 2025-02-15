@@ -17,61 +17,7 @@ public enum FeatureName
 	BGRA8UnormStorage = 10,
 	Float32Filterable = 11,
 	Float32Blendable = 12,
-	Subgroups = 13,
-	SubgroupsF16 = 14,
-	DawnInternalUsages = 327680,
-	DawnMultiPlanarFormats = 327681,
-	DawnNative = 327682,
-	ChromiumExperimentalTimestampQueryInsidePasses = 327683,
-	ImplicitDeviceSynchronization = 327684,
-	ChromiumExperimentalImmediateData = 327685,
-	TransientAttachments = 327686,
-	MSAARenderToSingleSampled = 327687,
 	DualSourceBlending = 327688,
-	D3D11MultithreadProtected = 327689,
-	ANGLETextureSharing = 327690,
-	PixelLocalStorageCoherent = 327691,
-	PixelLocalStorageNonCoherent = 327692,
-	Unorm16TextureFormats = 327693,
-	Snorm16TextureFormats = 327694,
-	MultiPlanarFormatExtendedUsages = 327695,
-	MultiPlanarFormatP010 = 327696,
-	HostMappedPointer = 327697,
-	MultiPlanarRenderTargets = 327698,
-	MultiPlanarFormatNv12a = 327699,
-	FramebufferFetch = 327700,
-	BufferMapExtendedUsages = 327701,
-	AdapterPropertiesMemoryHeaps = 327702,
-	AdapterPropertiesD3D = 327703,
-	AdapterPropertiesVk = 327704,
-	R8UnormStorage = 327705,
-	FormatCapabilities = 327706,
-	DrmFormatCapabilities = 327707,
-	Norm16TextureFormats = 327708,
-	MultiPlanarFormatNv16 = 327709,
-	MultiPlanarFormatNv24 = 327710,
-	MultiPlanarFormatP210 = 327711,
-	MultiPlanarFormatP410 = 327712,
-	SharedTextureMemoryVkDedicatedAllocation = 327713,
-	SharedTextureMemoryAHardwareBuffer = 327714,
-	SharedTextureMemoryDmaBuf = 327715,
-	SharedTextureMemoryOpaqueFD = 327716,
-	SharedTextureMemoryZirconHandle = 327717,
-	SharedTextureMemoryDXGISharedHandle = 327718,
-	SharedTextureMemoryD3D11Texture2D = 327719,
-	SharedTextureMemoryIOSurface = 327720,
-	SharedTextureMemoryEGLImage = 327721,
-	SharedFenceVkSemaphoreOpaqueFD = 327722,
-	SharedFenceSyncFD = 327723,
-	SharedFenceVkSemaphoreZirconHandle = 327724,
-	SharedFenceDXGISharedHandle = 327725,
-	SharedFenceMTLSharedEvent = 327726,
-	SharedBufferMemoryD3D12Resource = 327727,
-	StaticSamplers = 327728,
-	YCbCrVulkanSamplers = 327729,
-	ShaderModuleCompilationOptions = 327730,
-	DawnLoadResolveTexture = 327731,
-	DawnPartialLoadResolveTexture = 327732,
 	MultiDrawIndirect = 327733,
 	ClipDistances = 327734,
 } -->
@@ -119,6 +65,32 @@ public enum FeatureName
 				
 			</summary>
 		</comment>
+		<comment location="TimestampQuery">
+			<summary>
+				Enables use of Timestamp Queries. These queries tell the current gpu timestamp when all work before the query is finished.
+
+				This feature allows the use of
+
+				[RenderPassDescriptor::timestamp_writes]
+				[ComputePassDescriptor::timestamp_writes] to write out timestamps.
+
+				For arbitrary timestamp write commands on encoders refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsideEncoders"/>. For arbitrary timestamp write commands on passes refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsidePasses"/>.
+
+				They must be resolved using [CommandEncoder::resolve_query_set] into a buffer, then the result must be multiplied by the timestamp period [Queue::get_timestamp_period] to get the timestamp in nanoseconds. Multiple timestamps can then be diffed to get the time for operations between them to finish.
+
+				Supported Platforms:<list type="bullet">
+					<item>
+						<description>Vulkan</description>
+					</item>
+					<item>
+						<description>DX12</description>
+					</item>
+					<item>
+						<description>Metal</description>
+					</item>
+				</list>
+			</summary>
+		</comment>
 		<comment location="TextureCompressionBC">
 			<summary>
 				Enables BCn family of compressed textures. All BCn textures use 4x4 pixel blocks with 8 or 16 bytes per block.
@@ -128,22 +100,6 @@ public enum FeatureName
 				Support for this feature guarantees availability of <c>[TextureUsages::COPY_SRC | TextureUsages::COPY_DST | TextureUsages::TEXTURE_BINDING]</c> for BCn formats. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/> may enable additional usages.
 
 				This feature guarantees availability of sliced-3d textures for BC formats when combined with <see cref="WebGpuSharp.FeatureName.TextureCompressionBcSliced3d"/>.
-
-				Supported Platforms:<list type="bullet">
-					<item>
-						<description>desktops</description>
-					</item>
-					<item>
-						<description>Mobile (All Apple9 and some Apple7 and Apple8 devices)</description>
-					</item>
-				</list>
-			</summary>
-		</comment>
-		<comment location="TextureCompressionBcSliced3d">
-			<summary> 
-				Allows the 3d dimension for textures with BC compressed formats.
-
-				This feature must be used in combination with <see cref="WebGpuSharp.FeatureName.TextureCompressionBC"/> to enable 3D textures with BC compression. It does not enable the BC formats by itself.
 
 				Supported Platforms:<list type="bullet">
 					<item>
@@ -193,32 +149,6 @@ public enum FeatureName
 				</list>
 			</summary>
 		</comment>
-		<comment location="TimestampQuery">
-			<summary>
-				Enables use of Timestamp Queries. These queries tell the current gpu timestamp when all work before the query is finished.
-
-				This feature allows the use of
-
-				[RenderPassDescriptor::timestamp_writes]
-				[ComputePassDescriptor::timestamp_writes] to write out timestamps.
-
-				For arbitrary timestamp write commands on encoders refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsideEncoders"/>. For arbitrary timestamp write commands on passes refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsidePasses"/>.
-
-				They must be resolved using [CommandEncoder::resolve_query_set] into a buffer, then the result must be multiplied by the timestamp period [Queue::get_timestamp_period] to get the timestamp in nanoseconds. Multiple timestamps can then be diffed to get the time for operations between them to finish.
-
-				Supported Platforms:<list type="bullet">
-					<item>
-						<description>Vulkan</description>
-					</item>
-					<item>
-						<description>DX12</description>
-					</item>
-					<item>
-						<description>Metal</description>
-					</item>
-				</list>
-			</summary>
-		</comment>
 		<comment location="IndirectFirstInstance">
 			<summary>
 				Allows non-zero value for the first_instance member in indirect draw calls.
@@ -248,6 +178,16 @@ public enum FeatureName
 
 				Not Supported:<list type="bullet">
 					<item>OpenGL ES / WebGL</item>
+				</list>
+			</summary>
+		</comment>
+		<comment location="ShaderF16">
+			<summary>
+				Allows shaders to acquire the FP16 ability.
+
+				Supported platforms:<list type="bullet">
+					<item>Vulkan</item>
+					<item>Metal</item>
 				</list>
 			</summary>
 		</comment>
@@ -300,26 +240,6 @@ public enum FeatureName
 					<item>Vulkan (with dualSrcBlend)</item>
 					<item>DX12</item>
 				</list>
-			</summary>
-		</comment>
-		<comment location="MultiDrawIndirect">
-			<summary>
-				Allows the user to call RenderPass::multi_draw_indirect and RenderPass::multi_draw_indexed_indirect.
-
-				Allows multiple indirect calls to be dispatched from a single buffer.
-
-				Natively Supported Platforms:<list type="bullet">
-					<item>DX12</item>
-					<item>Vulkan</item>
-				</list>
-
-				Emulated Platforms:<list type="bullet">
-					<item>Metal</item>
-					<item>OpenGL</item>
-					<item>WebGPU</item>
-				</list>
-
-				Emulation is preformed by looping over the individual indirect draw calls in the backend. This is still significantly faster than enulating it yourself, as wgpu only does draw call validation once.
 			</summary>
 		</comment>
 	</group>
