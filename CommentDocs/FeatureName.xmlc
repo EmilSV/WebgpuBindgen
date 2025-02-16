@@ -46,8 +46,8 @@ public enum FeatureName
 			</summary>
 		</comment>
 		<comment location="Depth32FloatStencil8">
-			<summary> Allows for explicit creation of textures of format <see
-					cref="WebGpuSharp.TextureFormat.Depth32FloatStencil8" />. Supported platforms:<list
+			<summary> Allows for explicit creation of textures of format <see cref="WebGpuSharp.TextureFormat.Depth32FloatStencil8" />. 
+					Supported platforms:<list
 					type="bullet">
 					<item>
 						<description>Vulkan (mostly)</description>
@@ -71,12 +71,12 @@ public enum FeatureName
 
 				This feature allows the use of
 
-				[RenderPassDescriptor::timestamp_writes]
-				[ComputePassDescriptor::timestamp_writes] to write out timestamps.
+				<see cref="WebGpuSharp.RenderPassDescriptor.TimestampWrites"/>
+				<see cref="WebGpuSharp.ComputePassDescriptor.TimestampWrites"/> to write out timestamps.
 
 				For arbitrary timestamp write commands on encoders refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsideEncoders"/>. For arbitrary timestamp write commands on passes refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsidePasses"/>.
 
-				They must be resolved using [CommandEncoder::resolve_query_set] into a buffer, then the result must be multiplied by the timestamp period [Queue::get_timestamp_period] to get the timestamp in nanoseconds. Multiple timestamps can then be diffed to get the time for operations between them to finish.
+				They must be resolved using [CommandEncoder::resolve_query_set] into a buffer, then the result must be multiplied by the timestamp period [Queue::get_timestamp_period] <see cref="WebGpuSharp.Queue.get_timestamp_period"/> to get the timestamp in nanoseconds. Multiple timestamps can then be diffed to get the time for operations between them to finish.
 
 				Supported Platforms:<list type="bullet">
 					<item>
@@ -97,7 +97,7 @@ public enum FeatureName
 
 				Compressed textures sacrifice some quality in exchange for significantly reduced bandwidth usage.
 
-				Support for this feature guarantees availability of <c>[TextureUsages::COPY_SRC | TextureUsages::COPY_DST | TextureUsages::TEXTURE_BINDING]</c> for BCn formats. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/> may enable additional usages.
+				Support for this feature guarantees availability of <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for BCn formats. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/> may enable additional usages.
 
 				This feature guarantees availability of sliced-3d textures for BC formats when combined with <see cref="WebGpuSharp.FeatureName.TextureCompressionBcSliced3d"/>.
 
@@ -118,7 +118,7 @@ public enum FeatureName
 
 				Compressed textures sacrifice some quality in exchange for significantly reduced bandwidth usage.
 
-				Support for this feature guarantees availability of <c>[TextureUsages::COPY_SRC | TextureUsages::COPY_DST | TextureUsages::TEXTURE_BINDING]</c> for ETC2 formats.
+				Support for this feature guarantees availability of <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for ETC2 formats.
 				<see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/> may enable additional usages.
 
 				Supported Platforms:<list type="bullet">
@@ -137,7 +137,7 @@ public enum FeatureName
 
 				Compressed textures sacrifice some quality in exchange for significantly reduced bandwidth usage.
 
-				Support for this feature guarantees availability of <c>[TextureUsages::COPY_SRC | TextureUsages::COPY_DST | TextureUsages::TEXTURE_BINDING]</c> for ASTC formats with Unorm/UnormSrgb channel type. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/> may enable additional usages.
+				Support for this feature guarantees availability of <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for ASTC formats with Unorm/UnormSrgb channel type. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/> may enable additional usages.
 
 				Supported Platforms:<list type="bullet">
 					<item>
@@ -193,7 +193,7 @@ public enum FeatureName
 		</comment>
 		<comment location="RG11B10UfloatRenderable">
 			<summary>
-				Allows for usage of textures of format TextureFormat::Rg11b10Ufloat as a render target.
+				Allows for usage of textures of format  <see cref="WebGpuSharp.TextureFormat.Rg11b10Ufloat"/> as a render target.
 
 				Supported platforms:<list type="bullet">
 					<item>Vulkan</item>
@@ -205,7 +205,7 @@ public enum FeatureName
 		</comment>
 		<comment location="BGRA8UnormStorage">
 			<summary>
-				Allows the [wgpu::TextureUsages::STORAGE_BINDING] usage on textures with format [TextureFormat::Bgra8unorm].
+				Allows the <see cref="WebGpuSharp.TextureUsage.StorageBinding"/> usage on textures with format <see cref="WebGpuSharp.TextureFormat.BGRA8Unorm"/>.
 
 				Supported Platforms:<list type="bullet">
 					<item>Vulkan</item>
