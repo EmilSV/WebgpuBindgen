@@ -1,27 +1,3 @@
-<!-- using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp;
-
-public enum FeatureName
-{
-	DepthClipControl = 1,
-	Depth32FloatStencil8 = 2,
-	TimestampQuery = 3,
-	TextureCompressionBC = 4,
-	TextureCompressionETC2 = 5,
-	TextureCompressionASTC = 6,
-	IndirectFirstInstance = 7,
-	ShaderF16 = 8,
-	RG11B10UfloatRenderable = 9,
-	BGRA8UnormStorage = 10,
-	Float32Filterable = 11,
-	Float32Blendable = 12,
-	DualSourceBlending = 327688,
-	MultiDrawIndirect = 327733,
-	ClipDistances = 327734,
-} -->
-
 <group prefix="WebGpuSharp.">
 	<comment location="FeatureName">
 		<summary> Features that are not guaranteed to be supported. If you want to use a feature,
@@ -76,7 +52,7 @@ public enum FeatureName
 
 				For arbitrary timestamp write commands on encoders refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsideEncoders"/>. For arbitrary timestamp write commands on passes refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsidePasses"/>.
 
-				They must be resolved using [CommandEncoder::resolve_query_set] into a buffer, then the result must be multiplied by the timestamp period [Queue::get_timestamp_period] <see cref="WebGpuSharp.Queue.get_timestamp_period"/> to get the timestamp in nanoseconds. Multiple timestamps can then be diffed to get the time for operations between them to finish.
+				They must be resolved using <see cref="WebGpuSharp.CommandEncoder.ResolveQuerySet"/> into a buffer, the timestamps results is in nanoseconds and stored as 64bit integers. Multiple timestamps can then be diffed to get the time for operations between them to finish.
 
 				Supported Platforms:<list type="bullet">
 					<item>
