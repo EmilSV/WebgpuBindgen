@@ -19,6 +19,9 @@
  * The WebIDL-based Web specification is mapped into C as faithfully (and
  * bidirectionally) as practical/possible.
  * The working draft of WebGPU can be found at <https://www.w3.org/TR/webgpu/>.
+ *
+ * The standard include directive for this header is `#include <webgpu/webgpu.h>`
+ * (if it is provided in a system-wide or toolchain-wide include directory).
  */
 
 #ifndef WEBGPU_H_
@@ -218,6 +221,7 @@ struct WGPURenderBundleEncoderDescriptor;
 struct WGPURenderPassDepthStencilAttachment;
 struct WGPURenderPassMaxDrawCount;
 struct WGPURequestAdapterOptions;
+struct WGPURequestAdapterWebXROptions;
 struct WGPUSamplerBindingLayout;
 struct WGPUSamplerDescriptor;
 struct WGPUShaderModuleDescriptor;
@@ -294,8 +298,7 @@ typedef enum WGPUAdapterType {
 
 typedef enum WGPUAddressMode {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUAddressMode_Undefined = 0x00000000,
     WGPUAddressMode_ClampToEdge = 0x00000001,
@@ -306,8 +309,7 @@ typedef enum WGPUAddressMode {
 
 typedef enum WGPUBackendType {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUBackendType_Undefined = 0x00000000,
     WGPUBackendType_Null = 0x00000001,
@@ -323,8 +325,7 @@ typedef enum WGPUBackendType {
 
 typedef enum WGPUBlendFactor {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUBlendFactor_Undefined = 0x00000000,
     WGPUBlendFactor_Zero = 0x00000001,
@@ -349,8 +350,7 @@ typedef enum WGPUBlendFactor {
 
 typedef enum WGPUBlendOperation {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUBlendOperation_Undefined = 0x00000000,
     WGPUBlendOperation_Add = 0x00000001,
@@ -363,15 +363,13 @@ typedef enum WGPUBlendOperation {
 
 typedef enum WGPUBufferBindingType {
     /**
-     * `0x00000000`.
-     * Indicates that this @ref WGPUBufferBindingLayout member of
+     * `0`. Indicates that this @ref WGPUBufferBindingLayout member of
      * its parent @ref WGPUBindGroupLayoutEntry is not used.
      * (See also @ref SentinelValues.)
      */
     WGPUBufferBindingType_BindingNotUsed = 0x00000000,
     /**
-     * `0x00000001`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `1`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUBufferBindingType_Undefined = 0x00000001,
     WGPUBufferBindingType_Uniform = 0x00000002,
@@ -392,21 +390,18 @@ typedef enum WGPUBufferMapState {
  */
 typedef enum WGPUCallbackMode {
     /**
-     * `0x00000001`.
      * Callbacks created with `WGPUCallbackMode_WaitAnyOnly`:
      * - fire when the asynchronous operation's future is passed to a call to @ref wgpuInstanceWaitAny
      *   AND the operation has already completed or it completes inside the call to @ref wgpuInstanceWaitAny.
      */
     WGPUCallbackMode_WaitAnyOnly = 0x00000001,
     /**
-     * `0x00000002`.
      * Callbacks created with `WGPUCallbackMode_AllowProcessEvents`:
      * - fire for the same reasons as callbacks created with `WGPUCallbackMode_WaitAnyOnly`
      * - fire inside a call to @ref wgpuInstanceProcessEvents if the asynchronous operation is complete.
      */
     WGPUCallbackMode_AllowProcessEvents = 0x00000002,
     /**
-     * `0x00000003`.
      * Callbacks created with `WGPUCallbackMode_AllowSpontaneous`:
      * - fire for the same reasons as callbacks created with `WGPUCallbackMode_AllowProcessEvents`
      * - **may** fire spontaneously on an arbitrary or application thread, when the WebGPU implementations discovers that the asynchronous operation is complete.
@@ -421,8 +416,7 @@ typedef enum WGPUCallbackMode {
 
 typedef enum WGPUCompareFunction {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUCompareFunction_Undefined = 0x00000000,
     WGPUCompareFunction_Never = 0x00000001,
@@ -454,27 +448,22 @@ typedef enum WGPUCompilationMessageType {
  */
 typedef enum WGPUCompositeAlphaMode {
     /**
-     * `0x00000000`.
-     * Lets the WebGPU implementation choose the best mode (supported, and with the best performance) between @ref WGPUCompositeAlphaMode_Opaque or @ref WGPUCompositeAlphaMode_Inherit.
+     * `0`. Lets the WebGPU implementation choose the best mode (supported, and with the best performance) between @ref WGPUCompositeAlphaMode_Opaque or @ref WGPUCompositeAlphaMode_Inherit.
      */
     WGPUCompositeAlphaMode_Auto = 0x00000000,
     /**
-     * `0x00000001`.
      * The alpha component of the image is ignored and teated as if it is always 1.0.
      */
     WGPUCompositeAlphaMode_Opaque = 0x00000001,
     /**
-     * `0x00000002`.
      * The alpha component is respected and non-alpha components are assumed to be already multiplied with the alpha component. For example, (0.5, 0, 0, 0.5) is semi-transparent bright red.
      */
     WGPUCompositeAlphaMode_Premultiplied = 0x00000002,
     /**
-     * `0x00000003`.
      * The alpha component is respected and non-alpha components are assumed to NOT be already multiplied with the alpha component. For example, (1.0, 0, 0, 0.5) is semi-transparent bright red.
      */
     WGPUCompositeAlphaMode_Unpremultiplied = 0x00000003,
     /**
-     * `0x00000004`.
      * The handling of the alpha component is unknown to WebGPU and should be handled by the application using system-specific APIs. This mode may be unavailable (for example on Wasm).
      */
     WGPUCompositeAlphaMode_Inherit = 0x00000004,
@@ -491,8 +480,7 @@ typedef enum WGPUCreatePipelineAsyncStatus {
 
 typedef enum WGPUCullMode {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUCullMode_Undefined = 0x00000000,
     WGPUCullMode_None = 0x00000001,
@@ -530,17 +518,14 @@ typedef enum WGPUErrorType {
  */
 typedef enum WGPUFeatureLevel {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUFeatureLevel_Undefined = 0x00000000,
     /**
-     * `0x00000001`.
      * "Compatibility" profile which can be supported on OpenGL ES 3.1 and D3D11.
      */
     WGPUFeatureLevel_Compatibility = 0x00000001,
     /**
-     * `0x00000002`.
      * "Core" profile which can be supported on Vulkan/Metal/D3D12 (at least).
      */
     WGPUFeatureLevel_Core = 0x00000002,
@@ -548,6 +533,9 @@ typedef enum WGPUFeatureLevel {
 } WGPUFeatureLevel WGPU_ENUM_ATTRIBUTE;
 
 typedef enum WGPUFeatureName {
+    /**
+     * `0`.
+     */
     WGPUFeatureName_Undefined = 0x00000000,
     WGPUFeatureName_DepthClipControl = 0x00000001,
     WGPUFeatureName_Depth32FloatStencil8 = 0x00000002,
@@ -565,13 +553,13 @@ typedef enum WGPUFeatureName {
     WGPUFeatureName_Float32Blendable = 0x0000000E,
     WGPUFeatureName_ClipDistances = 0x0000000F,
     WGPUFeatureName_DualSourceBlending = 0x00000010,
+    WGPUFeatureName_Subgroups = 0x00000011,
     WGPUFeatureName_Force32 = 0x7FFFFFFF
 } WGPUFeatureName WGPU_ENUM_ATTRIBUTE;
 
 typedef enum WGPUFilterMode {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUFilterMode_Undefined = 0x00000000,
     WGPUFilterMode_Nearest = 0x00000001,
@@ -581,8 +569,7 @@ typedef enum WGPUFilterMode {
 
 typedef enum WGPUFrontFace {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUFrontFace_Undefined = 0x00000000,
     WGPUFrontFace_CCW = 0x00000001,
@@ -592,8 +579,7 @@ typedef enum WGPUFrontFace {
 
 typedef enum WGPUIndexFormat {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUIndexFormat_Undefined = 0x00000000,
     WGPUIndexFormat_Uint16 = 0x00000001,
@@ -603,8 +589,7 @@ typedef enum WGPUIndexFormat {
 
 typedef enum WGPULoadOp {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPULoadOp_Undefined = 0x00000000,
     WGPULoadOp_Load = 0x00000001,
@@ -622,8 +607,7 @@ typedef enum WGPUMapAsyncStatus {
 
 typedef enum WGPUMipmapFilterMode {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUMipmapFilterMode_Undefined = 0x00000000,
     WGPUMipmapFilterMode_Nearest = 0x00000001,
@@ -632,6 +616,9 @@ typedef enum WGPUMipmapFilterMode {
 } WGPUMipmapFilterMode WGPU_ENUM_ATTRIBUTE;
 
 typedef enum WGPUOptionalBool {
+    /**
+     * `0`.
+     */
     WGPUOptionalBool_False = 0x00000000,
     WGPUOptionalBool_True = 0x00000001,
     WGPUOptionalBool_Undefined = 0x00000002,
@@ -640,13 +627,11 @@ typedef enum WGPUOptionalBool {
 
 typedef enum WGPUPopErrorScopeStatus {
     /**
-     * `0x00000001`.
      * The error scope stack was successfully popped and a result was reported.
      */
     WGPUPopErrorScopeStatus_Success = 0x00000001,
     WGPUPopErrorScopeStatus_InstanceDropped = 0x00000002,
     /**
-     * `0x00000003`.
      * The error scope stack could not be popped, because it was empty.
      */
     WGPUPopErrorScopeStatus_Error = 0x00000003,
@@ -655,8 +640,7 @@ typedef enum WGPUPopErrorScopeStatus {
 
 typedef enum WGPUPowerPreference {
     /**
-     * `0x00000000`.
-     * No preference. (See also @ref SentinelValues.)
+     * `0`. No preference. (See also @ref SentinelValues.)
      */
     WGPUPowerPreference_Undefined = 0x00000000,
     WGPUPowerPreference_LowPower = 0x00000001,
@@ -675,32 +659,27 @@ typedef enum WGPUPredefinedColorSpace {
  */
 typedef enum WGPUPresentMode {
     /**
-     * `0x00000000`.
-     * Present mode is not specified. Use the default.
+     * `0`. Present mode is not specified. Use the default.
      */
     WGPUPresentMode_Undefined = 0x00000000,
     /**
-     * `0x00000001`.
      * The presentation of the image to the user waits for the next vertical blanking period to update in a first-in, first-out manner.
      * Tearing cannot be observed and frame-loop will be limited to the display's refresh rate.
      * This is the only mode that's always available.
      */
     WGPUPresentMode_Fifo = 0x00000001,
     /**
-     * `0x00000002`.
      * The presentation of the image to the user tries to wait for the next vertical blanking period but may decide to not wait if a frame is presented late.
      * Tearing can sometimes be observed but late-frame don't produce a full-frame stutter in the presentation.
      * This is still a first-in, first-out mechanism so a frame-loop will be limited to the display's refresh rate.
      */
     WGPUPresentMode_FifoRelaxed = 0x00000002,
     /**
-     * `0x00000003`.
      * The presentation of the image to the user is updated immediately without waiting for a vertical blank.
      * Tearing can be observed but latency is minimized.
      */
     WGPUPresentMode_Immediate = 0x00000003,
     /**
-     * `0x00000004`.
      * The presentation of the image to the user waits for the next vertical blanking period to update to the latest provided image.
      * Tearing cannot be observed and a frame-loop is not limited to the display's refresh rate.
      */
@@ -710,8 +689,7 @@ typedef enum WGPUPresentMode {
 
 typedef enum WGPUPrimitiveTopology {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUPrimitiveTopology_Undefined = 0x00000000,
     WGPUPrimitiveTopology_PointList = 0x00000001,
@@ -731,6 +709,11 @@ typedef enum WGPUQueryType {
 typedef enum WGPUQueueWorkDoneStatus {
     WGPUQueueWorkDoneStatus_Success = 0x00000001,
     WGPUQueueWorkDoneStatus_InstanceDropped = 0x00000002,
+    /**
+     * There was some deterministic error. (Note this is currently never used,
+     * but it will be relevant when it's possible to create a queue object.)
+     */
+    WGPUQueueWorkDoneStatus_Error = 0x00000003,
     WGPUQueueWorkDoneStatus_Force32 = 0x7FFFFFFF
 } WGPUQueueWorkDoneStatus WGPU_ENUM_ATTRIBUTE;
 
@@ -760,20 +743,19 @@ typedef enum WGPUSType {
     WGPUSType_SurfaceSourceAndroidNativeWindow = 0x00000008,
     WGPUSType_SurfaceSourceXCBWindow = 0x00000009,
     WGPUSType_SurfaceColorManagement = 0x0000000A,
+    WGPUSType_RequestAdapterWebXROptions = 0x0000000B,
     WGPUSType_Force32 = 0x7FFFFFFF
 } WGPUSType WGPU_ENUM_ATTRIBUTE;
 
 typedef enum WGPUSamplerBindingType {
     /**
-     * `0x00000000`.
-     * Indicates that this @ref WGPUSamplerBindingLayout member of
+     * `0`. Indicates that this @ref WGPUSamplerBindingLayout member of
      * its parent @ref WGPUBindGroupLayoutEntry is not used.
      * (See also @ref SentinelValues.)
      */
     WGPUSamplerBindingType_BindingNotUsed = 0x00000000,
     /**
-     * `0x00000001`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `1`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUSamplerBindingType_Undefined = 0x00000001,
     WGPUSamplerBindingType_Filtering = 0x00000002,
@@ -795,8 +777,7 @@ typedef enum WGPUStatus {
 
 typedef enum WGPUStencilOperation {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUStencilOperation_Undefined = 0x00000000,
     WGPUStencilOperation_Keep = 0x00000001,
@@ -812,15 +793,13 @@ typedef enum WGPUStencilOperation {
 
 typedef enum WGPUStorageTextureAccess {
     /**
-     * `0x00000000`.
-     * Indicates that this @ref WGPUStorageTextureBindingLayout member of
+     * `0`. Indicates that this @ref WGPUStorageTextureBindingLayout member of
      * its parent @ref WGPUBindGroupLayoutEntry is not used.
      * (See also @ref SentinelValues.)
      */
     WGPUStorageTextureAccess_BindingNotUsed = 0x00000000,
     /**
-     * `0x00000001`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `1`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUStorageTextureAccess_Undefined = 0x00000001,
     WGPUStorageTextureAccess_WriteOnly = 0x00000002,
@@ -831,8 +810,7 @@ typedef enum WGPUStorageTextureAccess {
 
 typedef enum WGPUStoreOp {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUStoreOp_Undefined = 0x00000000,
     WGPUStoreOp_Store = 0x00000001,
@@ -845,32 +823,26 @@ typedef enum WGPUStoreOp {
  */
 typedef enum WGPUSurfaceGetCurrentTextureStatus {
     /**
-     * `0x00000001`.
      * Yay! Everything is good and we can render this frame.
      */
     WGPUSurfaceGetCurrentTextureStatus_SuccessOptimal = 0x00000001,
     /**
-     * `0x00000002`.
      * Still OK - the surface can present the frame, but in a suboptimal way. The surface may need reconfiguration.
      */
     WGPUSurfaceGetCurrentTextureStatus_SuccessSuboptimal = 0x00000002,
     /**
-     * `0x00000003`.
      * Some operation timed out while trying to acquire the frame.
      */
     WGPUSurfaceGetCurrentTextureStatus_Timeout = 0x00000003,
     /**
-     * `0x00000004`.
      * The surface is too different to be used, compared to when it was originally created.
      */
     WGPUSurfaceGetCurrentTextureStatus_Outdated = 0x00000004,
     /**
-     * `0x00000005`.
      * The connection to whatever owns the surface was lost, or generally needs to be fully reinitialized.
      */
     WGPUSurfaceGetCurrentTextureStatus_Lost = 0x00000005,
     /**
-     * `0x00000006`.
      * There was some deterministic error (for example, the surface is not configured, or there was an @ref OutStructChainError). Should produce @ref ImplementationDefinedLogging containing details.
      */
     WGPUSurfaceGetCurrentTextureStatus_Error = 0x00000006,
@@ -879,8 +851,7 @@ typedef enum WGPUSurfaceGetCurrentTextureStatus {
 
 typedef enum WGPUTextureAspect {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUTextureAspect_Undefined = 0x00000000,
     WGPUTextureAspect_All = 0x00000001,
@@ -891,8 +862,7 @@ typedef enum WGPUTextureAspect {
 
 typedef enum WGPUTextureDimension {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUTextureDimension_Undefined = 0x00000000,
     WGPUTextureDimension_1D = 0x00000001,
@@ -903,8 +873,7 @@ typedef enum WGPUTextureDimension {
 
 typedef enum WGPUTextureFormat {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUTextureFormat_Undefined = 0x00000000,
     WGPUTextureFormat_R8Unorm = 0x00000001,
@@ -1007,15 +976,13 @@ typedef enum WGPUTextureFormat {
 
 typedef enum WGPUTextureSampleType {
     /**
-     * `0x00000000`.
-     * Indicates that this @ref WGPUTextureBindingLayout member of
+     * `0`. Indicates that this @ref WGPUTextureBindingLayout member of
      * its parent @ref WGPUBindGroupLayoutEntry is not used.
      * (See also @ref SentinelValues.)
      */
     WGPUTextureSampleType_BindingNotUsed = 0x00000000,
     /**
-     * `0x00000001`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `1`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUTextureSampleType_Undefined = 0x00000001,
     WGPUTextureSampleType_Float = 0x00000002,
@@ -1028,8 +995,7 @@ typedef enum WGPUTextureSampleType {
 
 typedef enum WGPUTextureViewDimension {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUTextureViewDimension_Undefined = 0x00000000,
     WGPUTextureViewDimension_1D = 0x00000001,
@@ -1094,8 +1060,7 @@ typedef enum WGPUVertexFormat {
 
 typedef enum WGPUVertexStepMode {
     /**
-     * `0x00000000`.
-     * Indicates no value is passed for this argument. See @ref SentinelValues.
+     * `0`. Indicates no value is passed for this argument. See @ref SentinelValues.
      */
     WGPUVertexStepMode_Undefined = 0x00000000,
     WGPUVertexStepMode_Vertex = 0x00000001,
@@ -1116,30 +1081,18 @@ typedef enum WGPUWGSLLanguageFeatureName {
  */
 typedef enum WGPUWaitStatus {
     /**
-     * `0x00000001`.
      * At least one WGPUFuture completed successfully.
      */
     WGPUWaitStatus_Success = 0x00000001,
     /**
-     * `0x00000002`.
-     * No WGPUFutures completed within the timeout.
+     * The wait operation succeeded, but no WGPUFutures completed within the timeout.
      */
     WGPUWaitStatus_TimedOut = 0x00000002,
     /**
-     * `0x00000003`.
-     * A @ref Timed-Wait was performed when WGPUInstanceFeatures::timedWaitAnyEnable is false.
+     * The call was invalid for some reason (see @ref Wait-Any).
+     * Should produce @ref ImplementationDefinedLogging containing details.
      */
-    WGPUWaitStatus_UnsupportedTimeout = 0x00000003,
-    /**
-     * `0x00000004`.
-     * The number of futures waited on in a @ref Timed-Wait is greater than the supported WGPUInstanceFeatures::timedWaitAnyMaxCount.
-     */
-    WGPUWaitStatus_UnsupportedCount = 0x00000004,
-    /**
-     * `0x00000005`.
-     * An invalid wait was performed with @ref Mixed-Sources.
-     */
-    WGPUWaitStatus_UnsupportedMixedSources = 0x00000005,
+    WGPUWaitStatus_Error = 0x00000003,
     WGPUWaitStatus_Force32 = 0x7FFFFFFF
 } WGPUWaitStatus WGPU_ENUM_ATTRIBUTE;
 
@@ -1152,7 +1105,13 @@ typedef enum WGPUWaitStatus {
  *
  * @{
  */
+/**
+ * For reserved non-standard bitflag values, see @ref BitflagRegistry.
+ */
 typedef WGPUFlags WGPUBufferUsage;
+/**
+ * `0`.
+ */
 static const WGPUBufferUsage WGPUBufferUsage_None = 0x0000000000000000;
 static const WGPUBufferUsage WGPUBufferUsage_MapRead = 0x0000000000000001;
 static const WGPUBufferUsage WGPUBufferUsage_MapWrite = 0x0000000000000002;
@@ -1165,26 +1124,53 @@ static const WGPUBufferUsage WGPUBufferUsage_Storage = 0x0000000000000080;
 static const WGPUBufferUsage WGPUBufferUsage_Indirect = 0x0000000000000100;
 static const WGPUBufferUsage WGPUBufferUsage_QueryResolve = 0x0000000000000200;
 
+/**
+ * For reserved non-standard bitflag values, see @ref BitflagRegistry.
+ */
 typedef WGPUFlags WGPUColorWriteMask;
+/**
+ * `0`.
+ */
 static const WGPUColorWriteMask WGPUColorWriteMask_None = 0x0000000000000000;
 static const WGPUColorWriteMask WGPUColorWriteMask_Red = 0x0000000000000001;
 static const WGPUColorWriteMask WGPUColorWriteMask_Green = 0x0000000000000002;
 static const WGPUColorWriteMask WGPUColorWriteMask_Blue = 0x0000000000000004;
 static const WGPUColorWriteMask WGPUColorWriteMask_Alpha = 0x0000000000000008;
-static const WGPUColorWriteMask WGPUColorWriteMask_All = 0x000000000000000F /* Red | Green | Blue | Alpha */;
+/**
+ * `Red | Green | Blue | Alpha`.
+ */
+static const WGPUColorWriteMask WGPUColorWriteMask_All = 0x000000000000000F;
 
+/**
+ * For reserved non-standard bitflag values, see @ref BitflagRegistry.
+ */
 typedef WGPUFlags WGPUMapMode;
+/**
+ * `0`.
+ */
 static const WGPUMapMode WGPUMapMode_None = 0x0000000000000000;
 static const WGPUMapMode WGPUMapMode_Read = 0x0000000000000001;
 static const WGPUMapMode WGPUMapMode_Write = 0x0000000000000002;
 
+/**
+ * For reserved non-standard bitflag values, see @ref BitflagRegistry.
+ */
 typedef WGPUFlags WGPUShaderStage;
+/**
+ * `0`.
+ */
 static const WGPUShaderStage WGPUShaderStage_None = 0x0000000000000000;
 static const WGPUShaderStage WGPUShaderStage_Vertex = 0x0000000000000001;
 static const WGPUShaderStage WGPUShaderStage_Fragment = 0x0000000000000002;
 static const WGPUShaderStage WGPUShaderStage_Compute = 0x0000000000000004;
 
+/**
+ * For reserved non-standard bitflag values, see @ref BitflagRegistry.
+ */
 typedef WGPUFlags WGPUTextureUsage;
+/**
+ * `0`.
+ */
 static const WGPUTextureUsage WGPUTextureUsage_None = 0x0000000000000000;
 static const WGPUTextureUsage WGPUTextureUsage_CopySrc = 0x0000000000000001;
 static const WGPUTextureUsage WGPUTextureUsage_CopyDst = 0x0000000000000002;
@@ -1214,6 +1200,8 @@ typedef void (*WGPUBufferMapCallback)(WGPUMapAsyncStatus status, WGPUStringView 
  * See also @ref CallbackError.
  *
  * @param compilationInfo
+ * This argument contains multiple @ref ImplementationAllocatedStructChain roots.
+ * Arbitrary chains must be handled gracefully by the application!
  * This parameter is @ref PassedWithoutOwnership.
  */
 typedef void (*WGPUCompilationInfoCallback)(WGPUCompilationInfoRequestStatus status, struct WGPUCompilationInfo const * compilationInfo, WGPU_NULLABLE void* userdata1, WGPU_NULLABLE void* userdata2) WGPU_FUNCTION_ATTRIBUTE;
@@ -1326,6 +1314,11 @@ typedef struct WGPUChainedStruct {
  */
 typedef struct WGPUBufferMapCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUBufferMapCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1337,7 +1330,7 @@ typedef struct WGPUBufferMapCallbackInfo {
  */
 #define WGPU_BUFFER_MAP_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUBufferMapCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1345,6 +1338,11 @@ typedef struct WGPUBufferMapCallbackInfo {
 
 typedef struct WGPUCompilationInfoCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUCompilationInfoCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1356,7 +1354,7 @@ typedef struct WGPUCompilationInfoCallbackInfo {
  */
 #define WGPU_COMPILATION_INFO_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUCompilationInfoCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1364,6 +1362,11 @@ typedef struct WGPUCompilationInfoCallbackInfo {
 
 typedef struct WGPUCreateComputePipelineAsyncCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUCreateComputePipelineAsyncCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1375,7 +1378,7 @@ typedef struct WGPUCreateComputePipelineAsyncCallbackInfo {
  */
 #define WGPU_CREATE_COMPUTE_PIPELINE_ASYNC_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUCreateComputePipelineAsyncCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1383,6 +1386,11 @@ typedef struct WGPUCreateComputePipelineAsyncCallbackInfo {
 
 typedef struct WGPUCreateRenderPipelineAsyncCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUCreateRenderPipelineAsyncCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1394,7 +1402,7 @@ typedef struct WGPUCreateRenderPipelineAsyncCallbackInfo {
  */
 #define WGPU_CREATE_RENDER_PIPELINE_ASYNC_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUCreateRenderPipelineAsyncCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1402,6 +1410,11 @@ typedef struct WGPUCreateRenderPipelineAsyncCallbackInfo {
 
 typedef struct WGPUDeviceLostCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUDeviceLostCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1413,7 +1426,7 @@ typedef struct WGPUDeviceLostCallbackInfo {
  */
 #define WGPU_DEVICE_LOST_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUDeviceLostCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1421,6 +1434,11 @@ typedef struct WGPUDeviceLostCallbackInfo {
 
 typedef struct WGPUPopErrorScopeCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUPopErrorScopeCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1432,7 +1450,7 @@ typedef struct WGPUPopErrorScopeCallbackInfo {
  */
 #define WGPU_POP_ERROR_SCOPE_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUPopErrorScopeCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1440,6 +1458,11 @@ typedef struct WGPUPopErrorScopeCallbackInfo {
 
 typedef struct WGPUQueueWorkDoneCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPUQueueWorkDoneCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1451,7 +1474,7 @@ typedef struct WGPUQueueWorkDoneCallbackInfo {
  */
 #define WGPU_QUEUE_WORK_DONE_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPUQueueWorkDoneCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1459,6 +1482,11 @@ typedef struct WGPUQueueWorkDoneCallbackInfo {
 
 typedef struct WGPURequestAdapterCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPURequestAdapterCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1470,7 +1498,7 @@ typedef struct WGPURequestAdapterCallbackInfo {
  */
 #define WGPU_REQUEST_ADAPTER_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPURequestAdapterCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1478,6 +1506,11 @@ typedef struct WGPURequestAdapterCallbackInfo {
 
 typedef struct WGPURequestDeviceCallbackInfo {
     WGPUChainedStruct const * nextInChain;
+    /**
+     * Controls when the callback may be called.
+     *
+     * Has no default. The `INIT` macro sets this to (@ref WGPUCallbackMode)0.
+     */
     WGPUCallbackMode mode;
     WGPURequestDeviceCallback callback;
     WGPU_NULLABLE void* userdata1;
@@ -1489,7 +1522,7 @@ typedef struct WGPURequestDeviceCallbackInfo {
  */
 #define WGPU_REQUEST_DEVICE_CALLBACK_INFO_INIT _wgpu_MAKE_INIT_STRUCT(WGPURequestDeviceCallbackInfo, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.mode=*/WGPUCallbackMode_WaitAnyOnly _wgpu_COMMA \
+    /*.mode=*/_wgpu_ENUM_ZERO_INIT(WGPUCallbackMode) _wgpu_COMMA \
     /*.callback=*/NULL _wgpu_COMMA \
     /*.userdata1=*/NULL _wgpu_COMMA \
     /*.userdata2=*/NULL _wgpu_COMMA \
@@ -1559,6 +1592,14 @@ typedef struct WGPUAdapterInfo {
      * The `INIT` macro sets this to `0`.
      */
     uint32_t deviceID;
+    /**
+     * The `INIT` macro sets this to `0`.
+     */
+    uint32_t subgroupMinSize;
+    /**
+     * The `INIT` macro sets this to `0`.
+     */
+    uint32_t subgroupMaxSize;
 } WGPUAdapterInfo WGPU_STRUCTURE_ATTRIBUTE;
 
 /**
@@ -1574,6 +1615,8 @@ typedef struct WGPUAdapterInfo {
     /*.adapterType=*/_wgpu_ENUM_ZERO_INIT(WGPUAdapterType) _wgpu_COMMA \
     /*.vendorID=*/0 _wgpu_COMMA \
     /*.deviceID=*/0 _wgpu_COMMA \
+    /*.subgroupMinSize=*/0 _wgpu_COMMA \
+    /*.subgroupMaxSize=*/0 _wgpu_COMMA \
 })
 
 /**
@@ -1743,6 +1786,10 @@ typedef struct WGPUBufferDescriptor {
 })
 
 /**
+ * An RGBA color. Represents a `f32`, `i32`, or `u32` color using @ref DoubleAsSupertype.
+ *
+ * If any channel is non-finite, produces a @ref NonFiniteFloatValueError.
+ *
  * Default values can be set using @ref WGPU_COLOR_INIT as initializer.
  */
 typedef struct WGPUColor {
@@ -1817,6 +1864,9 @@ typedef struct WGPUCommandEncoderDescriptor {
 })
 
 /**
+ * This is an @ref ImplementationAllocatedStructChain root.
+ * Arbitrary chains must be handled gracefully by the application!
+ *
  * Default values can be set using @ref WGPU_COMPILATION_MESSAGE_INIT as initializer.
  */
 typedef struct WGPUCompilationMessage {
@@ -1886,6 +1936,10 @@ typedef struct WGPUConstantEntry {
      */
     WGPUStringView key;
     /**
+     * Represents a WGSL numeric or boolean value using @ref DoubleAsSupertype.
+     *
+     * If non-finite, produces a @ref NonFiniteFloatValueError.
+     *
      * The `INIT` macro sets this to `0.`.
      */
     double value;
@@ -2455,11 +2509,12 @@ typedef struct WGPURenderPassDepthStencilAttachment {
      */
     WGPUStoreOp depthStoreOp;
     /**
-     * If NaN, indicates an `undefined` value (as defined by the JS spec).
+     * This is a @ref NullableFloatingPointType.
+     *
+     * If `NaN`, indicates an `undefined` value (as defined by the JS spec).
      * Use @ref WGPU_DEPTH_CLEAR_VALUE_UNDEFINED to indicate this semantically.
      *
-     * NaN is determined by `isnan(depthClearValue) != 0`.
-     * (Do not use an equality check, because `NaN == NaN` is false.)
+     * If infinite, produces a @ref NonFiniteFloatValueError.
      *
      * The `INIT` macro sets this to @ref WGPU_DEPTH_CLEAR_VALUE_UNDEFINED.
      */
@@ -2580,6 +2635,32 @@ typedef struct WGPURequestAdapterOptions {
 })
 
 /**
+ * Extension providing requestAdapter options for implementations with WebXR interop (i.e. Wasm).
+ *
+ * Default values can be set using @ref WGPU_REQUEST_ADAPTER_WEBXR_OPTIONS_INIT as initializer.
+ */
+typedef struct WGPURequestAdapterWebXROptions {
+    WGPUChainedStruct chain;
+    /**
+     * Sets the `xrCompatible` option in the JS API.
+     *
+     * The `INIT` macro sets this to `0`.
+     */
+    WGPUBool xrCompatible;
+} WGPURequestAdapterWebXROptions WGPU_STRUCTURE_ATTRIBUTE;
+
+/**
+ * Initializer for @ref WGPURequestAdapterWebXROptions.
+ */
+#define WGPU_REQUEST_ADAPTER_WEBXR_OPTIONS_INIT _wgpu_MAKE_INIT_STRUCT(WGPURequestAdapterWebXROptions, { \
+    /*.chain=*/_wgpu_MAKE_INIT_STRUCT(WGPUChainedStruct, { \
+        /*.next=*/NULL _wgpu_COMMA \
+        /*.sType=*/WGPUSType_RequestAdapterWebXROptions _wgpu_COMMA \
+    }) _wgpu_COMMA \
+    /*.xrCompatible=*/0 _wgpu_COMMA \
+})
+
+/**
  * Default values can be set using @ref WGPU_SAMPLER_BINDING_LAYOUT_INIT as initializer.
  */
 typedef struct WGPUSamplerBindingLayout {
@@ -2655,10 +2736,18 @@ typedef struct WGPUSamplerDescriptor {
      */
     WGPUMipmapFilterMode mipmapFilter;
     /**
+     * TODO
+     *
+     * If non-finite, produces a @ref NonFiniteFloatValueError.
+     *
      * The `INIT` macro sets this to `0.f`.
      */
     float lodMinClamp;
     /**
+     * TODO
+     *
+     * If non-finite, produces a @ref NonFiniteFloatValueError.
+     *
      * The `INIT` macro sets this to `32.f`.
      */
     float lodMaxClamp;
@@ -3563,6 +3652,9 @@ typedef struct WGPUBlendState {
 })
 
 /**
+ * This is an @ref ImplementationAllocatedStructChain root.
+ * Arbitrary chains must be handled gracefully by the application!
+ *
  * Default values can be set using @ref WGPU_COMPILATION_INFO_INIT as initializer.
  */
 typedef struct WGPUCompilationInfo {
@@ -3686,10 +3778,18 @@ typedef struct WGPUDepthStencilState {
      */
     int32_t depthBias;
     /**
+     * TODO
+     *
+     * If non-finite, produces a @ref NonFiniteFloatValueError.
+     *
      * The `INIT` macro sets this to `0.f`.
      */
     float depthBiasSlopeScale;
     /**
+     * TODO
+     *
+     * If non-finite, produces a @ref NonFiniteFloatValueError.
+     *
      * The `INIT` macro sets this to `0.f`.
      */
     float depthBiasClamp;
@@ -3747,6 +3847,8 @@ typedef struct WGPUDeviceDescriptor {
      * Called when there is an uncaptured error on this device, from any thread.
      * See @ref ErrorScopes.
      *
+     * **Important:** This callback does not have a configurable @ref WGPUCallbackMode; it may be called at any time (like @ref WGPUCallbackMode_AllowSpontaneous). As such, calls into the `webgpu.h` API from this callback are unsafe. See @ref CallbackReentrancy.
+     *
      * The `INIT` macro sets this to @ref WGPU_UNCAPTURED_ERROR_CALLBACK_INFO_INIT.
      */
     WGPUUncapturedErrorCallbackInfo uncapturedErrorCallbackInfo;
@@ -3800,11 +3902,11 @@ typedef struct WGPUFutureWaitInfo {
 typedef struct WGPUInstanceDescriptor {
     WGPUChainedStruct * nextInChain;
     /**
-     * Instance features to enable
+     * Instance capabilities to enable.
      *
      * The `INIT` macro sets this to @ref WGPU_INSTANCE_CAPABILITIES_INIT.
      */
-    WGPUInstanceCapabilities features;
+    WGPUInstanceCapabilities capabilities;
 } WGPUInstanceDescriptor WGPU_STRUCTURE_ATTRIBUTE;
 
 /**
@@ -3812,7 +3914,7 @@ typedef struct WGPUInstanceDescriptor {
  */
 #define WGPU_INSTANCE_DESCRIPTOR_INIT _wgpu_MAKE_INIT_STRUCT(WGPUInstanceDescriptor, { \
     /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.features=*/WGPU_INSTANCE_CAPABILITIES_INIT _wgpu_COMMA \
+    /*.capabilities=*/WGPU_INSTANCE_CAPABILITIES_INIT _wgpu_COMMA \
 })
 
 /**
@@ -4666,7 +4768,7 @@ typedef WGPUBindGroupLayout (*WGPUProcDeviceCreateBindGroupLayout)(WGPUDevice de
  * Proc pointer type for @ref wgpuDeviceCreateBuffer:
  * > @copydoc wgpuDeviceCreateBuffer
  */
-typedef WGPUBuffer (*WGPUProcDeviceCreateBuffer)(WGPUDevice device, WGPUBufferDescriptor const * descriptor) WGPU_FUNCTION_ATTRIBUTE;
+typedef WGPU_NULLABLE WGPUBuffer (*WGPUProcDeviceCreateBuffer)(WGPUDevice device, WGPUBufferDescriptor const * descriptor) WGPU_FUNCTION_ATTRIBUTE;
 /**
  * Proc pointer type for @ref wgpuDeviceCreateCommandEncoder:
  * > @copydoc wgpuDeviceCreateCommandEncoder
@@ -5449,34 +5551,29 @@ WGPU_EXPORT void wgpuBindGroupLayoutRelease(WGPUBindGroupLayout bindGroupLayout)
  */
 WGPU_EXPORT void wgpuBufferDestroy(WGPUBuffer buffer) WGPU_FUNCTION_ATTRIBUTE;
 /**
+ * Returns a const pointer to beginning of the mapped range.
+ * It must not be written; writing to this range causes undefined behavior.
+ * See @ref GetMappedRangeBehavior for error conditions and guarantees.
+ * This function is safe to call inside spontaneous callbacks (see @ref CallbackReentrancy).
+ *
  * @param offset
  * Byte offset relative to the beginning of the buffer.
  *
  * @param size
  * Byte size of the range to get. The returned pointer is valid for exactly this many bytes.
- *
- * @returns
- * Returns a const pointer to beginning of the mapped range.
- * It must not be written; writing to this range causes undefined behavior.
- * Returns `NULL` with @ref ImplementationDefinedLogging if:
- * - There is any content-timeline error as defined in the WebGPU specification for `getMappedRange()` (alignments, overlaps, etc.)
- *   **except** for overlaps with other *const* ranges, which are allowed in C.
- *   (JS does not allow this because const ranges do not exist.)
  */
 WGPU_EXPORT void const * wgpuBufferGetConstMappedRange(WGPUBuffer buffer, size_t offset, size_t size) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT WGPUBufferMapState wgpuBufferGetMapState(WGPUBuffer buffer) WGPU_FUNCTION_ATTRIBUTE;
 /**
+ * Returns a mutable pointer to beginning of the mapped range.
+ * See @ref GetMappedRangeBehavior for error conditions and guarantees.
+ * This function is safe to call inside spontaneous callbacks (see @ref CallbackReentrancy).
+ *
  * @param offset
  * Byte offset relative to the beginning of the buffer.
  *
  * @param size
  * Byte size of the range to get. The returned pointer is valid for exactly this many bytes.
- *
- * @returns
- * Returns a mutable pointer to beginning of the mapped range.
- * Returns `NULL` with @ref ImplementationDefinedLogging if:
- * - There is any content-timeline error as defined in the WebGPU specification for `getMappedRange()` (alignments, overlaps, etc.)
- * - The buffer is not mapped with @ref WGPUMapMode_Write.
  */
 WGPU_EXPORT void * wgpuBufferGetMappedRange(WGPUBuffer buffer, size_t offset, size_t size) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT uint64_t wgpuBufferGetSize(WGPUBuffer buffer) WGPU_FUNCTION_ATTRIBUTE;
@@ -5597,10 +5694,15 @@ WGPU_EXPORT WGPUBindGroup wgpuDeviceCreateBindGroup(WGPUDevice device, WGPUBindG
  */
 WGPU_EXPORT WGPUBindGroupLayout wgpuDeviceCreateBindGroupLayout(WGPUDevice device, WGPUBindGroupLayoutDescriptor const * descriptor) WGPU_FUNCTION_ATTRIBUTE;
 /**
+ * TODO
+ *
+ * If @ref WGPUBufferDescriptor::mappedAtCreation is `true` and the mapping allocation fails,
+ * returns `NULL`.
+ *
  * @returns
  * This value is @ref ReturnedWithOwnership.
  */
-WGPU_EXPORT WGPUBuffer wgpuDeviceCreateBuffer(WGPUDevice device, WGPUBufferDescriptor const * descriptor) WGPU_FUNCTION_ATTRIBUTE;
+WGPU_EXPORT WGPU_NULLABLE WGPUBuffer wgpuDeviceCreateBuffer(WGPUDevice device, WGPUBufferDescriptor const * descriptor) WGPU_FUNCTION_ATTRIBUTE;
 /**
  * @returns
  * This value is @ref ReturnedWithOwnership.
@@ -5848,6 +5950,10 @@ WGPU_EXPORT void wgpuRenderPassEncoderInsertDebugMarker(WGPURenderPassEncoder re
 WGPU_EXPORT void wgpuRenderPassEncoderPopDebugGroup(WGPURenderPassEncoder renderPassEncoder) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderPushDebugGroup(WGPURenderPassEncoder renderPassEncoder, WGPUStringView groupLabel) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderSetBindGroup(WGPURenderPassEncoder renderPassEncoder, uint32_t groupIndex, WGPU_NULLABLE WGPUBindGroup group, size_t dynamicOffsetCount, uint32_t const * dynamicOffsets) WGPU_FUNCTION_ATTRIBUTE;
+/**
+ * @param color
+ * The RGBA blend constant. Represents an `f32` color using @ref DoubleAsSupertype.
+ */
 WGPU_EXPORT void wgpuRenderPassEncoderSetBlendConstant(WGPURenderPassEncoder renderPassEncoder, WGPUColor const * color) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderSetIndexBuffer(WGPURenderPassEncoder renderPassEncoder, WGPUBuffer buffer, WGPUIndexFormat format, uint64_t offset, uint64_t size) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderSetLabel(WGPURenderPassEncoder renderPassEncoder, WGPUStringView label) WGPU_FUNCTION_ATTRIBUTE;
@@ -5855,6 +5961,11 @@ WGPU_EXPORT void wgpuRenderPassEncoderSetPipeline(WGPURenderPassEncoder renderPa
 WGPU_EXPORT void wgpuRenderPassEncoderSetScissorRect(WGPURenderPassEncoder renderPassEncoder, uint32_t x, uint32_t y, uint32_t width, uint32_t height) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderSetStencilReference(WGPURenderPassEncoder renderPassEncoder, uint32_t reference) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderSetVertexBuffer(WGPURenderPassEncoder renderPassEncoder, uint32_t slot, WGPU_NULLABLE WGPUBuffer buffer, uint64_t offset, uint64_t size) WGPU_FUNCTION_ATTRIBUTE;
+/**
+ * TODO
+ *
+ * If any argument is non-finite, produces a @ref NonFiniteFloatValueError.
+ */
 WGPU_EXPORT void wgpuRenderPassEncoderSetViewport(WGPURenderPassEncoder renderPassEncoder, float x, float y, float width, float height, float minDepth, float maxDepth) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderAddRef(WGPURenderPassEncoder renderPassEncoder) WGPU_FUNCTION_ATTRIBUTE;
 WGPU_EXPORT void wgpuRenderPassEncoderRelease(WGPURenderPassEncoder renderPassEncoder) WGPU_FUNCTION_ATTRIBUTE;
