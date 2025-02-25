@@ -3,6 +3,8 @@
         "Bindgen",
         "Capi",
         "Setlike",
+        "Texel",
+        "texels",
         "Webgpu",
         "Webidl"
     ],

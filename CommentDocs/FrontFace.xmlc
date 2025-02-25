@@ -1,0 +1,10 @@
+<group prefix="WebGpuSharp.">
+	<comment location="FrontFace">
+		<summary>Defines which polygons are considered front-facing by a <see cref="WebGpuSharp.RenderPipeline"/></summary>
+	</comment>
+	<group prefix="FrontFace.">
+		<comment location="Undefined">
+			<summary> Indicates no value is passed for this argument </summary>
+		</comment>
+	</group>
+</group>

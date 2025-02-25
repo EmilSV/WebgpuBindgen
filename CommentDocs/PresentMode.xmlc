@@ -1,0 +1,35 @@
+<group prefix="WebGpuSharp.">
+	<comment location="PresentMode">
+		<summary>
+			Describes when and in which order frames are presented on the screen when <see cref="WebGpuSharp.Surface.Present"/> is called.
+		</summary>
+	</comment>
+	<group prefix="WebGpuSharp.PresentMode.">
+		<comment location="Fifo">
+			<summary>
+				The presentation of the image to the user waits for the next vertical blanking period to update in a first-in, first-out manner.
+				Tearing cannot be observed and frame-loop will be limited to the display's refresh rate.
+				This is the only mode that's always available.
+			</summary>
+		</comment>
+		<comment location="FifoRelaxed">
+			<summary>
+				The presentation of the image to the user tries to wait for the next vertical blanking period but may decide to not wait if a frame is presented late.
+     			Tearing can sometimes be observed but late-frame don't produce a full-frame stutter in the presentation.
+     			This is still a first-in, first-out mechanism so a frame-loop will be limited to the display's refresh rate.
+			</summary>
+		</comment>
+		<comment location="Immediate">
+			<summary>
+				The presentation of the image to the user is updated immediately without waiting for a vertical blank.
+     			Tearing can be observed but latency is minimized.
+			</summary>
+		</comment>
+		<comment location="Mailbox">
+			<summary>
+				The presentation of the image to the user waits for the next vertical blanking period to update to the latest provided image.
+     			Tearing cannot be observed and a frame-loop is not limited to the display's refresh rate.
+			</summary>
+		</comment>
+	</group>
+</group>

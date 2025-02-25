@@ -1,0 +1,10 @@
+<group prefix="WebGpuSharp.">
+	<comment location="FilterMode">
+		<summary>Texel mixing mode when sampling between texels.</summary>
+	</comment>
+	<group prefix="FilterMode.">
+		<comment location="Undefined">
+			<summary> Indicates no value is passed for this argument </summary>
+		</comment>
+	</group>
+</group>

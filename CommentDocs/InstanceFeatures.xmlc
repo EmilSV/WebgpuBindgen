@@ -1,0 +1,19 @@
+<group prefix="WebGpuSharp.">
+	<comment location="InstanceFeatures">
+		<summary>
+			Features enabled on the Instance
+		</summary>
+	</comment>
+	<group prefix="InstanceFeatures.">
+		<comment location="TimedWaitAnyEnable">
+			<summary>
+				Enable use of <see cref="WebGpuSharp.Instance.WaitAny"/> with timeoutNS > 0.
+			</summary>
+		</comment>
+		<comment location="TimedWaitAnyMaxCount">
+			<summary>
+				The maximum number <see cref="WebGpuSharp.Future"/> supported in a call to <see cref="WebGpuSharp.Instance.WaitAny"/> with timeoutNS > 0.
+			</summary>
+		</comment>
+	</group>	
+</group>

@@ -1,0 +1,10 @@
+<group prefix="WebGpuSharp.">
+	<comment location="InstanceDescriptor">
+		<summary> The descriptor for the creation of an <see cref="WebGpuSharp.Instance"/></summary>
+	</comment>
+	<group>
+		<comment location="InstanceDescriptor.Features">
+			<summary> Instance features to enable</summary>
+		</comment>
+	</group>
+</group>

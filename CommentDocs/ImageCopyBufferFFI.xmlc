@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -14,4 +14,14 @@ public unsafe partial struct ImageCopyBufferFFI
 	
 public ImageCopyBufferFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ImageCopyBufferFFI">
+		<summary> 
+			In an image copy operation, <see cref="ImageCopyBufferFFI"/> defines a <see cref ="WebGpuSharp.FFI.BufferHandle"/> and, together
+			with the copySize, how image data is laid out in the buffer's memory 
+		</summary>
+	</comment>
+</group>

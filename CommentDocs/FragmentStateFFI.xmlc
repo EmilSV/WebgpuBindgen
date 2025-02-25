@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -19,4 +19,13 @@ public unsafe partial struct FragmentStateFFI
 	
 public FragmentStateFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="FragmentStateFFI">
+		<summary>
+			Represents the fragment state of a pipeline.
+		</summary>
+	</comment>
+</group>
