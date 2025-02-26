@@ -417,9 +417,9 @@ public static class StructFixer
                     case CSAccessModifier.Public when !char.IsUpper(name[0]):
                         field.Name = name switch
                         {
-                        [] => name,
-                        [var first] => char.ToUpper(first).ToString(),
-                        [var first, .. var rest] => char.ToUpper(first) + rest
+                            [] => name,
+                            [var first] => char.ToUpper(first).ToString(),
+                            [var first, .. var rest] => char.ToUpper(first) + rest
                         };
                         break;
 
@@ -461,8 +461,8 @@ public static class StructFixer
             {
                 var name = field.Name switch
                 {
-                ['_', ..] => field.Name[1..],
-                [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
+                    ['_', ..] => field.Name[1..],
+                    [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
                     _ => field.Name,
                 };
 
@@ -585,13 +585,71 @@ public static class StructFixer
 
                 if (useDefaultValueList.Any(i => i.Contains(memberTypeName, StringComparison.OrdinalIgnoreCase)))
                 {
-                     member.DefaultValue = new([new CSArbitraryCodeToken("default")]);
+                    member.DefaultValue = new([new CSArbitraryCodeToken("default")]);
                 }
 
                 if (member.DefaultValue == CSDefaultValue.NullValue)
                 {
                     member.DefaultValue = new([new CSArbitraryCodeToken("new()")]);
                 }
+            }
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public static Task FixLimits(List<CSStruct> structs, List<CSStaticClass> staticClasses)
+    {
+        var limitsStructs = structs.FindAll(i => i.Name == "Limits");
+        if (limitsStructs.Count == 0)
+        {
+            Console.Error.WriteLine("Could not find Limits struct");
+            return Task.CompletedTask;
+        }
+        else if (limitsStructs.Count > 1)
+        {
+            Console.Error.WriteLine("Found more than one Limits struct");
+            return Task.CompletedTask;
+        }
+
+        var webGPUConst = staticClasses.Find(i => i.Name == "WebGPU_FFI");
+
+        if (webGPUConst is null)
+        {
+            Console.Error.WriteLine("Could not find WebGPU_FFI const");
+            return Task.CompletedTask;
+        }
+
+        var limitU32UndefinedFelid = webGPUConst.Fields.FirstOrDefault(i => i.Name == "LIMIT_U32_UNDEFINED");
+        if (limitU32UndefinedFelid is null)
+        {
+            Console.Error.WriteLine("Could not find LIMIT_U32_UNDEFINED field");
+            return Task.CompletedTask;
+        }
+
+        var limitU64UndefinedFelid = webGPUConst.Fields.FirstOrDefault(i => i.Name == "LIMIT_U64_UNDEFINED");
+        if (limitU64UndefinedFelid is null)
+        {
+            Console.Error.WriteLine("Could not find LIMIT_U64_UNDEFINED field");
+            return Task.CompletedTask;
+        }
+
+        var limitsStruct = limitsStructs.First();
+        foreach (var field in limitsStruct.Fields)
+        {
+            if (field.Type.Type is not CSPrimitiveType primitiveType)
+            {
+                continue;
+            }
+
+            if (primitiveType.KindValue == CSPrimitiveType.Kind.UInt)
+            {
+                field.DefaultValue = new([new CSConstIdentifierToken(limitU32UndefinedFelid, false)]);
+            }
+
+            if (primitiveType.KindValue == CSPrimitiveType.Kind.ULong)
+            {
+                field.DefaultValue = new([new CSConstIdentifierToken(limitU64UndefinedFelid, false)]);
             }
         }
 

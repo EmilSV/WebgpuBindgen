@@ -12,7 +12,7 @@ public static class StaticClassFixer
             item.Methods.Remove(method);
 
             var method2 = item.Methods.FirstOrDefault(i => i.Name?.EndsWith("GetProcAddress2") ?? false);
-            if(method2 != null)
+            if (method2 != null)
             {
                 item.Methods.Remove(method2);
             }

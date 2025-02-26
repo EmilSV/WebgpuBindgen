@@ -32,7 +32,7 @@ foreach (var csEnum in enums)
 
 foreach (var csStaticClass in staticClasses)
 {
-    csStaticClass.Namespace ??= "WebGpuSharp";
+    csStaticClass.Namespace ??= "WebGpuSharp.FFI";
 }
 
 foreach (var csStruct in structs)

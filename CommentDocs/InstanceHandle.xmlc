@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -50,4 +50,36 @@ public InstanceHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.InstanceRelease(this);
 
-}
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="InstanceHandle">
+        <summary>
+			Context for all other WebGPU objects.
+			This is the first thing you create when using WebGPU. Its primary use is to create <see cref="WebGpuSharp.FFI.AdapterHandle"/> and <see cref="WebGpuSharp.FFI.SurfaceHandle"/>.
+		</summary>
+    </comment>
+    <group prefix="InstanceHandle.">
+        <comment location="CreateSurface">
+            <summary>                
+                Creates a new surface targeting a given window/canvas/surface/etc..
+            </summary>
+        </comment>
+		<comment location="HasWGSLLanguageFeature">
+			<summary>
+				check if a WGSL language extensions is supported by this instance.
+			</summary>
+			<returns> true if the feature is supported, false otherwise.</returns>
+		</comment>
+		<comment location="ProcessEvents">
+			<summary>
+				Processes asynchronous events on this `Instance`, calling any callbacks for asynchronous operations created with <see cref="WebGpuSharp.CallbackMode.AllowProcessEvents"/>.
+			</summary>
+		</comment>
+		<comment location="RequestAdapter">
+			<summary>Retrieves an Adapter which matches the given <see cref="WebGpuSharp.FFI.RequestAdapterOptionsFFI"/>.</summary>
+		</comment>
+		<comment location="WaitAny">
+			<summary> Wait for at least one Future in `futures` to complete, and call callbacks of the respective completed asynchronous operations.</summary>
+		</comment>
+    </group>
+</group>
