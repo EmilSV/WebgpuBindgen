@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -25,4 +25,13 @@ public unsafe partial struct MultisampleState
 	
 public MultisampleState(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+    <comment location="MultisampleState">
+        <summary>            
+            Describes the multi-sampling state of a render pipeline.
+        </summary>
+	</comment>
+</group>

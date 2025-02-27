@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -21,4 +21,16 @@ public enum LoadOp
 /// </summary>
 	Clear = 2,
 	ExpandResolveTexture = 327683,
-}
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="LoadOp">
+        <summary>            
+            Operation to perform to the output attachment at the start of a render pass.
+        </summary>
+    </comment>
+    <group prefix="LoadOp.">
+        <comment location="Undefined">
+            <summary>Indicates no value is passed for this argument</summary>
+        </comment>
+    </group>
+</group>

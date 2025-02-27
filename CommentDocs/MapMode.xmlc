@@ -1,0 +1,16 @@
+<group prefix="WebGpuSharp.">
+    <comment location="MapMode">
+        <summary> Type of buffer mapping. </summary>
+    </comment>
+    <group prefix="MapMode.">
+        <comment location="None">
+            <summary>No mapping.</summary>
+        </comment>
+        <comment location="Read">
+            <summary>Map only for reading</summary>
+        </comment>
+        <comment location="Write">
+            <summary>Map only for writing</summary>
+        </comment>
+    </group>
+</group>

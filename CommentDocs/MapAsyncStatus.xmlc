@@ -1,0 +1,24 @@
+<group prefix="WebGpuSharp.">
+    <comment location="MapAsyncStatus">
+        <summary>            
+            Status returned from a call to <see cref="WebGpuSharp.Buffer.MapAsync"/>.
+        </summary>
+    </comment>
+    <group prefix="MapAsyncStatus.">
+        <comment location="Success">
+            <summary>The operation was successful.</summary>
+        </comment>
+        <comment location="InstanceDropped">
+            <summary>The instance was dropped while the operation was pending.</summary>
+        </comment>
+        <comment location="Error">
+            <summary>There was an error while mapping the buffer.</summary>
+        </comment>
+        <comment location="Aborted">
+            <summary>The operation was aborted.</summary>
+        </comment>
+        <comment location="Unknown">
+            <summary>An unknown error occurred.</summary>
+        </comment>
+    </group>
+</group>

@@ -1,0 +1,18 @@
+<group prefix="WebGpuSharp.">
+	<comment location="MipmapFilterMode">
+		<summary>            
+            Filter mode to use when sampling from a texture's mipmap level.
+        </summary>
+	</comment>
+	<group prefix="MipmapFilterMode.">
+		<comment location="Undefined">
+			<summary>Indicates no value is passed for this argument</summary>
+		</comment>
+		<comment location="Nearest">
+			<summary>Return the value of the texel nearest to the texture coordinates.</summary>
+		</comment>
+		<comment location="Linear">
+			<summary>Select two texels in each dimension and return a linear interpolation between their values.</summary>
+		</comment>
+	</group>
+</group>
