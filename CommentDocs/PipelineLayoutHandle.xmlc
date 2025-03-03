@@ -1,0 +1,15 @@
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="PipelineLayoutHandle">
+		<summary>
+			A PipelineLayout object describes the available binding groups of a pipeline. It can be created with <see cref="WebGpuSharp.Device.CreatePipelineLayout"/>.
+		</summary>
+	</comment>
+	<group prefix="PipelineLayoutHandle.">
+		<comment location="SetLabel">
+			<summary>
+				Sets the label of the pipeline layout.
+			</summary>
+		</comment>
+	</group>
+</group>
