@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -27,4 +27,13 @@ public enum PrimitiveTopology
 /// two vertices.
 /// </summary>
 	TriangleStrip = 5,
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="PrimitiveTopology">
+		<summary>
+			Primitive type the input mesh is composed of.
+		</summary>
+	</comment>
+</group>

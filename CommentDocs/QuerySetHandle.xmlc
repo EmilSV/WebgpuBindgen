@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -47,4 +47,19 @@ public QuerySetHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.QuerySetRelease(this);
 
-}
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="QuerySetHandle">
+        <summary>Handle to a query set. It can be created with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateQuerySet"></see>.</summary>
+    </comment>
+    <group prefix="QuerySetHandle.">
+        <comment location="GetCount">
+            <summary>Gets the number of queries managed by this QuerySet.</summary>
+            <returns>number of queries managed by this QuerySet.</returns>
+        </comment>
+        <comment location="SetLabel">
+            <summary>Sets a label on the QuerySet.</summary>
+            <param name="label">The label to set.</param>
+        </comment>
+    </group>
+</group>

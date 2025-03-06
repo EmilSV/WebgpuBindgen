@@ -1,0 +1,23 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum QueryType
+{
+	Occlusion = 1,
+	Timestamp = 2,
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="QueryType">
+        <summary> </summary>
+    </comment>
+    <group prefix="QueryType.">
+        <comment location="Occlusion">
+            <summary></summary>
+        </comment>
+        <comment location="Timestamp">
+            <summary></summary>
+        </comment>
+    </group>
+</group>

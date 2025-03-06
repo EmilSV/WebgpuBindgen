@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -18,4 +18,14 @@ public unsafe partial struct QuerySetDescriptorFFI
 	
 public QuerySetDescriptorFFI(){}
 
-}
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="QuerySetDescriptorFFI">
+        <summary>Specifies the options to use in creating a QuerySet.</summary>
+    </comment>
+    <group prefix="QuerySetDescriptorFFI.">
+        <comment location="Label">
+            <summary>Debug label of the QuerySet</summary>
+        </comment>
+    </group>
+</group>

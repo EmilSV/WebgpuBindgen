@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -41,4 +41,11 @@ public unsafe partial struct PrimitiveState
 	
 public PrimitiveState(){}
 
-}
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="PrimitiveState">
+		<summary>
+			Describes the state of primitive assembly and rasterization in a render pipeline.
+		</summary>
+	</comment>
+</group>

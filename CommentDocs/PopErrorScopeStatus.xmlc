@@ -1,0 +1,29 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum PopErrorScopeStatus
+{
+	Success = 1,
+	InstanceDropped = 2,
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="PopErrorScopeStatus">
+		<summary>
+			
+		</summary>
+	</comment>
+	<group prefix="PopErrorScopeStatus.">
+		<comment location="Success">
+			<summary>
+			</summary>
+		</comment>
+		<comment location="InstanceDropped">
+			<summary>
+			</summary>
+		</comment>
+    </group>
+</group>

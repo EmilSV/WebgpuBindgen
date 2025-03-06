@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -26,4 +26,18 @@ public enum PowerPreference
 /// necessary, since it may significantly decrease battery life on portable devices.
 /// </summary>
 	HighPerformance = 2,
-}
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="PowerPreference">
+        <summary>            
+            Power Preference when choosing a physical adapter.
+        </summary>
+    </comment>
+    <group prefix="PowerPreference.">
+        <comment location="Undefined">
+            <summary>                
+                Indicates no value is passed for this argument
+            </summary>
+        </comment>
+    </group>
+</group>
