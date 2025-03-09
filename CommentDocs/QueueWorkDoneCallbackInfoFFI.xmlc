@@ -1,0 +1,39 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct QueueWorkDoneCallbackInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.QueueWorkDoneStatus, void*, void> Callback;
+	public void* Userdata;
+	
+public QueueWorkDoneCallbackInfoFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="QueueWorkDoneCallbackInfoFFI">
+        <summary>            
+            Describes a callback to be called when a queue work done event is fired.
+        </summary>
+    </comment>
+    <group prefix="QueueWorkDoneCallbackInfoFFI.">
+        <comment location="Mode">
+            <summary>
+                The callback mode.
+            </summary>
+        </comment>
+        <comment location="Callback">
+            <summary>                
+                The callback to be called when a queue work done event is fired.
+            </summary>
+        </comment>
+        <comment location="Userdata">
+            <summary>                
+                Userdata to be passed to the callback.
+            </summary>
+        </comment>
+    </group>
+</group>

@@ -1,0 +1,25 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct QueueDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	
+public QueueDescriptorFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="QueueDescriptorFFI">
+		<summary> A QueueDescriptor is a descriptor for a queue. It is used to create a Queue handle. </summary>
+	</comment>
+	<group prefix="QueueDescriptorFFI.">
+		<comment location="Label">
+			<summary>Debug label for the queue.</summary> 
+		</comment>
+	</group>
+</group>

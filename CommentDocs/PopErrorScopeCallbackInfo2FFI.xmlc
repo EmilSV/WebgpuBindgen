@@ -1,0 +1,45 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct PopErrorScopeCallbackInfo2FFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.PopErrorScopeStatus, WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void*, void> Callback;
+	public void* Userdata1;
+	public void* Userdata2;
+	
+public PopErrorScopeCallbackInfo2FFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="PopErrorScopeCallbackInfo2FFI">
+        <summary>            
+            Describes a callback to be called when an error scope is popped.
+        </summary>
+    </comment>
+    <group prefix="PopErrorScopeCallbackInfo2FFI.">
+        <comment location="Mode">
+            <summary>                
+                The callback mode.
+            </summary>
+        </comment>
+        <comment location="Callback">
+            <summary>                
+                The callback to be called when an error scope is popped.
+            </summary>
+        </comment>
+        <comment location="Userdata1">
+            <summary>                
+                Userdata to be passed to the callback.
+            </summary>
+        </comment>
+        <comment location="Userdata2">
+            <summary>                
+                Userdata to be passed to the callback.
+            </summary>
+        </comment>
+    </group>
+</group>

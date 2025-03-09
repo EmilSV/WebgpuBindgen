@@ -1,0 +1,42 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum QueueWorkDoneStatus
+{
+	Success = 1,
+	InstanceDropped = 2,
+	Error = 3,
+	Unknown = 4,
+	DeviceLost = 5,
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="QueueWorkDoneStatus">
+        <summary>            
+            Describes the status of a QueueWorkDone event.
+        </summary>
+    </comment>
+    <group prefix="QueueWorkDoneStatus.">
+        <comment location="Success">
+            <summary>                
+                The work done event was fired successfully.
+            </summary>
+        </comment>
+        <comment location="InstanceDropped">
+            <summary>                
+                The work done event was fired, but the instance was dropped before the event could fire.
+            </summary>
+        </comment>
+        <comment location="Error">
+            <summary>                
+                The work done event was fired, but an error occurred.
+            </summary>
+        </comment>
+        <comment location="Unknown">
+            <summary>                
+                The work done event was fired, but the status is unknown.
+            </summary>
+        </comment>
+    </group>
+</group>
