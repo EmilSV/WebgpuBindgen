@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -60,4 +60,13 @@ public unsafe partial struct RenderPassDepthStencilAttachmentFFI
 	
 public RenderPassDepthStencilAttachmentFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="RenderPassDepthStencilAttachmentFFI">
+        <summary>            
+            Describes a depth/stencil attachment to a render pass.
+        </summary>
+    </comment>
+</group>

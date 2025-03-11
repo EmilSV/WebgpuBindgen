@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -33,4 +33,24 @@ public unsafe partial struct RenderPassDescriptorFFI
 	
 public RenderPassDescriptorFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="RenderPassDescriptorFFI">
+        <summary>            
+            Describes the attachments of a render pass.
+
+			For use with <see cref="WebGpuSharp.FFI. CommandEncoderHandle.BeginRenderPass"/>.
+        </summary>
+    </comment>
+
+	<group prefix="RenderPassDescriptorFFI.">
+		<comment location="ColorAttachmentCount">
+			<summary>the number of color attachments in the colorAttachments sequence.</summary>
+		</comment>
+		<comment location="Label">
+			<summary>A label to apply to the render pass.</summary>
+		</comment>
+	</group>
+</group>

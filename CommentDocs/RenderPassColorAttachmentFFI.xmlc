@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -45,4 +45,15 @@ public unsafe partial struct RenderPassColorAttachmentFFI
 	
 public RenderPassColorAttachmentFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="RenderPassColorAttachmentFFI">
+		<summary>
+			Describes a color attachment to a <see cref="WebGpuSharp.FFI.RenderPassHandle"/>.
+
+			For use with <see cref="WebGpuSharp.FFI.RenderPassDescriptorFFI"/>.
+		</summary>
+	</comment>
+</group>

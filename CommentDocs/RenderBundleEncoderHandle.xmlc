@@ -116,7 +116,7 @@ public RenderBundleEncoderHandle(nuint ptr)=> _ptr = ptr;
             <summary>                
                 Draws indexed primitives using the active index buffer and the active vertex buffers, based on the contents of the indirectBuffer.
 
-                The active index buffer can be set with RenderBundleEncoder::set_index_buffer, while the active vertex buffers can be set with RenderBundleEncoder::set_vertex_buffer.
+                The active index buffer can be set with RenderBundleEncoder.SetIndexBuffer, while the active vertex buffers can be set with RenderBundleEncoder.SetVertexBuffer.
             </summary>
 			<param name="indirectBuffer">Buffer containing the indirect drawIndexed parameters.</param>
 			<param name="indirectOffset">Offset in bytes into indirectBuffer where the drawing data begins.</param>

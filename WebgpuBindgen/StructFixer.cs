@@ -655,4 +655,48 @@ public static class StructFixer
 
         return Task.CompletedTask;
     }
+
+    public static Task FixPassTimestampWrites(List<CSStruct> structs,List<CSStaticClass> staticClasses)
+    {
+        var passTimestampWrites = structs.Find(i => i.Name == "PassTimestampWritesFFI");
+        if (passTimestampWrites is null)
+        {
+            Console.Error.WriteLine("Could not find PassTimestampWritesFFI struct");
+            return Task.CompletedTask;
+        }
+
+        var webGPUFFIClass = staticClasses.Find(i => i.Name == "WebGPU_FFI"); 
+        if (webGPUFFIClass is null)
+        {
+            Console.Error.WriteLine("Could not find WebGPU_FFI class");
+            return Task.CompletedTask;
+        }
+
+        var querySetIndexUndefinedFelid = webGPUFFIClass!.Fields.FirstOrDefault(i => i.Name == "QUERY_SET_INDEX_UNDEFINED");
+
+        if (querySetIndexUndefinedFelid is null)
+        {
+            Console.Error.WriteLine("Could not find QUERY_SET_INDEX_UNDEFINED field");
+            return Task.CompletedTask;
+        }
+
+        var beginningOfPassWriteIndexFelid = passTimestampWrites.Fields.FirstOrDefault(i => i.Name == "BeginningOfPassWriteIndex");
+        if (beginningOfPassWriteIndexFelid is null)
+        {
+            Console.Error.WriteLine("Could not find BeginningOfPassWriteIndex field");
+            return Task.CompletedTask;
+        }
+
+        var endOfPassWriteIndexFelid = passTimestampWrites.Fields.FirstOrDefault(i => i.Name == "EndOfPassWriteIndex");
+        if (endOfPassWriteIndexFelid is null)
+        {
+            Console.Error.WriteLine("Could not find EndOfPassWriteIndex field");
+            return Task.CompletedTask;
+        }
+
+        beginningOfPassWriteIndexFelid.DefaultValue = new([new CSConstIdentifierToken(querySetIndexUndefinedFelid, false)]);
+        endOfPassWriteIndexFelid.DefaultValue = new([new CSConstIdentifierToken(querySetIndexUndefinedFelid, false)]);
+
+        return Task.CompletedTask;
+    }
 }
