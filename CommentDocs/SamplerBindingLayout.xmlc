@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -13,4 +13,11 @@ public unsafe partial struct SamplerBindingLayout
 	
 public SamplerBindingLayout(){}
 
-}
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="SamplerBindingLayout">
+        <summary>            
+            Describes the layout of a sampler binding.
+        </summary>
+    </comment>
+</group>

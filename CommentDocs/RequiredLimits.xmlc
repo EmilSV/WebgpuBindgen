@@ -1,0 +1,28 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public unsafe partial struct RequiredLimits
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.Limits Limits = new();
+	
+public RequiredLimits(){}
+
+} -->
+
+<group prefix="WebGpuSharp.">
+    <comment location="RequiredLimits">
+        <summary>            
+            Describes the required limits of a device.
+        </summary>
+    </comment>
+    <group prefix="RequiredLimits.">
+        <comment location="Limits">
+            <summary>                
+                The required limits of the device.
+            </summary>
+        </comment>
+    </group>
+</group>

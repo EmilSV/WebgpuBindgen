@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -42,4 +42,30 @@ public RenderPipelineHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.RenderPipelineRelease(this);
 
-}
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="RenderPipelineHandle">
+        <summary>            
+            Handle to a rendering (graphics) pipeline.
+            
+            A RenderPipeline object represents a graphics pipeline and its stages, bindings, vertex buffers and targets. 
+			It can be created with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipeline"/>. 
+        </summary>
+    </comment>
+	<group prefix="RenderPipelineHandle.">
+		<comment location="GetBindGroupLayout">
+			<summary>
+				Get an object representing the bind group layout at a given index.
+
+				If this pipeline was created with a default layout, then bind groups created with the returned BindGroupLayout can only be used with this pipeline.
+
+				This method will raise a validation error if there is no bind group layout at index.
+			</summary>
+		</comment>
+		<comment location="SetLabel">
+			<summary>
+				Set the debug label of this RenderPipelineHandle.
+			</summary>
+		</comment>
+	</group>
+</group>

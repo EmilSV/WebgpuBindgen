@@ -1,0 +1,45 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct RequestDeviceCallbackInfo2FFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.RequestDeviceStatus, WebGpuSharp.FFI.DeviceHandle, WebGpuSharp.FFI.StringViewFFI, void*, void*, void> Callback;
+	public void* Userdata1;
+	public void* Userdata2;
+	
+public RequestDeviceCallbackInfo2FFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="RequestDeviceCallbackInfoFFI2">
+        <summary>            
+            Describes a callback that is invoked when a request to get a device is completed.
+        </summary>
+    </comment>
+    <group prefix="RequestDeviceCallbackInfoFFI2.">
+        <comment location="Callback">
+            <summary>                
+                The callback to invoke when the request is completed.
+            </summary>
+        </comment>
+        <comment location="Mode">
+            <summary>                
+                The callback mode.
+            </summary>
+        </comment>
+        <comment location="Userdata1">
+            <summary>                
+                Userdata to pass to the callback.
+            </summary>
+        </comment>
+        <comment location="Userdata2">
+            <summary>                
+                Userdata to pass to the callback.
+            </summary>
+        </comment>
+    </group>
+</group>

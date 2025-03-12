@@ -1,0 +1,48 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct RequestAdapterOptionsFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.SurfaceHandle CompatibleSurface;
+	public WebGpuSharp.PowerPreference PowerPreference;
+	public WebGpuSharp.BackendType BackendType;
+	public WebGpuSharp.WebGPUBool ForceFallbackAdapter = false;
+	public WebGpuSharp.WebGPUBool CompatibilityMode = new();
+	
+public RequestAdapterOptionsFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="RequestAdapterOptionsFFI">
+        <summary>            
+            Additional information required when requesting an adapter.
+            
+            For use with <see cref="WebGpuSharp.FFI.InstanceHandle.RequestAdapter"></see>.
+        </summary>
+    </comment>
+    <group prefix="RequestAdapterOptionsFFI.">
+        <comment location="CompatibleSurface">
+            <summary>                
+                Surface that is required to be presentable with the requested adapter. This does not create the surface, only guarantees that the adapter can present to said surface.
+            </summary>
+        </comment>
+        <comment location="PowerPreference">
+            <summary>                
+                Power preference for the adapter.
+            </summary>
+        </comment>
+        <comment location="BackendType">
+            <summary>                
+                The backend type of the resulting adapter.
+            </summary>
+        </comment>
+        <comment location="ForceFallbackAdapter">
+            <summary>                
+                Indicates that only a fallback adapter can be returned. This is generally a “software” implementation on the system.
+            </summary>
+        </comment>
+    </group>
+</group>

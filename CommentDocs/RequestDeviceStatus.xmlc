@@ -1,0 +1,41 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum RequestDeviceStatus
+{
+	Success = 1,
+	InstanceDropped = 2,
+	Error = 3,
+	Unknown = 4,
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="RequestDeviceStatus">
+        <summary>            
+            Describes the status of a request to get a device.
+        </summary>
+    </comment>
+    <group prefix="RequestDeviceStatus.">
+        <comment location="Success">
+            <summary>                
+                The request was completed successfully.
+            </summary>
+        </comment>
+        <comment location="InstanceDropped">
+            <summary>                
+                The instance was dropped before the request could be completed.
+            </summary>
+        </comment>
+        <comment location="Error">
+            <summary>                
+                An error occurred while requesting the device.
+            </summary>
+        </comment>
+        <comment location="Unknown">
+            <summary>                
+                The status of the request is unknown.
+            </summary>
+        </comment>
+    </group>
+</group>
