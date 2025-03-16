@@ -1,0 +1,38 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+[System.FlagsAttribute]
+public enum ShaderStage : ulong
+{
+	None = 0,
+	Vertex = 1,
+	Fragment = 2,
+	Compute = 4,
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="ShaderStage">
+		<summary>
+			Describes the shader stages that a binding will be visible from.
+			These can be combined so something that is visible from both vertex and fragment shaders can be defined as:
+			<see cref= "WebGpuSharp.ShaderStage.Vertex"/> | <see cref= "WebGpuSharp.ShaderStage.Fragment"/> 
+		</summary>
+	</comment>
+	<group prefix="ShaderStage.">
+		<comment location="None">
+			<summary>Binding is not visible from any shader stage.</summary>
+		</comment>
+		<comment location="Vertex">
+			<summary>Binding is visible from the vertex shader of a render pipeline.</summary>
+		</comment>
+		<comment location="Fragment">
+			<summary>Binding is visible from the fragment shader of a render pipeline.</summary>
+		</comment>
+		<comment location="Compute">
+			<summary>Binding is visible from the compute shader of a compute pipeline.</summary>
+		</comment>
+	</group>
+</group>

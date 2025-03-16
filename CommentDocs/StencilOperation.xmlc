@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -43,4 +43,17 @@ public enum StencilOperation
 /// `0`.
 /// </summary>
 	DecrementWrap = 8,
-}
+} -->
+
+<group prefix="WebGpuSharp.">
+	<comment location="StencilOperation">
+		<summary>
+			Operation to perform on the stencil value.
+		</summary>
+	</comment>
+	<group prefix="StencilOperation.">
+		<comment location="Undefined">
+			<summary>No value is passed for this argument</summary>
+		</comment>
+	</group>
+</group>

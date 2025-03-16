@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -28,4 +28,11 @@ public partial struct StencilFaceState
 	
 public StencilFaceState(){}
 
-}
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="StencilFaceState">
+        <summary>            
+            Describes stencil state in a render pipeline.
+        </summary>
+    </comment>
+</group>

@@ -1,0 +1,25 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct ShaderSourceWGSLFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public WebGpuSharp.FFI.StringViewFFI Code = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	
+public ShaderSourceWGSLFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ShaderSourceWGSLFFI">
+		<summary>A struct containing the WGSL code.</summary>
+	</comment>
+	<group prefix="ShaderSourceWGSLFFI.">
+		<comment location="Code">
+			<summary>The WGSL code.</summary>
+		</comment>
+	</group>
+</group>

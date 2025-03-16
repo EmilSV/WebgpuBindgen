@@ -1,0 +1,64 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum StorageTextureAccess
+{
+	Undefined = 0,
+	WriteOnly = 1,
+	ReadOnly = 2,
+	ReadWrite = 3,
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="StorageTextureAccess">
+        <summary>            
+            Specific type of a sample in a texture binding.
+            
+            For use in BindingType::StorageTexture.
+        </summary>
+    </comment>
+    <group prefix="StorageTextureAccess.">
+        <comment location="Undefined">
+            <summary>No value is passed for this argument</summary>
+        </comment>
+        <comment location="WriteOnly">
+            <summary>
+                The texture can only be written in the shader and it:
+                
+                may or may not be annotated with write (WGSL).
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var my_storage_image: texture_storage_2d&lt;r32float, write>;
+					</code>
+				</example>
+            </summary>
+        </comment>
+        <comment location="ReadOnly">
+            <summary>
+				The texture can only be read in the shader and it must be annotated with read (WGSL) or readonly (GLSL).
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var my_storage_image: texture_storage_2d&lt;r32float, read>;
+					</code>
+				</example>
+			</summary>
+        </comment>
+        <comment location="ReadWrite">
+            <summary>
+				The texture can be both read and written in the shader and must be annotated with read_write in WGSL.
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var my_storage_image: texture_storage_2d&lt;r32float, read_write>;
+					</code>
+				</example>
+			</summary>
+        </comment>
+    </group>
+</group>

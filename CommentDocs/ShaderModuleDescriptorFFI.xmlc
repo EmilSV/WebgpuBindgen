@@ -1,0 +1,25 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct ShaderModuleDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	
+public ShaderModuleDescriptorFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ShaderModuleDescriptorFFI">
+		<summary>Descriptor for use with <see cref ="WebGpuSharp.FFI.DeviceHandle.CreateShaderModule"/>.</summary> 
+	</comment>
+	<group prefix="ShaderModuleDescriptorFFI.">
+		<comment location="Label">
+			<summary>The debug label of the shader module.</summary>
+		</comment>
+	</group>
+</group>

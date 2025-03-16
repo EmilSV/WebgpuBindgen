@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -40,4 +40,24 @@ public SamplerHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.SamplerRelease(this);
 
-}
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SamplerHandle">
+        <summary>            
+            Handle to a sampler.
+            
+            A Sampler object defines how a pipeline will sample from a TextureView. 
+			Samplers define image filters (including anisotropy) and address (wrapping) modes, among other things. 
+			See the documentation for SamplerDescriptor for more information.
+            
+            It can be created with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateSampler"/>.
+        </summary>
+    </comment>
+	<group prefix="SamplerHandle.">
+		<comment location="SetLabel">
+			<summary>
+				Set the label of the sampler. 
+			</summary>
+		</comment>
+	</group>
+</group>

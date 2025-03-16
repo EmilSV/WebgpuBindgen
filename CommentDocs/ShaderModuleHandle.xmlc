@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -49,4 +49,32 @@ public ShaderModuleHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.ShaderModuleRelease(this);
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ShaderModuleHandle">
+		<summary>
+			Handle to a compiled shader module.
+
+			A ShaderModule represents a compiled shader module on the GPU. 
+			It can be created by passing source code to <see cref="WebGpuSharp.FFI.DeviceHandle.CreateShaderModule"/> or valid SPIR-V binary to <see cref="WebGpuSharp.FFI.DeviceHandle.CreateShaderModuleSpirv"/>.   
+			Shader modules are used to define programmable stages of a pipeline.
+		</summary>
+	</comment>
+	<group prefix="ShaderModuleHandle.">
+		<comment location="GetCompilationInfo">
+			<summary>
+				Returns any messages generated during the  <see cref="WebGpuSharp.ShaderModule"/>'s compilation.
+				The locations, order, and contents of messages are implementation-defined
+				In particular, messages may not be ordered by  <see cref="WebGpuSharp.CompilationMessage.LineNum"/>.
+			</summary>
+		</comment>
+		<comment location="SetLabel">
+			<summary>
+				Sets the debug label of the shader module.
+			</summary>
+		</comment>
+		
+	</group>
+</group>
