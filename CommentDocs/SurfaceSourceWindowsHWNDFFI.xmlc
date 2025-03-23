@@ -1,0 +1,33 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceSourceWindowsHWNDFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public void* Hinstance;
+	public void* Hwnd;
+	
+public SurfaceSourceWindowsHWNDFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SurfaceSourceWindowsHWNDFFI">
+        <summary>            
+            A surface source for a Windows HWND.
+        </summary>
+    </comment>
+    <group prefix="SurfaceSourceWindowsHWNDFFI">
+        <comment location="Hinstance">
+            <summary>                
+                The Windows HINSTANCE.
+            </summary>
+        </comment>
+        <comment location="Hwnd">
+            <summary>                
+                The Windows HWND.
+            </summary>
+        </comment>
+    </group>
+</group>

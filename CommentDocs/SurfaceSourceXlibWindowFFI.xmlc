@@ -1,0 +1,35 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceSourceXlibWindowFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public void* Display;
+	public ulong Window;
+	
+public SurfaceSourceXlibWindowFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="SurfaceSourceXlibWindowFFI">
+		<summary>
+			A surface source for an Xlib window.
+		</summary>
+	</comment>
+	<group prefix="SurfaceSourceXlibWindowFFI">
+		<comment location="Display">
+			<summary>
+				The Xlib display.
+			</summary>
+		</comment>
+		<comment location="Window">
+			<summary>
+				The Xlib window.
+			</summary>
+		</comment>
+	</group>
+</group>

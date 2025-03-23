@@ -1,0 +1,33 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceSourceWaylandSurfaceFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public void* Display;
+	public void* Surface;
+	
+public SurfaceSourceWaylandSurfaceFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SurfaceSourceWaylandSurfaceFFI">
+        <summary>            
+            A surface source for a Wayland surface.
+        </summary>
+    </comment>
+    <group prefix="SurfaceSourceWaylandSurfaceFFI">
+        <comment location="Display">
+            <summary>                
+                The Wayland display.
+            </summary>
+        </comment>
+        <comment location="Surface">
+            <summary>                
+                The Wayland surface.
+            </summary>
+        </comment>
+    </group>
+</group>

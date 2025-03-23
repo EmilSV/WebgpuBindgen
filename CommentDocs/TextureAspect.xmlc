@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -29,4 +29,11 @@ public enum TextureAspect
 	Plane0Only = 327680,
 	Plane1Only = 327681,
 	Plane2Only = 327682,
-}
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="TextureAspect">
+        <summary>            
+            Kind of data the texture holds.
+        </summary>
+    </comment>
+</group>

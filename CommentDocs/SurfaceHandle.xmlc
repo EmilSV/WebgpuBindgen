@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -50,4 +50,55 @@ public SurfaceHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.SurfaceRelease(this);
 
-}
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SurfaceHandle">
+        <summary>            
+            A handle to a surface.
+        </summary>
+    </comment>
+    <group prefix="SurfaceHandle">
+        <comment location="Null">
+            <summary>                
+                A null handle.
+            </summary>
+        </comment>
+        <comment location="Configure">
+            <summary>                
+                Configures the surface.
+            </summary>
+            <param name="config">The configuration to use.</param>
+        </comment>
+        <comment location="GetCapabilities">
+            <summary>                
+                Returns the capabilities of the surface when used with the given adapter.
+
+                Returns specified values (see SurfaceCapabilities) if surface is incompatible with the adapter.
+            </summary>
+            <param name="adapter">The adapter to use.</param>
+            <param name="capabilities">The capabilities of the surface.</param>
+        </comment>
+        <comment location="GetCurrentTexture">
+            <summary>                
+                Gets the current texture of the surface.
+            </summary>
+            <param name="surfaceTexture">The current texture of the surface.</param>
+        </comment>
+        <comment location="Present">
+            <summary>                
+                Presents the surface.
+            </summary>
+        </comment>
+        <comment location="SetLabel">
+            <summary>                
+                Sets the label of the surface.
+            </summary>
+            <param name="label">The label to set.</param>
+        </comment>
+        <comment location="Unconfigure">
+            <summary>                
+                Unconfigures the surface.
+            </summary>
+        </comment>
+    </group>
+</group>

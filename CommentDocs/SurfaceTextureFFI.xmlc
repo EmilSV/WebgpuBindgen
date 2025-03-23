@@ -1,0 +1,40 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceTextureFFI
+{
+	public WebGpuSharp.FFI.TextureHandle Texture;
+	public WebGpuSharp.WebGPUBool Suboptimal = new();
+	public WebGpuSharp.SurfaceGetCurrentTextureStatus Status;
+	
+public SurfaceTextureFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="SurfaceTextureFFI">
+		<summary>
+			A surface texture.
+		</summary>
+	</comment>
+	<group prefix="SurfaceTextureFFI">
+		<comment location="Status">
+			<summary>
+				The status of the surface texture.
+			</summary>
+		</comment>
+		<comment location="Suboptimal">
+			<summary>
+				Whether the surface texture is suboptimal.
+			</summary>
+		</comment>
+		<comment location="Texture">
+			<summary>
+				The texture.
+			</summary>
+		</comment>
+	</group>
+</group>

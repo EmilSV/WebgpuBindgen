@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
@@ -22,4 +22,13 @@ public unsafe partial struct StorageTextureBindingLayout
 	
 public StorageTextureBindingLayout(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="StorageTextureBindingLayout">
+		<summary>
+			A storage texture binding layout.
+		</summary>
+	</comment>
+</group>

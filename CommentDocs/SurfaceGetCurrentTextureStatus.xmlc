@@ -1,0 +1,61 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum SurfaceGetCurrentTextureStatus
+{
+	Success = 1,
+	Timeout = 2,
+	Outdated = 3,
+	Lost = 4,
+	OutOfMemory = 5,
+	DeviceLost = 6,
+	Error = 7,
+} -->
+
+
+<group>
+	<comment location="SurfaceGetCurrentTextureStatus">
+		<summary>
+			The status of the last call to <see cref="Surface.GetCurrentTexture"/>.
+		</summary>
+	</comment>
+	<group prefix="SurfaceGetCurrentTextureStatus">
+		<comment location="Success">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> was successful.
+			</summary>
+		</comment>
+		<comment location="Timeout">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> timed out.
+			</summary>
+		</comment>
+		<comment location="Outdated">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> was outdated.
+			</summary>
+		</comment>
+		<comment location="Lost">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> was lost.
+			</summary>
+		</comment>
+		<comment location="OutOfMemory">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> failed due to out of memory.
+			</summary>
+		</comment>
+		<comment location="DeviceLost">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> failed due to the device being lost.
+			</summary>
+		</comment>
+		<comment location="Error">
+			<summary>
+				The call to <see cref="Surface.GetCurrentTexture"/> failed due to an error.
+			</summary>
+		</comment>		
+	</group>
+</group>

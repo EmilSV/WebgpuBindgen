@@ -1,0 +1,29 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceSourceMetalLayerFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public void* Layer;
+	
+public SurfaceSourceMetalLayerFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="SurfaceSourceMetalLayerFFI">
+		<summary>
+			A surface source for a Metal layer.
+		</summary>
+	</comment>
+	<group prefix="SurfaceSourceMetalLayerFFI">
+		<comment location="Layer">
+			<summary>
+				The Metal layer.
+			</summary>
+		</comment>
+	</group>
+</group>

@@ -1,0 +1,27 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceDescriptorFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.StringViewFFI Label = WebGpuSharp.FFI.StringViewFFI.NullValue;
+	
+public SurfaceDescriptorFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SurfaceDescriptorFFI">
+        <summary>            
+            Describes a Surface.
+        </summary>
+    </comment>
+    <group prefix="SurfaceDescriptorFFI">
+        <comment location="label">
+            <summary>                
+                A debug label for the surface.
+            </summary>
+        </comment>
+    </group>
+</group>

@@ -1,0 +1,39 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct StringViewFFI
+{
+	public byte* Data;
+	public nuint Length;
+	public static readonly WebGpuSharp.FFI.StringViewFFI NullValue = new() { Data = null, Length = WebGPU_FFI.STRLEN };
+	
+public StringViewFFI(){}
+
+} -->
+
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="StringViewFFI">
+        <summary>            
+            A string view is a reference to a utf8 string in memory. It is used to pass strings to WebGPU APIs. 
+        </summary>
+    </comment>
+    <group prefix="StringViewFFI.">
+        <comment location="Data">
+            <summary>                
+                The data of the string view
+            </summary>
+        </comment>
+        <comment location="Length">
+            <summary>                
+                The length of the string view
+            </summary>
+        </comment>
+        <comment location="NullValue">
+            <summary>                
+                A null string view
+            </summary>
+        </comment>
+    </group>
+</group>

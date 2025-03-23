@@ -1,0 +1,38 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum TextureDimension
+{
+	Undefined = 0,
+	D1 = 1,
+	D2 = 2,
+	D3 = 3,
+} -->
+
+
+<group prefix="WebGpuSharp.">
+    <comment location="TextureDimension">
+        <summary>            
+            Dimensionality of a texture.
+        </summary>
+    </comment>
+	<group prefix="TextureDimension.">
+		<comment location="D1">
+			<summary>                
+				1D texture
+			</summary>
+		</comment>
+		<comment location="D2">
+			<summary>                
+				2D texture
+			</summary>
+		</comment>
+		<comment location="D3">
+			<summary>                
+				3D texture
+			</summary>
+		</comment>
+	</group>
+</group>

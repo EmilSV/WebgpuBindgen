@@ -1,0 +1,29 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceSourceAndroidNativeWindowFFI
+{
+	public WebGpuSharp.ChainedStruct Chain;
+	public void* Window;
+	
+public SurfaceSourceAndroidNativeWindowFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="SurfaceSourceAndroidNativeWindowFFI">
+		<summary>
+			A surface source for a native Android window.
+		</summary>
+	</comment>
+	<group prefix="SurfaceSourceAndroidNativeWindowFFI">
+		<comment location="Window">
+			<summary>
+				The native Android window.
+			</summary>
+		</comment>
+	</group>
+</group>

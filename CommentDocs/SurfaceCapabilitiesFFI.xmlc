@@ -1,0 +1,74 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceCapabilitiesFFI
+{
+	public WebGpuSharp.ChainedStructOut* NextInChain;
+	public WebGpuSharp.TextureUsage Usages;
+	public nuint FormatCount;
+	public WebGpuSharp.TextureFormat* Formats;
+	public nuint PresentModeCount;
+	public WebGpuSharp.PresentMode* PresentModes;
+	public nuint AlphaModeCount;
+	public WebGpuSharp.CompositeAlphaMode* AlphaModes;
+	
+public SurfaceCapabilitiesFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SurfaceCapabilitiesFFI">
+        <summary>            
+            The <see cref="SurfaceCapabilitiesFFI"/>             
+            struct is used to pass a list of supported capabilities to the WebGPU API.
+        </summary>
+    </comment>
+    <group prefix="SurfaceCapabilitiesFFI.">
+        <comment location="Usages">
+            <summary>                
+                Bitflag of supported texture usages for the surface to use with the given adapter.
+
+				The usage <see cref="WebGpuSharp.TextureUsages.RenderAttachment"/> is guaranteed. 
+            </summary>
+        </comment>
+        <comment location="FormatCount">
+            <summary>                
+                The number of items in the <see cref="Formats"/> sequence.
+            </summary>
+        </comment>
+        <comment location="Formats">
+            <summary>                
+                List of supported formats to use with the given adapter. The first format in the sequence is preferred.
+
+				Returns an empty vector if the surface is incompatible with the adapter.
+            </summary>
+        </comment>
+        <comment location="PresentModes">
+            <summary>                
+                List of supported presentation modes to use with the given adapter.
+
+				Returns an empty vector if the surface is incompatible with the adapter.
+            </summary>
+        </comment>
+        <comment location="PresentModeCount">
+            <summary>                
+                The number of items in the <see cref="PresentModes"/>                
+                sequence.
+            </summary>
+        </comment>
+        <comment location="AlphaModeCount">
+            <summary>                
+                The number of items in the <see cref="AlphaModes"/>                  
+                sequence.
+            </summary>
+        </comment>
+        <comment location="AlphaModes">
+            <summary>                
+                List of supported alpha modes to use with the given adapter.
+
+				Will return at least one element, <see cref="WebGpuSharp.CompositeAlphaMode.Opaque"/> or <see cref="WebGpuSharp.CompositeAlphaMode.Inherit"/>.
+            </summary>
+        </comment>
+    </group>
+</group>

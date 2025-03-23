@@ -1,0 +1,34 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SupportedFeaturesFFI
+{
+	public nuint FeatureCount;
+	public WebGpuSharp.FeatureName* Features;
+	
+public SupportedFeaturesFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="SupportedFeaturesFFI">
+		<summary>
+			The <see cref="SupportedFeaturesFFI"/> struct is used to pass a list of supported features to the WebGPU API.
+		</summary>
+	</comment>
+	<group prefix="FeatureName">
+		<comment location="Features">
+			<summary>
+				The features supported by the WebGPU API.
+			</summary>
+		</comment>
+		<comment location="FeatureCount">
+			<summary>
+				The number of items in the <see cref="Features"/> sequence.
+			</summary>
+		</comment>
+	</group>
+</group>

@@ -1,0 +1,61 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct SurfaceConfigurationFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.FFI.DeviceHandle Device;
+	public WebGpuSharp.TextureFormat Format;
+	public WebGpuSharp.TextureUsage Usage;
+	public nuint ViewFormatCount;
+	public WebGpuSharp.TextureFormat* ViewFormats;
+	public WebGpuSharp.CompositeAlphaMode AlphaMode;
+	public uint Width;
+	public uint Height;
+	public WebGpuSharp.PresentMode PresentMode;
+	
+public SurfaceConfigurationFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SurfaceConfigurationFFI">
+        <summary>            
+            Describes a Surface.
+            
+            For use with <see cref="Surface.Configure"/>. 
+        </summary>
+    </comment>
+    <group prefix="SurfaceConfigurationFFI">
+        <comment location="usage">
+            <summary>                
+                The usage of the swap chain.
+            </summary>
+        </comment>
+        <comment location="format">
+            <summary>                
+                The texture format of the swap chain. 
+				The only formats that are guaranteed are Bgra8Unorm and Bgra8UnormSrgb
+            </summary>
+        </comment>
+		<comment location="width">
+			<summary>
+				Width of the swap chain. Must be the same size as the surface, and nonzero.
+
+				If this is not the same size as the underlying surface (e.g. if it is set once, and the window is later resized), 
+				the behaviour is defined but platform-specific, 
+				and may change in the future (currently macOS scales the surface, other platforms may do something else).
+			</summary>
+		</comment>
+		<comment location="height">
+			<summary>
+				Height of the swap chain. Must be the same size as the surface, and nonzero.
+
+				If this is not the same size as the underlying surface (e.g. if it is set once, and the window is later resized), 
+				the behaviour is defined but platform-specific, and may change in the future (currently macOS scales the surface, 
+				other platforms may do something else).
+			</summary>
+		</comment>
+    </group>
+</group>
