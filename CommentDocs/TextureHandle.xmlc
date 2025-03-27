@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -67,4 +67,75 @@ public TextureHandle(nuint ptr)=> _ptr = ptr;
 
 	public void Release()=> WebGPU_FFI.TextureRelease(this);
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="TextureHandle">
+		<summary>
+			Handle to a texture on the GPU.
+			
+			It can be created with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateTexture"/>. 
+		</summary>
+	</comment>
+	<group prefix="TextureHandle.">
+		<comment location="GetDepthOrArrayLayers">
+			<summary>
+				Returns the depth or layer count of this Texture.
+
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size.DepthOrArrayLayers"/> that was specified when creating the texture.
+			</summary>
+		</comment>
+		<comment location="GetDimension">
+			<summary>
+				Returns the dimension of this Texture.
+
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Dimension"/> that was specified when creating the texture.
+			</summary>
+		</comment>
+		<comment location="GetFormat">
+			<summary>
+				Returns the format of this Texture.
+
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Format"/> that was specified when creating the texture.
+			</summary>
+		</comment>
+		<comment location="GetHeight">
+			<summary>
+				Returns the height of this Texture.
+
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size.Height"/> that was specified when creating the texture.
+			</summary>
+		</comment>
+		<comment location="GetMipLevelCount">
+			<summary>
+				Returns the number of mip levels in the texture.
+			</summary>
+		</comment>
+		<comment location="GetSampleCount">
+			<summary>
+				Returns the number of samples in the texture.
+			</summary>
+		</comment>
+		<comment location="GetUsage">
+			<summary>
+				Returns the allowed usages of this Texture.
+
+				This is always equal to the usage that was specified when creating the texture.
+			</summary>
+		</comment>
+		<comment location="GetWidth">
+			<summary>
+				Returns the width of this Texture.
+
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size.Width"/> that was specified when creating the texture.
+			</summary>
+		</comment>
+		<comment location="SetLabel">
+			<summary>
+				Sets the debug label of texture. 
+			</summary>
+			<param name="label">The new label.</param>
+		</comment>
+	</group>
+</group>
