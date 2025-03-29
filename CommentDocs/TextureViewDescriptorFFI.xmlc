@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -50,4 +50,20 @@ public unsafe partial struct TextureViewDescriptorFFI
 	
 public TextureViewDescriptorFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI">
+	<comment location="TextureViewDescriptorFFI">
+		<summary>
+			Description of a texture view.
+		</summary>
+	</comment>
+	<group prefix="TextureViewDescriptorFFI.">
+		<comment location="Label">
+			<summary>
+				The debug label of the texture view.
+			</summary>
+		</comment>
+	</group>
+</group>

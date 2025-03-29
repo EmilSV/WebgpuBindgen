@@ -1,0 +1,83 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum TextureSampleType
+{
+	Undefined = 0,
+	Float = 1,
+	UnfilterableFloat = 2,
+	Depth = 3,
+	Sint = 4,
+	Uint = 5,
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="TextureSampleType">
+        <summary>            
+            The type of a texture sample.
+        </summary>
+    </comment>
+    <group prefix="TextureSampleType.">
+        <comment location="Undefined">
+			<summary>
+				No value is passed for this argument.
+			</summary>
+        </comment>
+        <comment location="Float">
+            <summary>                
+                Sampling returns floats.
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var my_storage_image: texture_storage_2d&lt;32float>;
+					</code>
+				</example>
+            </summary>
+        </comment>
+        <comment location="UnfilterableFloat">
+            <summary>                
+                A single-precision floating-point value that is unfilterable.
+            </summary>
+        </comment>
+        <comment location="Depth">
+            <summary>                
+                Sampling does the depth reference comparison.
+
+				This is also compatible with a non-filtering sampler.
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var t: texture_depth_2d;
+					</code>
+				</example>
+            </summary>
+        </comment>
+        <comment location="Sint">
+            <summary>                
+                Sampling returns signed integers.
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var t: texture_2d&lt;i32>;
+					</code>
+				</example>
+            </summary>
+        </comment>
+        <comment location="Uint">
+            <summary>                
+                Sampling returns unsigned integers.
+				<example>
+					Example WGSL syntax:
+					<code language="WGSL">
+						@group(0) @binding(0)
+						var t: texture_2d&lt;u32>;
+					</code>
+				</example>
+            </summary>
+        </comment>
+    </group>
+</group>

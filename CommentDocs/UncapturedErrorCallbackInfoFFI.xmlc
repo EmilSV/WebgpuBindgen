@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -11,4 +11,4 @@ public unsafe partial struct UncapturedErrorCallbackInfoFFI
 	
 public UncapturedErrorCallbackInfoFFI(){}
 
-}
+} -->

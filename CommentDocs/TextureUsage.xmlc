@@ -1,0 +1,58 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+[System.FlagsAttribute]
+public enum TextureUsage : ulong
+{
+	None = 0,
+	CopySrc = 1,
+	CopyDst = 2,
+	TextureBinding = 4,
+	StorageBinding = 8,
+	RenderAttachment = 16,
+	TransientAttachment = 32,
+	StorageAttachment = 64,
+} -->
+<group prefix="WebGpuSharp.">
+    <comment location="TextureUsage">
+        <summary>            
+            Different ways that you can use a texture.
+            
+            The usages determine what kind of memory the texture is allocated from and what actions the texture can partake in.
+        </summary>
+    </comment>
+    <group prefix="TextureUsage.">
+        <comment location="None">
+            <summary>                
+                No flags set.
+            </summary>
+        </comment>
+        <comment location="CopySrc">
+            <summary>                
+                Allows a texture to be the source in a [CommandEncoder::copy_texture_to_buffer] or [CommandEncoder::copy_texture_to_texture] operation.
+            </summary>
+        </comment>
+        <comment location="CopyDst">
+            <summary>                
+                Allows a texture to be the destination in a [CommandEncoder::copy_buffer_to_texture], [CommandEncoder::copy_texture_to_texture], or [Queue::write_texture] operation.
+            </summary>
+        </comment>
+        <comment location="TextureBinding">
+            <summary>                
+                Allows a texture to be a BindingType::Texture in a bind group.
+            </summary>
+        </comment>
+        <comment location="StorageBinding">
+            <summary>                
+                Allows a texture to be a BindingType::StorageTexture in a bind group.
+            </summary>
+        </comment>
+        <comment location="RenderAttachment">
+            <summary>                
+                Allows a texture to be an output attachment of a render pass.
+            </summary>
+        </comment>
+    </group>
+</group>

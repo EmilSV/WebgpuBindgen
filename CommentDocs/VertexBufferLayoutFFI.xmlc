@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -21,4 +21,11 @@ public unsafe partial struct VertexBufferLayoutFFI
 	
 public VertexBufferLayoutFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="VertexBufferLayoutFFI">
+		<summary>Describes how the vertex buffer is interpreted.</summary>
+	</comment>
+</group>

@@ -1,0 +1,32 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct UncapturedErrorCallbackInfo2FFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.FFI.DeviceHandle*, WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void*, void> Callback;
+	public void* Userdata1;
+	public void* Userdata2;
+	
+public UncapturedErrorCallbackInfo2FFI(){}
+
+} -->
+
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="UncapturedErrorCallbackInfo2FFI">
+        <summary>Callback struct for callback and userdata</summary>
+    </comment>
+	<group prefix="UncapturedErrorCallbackInfo2FFI.">
+		<comment location="Callback">
+			<summary>The callback function</summary>
+		</comment>
+		<comment location="Userdata1">
+			<summary>The first userdata</summary>
+		</comment>
+		<comment location="Userdata2">
+			<summary>The second userdata</summary>
+		</comment>
+	</group>
+</group>
