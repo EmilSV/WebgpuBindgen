@@ -1,0 +1,33 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct CreateRenderPipelineAsyncCallbackInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.CreatePipelineAsyncStatus, WebGpuSharp.FFI.RenderPipelineHandle, WebGpuSharp.FFI.StringViewFFI, void*, void> Callback;
+	public void* Userdata;
+	
+public CreateRenderPipelineAsyncCallbackInfoFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="CreateRenderPipelineAsyncCallbackInfoFFI">
+		<summary>A CreateRenderPipelineAsyncCallbackInfoFFI is a callback info struct used to register a callback for when a render pipeline is created.</summary>
+	</comment>
+	<group prefix="CreateRenderPipelineAsyncCallbackInfoFFI.">
+		<comment location="Callback">
+			<summary>The callback to call when the render pipeline is created.</summary>
+		</comment>
+		<comment location="Mode">
+			<summary>The callback mode.</summary>
+		</comment>
+		<comment location="Userdata">
+			<summary>The userdata.</summary>
+		</comment>
+	</group>
+</group>

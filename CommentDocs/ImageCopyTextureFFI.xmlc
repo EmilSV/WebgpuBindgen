@@ -1,4 +1,4 @@
-using System;
+<!-- using System;
 using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
@@ -19,10 +19,18 @@ public unsafe partial struct ImageCopyTextureFFI
 /// </summary>
 	public WebGpuSharp.Origin3D Origin = new();
 /// <summary>
-/// Defines which aspects of the  <see cref="WebGpuSharp.ImageCopyTexture.Texture"/> to copy to/from.
+/// Defines which aspects of the  <see cref="WebGpuSharp.ImageCopyTexture.Texture"/> to copy
+to/from.
 /// </summary>
 	public WebGpuSharp.TextureAspect Aspect = WebGpuSharp.TextureAspect.All;
 	
 public ImageCopyTextureFFI(){}
 
-}
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="ImageCopyTextureFFI">
+		<summary>View of a texture which can be used to copy to/from a buffer/texture.</summary>
+	</comment>
+</group>

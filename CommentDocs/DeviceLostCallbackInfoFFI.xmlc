@@ -1,0 +1,33 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct DeviceLostCallbackInfoFFI
+{
+	public WebGpuSharp.ChainedStruct* NextInChain;
+	public WebGpuSharp.CallbackMode Mode;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.FFI.DeviceHandle*, WebGpuSharp.DeviceLostReason, WebGpuSharp.FFI.StringViewFFI, void*, void> Callback;
+	public void* Userdata;
+	
+public DeviceLostCallbackInfoFFI(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="DeviceLostCallbackInfoFFI">
+		<summary>A DeviceLostCallbackInfoFFI is a callback info struct used to register a callback for when a device is lost.</summary>
+	</comment>
+	<group prefix="DeviceLostCallbackInfo2FFI.">
+		<comment location="Callback">
+			<summary>The callback to call when the device is lost.</summary>
+		</comment>
+		<comment location="Mode">
+			<summary>The callback mode.</summary>
+		</comment>
+		<comment location="Userdata">
+			<summary>The userdata.</summary>
+		</comment>
+	</group>
+</group>

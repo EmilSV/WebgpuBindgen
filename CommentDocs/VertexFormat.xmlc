@@ -1,0 +1,130 @@
+<group prefix="WebGpuSharp.">
+	<comment location="VertexFormat">
+		<summary>Vertex Format for a VertexAttribute</summary>
+	</comment>
+	<group prefix="VertexFormat.">
+		<comment location="Uint8">
+			<summary>One unsigned byte (byte). u32 in shaders.</summary>
+		</comment>
+		<comment location="Uint8x2">
+			<summary>Two unsigned bytes (byte). vec2&lt;u32> in shaders.</summary>
+		</comment>
+		<comment location="Uint8x4">
+			<summary>Four unsigned bytes (byte). vec4&lt;u32> in shaders.</summary>
+		</comment>
+		<comment location="Sint8">
+			<summary>One signed byte (sbyte). i32 in shaders.</summary>
+		</comment>
+		<comment location="Sint8x2">
+			<summary>Two signed bytes (sbyte). vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Sint8x4">
+			<summary>Four signed bytes (sbyte). vec4&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Unorm8">
+			<summary>One unsigned byte (byte). [0, 255] converted to float [0, 1] f32 in shaders.</summary>
+		</comment>
+		<comment location="Unorm8x2">
+			<summary>Two unsigned bytes (byte). [0, 255] converted to float [0, 1] vec2&lt;32> in shaders.</summary>
+		</comment>
+		<comment location="Unorm8x4">
+			<summary>Four unsigned bytes (byte). [0, 255] converted to float [0, 1] vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Snorm8">
+			<summary>One signed byte (sbyte). [−127, 127] converted to float [−1, 1] f32 in shaders.</summary>
+		</comment>
+		<comment location="Snorm8x2">
+			<summary>Two signed bytes (sbyte). [−127, 127] converted to float [−1, 1] vec2&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Snorm8x4">
+			<summary>Four signed bytes (sbyte). [−127, 127] converted to float [−1, 1] vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Uint16">
+			<summary>One unsigned short (ushort). u32 in shaders.</summary>
+		</comment>
+		<comment location="Uint16x2">
+			<summary>Two unsigned shorts (ushort). vec2&lt;u32> in shaders.</summary>
+		</comment>
+		<comment location="Uint16x4">
+			<summary>Four signed shorts (short). vec4&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Sint16">
+			<summary>One signed short (ushort). i32 in shaders.</summary>
+		</comment>
+		<comment location="Sint16x2">
+			<summary>Two signed shorts (short). vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Sint16x4">
+			<summary>Four signed shorts (short). vec4&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Unorm16">
+			<summary>One unsigned short (ushort). [0, 65535] converted to float [0, 1] f32 in shaders.</summary>
+		</comment>
+		<comment location="Unorm16x2">
+			<summary>Two unsigned shorts (ushort). [0, 65535] converted to float [0, 1] vec2&lt;i32> in shaders.</summary>  
+		</comment>
+		<comment location="Unorm16x4">
+			<summary>Four unsigned shorts (ushort). [0, 65535] converted to float [0, 1] vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Snorm16">
+			<summary>One signed short (short). [−32767, 32767] converted to float [−1, 1] f32 in shaders.</summary>
+		</comment>
+		<comment location="Snorm16x2">
+			<summary>Two signed shorts (short). [−32767, 32767] converted to float [−1, 1] vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Snorm16x4">
+			<summary>Four signed shorts (short). [−32767, 32767] converted to float [−1, 1] vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Float16">
+			<summary>One half-precision float (Half). f32 in shaders.</summary>
+		</comment>
+		<comment location="Float16x2">
+			<summary>Two half-precision floats (Half). vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Float16x4">
+			<summary>Four half-precision floats (Half). vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Float32">
+			<summary>One single-precision float (float). f32 in shaders.</summary>
+		</comment>
+		<comment location="Float32x2">
+			<summary>Two single-precision floats (float). vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Float32x3">
+			<summary>Three single-precision floats (float). vec3&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Float32x4">
+			<summary>Four single-precision floats (float). vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Uint32">
+			<summary>One unsigned int (uint). u32 in shaders.</summary>
+		</comment>
+		<comment location="Uint32x2">
+			<summary>Two unsigned ints (uint). vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Uint32x3">
+			<summary>Three unsigned ints (uint). vec3&lt;u32> in shaders.</summary>
+		</comment>
+		<comment location="Uint32x4">
+			<summary>Four unsigned ints (uint). vec4&lt;u32> in shaders.</summary>
+		</comment>
+		<comment location="Sint32">
+			<summary>One signed int (int). i32 in shaders.</summary>
+		</comment>
+		<comment location="Sint32x2">
+			<summary>Two signed ints (int). vec2&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Sint32x3">
+			<summary>Three signed ints (int). vec3&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Sint32x4">
+			<summary>Four signed ints (int). vec4&lt;i32> in shaders.</summary>
+		</comment>
+		<comment location="Unorm10_10_10_2">
+			<summary>Three unsigned 10-bit integers and one 2-bit integer, packed into a 32-bit integer (uint). [0, 1024] converted to float [0, 1] vec4&lt;f32> in shaders.</summary>
+		</comment>
+		<comment location="Unorm8x4BGRA">
+			<summary>Four unsigned 8-bit integers, packed into a 32-bit integer (uint). [0, 255] converted to float [0, 1] vec4&lt;f32> in shaders.</summary>
+		</comment>
+	</group>
+</group>
