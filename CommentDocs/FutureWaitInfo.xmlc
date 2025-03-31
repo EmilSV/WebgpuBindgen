@@ -1,0 +1,34 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public partial struct FutureWaitInfo
+{
+	public WebGpuSharp.Future Future = new();
+	public WebGpuSharp.WebGPUBool Completed = new();
+	
+public FutureWaitInfo(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp">
+	<comment location="FutureWaitInfo">
+		<summary>
+			Struct holding a future to wait on, and a `completed` boolean flag.
+		</summary>
+	</comment>
+	<group prefix="FutureWaitInfo">
+		<comment location="Future">
+			<summary>
+				The future to wait on.
+			</summary>
+		</comment>
+		<comment location="Completed">
+			<summary>
+				 Whether or not the future completed.
+			</summary>
+		</comment>
+	</group>
+</group>
