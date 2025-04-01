@@ -27,7 +27,7 @@ public SurfaceConfigurationFFI(){}
             For use with <see cref="Surface.Configure"/>. 
         </summary>
     </comment>
-    <group prefix="SurfaceConfigurationFFI">
+    <group prefix="SurfaceConfigurationFFI.">
         <comment location="usage">
             <summary>                
                 The usage of the swap chain.

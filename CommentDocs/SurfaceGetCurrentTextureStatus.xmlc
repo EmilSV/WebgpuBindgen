@@ -15,13 +15,13 @@ public enum SurfaceGetCurrentTextureStatus
 } -->
 
 
-<group>
+<group prefix="WebGpuSharp.">
 	<comment location="SurfaceGetCurrentTextureStatus">
 		<summary>
 			The status of the last call to <see cref="Surface.GetCurrentTexture"/>.
 		</summary>
 	</comment>
-	<group prefix="SurfaceGetCurrentTextureStatus">
+	<group prefix="SurfaceGetCurrentTextureStatus.">
 		<comment location="Success">
 			<summary>
 				The call to <see cref="Surface.GetCurrentTexture"/> was successful.

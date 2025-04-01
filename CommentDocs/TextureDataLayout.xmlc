@@ -19,7 +19,7 @@ public TextureDataLayout(){}
             Layout of a texture in a buffer's memory.
         </summary>
     </comment>
-    <group prefix="TextureDataLayout">
+    <group prefix="TextureDataLayout.">
         <comment location="BytesPerRow">
             <summary>                
                 Bytes per "row" of the image. This represents one row of pixels in the x direction.

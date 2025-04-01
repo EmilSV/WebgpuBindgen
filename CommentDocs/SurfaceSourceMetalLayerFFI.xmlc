@@ -19,7 +19,7 @@ public SurfaceSourceMetalLayerFFI(){}
 			A surface source for a Metal layer.
 		</summary>
 	</comment>
-	<group prefix="SurfaceSourceMetalLayerFFI">
+	<group prefix="SurfaceSourceMetalLayerFFI.">
 		<comment location="Layer">
 			<summary>
 				The Metal layer.

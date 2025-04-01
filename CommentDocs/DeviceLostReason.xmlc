@@ -12,7 +12,7 @@ public enum DeviceLostReason
 } -->
 
 
-<group prefix="WebGpuSharp">
+<group prefix="WebGpuSharp.">
 	<comment location="DeviceLostReason">
 		<summary>Reason for “lose the device”.</summary>
 	</comment>

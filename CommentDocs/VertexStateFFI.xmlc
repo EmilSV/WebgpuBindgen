@@ -5,7 +5,7 @@
             For use in a <see cref="WebGPUSharp.RenderPipelineDescriptor"/>.
         </summary>
     </comment>
-    <group prefix="VertexStateFFI">
+    <group prefix="VertexStateFFI.">
         <comment location="NextInChain">
         </comment>
         <comment location="Module">

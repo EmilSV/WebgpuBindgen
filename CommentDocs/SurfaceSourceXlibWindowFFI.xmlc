@@ -20,7 +20,7 @@ public SurfaceSourceXlibWindowFFI(){}
 			A surface source for an Xlib window.
 		</summary>
 	</comment>
-	<group prefix="SurfaceSourceXlibWindowFFI">
+	<group prefix="SurfaceSourceXlibWindowFFI.">
 		<comment location="Display">
 			<summary>
 				The Xlib display.

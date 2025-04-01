@@ -19,7 +19,7 @@ public SupportedFeaturesFFI(){}
 			The <see cref="SupportedFeaturesFFI"/> struct is used to pass a list of supported features to the WebGPU API.
 		</summary>
 	</comment>
-	<group prefix="FeatureName">
+	<group prefix="FeatureName.">
 		<comment location="Features">
 			<summary>
 				The features supported by the WebGPU API.

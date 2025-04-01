@@ -13,13 +13,13 @@ public FutureWaitInfo(){}
 } -->
 
 
-<group prefix="WebGpuSharp">
+<group prefix="WebGpuSharp.">
 	<comment location="FutureWaitInfo">
 		<summary>
 			Struct holding a future to wait on, and a `completed` boolean flag.
 		</summary>
 	</comment>
-	<group prefix="FutureWaitInfo">
+	<group prefix="FutureWaitInfo.">
 		<comment location="Future">
 			<summary>
 				The future to wait on.

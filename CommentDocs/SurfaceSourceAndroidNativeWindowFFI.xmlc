@@ -19,7 +19,7 @@ public SurfaceSourceAndroidNativeWindowFFI(){}
 			A surface source for a native Android window.
 		</summary>
 	</comment>
-	<group prefix="SurfaceSourceAndroidNativeWindowFFI">
+	<group prefix="SurfaceSourceAndroidNativeWindowFFI.">
 		<comment location="Window">
 			<summary>
 				The native Android window.

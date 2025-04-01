@@ -53,8 +53,8 @@ public TextureViewDescriptorFFI(){}
 } -->
 
 
-<group prefix="WebGpuSharp.FFI">
-	<comment location="TextureViewDescriptorFFI">
+<group prefix="WebGpuSharp.FFI.">
+	<comment location="TextureViewDescriptorFFI.">
 		<summary>
 			Description of a texture view.
 		</summary>

@@ -20,7 +20,7 @@ public SurfaceSourceXCBWindowFFI(){}
 			A surface source for an XCB window.
 		</summary>
 	</comment>
-	<group prefix="SurfaceSourceXCBWindowFFI">
+	<group prefix="SurfaceSourceXCBWindowFFI.">
 		<comment location="Connection">
 			<summary>
 				The XCB connection.

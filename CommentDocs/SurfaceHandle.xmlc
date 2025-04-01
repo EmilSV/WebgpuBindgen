@@ -57,7 +57,7 @@ public SurfaceHandle(nuint ptr)=> _ptr = ptr;
             A handle to a surface.
         </summary>
     </comment>
-    <group prefix="SurfaceHandle">
+    <group prefix="SurfaceHandle.">
         <comment location="Null">
             <summary>                
                 A null handle.

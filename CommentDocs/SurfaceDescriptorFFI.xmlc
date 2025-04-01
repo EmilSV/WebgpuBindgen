@@ -17,7 +17,7 @@ public SurfaceDescriptorFFI(){}
             Describes a Surface.
         </summary>
     </comment>
-    <group prefix="SurfaceDescriptorFFI">
+    <group prefix="SurfaceDescriptorFFI.">
         <comment location="label">
             <summary>                
                 A debug label for the surface.

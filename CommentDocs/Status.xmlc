@@ -1,0 +1,25 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum Status
+{
+	Success = 1,
+	Error = 2,
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="Status">
+		<summary>The result of a method</summary>
+	</comment>
+	<group prefix="Status.">
+		<comment location="Success">
+			<summary>Success</summary>
+		</comment>
+		<comment location="Error">
+			<summary>Error</summary>
+		</comment>
+	</group>
+</group>

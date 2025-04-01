@@ -12,13 +12,13 @@ public Future(){}
 } -->
 
 
-<group prefix="WebGpuSharp">
+<group prefix="WebGpuSharp.">
 	<comment location="Future">
 		<summary>
 			Opaque handle to an asynchronous operation
 		</summary>
 	</comment>
-	<group prefix="Future">
+	<group prefix="Future.">
 		<comment location="Id">
 			<summary>
 				The unique identifier of the future.

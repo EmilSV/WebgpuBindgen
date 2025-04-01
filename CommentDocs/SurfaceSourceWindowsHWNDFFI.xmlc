@@ -18,7 +18,7 @@ public SurfaceSourceWindowsHWNDFFI(){}
             A surface source for a Windows HWND.
         </summary>
     </comment>
-    <group prefix="SurfaceSourceWindowsHWNDFFI">
+    <group prefix="SurfaceSourceWindowsHWNDFFI.">
         <comment location="Hinstance">
             <summary>                
                 The Windows HINSTANCE.

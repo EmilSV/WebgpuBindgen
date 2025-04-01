@@ -18,7 +18,7 @@ public SurfaceSourceWaylandSurfaceFFI(){}
             A surface source for a Wayland surface.
         </summary>
     </comment>
-    <group prefix="SurfaceSourceWaylandSurfaceFFI">
+    <group prefix="SurfaceSourceWaylandSurfaceFFI.">
         <comment location="Display">
             <summary>                
                 The Wayland display.

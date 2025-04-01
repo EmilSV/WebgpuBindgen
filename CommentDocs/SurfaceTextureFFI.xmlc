@@ -20,7 +20,7 @@ public SurfaceTextureFFI(){}
 			A surface texture.
 		</summary>
 	</comment>
-	<group prefix="SurfaceTextureFFI">
+	<group prefix="SurfaceTextureFFI.">
 		<comment location="Status">
 			<summary>
 				The status of the surface texture.
