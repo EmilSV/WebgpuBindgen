@@ -14,10 +14,12 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
     {
         var param = items.OfType<CommentParamElement>().ToList();
         var noParam = items.Where(i => !param.Contains(i)).ToArray();
+        var remarkOutList = new List<string>();
 
         return new()
         {
-            Summary = new() { Description = string.Join("", noParam.Select(i => Convert(i, member))) },
+            Summary = new() { Description = string.Join("", noParam.Select(i => Convert(i, member, remarkOutList))) },
+            Remarks = remarkOutList.Select(i => new CommentRemarks() { Description = i }).ToList(),
             Parameters = param.SelectMany(i =>
             {
                 var values = Convert(i, member);
@@ -31,13 +33,13 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
     }
 
 
-    string Convert(CommentElement item, BaseCSAstItem member) => item switch
+    string Convert(CommentElement item, BaseCSAstItem member, List<string>? remarkOutList) => item switch
     {
         CommentTextElement text => Convert(text),
         CommentSpecCommentElement specComment => Convert(specComment),
         CommentTypeLinkElement typeLink => Convert(typeLink),
         CommentDocLinkElement docLink => Convert(docLink),
-        CommentNoteElement note => Convert(note, member),
+        CommentNoteElement note => Convert(note, member, remarkOutList),
         CommentAlgorithmElement algorithm => Convert(algorithm),
         CommentExampleElement example => Convert(example),
         CommentWebLinkElement webLink => Convert(webLink),
@@ -73,7 +75,7 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
         foreach (var param in item.Items)
         {
             string name = param.Name;
-            string value = string.Join("", param.Description.Select(i => Convert(i, member)));
+            string value = string.Join("", param.Description.Select(i => Convert(i, member, null)));
             list.Add((name, value));
         }
 
@@ -155,15 +157,18 @@ public class CommentConvert(CsTypeLookup csTypeLookup)
         return string.Join(".", item.Path);
     }
 
-    string Convert(CommentNoteElement item, BaseCSAstItem member)
+    string Convert(CommentNoteElement item, BaseCSAstItem member, List<string>? remarkOutList)
     {
-        var text = string.Join("", item.Items.Select(i => Convert(i, member)));
-        return
-        $"""
-        <remarks>
-        {text}
-        </remarks>
-        """;
+        var text = string.Join("", item.Items.Select(i => Convert(i, member, remarkOutList)));
+        if (remarkOutList != null)
+        {
+            remarkOutList.Add(text);
+            return "";
+        }
+        else
+        {
+            return text;
+        }
     }
 
     string Convert(CommentAlgorithmElement item)
