@@ -1,0 +1,245 @@
+<group prefix="WebGpuSharp.FFI.WebGPU_FFI." defaultPriority="-20">
+    <comment location="AdapterInfoFreeMembers">
+        <summary>            
+            Free members of a
+        <see cref="WebGpuSharp.FFI.AdapterInfoFFI"/>            
+            structure.
+            After calling this function, using the members will lead to undefined behavior.
+        </summary>
+    </comment>
+    <comment location="CreateInstance">
+        <summary>            
+            Create a new instance of the WebGPU API. This is the first step in using the API.
+            The instance is used to create adapters, which are used to create devices.
+        </summary>
+    </comment>
+    <comment location="SupportedFeaturesFreeMembers">
+        <summary>            
+            Free members of a
+        <see cref="WebGpuSharp.FFI.SupportedFeaturesFFI"/>            
+            structure.
+            After calling this function, using the members will lead to undefined behavior.
+        </summary>
+    </comment>
+    <comment location="SurfaceCapabilitiesFreeMembers">
+        <summary>            
+            Free members of a
+        <see cref="WebGpuSharp.FFI.SurfaceCapabilitiesFFI"/>            
+            structure.
+            After calling this function, using the members will lead to undefined behavior.
+        </summary>
+    </comment>
+    <comment location="SurfaceCapabilitiesFreeMembers">
+        <summary>            
+            Free members of a
+        <see cref="WebGpuSharp.FFI.SurfaceCapabilitiesFFI"/>            
+            structure.
+            After calling this function, using the members will lead to undefined behavior.
+        </summary>
+    </comment>
+    <comment location="SurfaceDescriptorFreeMembers">
+        <summary>            
+            Free members of a
+        <see cref="WebGpuSharp.FFI.SurfaceDescriptorFFI"/>            
+            structure.
+            After calling this function, using the members will lead to undefined behavior.
+        </summary>
+    </comment>
+    <comment location="AdapterGetFeatures" inheritFrom="WebGpuSharp.FFI.AdapterHandle.GetFeatures" inheritPriority="-10"/>
+    <comment location="AdapterGetInfo" inheritFrom="WebGpuSharp.FFI.AdapterHandle.GetInfo" inheritPriority="-10"/>
+    <comment location="AdapterGetLimits" inheritFrom="WebGpuSharp.FFI.AdapterHandle.GetLimits" inheritPriority="-10"/>
+    <comment location="AdapterHasFeature" inheritFrom="WebGpuSharp.FFI.AdapterHandle.HasFeature" inheritPriority="-10"/>
+    <comment location="AdapterRequestDevice" inheritFrom="WebGpuSharp.FFI.AdapterHandle.RequestDevice" inheritPriority="-10"/>
+    <comment location="AdapterRequestDevice2" inheritFrom="WebGpuSharp.FFI.AdapterHandle.RequestDevice" inheritPriority="-10"/>
+    <comment location="AdapterAddRef" inheritFrom="WebGpuSharp.FFI.AdapterHandle.AddRef" inheritPriority="-10"/>
+    <comment location="AdapterRelease" inheritFrom="WebGpuSharp.FFI.AdapterHandle.Release" inheritPriority="-10"/>
+    <comment location="BindGroupSetLabel" inheritFrom="WebGpuSharp.FFI.BindGroupHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="BindGroupAddRef" inheritFrom="WebGpuSharp.FFI.BindGroupHandle.AddRef" inheritPriority="-10"/>
+    <comment location="BindGroupRelease" inheritFrom="WebGpuSharp.FFI.BindGroupHandle.Release" inheritPriority="-10"/>
+    <comment location="BindGroupLayoutSetLabel" inheritFrom="WebGpuSharp.FFI.BindGroupLayoutHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="BindGroupLayoutAddRef" inheritFrom="WebGpuSharp.FFI.BindGroupLayoutHandle.AddRef" inheritPriority="-10"/>
+    <comment location="BindGroupLayoutRelease" inheritFrom="WebGpuSharp.FFI.BindGroupLayoutHandle.Release" inheritPriority="-10"/>
+    <comment location="BufferDestroy" inheritFrom="WebGpuSharp.FFI.BufferHandle.Destroy" inheritPriority="-10"/>
+    <comment location="BufferGetConstMappedRange" inheritFrom="WebGpuSharp.FFI.BufferHandle.GetConstMappedRange" inheritPriority="-10"/>
+    <comment location="BufferGetMapState" inheritFrom="WebGpuSharp.FFI.BufferHandle.GetMapState" inheritPriority="-10"/>
+    <comment location="BufferGetMappedRange" inheritFrom="WebGpuSharp.FFI.BufferHandle.GetMappedRange" inheritPriority="-10"/>
+    <comment location="BufferGetSize" inheritFrom="WebGpuSharp.FFI.BufferHandle.GetSize" inheritPriority="-10"/>
+    <comment location="BufferGetUsage" inheritFrom="WebGpuSharp.FFI.BufferHandle.GetUsage" inheritPriority="-10"/>
+    <comment location="BufferMapAsync" inheritFrom="WebGpuSharp.FFI.BufferHandle.MapAsync" inheritPriority="-10"/>
+    <comment location="BufferMapAsync2" inheritFrom="WebGpuSharp.FFI.BufferHandle.MapAsync" inheritPriority="-10"/>
+    <comment location="BufferSetLabel" inheritFrom="WebGpuSharp.FFI.BufferHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="BufferUnmap" inheritFrom="WebGpuSharp.FFI.BufferHandle.Unmap" inheritPriority="-10"/>
+    <comment location="BufferAddRef" inheritFrom="WebGpuSharp.FFI.BufferHandle.AddRef" inheritPriority="-10"/>
+    <comment location="BufferRelease" inheritFrom="WebGpuSharp.FFI.BufferHandle.Release" inheritPriority="-10"/>
+    <comment location="CommandBufferSetLabel" inheritFrom="WebGpuSharp.FFI.CommandBufferHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="CommandBufferAddRef" inheritFrom="WebGpuSharp.FFI.CommandBufferHandle.AddRef" inheritPriority="-10"/>
+    <comment location="CommandBufferRelease" inheritFrom="WebGpuSharp.FFI.CommandBufferHandle.Release" inheritPriority="-10"/>
+    <comment location="CommandEncoderBeginComputePass" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.BeginComputePass" inheritPriority="-10"/>
+    <comment location="CommandEncoderBeginRenderPass" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.BeginRenderPass" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyBufferToBuffer" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyBufferToBuffer" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyBufferToTexture" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyBufferToTexture" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyTextureToBuffer" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyTextureToBuffer" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyTextureToTexture" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyTextureToTexture" inheritPriority="-10"/>
+    <comment location="CommandEncoderFinish" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.Finish" inheritPriority="-10"/>
+    <comment location="CommandEncoderClearBuffer" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.ClearBuffer" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyBufferToBuffer" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyBufferToBuffer" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyBufferToTexture" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyBufferToTexture" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyTextureToBuffer" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyTextureToBuffer" inheritPriority="-10"/>
+    <comment location="CommandEncoderCopyTextureToTexture" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.CopyTextureToTexture" inheritPriority="-10"/>
+    <comment location="CommandEncoderFinish" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.Finish" inheritPriority="-10"/>
+    <comment location="CommandEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.InsertDebugMarker" inheritPriority="-10"/>
+    <comment location="CommandEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.PopDebugGroup" inheritPriority="-10"/>
+    <comment location="CommandEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.PushDebugGroup" inheritPriority="-10"/>
+    <comment location="CommandEncoderResolveQuerySet" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.ResolveQuerySet" inheritPriority="-10"/>
+    <comment location="CommandEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="CommandEncoderWriteTimestamp" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.WriteTimestamp" inheritPriority="-10"/>
+    <comment location="CommandEncoderAddRef" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.AddRef" inheritPriority="-10"/>
+    <comment location="CommandEncoderRelease" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.Release" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderDispatchWorkgroups" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.DispatchWorkgroups" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderDispatchWorkgroupsIndirect" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.DispatchWorkgroupsIndirect" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderEnd" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.End" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.InsertDebugMarker" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.PopDebugGroup" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.PushDebugGroup" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderSetBindGroup" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.SetBindGroup" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderSetPipeline" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.SetPipeline" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderAddRef" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.AddRef" inheritPriority="-10"/>
+    <comment location="ComputePassEncoderRelease" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.Release" inheritPriority="-10"/>
+    <comment location="ComputePipelineGetBindGroupLayout" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.GetBindGroupLayout" inheritPriority="-10"/>
+    <comment location="ComputePipelineSetLabel" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="ComputePipelineAddRef" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.AddRef" inheritPriority="-10"/>
+    <comment location="ComputePipelineRelease" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.Release" inheritPriority="-10"/>
+    <comment location="DeviceCreateBindGroup" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateBindGroup" inheritPriority="-10"/>
+    <comment location="DeviceCreateBindGroupLayout" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateBindGroupLayout" inheritPriority="-10"/>
+    <comment location="DeviceCreateBuffer" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateBuffer" inheritPriority="-10"/>
+    <comment location="DeviceCreateCommandEncoder" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateCommandEncoder" inheritPriority="-10"/>
+    <comment location="DeviceCreateComputePipeline" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateComputePipeline" inheritPriority="-10"/>
+    <comment location="DeviceCreateComputePipelineAsync" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateComputePipelineAsync" inheritPriority="-10"/>
+    <comment location="DeviceCreateComputePipelineAsync2" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateComputePipelineAsync2" inheritPriority="-10"/>
+    <comment location="DeviceCreatePipelineLayout" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreatePipelineLayout" inheritPriority="-10"/>
+    <comment location="DeviceCreateQuerySet" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateQuerySet" inheritPriority="-10"/>
+    <comment location="DeviceCreateRenderBundleEncoder" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderBundleEncoder" inheritPriority="-10"/>
+    <comment location="DeviceCreateRenderPipeline" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipeline" inheritPriority="-10"/>
+    <comment location="DeviceCreateRenderPipelineAsync" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipelineAsync" inheritPriority="-10"/>
+    <comment location="DeviceCreateRenderPipelineAsync2" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipelineAsync" inheritPriority="-10"/>
+    <comment location="DeviceCreateSampler" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateSampler" inheritPriority="-10"/>
+    <comment location="DeviceCreateShaderModule" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateShaderModule" inheritPriority="-10"/>
+    <comment location="DeviceCreateTexture" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateTexture" inheritPriority="-10"/>
+    <comment location="DeviceDestroy" inheritFrom="WebGpuSharp.FFI.DeviceHandle.Destroy" inheritPriority="-10"/>
+    <comment location="DeviceGetAdapterInfo" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetAdapterInfo" inheritPriority="-10"/>
+    <comment location="DeviceGetFeatures" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetFeatures" inheritPriority="-10"/>
+    <comment location="DeviceGetLimits" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetLimits" inheritPriority="-10"/>
+    <comment location="DeviceGetLostFuture" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetLostFuture" inheritPriority="-10"/>
+    <comment location="DeviceGetQueue" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetQueue" inheritPriority="-10"/>
+    <comment location="DeviceHasFeature" inheritFrom="WebGpuSharp.FFI.DeviceHandle.HasFeature" inheritPriority="-10"/>
+    <comment location="DevicePopErrorScope" inheritFrom="WebGpuSharp.FFI.DeviceHandle.PopErrorScope" inheritPriority="-10"/>
+    <comment location="DevicePopErrorScope2" inheritFrom="WebGpuSharp.FFI.DeviceHandle.PopErrorScope" inheritPriority="-10"/>
+    <comment location="DevicePushErrorScope" inheritFrom="WebGpuSharp.FFI.DeviceHandle.PushErrorScope" inheritPriority="-10"/>
+    <comment location="DeviceSetDeviceLostCallback" inheritFrom="WebGpuSharp.FFI.DeviceHandle.SetDeviceLostCallback" inheritPriority="-10"/>
+    <comment location="DeviceSetLabel" inheritFrom="WebGpuSharp.FFI.DeviceHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="DeviceAddRef" inheritFrom="WebGpuSharp.FFI.DeviceHandle.AddRef" inheritPriority="-10"/>
+    <comment location="DeviceRelease" inheritFrom="WebGpuSharp.FFI.DeviceHandle.Release" inheritPriority="-10"/>
+    <comment location="InstanceCreateSurface" inheritFrom="WebGpuSharp.FFI.InstanceHandle.CreateSurface" inheritPriority="-10"/>
+    <comment location="InstanceHasWGSLLanguageFeature" inheritFrom="WebGpuSharp.FFI.InstanceHandle.HasWGSLLanguageFeature" inheritPriority="-10"/>
+    <comment location="InstanceGetWGSLLanguageFeatures" inheritFrom="WebGpuSharp.FFI.InstanceHandle.GetWGSLLanguageFeatures" inheritPriority="-10"/>
+    <comment location="InstanceProcessEvents" inheritFrom="WebGpuSharp.FFI.InstanceHandle.ProcessEvents" inheritPriority="-10"/>
+    <comment location="InstanceRequestAdapter" inheritFrom="WebGpuSharp.FFI.InstanceHandle.RequestAdapter" inheritPriority="-10"/>
+    <comment location="InstanceRequestAdapter2" inheritFrom="WebGpuSharp.FFI.InstanceHandle.RequestAdapter" inheritPriority="-10"/>
+    <comment location="InstanceWaitAny" inheritFrom="WebGpuSharp.FFI.InstanceHandle.WaitAny" inheritPriority="-10"/>
+    <comment location="InstanceAddRef" inheritFrom="WebGpuSharp.FFI.InstanceHandle.AddRef" inheritPriority="-10"/>
+    <comment location="InstanceRelease" inheritFrom="WebGpuSharp.FFI.InstanceHandle.Release" inheritPriority="-10"/>
+    <comment location="PipelineLayoutSetLabel" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="PipelineLayoutAddRef" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.AddRef" inheritPriority="-10"/>
+    <comment location="PipelineLayoutRelease" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.Release" inheritPriority="-10"/>
+    <comment location="QuerySetDestroy" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Destroy" inheritPriority="-10"/>
+    <comment location="QuerySetGetCount" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.GetCount" inheritPriority="-10"/>
+    <comment location="QuerySetGetType" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.GetType" inheritPriority="-10"/>
+    <comment location="QuerySetSetLabel" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="QuerySetAddRef" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.AddRef" inheritPriority="-10"/>
+    <comment location="QuerySetRelease" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Release" inheritPriority="-10"/>
+    <comment location="QueueOnSubmittedWorkDone" inheritFrom="WebGpuSharp.FFI.QueueHandle.OnSubmittedWorkDone" inheritPriority="-10"/>
+    <comment location="QueueOnSubmittedWorkDone2" inheritFrom="WebGpuSharp.FFI.QueueHandle.OnSubmittedWorkDone" inheritPriority="-10"/>
+    <comment location="QueueSetLabel" inheritFrom="WebGpuSharp.FFI.QueueHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="QueueSubmit" inheritFrom="WebGpuSharp.FFI.QueueHandle.Submit" inheritPriority="-10"/>
+    <comment location="QueueWriteBuffer" inheritFrom="WebGpuSharp.FFI.QueueHandle.WriteBuffer" inheritPriority="-10"/>
+    <comment location="QueueWriteTexture" inheritFrom="WebGpuSharp.FFI.QueueHandle.WriteTexture" inheritPriority="-10"/>
+    <comment location="QueueAddRef" inheritFrom="WebGpuSharp.FFI.QueueHandle.AddRef" inheritPriority="-10"/>
+    <comment location="QueueRelease" inheritFrom="WebGpuSharp.FFI.QueueHandle.Release" inheritPriority="-10"/>
+    <comment location="RenderBundleSetLabel" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="RenderBundleAddRef" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.AddRef" inheritPriority="-10"/>
+    <comment location="RenderBundleRelease" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.Release" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderDraw" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Draw" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderDrawIndexed" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.DrawIndexed" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderDrawIndexedIndirect" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.DrawIndexedIndirect" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderDrawIndirect" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.DrawIndirect" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderFinish" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Finish" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.InsertDebugMarker" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.PopDebugGroup" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.PushDebugGroup" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderSetBindGroup" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetBindGroup" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderSetIndexBuffer" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetIndexBuffer" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderSetPipeline" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetPipeline" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderSetVertexBuffer" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetVertexBuffer" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderAddRef" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.AddRef" inheritPriority="-10"/>
+    <comment location="RenderBundleEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Release" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderBeginOcclusionQuery" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.BeginOcclusionQuery" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderDraw" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.Draw" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderDrawIndexed" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.DrawIndexed" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderDrawIndexedIndirect" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.DrawIndexedIndirect" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderDrawIndirect" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.DrawIndirect" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderEnd" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.End" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderEndOcclusionQuery" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.EndOcclusionQuery" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderExecuteBundles" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.ExecuteBundles" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.InsertDebugMarker" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.PopDebugGroup" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.PushDebugGroup" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetBindGroup" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetBindGroup" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetBlendConstant" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetBlendConstant" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetIndexBuffer" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetIndexBuffer" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetPipeline" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetPipeline" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetScissorRect" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetScissorRect" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetStencilReference" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetStencilReference" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetVertexBuffer" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetVertexBuffer" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderSetViewport" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetViewport" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderAddRef" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.AddRef" inheritPriority="-10"/>
+    <comment location="RenderPassEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.Release" inheritPriority="-10"/>
+    <comment location="RenderPipelineGetBindGroupLayout" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle." inheritPriority="-10"/>
+    <comment location="RenderPipelineSetLabel" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="RenderPipelineAddRef" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.AddRef" inheritPriority="-10"/>
+    <comment location="RenderPipelineRelease" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.Release" inheritPriority="-10"/>
+    <comment location="SamplerSetLabel" inheritFrom="WebGpuSharp.FFI.SamplerHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="SamplerAddRef" inheritFrom="WebGpuSharp.FFI.SamplerHandle.AddRef" inheritPriority="-10"/>
+    <comment location="SamplerRelease" inheritFrom="WebGpuSharp.FFI.SamplerHandle.Release" inheritPriority="-10"/>
+    <comment location="ShaderModuleGetCompilationInfo" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.GetCompilationInfo" inheritPriority="-10"/>
+    <comment location="ShaderModuleGetCompilationInfo2" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle." inheritPriority="-10"/>
+    <comment location="ShaderModuleSetLabel" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="ShaderModuleAddRef" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.AddRef" inheritPriority="-10"/>
+    <comment location="ShaderModuleRelease" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.Release" inheritPriority="-10"/>
+    <comment location="SurfaceConfigure" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Configure" inheritPriority="-10"/>
+    <comment location="SurfaceGetCapabilities" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.GetCapabilities" inheritPriority="-10"/>
+    <comment location="SurfaceGetCurrentTexture" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.GetCurrentTexture" inheritPriority="-10"/>
+    <comment location="SurfacePresent" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Present" inheritPriority="-10"/>
+    <comment location="SurfaceSetLabel" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="SurfaceUnconfigure" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Unconfigure" inheritPriority="-10"/>
+    <comment location="SurfaceAddRef" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.AddRef" inheritPriority="-10"/>
+    <comment location="SurfaceRelease" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Release" inheritPriority="-10"/>
+    <comment location="TextureCreateView" inheritFrom="WebGpuSharp.FFI.TextureHandle.CreateView" inheritPriority="-10"/>
+    <comment location="TextureDestroy" inheritFrom="WebGpuSharp.FFI.TextureHandle.Destroy" inheritPriority="-10"/>
+    <comment location="TextureGetDepthOrArrayLayers" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetDepthOrArrayLayers" inheritPriority="-10"/>
+    <comment location="TextureGetDimension" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetDimension" inheritPriority="-10"/>
+    <comment location="TextureGetFormat" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetFormat" inheritPriority="-10"/>
+    <comment location="TextureGetHeight" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetHeight" inheritPriority="-10"/>
+    <comment location="TextureGetMipLevelCount" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetMipLevelCount" inheritPriority="-10"/>
+    <comment location="TextureGetSampleCount" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetSampleCount" inheritPriority="-10"/>
+    <comment location="TextureGetUsage" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetUsage" inheritPriority="-10"/>
+    <comment location="TextureGetWidth" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetWidth" inheritPriority="-10"/>
+    <comment location="TextureSetLabel" inheritFrom="WebGpuSharp.FFI.TextureHandle.SetLabel" inheritPriority="-10"/>
+    <comment location="TextureAddRef" inheritFrom="WebGpuSharp.FFI.TextureHandle.AddRef" inheritPriority="-10"/>
+    <comment location="TextureRelease" inheritFrom="WebGpuSharp.FFI.TextureHandle.Release" inheritPriority="-10"/>
+    <comment location="TextureViewSetLabel" inheritFrom="WebGpuSharp.FFI.TextureHandle.ViewSetLabel" inheritPriority="-10"/>
+    <comment location="TextureViewAddRef" inheritFrom="WebGpuSharp.FFI.TextureHandle.ViewAddRef" inheritPriority="-10"/>
+    <comment location="TextureViewRelease" inheritFrom="WebGpuSharp.FFI.TextureHandle.ViewRelease" inheritPriority="-10"/>
+</group>

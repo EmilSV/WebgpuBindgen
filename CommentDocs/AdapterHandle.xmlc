@@ -20,21 +20,13 @@
         <returns>true if the feature is supported.</returns>
     </comment>
     <comment
-        location="RequestDevice(WebGpuSharp.FFI.DeviceDescriptorFFI*, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.RequestDeviceStatus, WebGpuSharp.FFI.DeviceHandle, WebGpuSharp.FFI.StringViewFFI, void*, void>, void*)">
+        location="RequestDevice">
         <summary>
             Requests a device from the adapter.
             This is a one-time action: if a device is returned successfully,
             the adapter then enters a "consumed" state
         </summary>
         <param name="descriptor">The device descriptor to use.</param>
-        <param name="callback">The callback to call when the device is ready.</param>
-        <param name="userdata">The userdata to pass to the callback.</param>
-    </comment>
-    <comment location="RequestDevice(WebGpuSharp.FFI.DeviceDescriptorFFI*, WebGpuSharp.FFI.RequestDeviceCallbackInfo2FFI)">
-        <summary priority="1"
-            cloneFrom="WebGpuSharp.FFI.AdapterHandle.RequestDevice(WebGpuSharp.FFI.DeviceDescriptorFFI*, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.RequestDeviceStatus, WebGpuSharp.FFI.DeviceHandle, WebGpuSharp.FFI.StringViewFFI, void*, void>, void*)" />
-        <param name="options">The device descriptor to use.</param>
-        <param name="callbackInfo">The callback to call when the device is ready.</param>
-        <returns>the future for the callback.</returns>
+        <param name="callbackInfo">The callback to call when the device is ready</param>
     </comment>
 </group>

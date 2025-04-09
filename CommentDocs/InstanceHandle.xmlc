@@ -81,5 +81,10 @@ public InstanceHandle(nuint ptr)=> _ptr = ptr;
 		<comment location="WaitAny">
 			<summary> Wait for at least one Future in `futures` to complete, and call callbacks of the respective completed asynchronous operations.</summary>
 		</comment>
+		<comment location="GetWGSLLanguageFeatures">
+			<summary>Returns set of supported WGSL language extensions supported by this instance.</summary>
+			<param name="features"> A pointer to struct to fill with supported extension</param>
+			<returns>The status of the operation</returns>
+		</comment>
     </group>
 </group>

@@ -1,24 +1,36 @@
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="CommandEncoderHandle">
-		<summary> Encodes a series of GPU operations. A command encoder can record RenderPasses,
-			ComputePasses, and transfer operations between driver-managed resources like Buffers and
-			Textures. When finished recording, call CommandEncoder.Finish() to obtain a
-			CommandBuffer which may be submitted for execution. </summary>
-
-	</comment>
-	<group prefix="CommandEncoderHandle.">
-		<comment location="BeginComputePass">
-			<summary> Begins encoding a compute pass described by descriptor. </summary>
-			<param name="descriptor">The descriptor for the compute pass.</param>
-			<returns>A ComputePassEncoder which encodes the compute pass.</returns>
-		</comment>
-		<comment location="SetLabel">
-			<summary>
-				 Set debug label of this command encoder. 
-			</summary>
-			<param name="label">
-				 The new label.
-			</param>
-		</comment>
-	</group>
+    <comment location="CommandEncoderHandle">
+        <summary>            
+            Encodes a series of GPU operations. A command encoder can record RenderPasses,
+            ComputePasses, and transfer operations between driver-managed resources like Buffers and
+            Textures. When finished recording, call CommandEncoder.Finish() to obtain a
+            CommandBuffer which may be submitted for execution.
+        </summary>
+    </comment>
+    <group prefix="CommandEncoderHandle.">
+        <comment location="BeginComputePass">
+            <summary> Begins encoding a compute pass described by descriptor. </summary>
+            <param name="descriptor">The descriptor for the compute pass.</param>
+            <returns>A ComputePassEncoder which encodes the compute pass.</returns>
+        </comment>
+        <comment location="SetLabel">
+            <summary>                
+                Set debug label of this command encoder.
+            </summary>
+            <param name="label">                
+                The new label.
+            </param>
+        </comment>
+        <comment location="InsertDebugMarker">
+            <summary>Marks a point in a stream of commands with a label.</summary>
+            <param name="markerLabel">The label to insert.</param>
+        </comment>
+        <comment location="PushDebugGroup">
+            <summary>Begins a labeled debug group containing subsequent commands.</summary>
+            <param name="groupLabel">The label for the command group. </param>
+        </comment>
+        <comment location="PopDebugGroup">
+            <summary>Ends the labeled debug group most recently started by <see cref="WebGpuSharp.FFI.CommandEncoderHandle.PushDebugGroup">pushDebugGroup()</see>.</summary>
+        </comment>
+    </group>
 </group>

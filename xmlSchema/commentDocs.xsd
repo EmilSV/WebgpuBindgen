@@ -67,11 +67,14 @@
                         <xs:attribute name="location" type="xs:string" />
                         <xs:attribute name="priority" type="xs:int" />
                         <xs:attribute name="cloneFrom" type="xs:string" />
+                        <xs:attribute name="inheritFrom" type="xs:string" />
+                        <xs:attribute name="inheritPriority" type="xs:int" />
                     </xs:complexType>
                 </xs:element>
                 <xs:element ref="group" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="prefix" type="xs:string" />
+            <xs:attribute name="defaultPriority" type="xs:int" />
         </xs:complexType>
     </xs:element>
 </xs:schema>

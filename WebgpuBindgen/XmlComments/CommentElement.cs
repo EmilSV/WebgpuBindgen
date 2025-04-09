@@ -6,4 +6,6 @@ public sealed record CommentElement
     public int? Priority { get; init; }
     public required string? ApplyToLocation { get; init; }
     public string? CloneFromLocation { get; init; }
+    public string? InheritFrom { get; init; }
+    public int InheritPriority { get; init; }
 }

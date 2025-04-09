@@ -2,11 +2,11 @@ namespace WebgpuBindgen.XmlComments;
 
 public sealed class XmlCommentDocs
 {
-    private readonly List<SubCommentElementBase> subCommentElements;
+    private readonly List<SubElementBase> subElements;
 
-    private XmlCommentDocs(List<SubCommentElementBase> subCommentElements)
+    private XmlCommentDocs(List<SubElementBase> subElements)
     {
-        this.subCommentElements = subCommentElements;
+        this.subElements = subElements;
     }
 
     public static async Task<XmlCommentDocs> Create(string folderPath)
@@ -18,14 +18,14 @@ public sealed class XmlCommentDocs
         var loadedXmlFiles = await Task.WhenAll(xmlFiles).ConfigureAwait(false);
         var finalXmlFiles = loadedXmlFiles.SelectMany(i => i).ToList();
 
-        finalXmlFiles.Sort((a, b) => a.Priority.CompareTo(b.Priority));
+        finalXmlFiles.Sort((a, b) => b.Priority.CompareTo(a.Priority));
 
         return new XmlCommentDocs(finalXmlFiles);
     }
 
     public void AssignComment(TranslationResult translationResult)
     {
-        foreach (var subCommentElement in subCommentElements)
+        foreach (var subCommentElement in subElements)
         {
             subCommentElement.AssignComment(translationResult);
         }

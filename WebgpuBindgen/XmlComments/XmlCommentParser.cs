@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
@@ -7,13 +8,13 @@ namespace WebgpuBindgen.XmlComments;
 
 public static partial class XmlCommentParser
 {
-    public static async Task<IEnumerable<SubCommentElementBase>> Parse(Stream xmlCommentStream)
+    public static async Task<IEnumerable<SubElementBase>> Parse(Stream xmlCommentStream)
     {
         var doc = await XDocument.LoadAsync(xmlCommentStream, LoadOptions.None, CancellationToken.None);
         return Parse(doc);
     }
 
-    private static IEnumerable<SubCommentElementBase> Parse(XDocument doc)
+    private static IEnumerable<SubElementBase> Parse(XDocument doc)
     {
         var root = doc.Root;
         var localName = root?.Name.LocalName;
@@ -24,16 +25,18 @@ public static partial class XmlCommentParser
         return ParseGroup(root!);
     }
 
-    private static IEnumerable<SubCommentElementBase> ParseGroup(XElement element, GroupElement? parentGroup = null)
+    private static IEnumerable<SubElementBase> ParseGroup(XElement element, GroupElement? parentGroup = null)
     {
         var prefix = element.Attribute("prefix")?.Value;
-
+        var defaultPriority = element.Attribute("defaultPriority")?.Value;
+        
         prefix = parentGroup == null ? prefix : parentGroup.Prefix + prefix;
 
         GroupElement groupElement = new()
         {
             Parent = parentGroup,
-            Prefix = prefix ?? ""
+            Prefix = prefix ?? "",
+            DefaultPriority = string.IsNullOrEmpty(defaultPriority) ? 0 : int.Parse(defaultPriority),
         };
 
         foreach (var childComments in element.XPathSelectElements("./Comment|./comment"))
@@ -53,20 +56,36 @@ public static partial class XmlCommentParser
         }
     }
 
-    private static IEnumerable<SubCommentElementBase> ParseCommentElement(XElement element, GroupElement parentGroup)
+    private static IEnumerable<SubElementBase> ParseCommentElement(XElement element, GroupElement parentGroup)
     {
         var priority = element.Attribute("priority")?.Value;
         var applyToLocation = element.Attribute("location")?.Value;
         var cloneFromLocation = element.Attribute("cloneFrom")?.Value;
+        var inheritFrom = element.Attribute("inheritFrom")?.Value;
+        var inheritPriority = element.Attribute("inheritPriority")?.Value;
 
         applyToLocation = parentGroup.Prefix + applyToLocation ?? "";
         var commentElement = new CommentElement()
         {
             Parent = parentGroup,
-            Priority = string.IsNullOrEmpty(priority) ? 0 : int.Parse(priority),
+            Priority = string.IsNullOrEmpty(priority) ? parentGroup.DefaultPriority : int.Parse(priority),
             ApplyToLocation = RemoveWhitespace(applyToLocation),
             CloneFromLocation = RemoveWhitespace(cloneFromLocation),
+            InheritFrom = RemoveWhitespace(inheritFrom),
+            InheritPriority = string.IsNullOrEmpty(inheritPriority) ? 0 : int.Parse(inheritPriority),
         };
+
+
+        if(!string.IsNullOrWhiteSpace(commentElement.InheritFrom))
+        {
+            yield return new InheritElement()
+            {
+                ApplyToLocation = commentElement.ApplyToLocation,
+                Priority = commentElement.InheritPriority,
+                InheritFrom = commentElement.InheritFrom,
+            };
+        }
+
 
         foreach (var childComments in element.XPathSelectElements("./Value|./value"))
         {
