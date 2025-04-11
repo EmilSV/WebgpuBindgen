@@ -93,8 +93,6 @@ public static class MainTranslationFlow
         await StructFixer.FixWebgpuBoolType(structs);
         await StructFixer.FieldNameFix(structs);
         await StructFixer.AddEmptyConstructorsToStructs(structs);
-        
-        await AddObsoleteHandler.AddObsoleteTo()
 
         await AddHandlerMethods.AddMethods(structs, staticClasses.First(i => i.Name == "WebGPU_FFI"));
         //await StructFixer.AddConstructorsToStructs(structs);

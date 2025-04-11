@@ -92,7 +92,9 @@
     <comment location="CommandEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.PushDebugGroup" inheritPriority="-10"/>
     <comment location="CommandEncoderResolveQuerySet" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.ResolveQuerySet" inheritPriority="-10"/>
     <comment location="CommandEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.SetLabel" inheritPriority="-10"/>
-    <comment location="CommandEncoderWriteTimestamp" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.WriteTimestamp" inheritPriority="-10"/>
+    <comment location="CommandEncoderWriteTimestamp" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.WriteTimestamp" inheritPriority="-10">
+        <obsolete/>
+    </comment>
     <comment location="CommandEncoderAddRef" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.AddRef" inheritPriority="-10"/>
     <comment location="CommandEncoderRelease" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.Release" inheritPriority="-10"/>
     <comment location="ComputePassEncoderDispatchWorkgroups" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.DispatchWorkgroups" inheritPriority="-10"/>

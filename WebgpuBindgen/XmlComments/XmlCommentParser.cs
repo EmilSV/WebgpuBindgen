@@ -29,7 +29,7 @@ public static partial class XmlCommentParser
     {
         var prefix = element.Attribute("prefix")?.Value;
         var defaultPriority = element.Attribute("defaultPriority")?.Value;
-        
+
         prefix = parentGroup == null ? prefix : parentGroup.Prefix + prefix;
 
         GroupElement groupElement = new()
@@ -76,7 +76,7 @@ public static partial class XmlCommentParser
         };
 
 
-        if(!string.IsNullOrWhiteSpace(commentElement.InheritFrom))
+        if (!string.IsNullOrWhiteSpace(commentElement.InheritFrom))
         {
             yield return new InheritElement()
             {
@@ -110,6 +110,11 @@ public static partial class XmlCommentParser
         foreach (var childComments in element.XPathSelectElements("./Param|./param"))
         {
             yield return ParseParamElement(childComments, commentElement);
+        }
+
+        foreach (var childComments in element.XPathSelectElements("./Obsolete|./obsolete"))
+        {
+            yield return ParseObsoleteElement(childComments, commentElement);
         }
     }
 
@@ -287,6 +292,41 @@ public static partial class XmlCommentParser
             ApplyToLocation = applyToLocation,
             Description = description,
             CloneFromLocation = cloneFromLocation,
+        };
+    }
+
+    private static ObsoleteElement ParseObsoleteElement(XElement element, CommentElement parentComment)
+    {
+        var applyToLocation = element.Attribute("location")?.Value;
+        if (string.IsNullOrEmpty(applyToLocation))
+        {
+            applyToLocation = parentComment.ApplyToLocation;
+        }
+        else
+        {
+            applyToLocation = parentComment.Parent.Prefix + applyToLocation;
+        }
+
+        var priorityStr = element.Attribute("priority")?.Value;
+        var priority = string.IsNullOrEmpty(priorityStr) ? parentComment.Priority : int.Parse(priorityStr);
+
+        var isErrorStr = element.Attribute("isError")?.Value;
+        var isError = bool.TryParse(isErrorStr, out var isErrorValue) && isErrorValue;
+
+        var message = ReadInnerXml(element);
+        if (string.IsNullOrEmpty(applyToLocation))
+        {
+            throw new Exception("Value element must have location attribute");
+        }
+
+        applyToLocation = RemoveWhitespace(applyToLocation);
+
+        return new ObsoleteElement()
+        {
+            Priority = priority ?? 0,
+            ApplyToLocation = applyToLocation,
+            Message = message,
+            IsError = isError,
         };
     }
 
