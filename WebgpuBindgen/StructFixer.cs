@@ -417,9 +417,9 @@ public static class StructFixer
                     case CSAccessModifier.Public when !char.IsUpper(name[0]):
                         field.Name = name switch
                         {
-                            [] => name,
-                            [var first] => char.ToUpper(first).ToString(),
-                            [var first, .. var rest] => char.ToUpper(first) + rest
+                        [] => name,
+                        [var first] => char.ToUpper(first).ToString(),
+                        [var first, .. var rest] => char.ToUpper(first) + rest
                         };
                         break;
 
@@ -461,8 +461,8 @@ public static class StructFixer
             {
                 var name = field.Name switch
                 {
-                    ['_', ..] => field.Name[1..],
-                    [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
+                ['_', ..] => field.Name[1..],
+                [var first, .. var rest] when char.IsUpper(first) => char.ToLower(first) + rest,
                     _ => field.Name,
                 };
 
@@ -656,7 +656,7 @@ public static class StructFixer
         return Task.CompletedTask;
     }
 
-    public static Task FixPassTimestampWrites(List<CSStruct> structs,List<CSStaticClass> staticClasses)
+    public static Task FixPassTimestampWrites(List<CSStruct> structs, List<CSStaticClass> staticClasses)
     {
         var passTimestampWrites = structs.Find(i => i.Name == "PassTimestampWritesFFI");
         if (passTimestampWrites is null)
@@ -665,7 +665,7 @@ public static class StructFixer
             return Task.CompletedTask;
         }
 
-        var webGPUFFIClass = staticClasses.Find(i => i.Name == "WebGPU_FFI"); 
+        var webGPUFFIClass = staticClasses.Find(i => i.Name == "WebGPU_FFI");
         if (webGPUFFIClass is null)
         {
             Console.Error.WriteLine("Could not find WebGPU_FFI class");
@@ -698,5 +698,37 @@ public static class StructFixer
         endOfPassWriteIndexFelid.DefaultValue = new([new CSConstIdentifierToken(querySetIndexUndefinedFelid, false)]);
 
         return Task.CompletedTask;
+    }
+
+    public static void AddNextInChainDocs(List<CSStruct> structs)
+    {
+        foreach (var item in structs)
+        {
+            var nextInChainField = item.Fields.FirstOrDefault(i => i.Name.Equals("NextInChain", StringComparison.OrdinalIgnoreCase));
+            if (nextInChainField is null || nextInChainField?.Type?.Type?.TryGetName(out var name) != true || name != "ChainedStruct")
+            {
+                continue;
+            }
+
+            nextInChainField.Comments ??= new();
+            nextInChainField.Comments.Summary = new()
+            {
+                Description =
+                """
+                Pointer to the first element in a chain of structures that extends this descriptor.
+                """
+            };
+
+            nextInChainField.Comments.Remarks.Add(new()
+            {
+                Description =
+                """
+                Enables struct-chaining, a pattern that extends existing structs with new members while 
+                maintaining API compatibility. Each extension struct must be properly initialized with 
+                correct sType values and linked together. For detailed information about struct-chaining,
+                see: <see href="https://webgpu-native.github.io/webgpu-headers/StructChaining.html"/>
+                """
+            });
+        }
     }
 }

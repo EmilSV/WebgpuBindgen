@@ -14,6 +14,8 @@ var translationResultRef = await MainTranslationFlow.Translate(headerRefFile, sp
 
 RemoveNonRefHandler.RemoveNonRef(translationResult, translationResultRef);
 
+
+
 var enums = translationResult.Enums;
 var staticClasses = translationResult.StaticClasses;
 var structs = translationResult.Structs;
@@ -40,6 +42,7 @@ foreach (var csStruct in structs)
     csStruct.Namespace ??= "WebGpuSharp";
 }
 
+StructFixer.AddNextInChainDocs(translationResult.Structs);
 doc?.AssignComment(translationResult);
 
 foreach (var csEnum in enums)
