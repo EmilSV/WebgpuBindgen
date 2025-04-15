@@ -15,11 +15,17 @@ public ShaderSourceSPIRVFFI(){}
 
 <group prefix="WebGpuSharp.FFI.">
 	<comment location="ShaderSourceSPIRVFFI">
-		<summary>A struct containing the SPIR-V code and its size.</summary>
+		<summary>A struct containing the SPIR-V code and its size</summary>
 	</comment>
 	<group prefix="ShaderSourceSPIRVFFI.">
+		<comment location="Chain">
+			<summary>The chain link for struct chaining</summary>
+		</comment>
+		<comment location="CodeSize">
+			<summary>The size of the SPIR-V code</summary>
+		</comment>
 		<comment location="Code">
-			<summary>The SPIR-V code.</summary>
+			<summary>The SPIR-V code</summary>
 		</comment>
 	</group>
 </group>

@@ -155,16 +155,28 @@ public Limits(){}
         </comment>
 
         <comment location="MaxStorageBuffersInVertexStage"> 
-            <summary></summary>
+            <summary>
+                 Maximum number of storage buffers that can be accessed from the vertex stage.
+                 Defaults to 0 in compatibility mode and matches <see cref="MaxStorageBuffersPerShaderStage"/> in core mode.
+            </summary>
         </comment>
         <comment location="MaxStorageTexturesInVertexStage"> 
-            <summary></summary>
+            <summary>
+                Maximum number of storage textures that can be accessed from the vertex stage.
+                Defaults to 0 in compatibility mode and matches <see cref="MaxStorageTexturesPerShaderStage"/> in core mode.
+            </summary>
         </comment>
         <comment location="MaxStorageBuffersInFragmentStage"> 
-            <summary></summary>
+            <summary>
+                Maximum number of storage buffers that can be accessed from the fragment stage.
+                Defaults to 4 in compatibility mode and matches <see cref="MaxStorageBuffersPerShaderStage"/> in core mode.
+            </summary>
         </comment>
         <comment location="MaxStorageTexturesInFragmentStage"> 
-            <summary></summary>
+            <summary>
+                Maximum number of storage textures that can be accessed from the fragment stage.
+                Defaults to 4 in compatibility mode and matches <see cref="MaxStorageTexturesPerShaderStage"/> in core mode.
+            </summary>
         </comment>
     </group>
 </group>

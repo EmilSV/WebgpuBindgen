@@ -1,0 +1,19 @@
+<group prefix="WebGpuSharp.">
+    <comment location="RenderPassMaxDrawCount">
+        <summary>
+            The maximum number of draw calls that can be submitted to a render pass.
+        </summary>
+    </comment>
+    <group prefix="RenderPassMaxDrawCount.">
+        <comment location="Chain">
+            <summary>
+                The chain link for struct chaining.
+            </summary>
+        </comment>
+        <comment location="MaxDrawCount">
+            <summary>
+                The maximum number of draw calls that can be submitted to a render pass.
+            </summary>
+        </comment>
+    </group>
+</group>

@@ -1,7 +1,7 @@
 <group prefix="WebGpuSharp.FFI.AdapterHandle.">
     <comment location="GetFeatures">
         <summary>Get the features supported by the adapter.</summary>
-        <param name="info">The features to fill in.</param>
+        <param name="features">The features to fill in.</param>
         <returns>the status of the call.</returns>
     </comment>
     <comment location="GetInfo">

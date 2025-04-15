@@ -1,0 +1,19 @@
+<group prefix="WebGpuSharp.">
+    <comment location="InstanceCapabilities">
+        <summary>
+            Features enabled on the WGPUInstance
+        </summary>
+    </comment>
+    <group prefix="InstanceCapabilities.">
+        <comment location="TimedWaitAnyEnable">
+            <summary>
+                Enable use of <see cref="WebGpuSharp.FFI.InstanceHandle.WaitAny"/> with `timeoutNS > 0`.
+            </summary>
+        </comment>
+        <comment location="TimedWaitAnyMaxCount">
+            <summary>
+                The maximum number @ref WGPUFutureWaitInfo supported in a call to <see cref="WebGpuSharp.FFI.InstanceHandle.WaitAny"/> with `timeoutNS > 0`.
+            </summary>
+        </comment>
+    </group>
+</group>

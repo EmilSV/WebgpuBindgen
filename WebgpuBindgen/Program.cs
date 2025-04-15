@@ -43,6 +43,7 @@ foreach (var csStruct in structs)
 }
 
 StructFixer.AddNextInChainDocs(translationResult.Structs);
+StructFixer.AddAddRefAndReleaseDocs(translationResult.Structs);
 doc?.AssignComment(translationResult);
 
 foreach (var csEnum in enums)
@@ -83,6 +84,13 @@ foreach (var csStruct in structs)
             "System.Runtime.InteropServices"
         ]
     });
+}
+
+
+{
+    using var stream = File.Create(Path.Combine(outputDirectory, "missing_comments.txt"));
+    await MissingCommentFinder.WriteMissingComments(translationResult, stream);
+    stream.Close();
 }
 
 return 0;

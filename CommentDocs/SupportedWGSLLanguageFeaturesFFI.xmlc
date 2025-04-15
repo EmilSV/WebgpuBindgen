@@ -1,0 +1,19 @@
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="SupportedWGSLLanguageFeaturesFFI">
+        <summary>
+            A structure that contains the supported WGSL extensions language features by the WebGPU implementation.
+        </summary>
+    </comment>
+    <group prefix="SupportedWGSLLanguageFeaturesFFI.">
+        <comment location="FeatureCount">
+            <summary>
+                The count of item in the <see cref="Features"/> sequence.
+            </summary>
+        </comment>
+        <comment location="Features">
+            <summary>
+                The the WGSL language extensions supported by the WebGPU implementation.
+            </summary>
+        </comment>
+    </group>
+</group>

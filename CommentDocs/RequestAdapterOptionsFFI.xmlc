@@ -39,6 +39,11 @@ public RequestAdapterOptionsFFI(){}
                 The backend type of the resulting adapter.
             </summary>
         </comment>
+        <comment location="FeatureLevel">
+            <summary>                
+                The feature level of the resulting adapter.
+            </summary>
+        </comment>
         <comment location="ForceFallbackAdapter">
             <summary>                
                 Indicates that only a fallback adapter can be returned. This is generally a “software” implementation on the system.

@@ -194,6 +194,13 @@ public static class StructFixer
             newStruct.Fields.Add(new(PUBLIC | STATIC, newStructType, "Null")
             {
                 GetterBody = new(" => new(nuint.Zero);"),
+                Comments = new()
+                {
+                    Summary = new()
+                    {
+                        Description = "Get a null handle.",
+                    },
+                },
             });
 
             newStruct.Constructors.Add(new(PUBLIC, [(uIntPtrType, "ptr")])
@@ -206,46 +213,158 @@ public static class StructFixer
                 new(PUBLIC | STATIC | EXPLICIT, uIntPtrType, [(newStructType, "handle")])
                 {
                     Body = "=> handle._ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Convert a handle to a pointer.",
+                        },
+                        Parameters = [
+                            new(){Name = "handle",  Description = "The handle to convert."},
+                        ]
+                    },
                 },
                 new(PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (newStructType, "right")])
                 {
                     Body = "=> left._ptr == right._ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Check if two handles are equal.",
+                        },
+                        Parameters = [
+                            new(){Name = "left",  Description = "The left handle."},
+                            new(){Name = "right",  Description = "The right handle."},
+                        ]
+                    },
                 },
                 new(PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (newStructType, "right")])
                 {
                     Body = "=> left._ptr != right._ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Check if two handles are not equal.",
+                        },
+
+                        Parameters = [
+                            new(){Name = "left",  Description = "The left handle."},
+                            new(){Name = "right",  Description = "The right handle."},
+                        ]
+                    },
                 },
                 new(PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (newStructTypeNullable, "right")])
                 {
                     Body = "=> left._ptr == right.GetValueOrDefault()._ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Check if two handles are equal.",
+                        },
+                        Parameters = [
+                            new(){Name = "left",  Description = "The left handle."},
+                            new(){Name = "right",  Description = "The right handle."},
+                        ]
+                    },
                 },
                 new(PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (newStructTypeNullable, "right")])
                 {
                     Body = "=> left._ptr != right.GetValueOrDefault()._ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Check if two handles are not equal.",
+                        },
+                        Parameters = [
+                            new(){Name = "left",  Description = "The left handle."},
+                            new(){Name = "right",  Description = "The right handle."},
+                        ]
+                    },
                 },
                 new(PUBLIC | STATIC | OPERATOR, boolType, "==", [(newStructType, "left"), (uIntPtrType, "right")])
                 {
                     Body = "=> left._ptr == right;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Check if a handle is equal to a pointer.",
+                        },
+                        Parameters = [
+                            new(){Name = "left",  Description = "The left handle."},
+                            new(){Name = "right",  Description = "The right pointer."},
+                        ]
+                    },
                 },
                 new(PUBLIC | STATIC | OPERATOR, boolType, "!=", [(newStructType, "left"), (uIntPtrType, "right")])
                 {
                     Body = "=> left._ptr != right;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Check if a handle is not equal to a pointer.",
+                        },
+                        Parameters = [
+                            new(){Name = "left",  Description = "The left handle."},
+                            new(){Name = "right",  Description = "The right pointer."},
+                        ]
+                    },
                 },
                 new(PUBLIC, uIntPtrType, "GetAddress", CSParameter.EmptyParameters)
                 {
                     Body = "=> _ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Get the address of the handle.",
+                        },
+                    },
                 },
                 new(PUBLIC, boolType, "Equals", [(newStructType, "other")])
                 {
                     Body = "=> _ptr == other._ptr;",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Indicates whether the current object is equal to another object of the same type.",
+                        },
+                        Parameters = [
+                            new(){Name = "other",  Description = "The other handle to compare with"},
+                        ]
+                    },
                 },
                 new(PUBLIC | OVERRIDE, boolType, "Equals", [(nullableObjectType, "other")])
                 {
-                    Body = new("=> (other is {0} h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);", () => newStruct.Name)
+                    Body = new("=> (other is {0} h && Equals(h)) || (other is null && _ptr == UIntPtr.Zero);", () => newStruct.Name),
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Returns a value indicating whether this instance is equal to a specified object.",
+                        },
+                        Parameters = [
+                            new(){Name = "other",  Description = "The other object to compare with"},
+                        ]
+                    },
+
                 },
                 new(PUBLIC | OVERRIDE, intType, "GetHashCode", CSParameter.EmptyParameters)
                 {
                     Body = "=> _ptr.GetHashCode();",
+                    Comments = new()
+                    {
+                        Summary = new()
+                        {
+                            Description = "Returns the hash code for this instance.",
+                        },
+                    },
                 },
             ]);
 
@@ -727,6 +846,73 @@ public static class StructFixer
                 maintaining API compatibility. Each extension struct must be properly initialized with 
                 correct sType values and linked together. For detailed information about struct-chaining,
                 see: <see href="https://webgpu-native.github.io/webgpu-headers/StructChaining.html"/>
+                """
+            });
+        }
+    }
+
+    public static void AddAddRefAndReleaseDocs(List<CSStruct> structs)
+    {
+        foreach (var item in structs)
+        {
+            if (!item.Name.EndsWith("Handle", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            var name = $"""<see cref="{item.GetFullName()}"/>""";
+
+
+            var addRefMethod = item.Methods.FirstOrDefault(i => i.Name?.Equals("AddRef", StringComparison.OrdinalIgnoreCase) == true);
+            if (addRefMethod is null)
+            {
+                continue;
+            }
+
+            addRefMethod.Comments ??= new();
+            addRefMethod.Comments.Summary = new()
+            {
+                Description =
+                $"""
+                Increments the reference count of the {name}.
+                """
+            };
+            addRefMethod.Comments.Remarks.Add(new()
+            {
+                Description =
+                $"""
+                WebGPU objects are refcounted. Each call to <see cref="AddRef"/> must be balanced with a corresponding
+                call to <see cref="Release"/> when the reference is no longer needed. Objects returned directly from
+                the API start with a reference count of 1.
+                
+                Applications don't need to maintain refs to WebGPU objects that are internally used by other 
+                WebGPU objects, as the implementation maintains internal references as needed.
+                """
+            });
+
+            var releaseMethod = item.Methods.FirstOrDefault(i => i.Name?.Equals("Release", StringComparison.OrdinalIgnoreCase) == true);
+            if (releaseMethod is null)
+            {
+                continue;
+            }
+
+            releaseMethod.Comments ??= new();
+            releaseMethod.Comments.Summary = new()
+            {
+                Description =
+                $"""
+                Decrements the reference count of the {name}. When the reference count reaches zero, the {name} and associated resources may be freed.
+                """
+            };
+            releaseMethod.Comments.Remarks.Add(new()
+            {
+                Description =
+                $"""
+                It's unsafe to use an object after its reference count has reached zero, even if other
+                WebGPU objects internally reference it.
+                
+                Applications must call <see cref="Release"/> on all {name} references they own before losing the pointer.
+                Failing to balance <see cref="AddRef"/> and <see cref="Release"/> calls will result in memory leaks or use-after-free errors.
                 """
             });
         }

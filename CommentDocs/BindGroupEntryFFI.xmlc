@@ -1,12 +1,12 @@
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="BindgroupEntryFFI">
+	<comment location="BindGroupEntryFFI">
 		<summary>
 			A single binding entry in a <see cref="WebGpuSharp.Bindgroup" />.
 			A BindgroupEntry can either bind a one of either a <see cref="WebGpuSharp.FFI.BufferHandle" /> with offset and size, 
 			or a <see cref="WebGpuSharp.FFI.SamplerHandle" /> or <see cref="WebGpuSharp.FFI.TextureViewHandle" />.
 		</summary>
 	</comment>
-	<group prefix="BindgroupEntryFFI.">
+	<group prefix="BindGroupEntryFFI.">
 		<comment location="Binding">
 			<summary>
 				A unique identifier for a resource binding within the <see cref="WebGpuSharp.Bindgroup" />, 

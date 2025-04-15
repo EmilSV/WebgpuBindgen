@@ -28,18 +28,18 @@ public SurfaceConfigurationFFI(){}
         </summary>
     </comment>
     <group prefix="SurfaceConfigurationFFI.">
-        <comment location="usage">
+        <comment location="Usage">
             <summary>                
                 The usage of the swap chain.
             </summary>
         </comment>
-        <comment location="format">
+        <comment location="Format">
             <summary>                
                 The texture format of the swap chain. 
 				The only formats that are guaranteed are Bgra8Unorm and Bgra8UnormSrgb
             </summary>
         </comment>
-		<comment location="width">
+		<comment location="Width">
 			<summary>
 				Width of the swap chain. Must be the same size as the surface, and nonzero.
 
@@ -48,7 +48,7 @@ public SurfaceConfigurationFFI(){}
 				and may change in the future (currently macOS scales the surface, other platforms may do something else).
 			</summary>
 		</comment>
-		<comment location="height">
+		<comment location="Height">
 			<summary>
 				Height of the swap chain. Must be the same size as the surface, and nonzero.
 
