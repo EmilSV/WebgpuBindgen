@@ -1,26 +1,3 @@
-<!-- using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp.FFI;
-
-public unsafe partial struct CompilationMessageFFI
-{
-	public WebGpuSharp.ChainedStruct* NextInChain;
-	public WebGpuSharp.FFI.StringViewFFI Message = WebGpuSharp.FFI.StringViewFFI.NullValue;
-	public WebGpuSharp.CompilationMessageType Type;
-	public ulong LineNum;
-	public ulong LinePos;
-	public ulong Offset;
-	public ulong Length;
-	public ulong Utf16LinePos;
-	public ulong Utf16Offset;
-	public ulong Utf16Length;
-	
-public CompilationMessageFFI(){}
-
-} -->
-
-
 <group prefix="WebGpuSharp.FFI.">
 	<comment location="CompilationMessageFFI">
 		<summary> CompilationMessageFFI represents a single informational, warning, or error message
@@ -31,19 +8,28 @@ public CompilationMessageFFI(){}
 			<summary>A string representing human-readable message text.</summary>
 		</comment>
 		<comment location="Type">
-			<summary>An enumerated value representing the type of the message — error, info, or warning.</summary>  
+			<summary>Severity level of the message.</summary>  
 		</comment>
 		<comment location="LineNum">
-			<summary>A number representing the line number in the shader code that the message corresponds to.</summary>
+			<summary>Line number where the message is attached, starting at 1.</summary>
 		</comment>
 		<comment location="LinePos">
-			<summary>A number representing the position in the code line that the message corresponds to. This could be an exact point, or the start of the relevant substring.</summary>
+			<summary>Offset in UTF-8 code units (bytes) from the beginning of the line, starting at 1.</summary>
 		</comment>
 		<comment location="Offset">
-			<summary>A number representing the offset from the start of the shader code to the exact point, or the start of the relevant substring, that the message corresponds to.</summary>
+			<summary>Offset in UTF-8 code units (bytes) from the beginning of the shader code, starting at 0.</summary>
 		</comment>
 		<comment location="Length">
-			<summary>A number representing the length of the substring that the message corresponds to.</summary>
+			<summary>Length in UTF-8 code units (bytes) of the span the message corresponds to.</summary>
+		</comment>
+		<comment location="Utf16LinePos">
+			<obsolete/>
+		</comment>
+		<comment location="Utf16Offset">
+			<obsolete/>
+		</comment>
+		<comment location="Utf16Length">
+			<obsolete/>
 		</comment>
 	</group>
 </group>

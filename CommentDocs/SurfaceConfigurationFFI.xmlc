@@ -57,5 +57,33 @@ public SurfaceConfigurationFFI(){}
 				other platforms may do something else).
 			</summary>
 		</comment>
+		<comment location="Device">
+			<summary>
+				The device to use for the swap chain. Must be the same device as the surface.
+			</summary>
+		</comment>
+		<comment location="AlphaMode">
+			<summary>
+				Specifies how the alpha channel of the textures should be handled during compositing.
+			</summary>
+		</comment>
+		<comment location="ViewFormats">
+			<summary>
+				Specifies what view formats will be allowed when calling <see cref="WebGpuSharp.FFI.TextureHandle.CreateView" /> on the texture returned by <see cref="WebGpuSharp.FFI.SurfaceHandle.GetCurrentTexture"/>.
+				View formats of the same format as the texture are always allowed.
+			</summary>
+		</comment>
+		<comment location="ViewFormatCount">
+			<summary>
+				The number of view formats in the <see cref="ViewFormats"/> sequence.
+			</summary>
+		</comment>
+		<comment location="PresentMode">
+			<summary>
+				Presentation mode of the swap chain. 
+				Fifo is the only mode guaranteed to be supported. FifoRelaxed, Immediate, 
+				and Mailbox will crash if unsupported.
+			</summary>
+		</comment>
     </group>
 </group>

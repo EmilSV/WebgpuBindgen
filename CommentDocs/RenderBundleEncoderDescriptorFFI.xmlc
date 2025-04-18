@@ -1,0 +1,37 @@
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="RenderBundleEncoderDescriptorFFI">
+        <summary>
+            Describes a <see cref="WebGpuSharp.FFI.RenderBundleHandle"/>.
+
+            For use with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateRenderBundleEncoder"/>.
+        </summary>
+    </comment>
+    <group prefix="RenderBundleEncoderDescriptorFFI.">
+        <comment location="Label">
+            <summary>
+                Debug label of the render bundle encoder.
+            </summary>
+        </comment>
+        <comment location="ColorFormatCount">
+            <summary>
+                The number of color formats in the <see cref="WebGpuSharp.FFI.RenderBundleEncoderDescriptorFFI.ColorFormats"/> sequence.
+            </summary>
+        </comment>
+        <comment location="ColorFormats">
+            <summary>
+                The formats of the color attachments that this render bundle is capable to rendering to. 
+                This must match the formats of the color attachments in the render pass this render bundle is executed in.
+            </summary>
+        </comment>
+        <comment location="DepthStencilFormat">
+            <summary>
+                The depth stencil format of the render target.
+            </summary>
+        </comment>
+        <comment location="SampleCount">
+            <summary>
+                The sample count of the render targets.
+            </summary>
+        </comment>
+    </group>
+</group>

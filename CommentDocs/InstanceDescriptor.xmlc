@@ -2,9 +2,12 @@
 	<comment location="InstanceDescriptor">
 		<summary> The descriptor for the creation of an <see cref="WebGpuSharp.Instance"/></summary>
 	</comment>
-	<group>
-		<comment location="InstanceDescriptor.Features">
-			<summary> Instance features to enable</summary>
+	<group prefix="InstanceDescriptor.">
+		<comment location="Features">
+			<obsolete/>
+		</comment>
+		<comment location="Capabilities">
+			<summary>Instance capabilities to enable.</summary>
 		</comment>
 	</group>
 </group>

@@ -848,6 +848,25 @@ public static class StructFixer
                 see: <see href="https://webgpu-native.github.io/webgpu-headers/StructChaining.html"/>
                 """
             });
+
+        }
+
+        foreach (var item in structs)
+        {
+            var nextInChainField = item.Fields.FirstOrDefault(i => i.Name.Equals("Chain", StringComparison.OrdinalIgnoreCase));
+            if (nextInChainField is null || nextInChainField?.Type?.Type?.TryGetName(out var name) != true || name != "ChainedStruct")
+            {
+                continue;
+            }
+
+            nextInChainField.Comments ??= new();
+            nextInChainField.Comments.Summary = new()
+            {
+                Description =
+                """
+                The chain link for struct chaining.
+                """
+            };
         }
     }
 
