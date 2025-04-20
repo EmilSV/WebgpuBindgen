@@ -1,0 +1,38 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public partial struct SurfaceColorManagement
+{
+/// <summary>
+/// The chain link for struct chaining.
+/// </summary>
+	public WebGpuSharp.ChainedStruct Chain;
+	public WebGpuSharp.PredefinedColorSpace ColorSpace;
+	public WebGpuSharp.ToneMappingMode ToneMappingMode;
+	
+public SurfaceColorManagement(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.">
+    <comment location="SurfaceColorManagement">
+        <summary>                
+            Extension of <see cref="WebGpuSharp.SurfaceConfiguration"/> for color spaces and HDR.
+        </summary>
+    </comment>
+    <group prefix="SurfaceColorManagement.">
+        <comment location="ColorSpace">
+            <summary>                
+                The color space to use for the surface. This is a hint to the implementation about the color space of the surface.
+            </summary>
+        </comment>
+        <comment location="ToneMappingMode">
+            <summary>                
+                The tone mapping mode to use for the surface. This is a hint to the implementation about how to map HDR colors to SDR colors.
+            </summary>
+        </comment>
+    </group>
+</group>
