@@ -19,7 +19,7 @@ public SupportedLimits(){}
 			A struct containing the limits supported by the WebGPU API.
 		</summary>
 	</comment>
-	<group prefix="supportedLimits.">
+	<group prefix="SupportedLimits.">
 		<comment location="Limits">
 			<summary>
 				The limits supported by the WebGPU API.

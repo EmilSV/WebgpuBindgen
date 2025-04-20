@@ -13,6 +13,12 @@ public static class MissingCommentFinder
         foreach (var item in translationResult.Structs)
         {
             var hasSummery = (item.Comments?.Summary?.Description?.Length ?? 0) > 0;
+            var isObsolete = item.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+            if (isObsolete)
+            {
+                continue;
+            }
 
             if (!hasSummery)
             {
@@ -22,7 +28,14 @@ public static class MissingCommentFinder
             foreach (var field in item.Fields)
             {
                 var hasFieldSummery = (field.Comments?.Summary?.Description?.Length ?? 0) > 0;
-                if (!hasFieldSummery && field.AccessModifier == CSAccessModifier.Public)
+                var isFieldObsolete = field.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+                if (isFieldObsolete)
+                {
+                    continue;
+                }
+
+                if (!hasFieldSummery && field.AccessModifier == CSAccessModifier.Public && !isFieldObsolete)
                 {
                     await writer.WriteLineAsync($"{field.GetFullName()}");
                 }
@@ -31,9 +44,16 @@ public static class MissingCommentFinder
             foreach (var method in item.Methods)
             {
                 var hasMethodSummery = (method.Comments?.Summary?.Description?.Length ?? 0) > 0;
+                var isMethodObsolete = method.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+                if (isMethodObsolete)
+                {
+                    continue;
+                }
+
                 if (!hasMethodSummery && method.AccessModifier == CSAccessModifier.Public)
                 {
-                    await writer.WriteLineAsync($"{item.GetFullName()}");
+                    await writer.WriteLineAsync($"{method.GetFullName()}");
                 }
                 foreach (var param in method.Parameters)
                 {
@@ -49,6 +69,12 @@ public static class MissingCommentFinder
         foreach (var item in translationResult.StaticClasses)
         {
             var hasSummery = (item.Comments?.Summary?.Description?.Length ?? 0) > 0;
+            var isObsolete = item.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+            if (isObsolete)
+            {
+                continue;
+            }
 
             if (!hasSummery)
             {
@@ -58,6 +84,13 @@ public static class MissingCommentFinder
             foreach (var field in item.Fields)
             {
                 var hasFieldSummery = (field.Comments?.Summary?.Description?.Length ?? 0) > 0;
+                var isFieldObsolete = field.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+                if (isFieldObsolete)
+                {
+                    continue;
+                }
+
                 if (!hasFieldSummery && field.AccessModifier == CSAccessModifier.Public)
                 {
                     await writer.WriteLineAsync($"{field.GetFullName()}");
@@ -67,9 +100,16 @@ public static class MissingCommentFinder
             foreach (var method in item.Methods)
             {
                 var hasMethodSummery = (method.Comments?.Summary?.Description?.Length ?? 0) > 0;
+                var isMethodObsolete = method.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+                if (isMethodObsolete)
+                {
+                    continue;
+                }
+
                 if (!hasMethodSummery && method.AccessModifier == CSAccessModifier.Public)
                 {
-                    await writer.WriteLineAsync($"{item.GetFullName()}");
+                    await writer.WriteLineAsync($"{method.GetFullName()}");
                 }
 
                 foreach (var param in method.Parameters)
@@ -86,15 +126,28 @@ public static class MissingCommentFinder
         foreach (var item in translationResult.Enums)
         {
             var hasSummery = (item.Comments?.Summary?.Description?.Length ?? 0) > 0;
+            var isObsolete = item.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+            if (isObsolete)
+            {
+                continue;
+            }
 
             if (!hasSummery)
             {
                 await writer.WriteLineAsync(item.GetFullName());
             }
-            
+
             foreach (var value in item.Values)
             {
                 var hasValueSummery = (value.Comments?.Summary?.Description?.Length ?? 0) > 0;
+                var isValueObsolete = value.Attributes.Any(i => i.GetAttributeType() == typeof(ObsoleteAttribute));
+
+                if (isValueObsolete)
+                {
+                    continue;
+                }
+
                 if (!hasValueSummery)
                 {
                     await writer.WriteLineAsync($"{value.GetFullName()}");

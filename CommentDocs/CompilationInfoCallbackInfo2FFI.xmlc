@@ -3,24 +3,24 @@ using System.Runtime.InteropServices;
 
 namespace WebGpuSharp.FFI;
 
-public unsafe partial struct BufferMapCallbackInfoFFI
+public unsafe partial struct CompilationInfoCallbackInfo2FFI
 {
 	public WebGpuSharp.ChainedStruct* NextInChain;
 	public WebGpuSharp.CallbackMode Mode;
-	public delegate* unmanaged[Cdecl]<WebGpuSharp.BufferMapAsyncStatus, void*, void> Callback;
+	public delegate* unmanaged[Cdecl]<WebGpuSharp.CompilationInfoRequestStatus, WebGpuSharp.FFI.CompilationInfoFFI*, void*, void*, void> Callback;
 	public void* Userdata1;
 	public void* Userdata2;
 	
-public BufferMapCallbackInfoFFI(){}
+public CompilationInfoCallbackInfo2FFI(){}
 
 } -->
 
 
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="BufferMapCallbackInfoFFI">
-		<summary> CallbackInfo for Buffer.MapAsync.</summary>
+	<comment location="CompilationInfoCallbackInfo2FFI">
+		<summary> CallbackInfo for CompilationInfo.</summary>
 	</comment>
-	<group prefix="BufferMapCallbackInfoFFI.">
+	<group prefix="CompilationInfoCallbackInfo2FFI.">
 		<comment location="Mode">
 			<summary>The mode of the callback.</summary>
 		</comment>

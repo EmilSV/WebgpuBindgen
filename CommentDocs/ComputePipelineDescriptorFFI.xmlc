@@ -1,4 +1,4 @@
-<group prefix="WebGPUSharp.FFI.">
+<group prefix="WebGpuSharp.FFI.">
 	<comment location="ComputePipelineDescriptorFFI">
 		<summary>Describes a compute pipeline. For use with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateComputePipeline"/>.</summary>
 	</comment>

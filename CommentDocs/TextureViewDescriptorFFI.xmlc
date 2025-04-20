@@ -54,7 +54,7 @@ public TextureViewDescriptorFFI(){}
 
 
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="TextureViewDescriptorFFI.">
+	<comment location="TextureViewDescriptorFFI">
 		<summary>
 			Description of a texture view.
 		</summary>
@@ -63,6 +63,11 @@ public TextureViewDescriptorFFI(){}
 		<comment location="Label">
 			<summary>
 				The debug label of the texture view.
+			</summary>
+		</comment>
+		<comment location="AttributeCount">
+			<summary>
+				The number of attributes in the <see cref="WebGpuSharp.TextureViewDescriptorFFI.Attributes"/> sequence.
 			</summary>
 		</comment>
 	</group>

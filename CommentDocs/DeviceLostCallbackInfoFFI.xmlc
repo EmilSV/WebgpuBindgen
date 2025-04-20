@@ -13,21 +13,22 @@ public unsafe partial struct DeviceLostCallbackInfoFFI
 public DeviceLostCallbackInfoFFI(){}
 
 } -->
-
-
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="DeviceLostCallbackInfoFFI">
-		<summary>A DeviceLostCallbackInfoFFI is a callback info struct used to register a callback for when a device is lost.</summary>
-	</comment>
-	<group prefix="DeviceLostCallbackInfo2FFI.">
-		<comment location="Callback">
-			<summary>The callback to call when the device is lost.</summary>
-		</comment>
-		<comment location="Mode">
-			<summary>The callback mode.</summary>
-		</comment>
-		<comment location="Userdata">
-			<summary>The userdata.</summary>
-		</comment>
-	</group>
+    <comment location="DeviceLostCallbackInfoFFI">
+        <summary>A DeviceLostCallbackInfoFFI is a callback info struct used to register a callback for when a device is lost.</summary>
+    </comment>
+    <group prefix="DeviceLostCallbackInfoFFI.">
+        <comment location="Callback">
+            <summary>The callback to call when the device is lost.</summary>
+        </comment>
+        <comment location="Mode">
+            <summary>The callback mode.</summary>
+        </comment>
+        <comment location="Userdata1">
+            <summary>The first user data to be passed to the callback function.</summary>
+        </comment>
+        <comment location="Userdata2">
+            <summary>The second user data to be passed to the callback function.</summary>
+        </comment>
+    </group>
 </group>

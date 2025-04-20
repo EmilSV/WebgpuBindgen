@@ -1,32 +1,41 @@
-<group prefix="WebGpuSharp.FFI.AdapterHandle.">
-    <comment location="GetFeatures">
-        <summary>Get the features supported by the adapter.</summary>
-        <param name="features">The features to fill in.</param>
-        <returns>the status of the call.</returns>
-    </comment>
-    <comment location="GetInfo">
-        <summary>Get info about the adapter itself.</summary>
-        <param name="info">The info to fill in.</param>
-        <returns>the status of the call.</returns>
-    </comment>
-    <comment location="GetLimits">
-        <summary>The best limits which can be used to create devices on this adapter.</summary>
-        <param name="limits">The limits to fill in.</param>
-        <returns>the status of the call.</returns>
-    </comment>
-    <comment location="HasFeature">
-        <summary>Check if and additional functionality is supported by the adapter.</summary>
-        <param name="feature">The feature to check.</param>
-        <returns>true if the feature is supported.</returns>
-    </comment>
-    <comment
-        location="RequestDevice">
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="AdapterHandle">
         <summary>
-            Requests a device from the adapter.
-            This is a one-time action: if a device is returned successfully,
-            the adapter then enters a "consumed" state
+            Handle to a physical graphics and/or compute device.
+            Adapters can be created using Instance::request_adapter or other Instance methods.
+            Adapters can be used to open a connection to the corresponding Device on the host system by using Adapter::request_device.
+            Does not have to be kept alive.
         </summary>
-        <param name="descriptor">The device descriptor to use.</param>
-        <param name="callbackInfo">The callback to call when the device is ready</param>
     </comment>
+    <group prefix="AdapterHandle.">
+        <comment location="GetFeatures">
+            <summary>Get the features supported by the adapter.</summary>
+            <param name="features">The features to fill in.</param>
+            <returns>the status of the call.</returns>
+        </comment>
+        <comment location="GetInfo">
+            <summary>Get info about the adapter itself.</summary>
+            <param name="info">The info to fill in.</param>
+            <returns>the status of the call.</returns>
+        </comment>
+        <comment location="GetLimits">
+            <summary>The best limits which can be used to create devices on this adapter.</summary>
+            <param name="limits">The limits to fill in.</param>
+            <returns>the status of the call.</returns>
+        </comment>
+        <comment location="HasFeature">
+            <summary>Check if and additional functionality is supported by the adapter.</summary>
+            <param name="feature">The feature to check.</param>
+            <returns>true if the feature is supported.</returns>
+        </comment>
+        <comment location="RequestDevice">
+            <summary>                
+                Requests a device from the adapter.
+                This is a one-time action: if a device is returned successfully,
+                the adapter then enters a "consumed" state
+            </summary>
+            <param name="options">The device descriptor to use.</param>
+            <param name="callbackInfo">The callback to call when the device is ready</param>
+        </comment>
+    </group>
 </group>

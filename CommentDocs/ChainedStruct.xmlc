@@ -1,0 +1,28 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public unsafe partial struct ChainedStruct
+{
+	public WebGpuSharp.ChainedStruct* Next;
+	public WebGpuSharp.SType SType;
+	
+public ChainedStruct(){}
+
+} -->
+
+
+<group prefix="WebGpuSharp.">
+	<comment location="ChainedStruct">
+		<summary>Structures used to extend descriptors.</summary>
+	</comment>
+	<group prefix="ChainedStruct.">
+		<comment location="Next">
+			<summary>The next chained struct in the chain.</summary>
+		</comment>
+		<comment location="SType">
+			<summary>The type of the chained struct.</summary>
+		</comment>
+	</group>
+</group>

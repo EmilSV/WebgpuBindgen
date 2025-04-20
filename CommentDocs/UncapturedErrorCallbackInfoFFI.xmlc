@@ -13,5 +13,5 @@ public UncapturedErrorCallbackInfoFFI(){}
 
 } -->
 
-<group>
+<group prefix="WebGpuSharp.FFI.">
 </group>

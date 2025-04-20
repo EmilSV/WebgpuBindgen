@@ -22,6 +22,9 @@ public CompilationInfoFFI(){}
 		<comment location="Messages">
 			<summary>The messages from the shader compilation process.</summary>
 		</comment>
+		<comment location="MessageCount">
+			<summary>The number of messages in the <see cref="WebGpuSharp.FFI.CompilationInfoFFI.Messages"/> sequence.</summary>
+		</comment>
 	</group>
 
 </group>

@@ -45,7 +45,16 @@ public DeviceDescriptorFFI(){}
 			<summary>Debug label for the device.</summary>
 		</comment>
 		<comment location="RequiredFeatureCount">
-			<summary>the number of required features in the requiredFeatures sequence.</summary>
+			<summary>the number of items in the <see cref="WebGpuSharp.FFI.DeviceDescriptorFFI.RequiredFeatures"/> sequence.</summary>
+		</comment>
+		<comment location="DefaultQueue">
+			<summary>The descriptor for the default <see cref="WebGpuSharp.Queue"/>.</summary>
+		</comment>
+		<comment location="DeviceLostCallbackInfo">
+			<summary>Callback for when the device is lost.</summary>
+		</comment>
+		<comment location="UncapturedErrorCallbackInfo">
+			<summary>Callback for when an uncaptured error occurs.</summary>
 		</comment>
 	</group>
 </group>

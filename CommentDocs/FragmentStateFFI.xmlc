@@ -25,7 +25,39 @@ public FragmentStateFFI(){}
 <group prefix="WebGpuSharp.FFI.">
 	<comment location="FragmentStateFFI">
 		<summary>
-			Represents the fragment state of a pipeline.
+			Describes the fragment processing in a render pipeline.
+
+			For use in a <see cref="WebGPUSharp.RenderPipelineDescriptor"/>.
 		</summary>
 	</comment>
+	<group prefix="FragmentStateFFI.">
+		<comment location="Module">
+			<summary>The compiled shader module for this stage.</summary>
+		</comment>
+		<comment location="EntryPoint">
+			<summary>
+				The name of the entry point in the compiled shader to use.
+
+				If not null, there must be a @fragment shader entry point with this name in module. Otherwise, expect exactly one fragment-stage entry point in module, which will be selected.
+			</summary>
+		</comment>
+		<comment location="ConstantCount">
+			<summary>The number of item in the <see cref="WebGpuSharp.WebGpuSharp.FFI.FragmentStateFFI.Constants"/> sequence</summary>
+		</comment>
+		<comment location="Constants">
+			<summary>                
+				Specifies the values of pipeline-overridable constants in the shader module module.
+				Each such pipeline-overridable constant is uniquely identified by a single pipeline-overridable constant identifier string,
+				representing the pipeline constant ID of the constant if its declaration specifies one, and otherwise the constant's identifier name.
+				The key of each key-value pair must equal the pipeline-overridable constant identifier string|identifier string of one such constant,
+				with the comparison performed according to the rules for WGSL identifier comparison. When the pipeline is executed,
+				that constant will have the specified value. Values are specified as GPUPipelineConstantValue, which is a double.
+				They are converted to WGSL type of the pipeline-overridable constant (bool/i32/u32/f32/f16).
+				If conversion fails, a validation error is generated.
+			</summary>
+		</comment>
+		<comment location="TargetCount">
+			<summary>The number of items in the <see cref="WebGpuSharp.FFI.FragmentStateFFI.Targets"/> sequence.</summary>
+		</comment>
+	</group>
 </group>

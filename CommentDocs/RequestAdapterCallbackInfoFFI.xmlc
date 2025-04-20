@@ -30,9 +30,14 @@ public RequestAdapterCallbackInfoFFI(){}
                 The callback mode.
             </summary>
         </comment>
-		<comment location="Userdata">
+        <comment location="Userdata1">
             <summary>                
-                Userdata to pass to the callback.
+                The first userdata to be passed to the callback.
+            </summary>
+        </comment>
+        <comment location="Userdata2">
+            <summary>                
+                The second userdata to be passed to the callback.
             </summary>
         </comment>
     </group>

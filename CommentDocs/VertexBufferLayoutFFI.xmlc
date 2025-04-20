@@ -22,10 +22,13 @@ public unsafe partial struct VertexBufferLayoutFFI
 public VertexBufferLayoutFFI(){}
 
 } -->
-
-
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="VertexBufferLayoutFFI">
-		<summary>Describes how the vertex buffer is interpreted.</summary>
-	</comment>
+    <comment location="VertexBufferLayoutFFI">
+        <summary>Describes how the vertex buffer is interpreted.</summary>
+    </comment>
+    <group prefix="VertexBufferLayoutFFI.">
+        <comment location="AttributeCount">
+            <summary>The amount of attributes in the <see cref="WebGpuSharp.FFI.VertexBufferLayoutFFI"/> sequence.</summary>
+        </comment>
+    </group>
 </group>

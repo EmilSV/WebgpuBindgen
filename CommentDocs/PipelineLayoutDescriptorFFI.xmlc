@@ -41,5 +41,8 @@ public PipelineLayoutDescriptorFFI(){}
                 Bind groups that this pipeline uses. The first entry will provide all the bindings for “set = 0”, second entry will provide all the bindings for “set = 1” etc.
             </summary>
         </comment>
+        <comment location="ImmediateDataRangeByteSize">
+            <obsolete/>
+        </comment>
     </group>
 </group>

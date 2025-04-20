@@ -24,9 +24,11 @@ public ImageCopyBufferFFI(){}
 			with the copySize, how image data is laid out in the buffer's memory 
 		</summary>
 	</comment>
-	<comment location="Layout">
-		<summary> 
-			The layout of the texture data in this buffer.
-		</summary>
-	</comment>
+	<group prefix="ImageCopyBufferFFI.">
+		<comment location="Layout">
+			<summary> 
+				The layout of the texture data in this buffer.
+			</summary>
+		</comment>
+	</group>
 </group>

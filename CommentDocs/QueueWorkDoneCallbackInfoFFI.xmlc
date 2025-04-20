@@ -30,9 +30,14 @@ public QueueWorkDoneCallbackInfoFFI(){}
                 The callback to be called when a queue work done event is fired.
             </summary>
         </comment>
-        <comment location="Userdata">
+        <comment location="Userdata1">
             <summary>                
-                Userdata to be passed to the callback.
+                The first userdata to be passed to the callback.
+            </summary>
+        </comment>
+        <comment location="Userdata2">
+            <summary>                
+                The second userdata to be passed to the callback.
             </summary>
         </comment>
     </group>
