@@ -1,47 +1,68 @@
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="BufferHandle">
-		<summary>The Buffer represents a block of memory that can be used to store raw data to use
-			in GPU operations.</summary>
-	</comment>
-	<group prefix="BufferHandle.">
-		<comment location="GetMapState">
-			<summary>An enumerated value representing the mapped state of the Buffer.</summary>
-		</comment>
-		<comment location="GetSize">
-			<summary>Returns the size of the buffer in bytes.</summary>
-		</comment>
-		<comment location="GetUsage">
-			<summary>Returns the allowed usages of the Buffer</summary>
-		</comment>
-		<comment
-			location="MapAsync(WebGpuSharp.MapMode, nuint, nuint, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.BufferMapAsyncStatus, void*, void>, void*)">
-			<param name="callback">Callback to be called when the buffer is mapped.</param>
-			<param name="userdata">User data to be passed to the callback.</param>
-			<param name="callbackInfo">Callback to be called when the buffer is mapped.</param>
-		</comment>
-		<comment
-			location="MapAsync(WebGpuSharp.MapMode, nuint, nuint, WebGpuSharp.FFI.BufferMapCallbackInfo2FFI)"
-			cloneFrom="WebGpuSharp.FFI.BufferHandle.MapAsync(WebGpuSharp.MapMode, nuint, nuint, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.BufferMapAsyncStatus, void*, void>, void*)">
-			<param name="callbackInfo">Callback to be called when the buffer is mapped.</param>
-			<returns>The future for the callback.</returns>
-		</comment>
-		<comment location="SetLabel">
-			<summary>Sets a label on the Buffer.</summary>
-			<param name="label">The label to set.</param>
-		</comment>
-		<comment location="GetConstMappedRange">
-			<param name="offset">The offset to the start of the mapped range.</param>
-			<param name="size">The size of the mapped range.</param>
-		</comment>
-		<comment location="ReadMappedRange">
-			<param name="offset">The offset to the start of the mapped range.</param>
-			<param name="data">The offset to the start of the mapped range.</param>
-			<param name="size">The size of the mapped range.</param>
-		</comment>
-		<comment location="WriteMappedRange">
-			<param name="offset">The offset to the start of the mapped range.</param>
-			<param name="data">The offset to the start of the mapped range.</param>
-			<param name="size">The size of the mapped range.</param>
-		</comment>
-	</group>
-</group>
+    <comment location="BufferHandle">
+        <summary>
+            The Buffer represents a block of memory that can be used to store raw data to use
+            in GPU operations.
+        </summary>
+    </comment>
+    <group prefix="BufferHandle.">
+        <comment location="GetMapState">
+            <summary>An enumerated value representing the mapped state of the Buffer.</summary>
+        </comment>
+        <comment location="GetSize">
+            <summary>Returns the size of the buffer in bytes.</summary>
+        </comment>
+        <comment location="GetUsage">
+            <summary>Returns the allowed usages of the Buffer</summary>
+        </comment>
+        <comment location="MapAsync">
+            <param name="callbackInfo">Callback to be called when the buffer is mapped.</param>
+            <returns>The future for the callback.</returns>
+        </comment>
+        <comment location="SetLabel">
+            <summary>Sets a label on the Buffer.</summary>
+            <param name="label">The label to set.</param>
+        </comment>
+        <comment location="GetConstMappedRange">
+            <summary>                
+                Returns a const pointer to beginning of the mapped range.
+                It must not be written; writing to this range causes undefined behavior.
+                See MappedRangeBehavior for error conditions and guarantees.
+                This function is safe to call inside spontaneous callbacks (see CallbackReentrancy).
+            </summary>
+            <param name="offset">Byte offset relative to the beginning of the buffer.</param>
+            <param name="size">                
+                Byte size of the range to get.
+                If this is
+            <see cref="WebGpuSharp.FFI.WebGPU_FFI.WHOLE_MAP_SIZE"/>
+                , it defaults to `buffer.size - offset`.
+                The returned pointer is valid for exactly this many bytes.
+            </param>
+        </comment>
+        <comment location="ReadMappedRange">
+            <summary>                
+                Copies a range of data from the buffer mapping into the provided destination pointer.
+                See MappedRangeBehavior for error conditions and guarantees.
+                This function is safe to call inside spontaneous callbacks (see CallbackReentrancy).
+                
+                In Wasm, this is more efficient than copying from a mapped range into a `malloc`'d range.
+            </summary>
+            <param name="offset">Byte offset relative to the beginning of the buffer.</param>
+            <param name="data">Destination, to read buffer data into.</param>
+            <param name="size">Number of bytes of data to read from the buffer. (Note <see cref="WebGpuSharp.FFI.WebGPU_FFI.WHOLE_MAP_SIZE"/> is *not* accepted here.)</param>
+            <returns><see cref="WebGpuSharp.Status.Error"/> if the copy did not occur.</returns>
+            </comment>
+            <comment location="WriteMappedRange">
+                <summary>                    
+                    Copies a range of data from the provided source pointer into the buffer mapping.
+                    See MappedRangeBehavior for error conditions and guarantees.
+                    This function is safe to call inside spontaneous callbacks (see CallbackReentrancy).
+                    In Wasm, this is more efficient than copying from a `malloc`'d range into a mapped range.
+                </summary>
+                <param name="offset">Byte offset relative to the beginning of the buffer.</param>
+                <param name="data">Source, to write buffer data from.</param>
+                <param name="size">Number of bytes of data to write to the buffer. (Note <see cref="WebGpuSharp.FFI.WebGPU_FFI.WHOLE_MAP_SIZE"/> is *not* accepted here.)</param>
+				<returns><see cref="WebGpuSharp.Status.Error"/> if the copy did not occur.</returns>
+			</comment>
+        </group>
+    </group>
