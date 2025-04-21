@@ -26,8 +26,11 @@ public CreateRenderPipelineAsyncCallbackInfoFFI(){}
 		<comment location="Mode">
 			<summary>The callback mode.</summary>
 		</comment>
-		<comment location="Userdata">
-			<summary>The userdata.</summary>
-		</comment>
+        <comment location="Userdata1">
+            <summary>User data pointer 1.</summary>
+        </comment>
+        <comment location="Userdata2">
+            <summary>User data pointer 2.</summary>
+        </comment>
 	</group>
 </group>

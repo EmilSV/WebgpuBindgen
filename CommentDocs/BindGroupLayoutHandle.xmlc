@@ -10,4 +10,12 @@
 			create a PipelineLayoutDescriptorFFI, which can be used to create a PipelineLayout.
 		</summary>
 	</comment>
+	<group prefix="BindGroupLayoutHandle.">
+		<comment location="SetLabel">
+			<summary>
+				Set the Debug label for this BindGroupLayoutHandle.
+			</summary>
+			<param name="label">The label to set.</param>
+		</comment>
+	</group>
 </group>

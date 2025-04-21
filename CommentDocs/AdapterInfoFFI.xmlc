@@ -61,5 +61,15 @@
                 Is the adapter in compatibility mode
             </summary>
         </comment>
+        <comment location="SubgroupMinSize">
+            <summary>                
+                Minimum subgroup size supported by the adapter.
+            </summary>
+        </comment>
+        <comment location="SubgroupMaxSize">
+            <summary>                
+                Maximum subgroup size supported by the adapter.
+            </summary>
+        </comment>
     </group>
 </group>

@@ -1,0 +1,32 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct TexelCopyBufferInfoFFI
+{
+	public WebGpuSharp.TexelCopyBufferLayout Layout = new();
+	public WebGpuSharp.FFI.BufferHandle Buffer;
+	
+public TexelCopyBufferInfoFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="TexelCopyBufferInfoFFI">
+        <summary>            
+            View of a buffer which can be used to copy to/from a texture.
+        </summary>
+    </comment>
+    <group prefix="TexelCopyBufferInfoFFI.">
+        <comment location="Layout">
+            <summary>                
+                The layout of the texture data in this buffer.
+            </summary>
+        </comment>
+        <comment location="Buffer">
+            <summary>                
+                The buffer to be copied to/from.
+            </summary>
+        </comment>
+    </group>
+</group>

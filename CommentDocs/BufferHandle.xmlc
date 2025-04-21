@@ -17,6 +17,7 @@
 			location="MapAsync(WebGpuSharp.MapMode, nuint, nuint, delegate* unmanaged[Cdecl]&lt;WebGpuSharp.BufferMapAsyncStatus, void*, void>, void*)">
 			<param name="callback">Callback to be called when the buffer is mapped.</param>
 			<param name="userdata">User data to be passed to the callback.</param>
+			<param name="callbackInfo">Callback to be called when the buffer is mapped.</param>
 		</comment>
 		<comment
 			location="MapAsync(WebGpuSharp.MapMode, nuint, nuint, WebGpuSharp.FFI.BufferMapCallbackInfo2FFI)"
@@ -27,6 +28,20 @@
 		<comment location="SetLabel">
 			<summary>Sets a label on the Buffer.</summary>
 			<param name="label">The label to set.</param>
+		</comment>
+		<comment location="GetConstMappedRange">
+			<param name="offset">The offset to the start of the mapped range.</param>
+			<param name="size">The size of the mapped range.</param>
+		</comment>
+		<comment location="ReadMappedRange">
+			<param name="offset">The offset to the start of the mapped range.</param>
+			<param name="data">The offset to the start of the mapped range.</param>
+			<param name="size">The size of the mapped range.</param>
+		</comment>
+		<comment location="WriteMappedRange">
+			<param name="offset">The offset to the start of the mapped range.</param>
+			<param name="data">The offset to the start of the mapped range.</param>
+			<param name="size">The size of the mapped range.</param>
 		</comment>
 	</group>
 </group>

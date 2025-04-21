@@ -1,0 +1,45 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp.FFI;
+
+public unsafe partial struct TexelCopyTextureInfoFFI
+{
+	public WebGpuSharp.FFI.TextureHandle Texture;
+	public uint MipLevel;
+	public WebGpuSharp.Origin3D Origin = new();
+	public WebGpuSharp.TextureAspect Aspect;
+	
+public TexelCopyTextureInfoFFI(){}
+
+} -->
+<group prefix="WebGpuSharp.FFI.">
+    <comment location="TexelCopyTextureInfoFFI">
+        <summary>            
+            View of a texture which can be used to copy to/from a buffer.
+        </summary>
+    </comment>
+    <group prefix="TexelCopyTextureInfoFFI.">
+        <comment location="Texture">
+            <summary>                
+                The texture to be copied to/from.
+            </summary>
+        </comment>
+        <comment location="MipLevel">
+            <summary>                
+                The target mip level of the texture.
+            </summary>
+        </comment>
+        <comment location="Origin">
+            <summary>                
+                The base texel of the texture in the selected <see cref="WebGpuSharp.FFI.TexelCopyTextureInfoFFI.MipLevel"/>. 
+                Together with the copySize argument to copy functions, defines the sub-region of the texture to copy.
+            </summary>
+        </comment>
+        <comment location="Aspect">
+            <summary>                
+                The copy aspect.
+            </summary>
+        </comment>
+    </group>
+</group>
