@@ -10,6 +10,7 @@
 			<summary>
 				Sets the label of the pipeline layout.
 			</summary>
+			<param name="label">The label to set.</param>
 		</comment>
 	</group>
 </group>

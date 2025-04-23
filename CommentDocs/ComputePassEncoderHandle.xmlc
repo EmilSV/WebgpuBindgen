@@ -115,8 +115,7 @@ WebGPU_FFI.ComputePassEncoderSetPipeline(this, pipeline);
 			<summary>Marks a point in a stream of commands with a label.</summary>
 		</comment>
 		<comment location="PopDebugGroup">
-			<summary>Ends the labeled debug group most recently started by <see
-					cref="PushDebugGroup" />.</summary>
+			<summary>Ends the labeled debug group most recently started by <see cref="PushDebugGroup" />.</summary>
 		</comment>
 		<comment location="PushDebugGroup">
 			<summary>Begins a labeled debug group containing subsequent commands.</summary>
@@ -124,8 +123,8 @@ WebGPU_FFI.ComputePassEncoderSetPipeline(this, pipeline);
 		</comment>
 		<comment location="SetBindGroup">
 			<summary>Sets the current GPUBindGroup for the given index.</summary>
-			<param name="index"> The index to set the bind group at.</param>
-			<param name="bindGroup"> Bind group to use for subsequent render or compute commands.</param>
+			<param name="groupIndex"> The index to set the bind group at.</param>
+			<param name="group"> Bind group to use for subsequent render or compute commands.</param>
 			<param name="dynamicOffsetCount"> The number of dynamic offsets in the dynamicOffsets sequence.</param>
 			<param name="dynamicOffsets"> 
 				a sequence containing buffer offsets in bytes for each
@@ -137,5 +136,8 @@ WebGPU_FFI.ComputePassEncoderSetPipeline(this, pipeline);
 			<summary>Set debug label of this command encoder.</summary>
 			<param name="label"> The new label.</param>
 		</comment>
+		<comment location="InsertDebugMarker">
+            <param name="markerLabel">The label to insert.</param>
+        </comment>
 	</group>
 </group>

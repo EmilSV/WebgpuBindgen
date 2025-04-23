@@ -1,5 +1,5 @@
 <group prefix="WebGpuSharp.FFI.">
-	<comment location="DeviceHandle.">
+	<comment location="DeviceHandle">
 		<summary>A DeviceHandle encapsulates a graphics/compute device and exposes the functionality of that device.</summary> 
 	</comment>
 	<group prefix="DeviceHandle.">
@@ -42,6 +42,7 @@
 		</comment>
 		<comment location="CreatePipelineLayout">
 			<summary>Creates a PipelineLayout.</summary>
+			<param name="descriptor">The descriptor to use for the PipelineLayout</param>
 		</comment>
 		<comment location="CreateQuerySet">
 			<summary>Creates a QuerySet.</summary>
@@ -125,14 +126,7 @@
 			<param name="feature">The feature to check</param>
 			<returns>true if the feature is supported false otherwise</returns>
 		</comment>
-		<comment location="PopErrorScope(delegate* unmanaged[Cdecl]&lt;WebGpuSharp.ErrorType, WebGpuSharp.FFI.StringViewFFI, void*, void>, void*)">
-			<summary>
-				Pops a error scope off the errorScopeStack for this and resolves to any error observed by the error scope, or null if none.
-			</summary>
-			<param name="oldCallback">The callback to call when the error scope is popped.</param>
-			<param name="userdata">The userdata to pass to the callback.</param>
-		</comment>
-		<comment location="PopErrorScope(WebGpuSharp.FFI.PopErrorScopeCallbackInfo2FFI)">
+		<comment location="PopErrorScope">
 			<summary>
 				Pops a error scope off the errorScopeStack for this device and resolves to any error observed by the error scope, or null if none.
 			</summary>
@@ -146,6 +140,10 @@
 		<comment location="SetLabel">
 			<summary>Set debug label of this device</summary>
 			<param name="label">The label to set</param>
+		</comment>
+		<comment location="GetLostFuture">
+			<summary>Get the future which resolves when the device is lost</summary>
+			<returns>The <see cref="WebGpuSharp.Future"/> for the device-lost event of the device.</returns>
 		</comment>
 	</group>
 </group>

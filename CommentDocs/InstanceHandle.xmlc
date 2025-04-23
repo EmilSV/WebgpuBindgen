@@ -63,11 +63,13 @@ public InstanceHandle(nuint ptr)=> _ptr = ptr;
             <summary>                
                 Creates a new surface targeting a given window/canvas/surface/etc..
             </summary>
+			<param name="descriptor">The descriptor to use for the surface</param>
         </comment>
 		<comment location="HasWGSLLanguageFeature">
 			<summary>
 				check if a WGSL language extensions is supported by this instance.
 			</summary>
+			<param name="feature">The feature to check for</param>
 			<returns> true if the feature is supported, false otherwise.</returns>
 		</comment>
 		<comment location="ProcessEvents">
@@ -77,9 +79,14 @@ public InstanceHandle(nuint ptr)=> _ptr = ptr;
 		</comment>
 		<comment location="RequestAdapter">
 			<summary>Retrieves an Adapter which matches the given <see cref="WebGpuSharp.FFI.RequestAdapterOptionsFFI"/>.</summary>
+			<param name="options">The options to use for the adapter</param>
+			<param name="callbackInfo">The callback to call when the adapter is ready</param>
 		</comment>
 		<comment location="WaitAny">
 			<summary> Wait for at least one Future in `futures` to complete, and call callbacks of the respective completed asynchronous operations.</summary>
+			<param name="futureCount">The number of futures to wait for</param>
+			<param name="futures">The futures to wait for</param>
+			<param name="timeoutNS">The timeout in nanoseconds</param>
 		</comment>
 		<comment location="GetWGSLLanguageFeatures">
 			<summary>Returns set of supported WGSL language extensions supported by this instance.</summary>

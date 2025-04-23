@@ -32,5 +32,27 @@
         <comment location="PopDebugGroup">
             <summary>Ends the labeled debug group most recently started by <see cref="WebGpuSharp.FFI.CommandEncoderHandle.PushDebugGroup">pushDebugGroup()</see>.</summary>
         </comment>
+        <comment location="CopyBufferToTexture">
+            <param name="copySize">specifies the width, height, and depth/array layer count of the copied data.</param>
+        </comment>
+        <comment location="CopyTextureToBuffer">
+            <param name="copySize">specifies the width, height, and depth/array layer count of the copied data.</param>
+        </comment>
+        <comment location="CopyTextureToTexture">
+            <param name="copySize">specifies the width, height, and depth/array layer count of the copied data.</param>
+        </comment>
+        <comment location="Finish">
+            <param name="descriptor">The descriptor.</param>
+        </comment>
+        <comment location="ResolveQuerySet">
+            <param name="querySet">The query set.</param>
+            <param name="firstQuery">The index number of the first query value to be copied over to the buffer.</param>
+            <param name="queryCount">The number of queries to be copied over to the buffer, starting from <paramref name="firstQuery"/></param>
+            <param name="destination">The buffer to copy the query values to.</param>
+            <param name="destinationOffset">The offset, in bytes, from the start of the buffer to start writing the query values at.</param>
+        </comment>
+        <comment location="WriteTimestamp">
+            <obsolete/>
+        </comment>
     </group>
 </group>

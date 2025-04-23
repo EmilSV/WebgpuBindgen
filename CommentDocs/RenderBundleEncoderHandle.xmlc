@@ -185,6 +185,13 @@ public RenderBundleEncoderHandle(nuint ptr)=> _ptr = ptr;
             <param name="offset">Offset in bytes into buffer where the vertex data begins.</param>
             <param name="size">Size in bytes of the vertex data in buffer. Defaults to the size of the buffer minus the offset.</param>
         </comment>
-
+        <comment location="Finish">
+            <param name="descriptor">The descriptor to use for the RenderBundle.</param>
+            <returns>A new RenderBundleHandle.</returns>
+        </comment>
+        <comment location="InsertDebugMarker">
+            <summary>Inserts a debug marker into the command stream.</summary>
+            <param name="markerLabel">The label of the debug marker.</param>
+        </comment>
     </group>
 </group>
