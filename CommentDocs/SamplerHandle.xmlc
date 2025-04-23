@@ -58,6 +58,7 @@ public SamplerHandle(nuint ptr)=> _ptr = ptr;
 			<summary>
 				Set the label of the sampler. 
 			</summary>
+			<param name="label">The label to set.</param>
 		</comment>
 	</group>
 </group>

@@ -61,11 +61,13 @@ public RenderPipelineHandle(nuint ptr)=> _ptr = ptr;
 
 				This method will raise a validation error if there is no bind group layout at index.
 			</summary>
+			<param name="groupIndex">Index into the pipeline layout's sequence.</param>
 		</comment>
 		<comment location="SetLabel">
 			<summary>
 				Set the debug label of this RenderPipelineHandle.
 			</summary>
+			<param name="label">The label to set.</param>
 		</comment>
 	</group>
 </group>
