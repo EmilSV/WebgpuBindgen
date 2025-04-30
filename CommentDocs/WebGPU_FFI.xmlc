@@ -213,6 +213,12 @@
         <comment location="BufferMapAsync2" inheritFrom="WebGpuSharp.FFI.BufferHandle.MapAsync" inheritPriority="-10">
             <param name="buffer">the buffer to map</param>
         </comment>
+        <comment location="BufferReadMappedRange" inheritFrom="WebGpuSharp.FFI.BufferHandle.ReadMappedRange" inheritPriority="-10">
+            <param name="buffer">the buffer to read from</param>
+        </comment>
+        <comment location="BufferWriteMappedRange" inheritFrom="WebGpuSharp.FFI.BufferHandle.WriteMappedRange" inheritPriority="-10">
+            <param name="buffer">the buffer to write to</param>
+        </comment>
         <comment location="BufferSetLabel" inheritFrom="WebGpuSharp.FFI.BufferHandle.SetLabel" inheritPriority="-10">
             <param name="buffer">the buffer to set the label of</param>
         </comment>
@@ -259,469 +265,470 @@
             <param name="commandEncoder">The command encoder to encode command to clear a buffer</param>
         </comment>
         <comment location="CommandEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.InsertDebugMarker" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder insert debug marker into</param>
         </comment>
         <comment location="CommandEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.PopDebugGroup" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder pop the debug group from</param>
         </comment>
         <comment location="CommandEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.PushDebugGroup" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder push the debug group on</param>
         </comment>
         <comment location="CommandEncoderResolveQuerySet" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.ResolveQuerySet" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder resolve query set from</param>
         </comment>
         <comment location="CommandEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.SetLabel" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder set label from</param>
         </comment>
         <comment location="CommandEncoderWriteTimestamp" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.WriteTimestamp" inheritPriority="-10">
             <obsolete/>
         </comment>
         <comment location="CommandEncoderAddRef" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.AddRef" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder to increase the reference counter on</param>
         </comment>
         <comment location="CommandEncoderRelease" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.Release" inheritPriority="-10">
-            <param name="commandEncoder">blank</param>
+            <param name="commandEncoder">The command encoder to decreased the reference counter on</param>
         </comment>
         <comment location="ComputePassEncoderDispatchWorkgroups" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.DispatchWorkgroups" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder to dispatch work on</param>
         </comment>
         <comment location="ComputePassEncoderDispatchWorkgroupsIndirect" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.DispatchWorkgroupsIndirect" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder to dispatch work on</param>
         </comment>
         <comment location="ComputePassEncoderEnd" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.End" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder complete recording on</param>
         </comment>
         <comment location="ComputePassEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.InsertDebugMarker" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder to insert a debug mark into</param>
         </comment>
+      
         <comment location="ComputePassEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.PopDebugGroup" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePassEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.PushDebugGroup" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePassEncoderSetBindGroup" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.SetBindGroup" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePassEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.SetLabel" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePassEncoderSetPipeline" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.SetPipeline" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePassEncoderAddRef" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.AddRef" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePassEncoderRelease" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.Release" inheritPriority="-10">
-            <param name="computePassEncoder">blank</param>
+            <param name="computePassEncoder">The compute pass encoder</param>
         </comment>
         <comment location="ComputePipelineGetBindGroupLayout" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.GetBindGroupLayout" inheritPriority="-10">
-            <param name="computePipeline">blank</param>
+            <param name="computePipeline">The compute pipeline</param>
         </comment>
         <comment location="ComputePipelineSetLabel" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.SetLabel" inheritPriority="-10">
-            <param name="computePipeline">blank</param>
+            <param name="computePipeline">The compute pipeline</param>
         </comment>
         <comment location="ComputePipelineAddRef" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.AddRef" inheritPriority="-10">
-            <param name="computePipeline">blank</param>
+            <param name="computePipeline">The compute pipeline</param>
         </comment>
         <comment location="ComputePipelineRelease" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.Release" inheritPriority="-10">
-            <param name="computePipeline">blank</param>
+            <param name="computePipeline">The compute pipeline</param>
         </comment>
         <comment location="DeviceCreateBindGroup" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateBindGroup" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateBindGroupLayout" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateBindGroupLayout" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateBuffer" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateBuffer" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateCommandEncoder" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateCommandEncoder" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateComputePipeline" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateComputePipeline" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateComputePipelineAsync" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateComputePipelineAsync" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateComputePipelineAsync2" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateComputePipelineAsync2" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreatePipelineLayout" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreatePipelineLayout" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateQuerySet" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateQuerySet" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateRenderBundleEncoder" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderBundleEncoder" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateRenderPipeline" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipeline" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateRenderPipelineAsync" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipelineAsync" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateRenderPipelineAsync2" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateRenderPipelineAsync" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateSampler" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateSampler" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateShaderModule" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateShaderModule" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceCreateTexture" inheritFrom="WebGpuSharp.FFI.DeviceHandle.CreateTexture" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceDestroy" inheritFrom="WebGpuSharp.FFI.DeviceHandle.Destroy" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceGetAdapterInfo" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetAdapterInfo" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceGetFeatures" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetFeatures" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceGetLimits" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetLimits" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceGetLostFuture" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetLostFuture" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceGetQueue" inheritFrom="WebGpuSharp.FFI.DeviceHandle.GetQueue" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceHasFeature" inheritFrom="WebGpuSharp.FFI.DeviceHandle.HasFeature" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DevicePopErrorScope" inheritFrom="WebGpuSharp.FFI.DeviceHandle.PopErrorScope" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DevicePopErrorScope2" inheritFrom="WebGpuSharp.FFI.DeviceHandle.PopErrorScope" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DevicePushErrorScope" inheritFrom="WebGpuSharp.FFI.DeviceHandle.PushErrorScope" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceSetDeviceLostCallback" inheritFrom="WebGpuSharp.FFI.DeviceHandle.SetDeviceLostCallback" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceSetLabel" inheritFrom="WebGpuSharp.FFI.DeviceHandle.SetLabel" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceAddRef" inheritFrom="WebGpuSharp.FFI.DeviceHandle.AddRef" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="DeviceRelease" inheritFrom="WebGpuSharp.FFI.DeviceHandle.Release" inheritPriority="-10">
-            <param name="device">blank</param>
+            <param name="device">The device</param>
         </comment>
         <comment location="InstanceCreateSurface" inheritFrom="WebGpuSharp.FFI.InstanceHandle.CreateSurface" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceHasWGSLLanguageFeature" inheritFrom="WebGpuSharp.FFI.InstanceHandle.HasWGSLLanguageFeature" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceGetWGSLLanguageFeatures" inheritFrom="WebGpuSharp.FFI.InstanceHandle.GetWGSLLanguageFeatures" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceProcessEvents" inheritFrom="WebGpuSharp.FFI.InstanceHandle.ProcessEvents" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceRequestAdapter" inheritFrom="WebGpuSharp.FFI.InstanceHandle.RequestAdapter" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceRequestAdapter2" inheritFrom="WebGpuSharp.FFI.InstanceHandle.RequestAdapter" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceWaitAny" inheritFrom="WebGpuSharp.FFI.InstanceHandle.WaitAny" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceAddRef" inheritFrom="WebGpuSharp.FFI.InstanceHandle.AddRef" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="InstanceRelease" inheritFrom="WebGpuSharp.FFI.InstanceHandle.Release" inheritPriority="-10">
-            <param name="instance">blank</param>
+            <param name="instance">The instance</param>
         </comment>
         <comment location="PipelineLayoutSetLabel" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.SetLabel" inheritPriority="-10">
-            <param name="pipeline">blank</param>
+            <param name="pipelineLayout">The pipeline layout</param>
         </comment>
         <comment location="PipelineLayoutAddRef" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.AddRef" inheritPriority="-10">
-            <param name="pipeline">blank</param>
+            <param name="pipelineLayout">The pipeline layout</param>
         </comment>
         <comment location="PipelineLayoutRelease" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.Release" inheritPriority="-10">
-            <param name="pipeline">blank</param>
+            <param name="pipelineLayout">The pipeline layout</param>
         </comment>
         <comment location="QuerySetDestroy" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Destroy" inheritPriority="-10">
-            <param name="query">blank</param>
+            <param name="querySet">The query set</param>
         </comment>
         <comment location="QuerySetGetCount" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.GetCount" inheritPriority="-10">
-            <param name="query">blank</param>
+            <param name="querySet">The query set</param>
         </comment>
         <comment location="QuerySetGetType" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.GetType" inheritPriority="-10">
-            <param name="query">blank</param>
+            <param name="querySet">The query set</param>
         </comment>
         <comment location="QuerySetSetLabel" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.SetLabel" inheritPriority="-10">
-            <param name="query">blank</param>
+            <param name="querySet">The query set</param>
         </comment>
         <comment location="QuerySetAddRef" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.AddRef" inheritPriority="-10">
-            <param name="query">blank</param>
+            <param name="querySet">The query set</param>
         </comment>
         <comment location="QuerySetRelease" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Release" inheritPriority="-10">
-            <param name="query">blank</param>
+            <param name="querySet">The query set</param>
         </comment>
         <comment location="QueueOnSubmittedWorkDone" inheritFrom="WebGpuSharp.FFI.QueueHandle.OnSubmittedWorkDone" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueOnSubmittedWorkDone2" inheritFrom="WebGpuSharp.FFI.QueueHandle.OnSubmittedWorkDone" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueSetLabel" inheritFrom="WebGpuSharp.FFI.QueueHandle.SetLabel" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueSubmit" inheritFrom="WebGpuSharp.FFI.QueueHandle.Submit" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueWriteBuffer" inheritFrom="WebGpuSharp.FFI.QueueHandle.WriteBuffer" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueWriteTexture" inheritFrom="WebGpuSharp.FFI.QueueHandle.WriteTexture" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueAddRef" inheritFrom="WebGpuSharp.FFI.QueueHandle.AddRef" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="QueueRelease" inheritFrom="WebGpuSharp.FFI.QueueHandle.Release" inheritPriority="-10">
-            <param name="queue">blank</param>
+            <param name="queue">The queue</param>
         </comment>
         <comment location="RenderBundleSetLabel" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.SetLabel" inheritPriority="-10">
-            <param name="renderBundle">blank</param>
+            <param name="renderBundle">The render bundle</param>
         </comment>
         <comment location="RenderBundleAddRef" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.AddRef" inheritPriority="-10">
-            <param name="renderBundle">blank</param>
+            <param name="renderBundle">The render bundle</param>
         </comment>
         <comment location="RenderBundleRelease" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.Release" inheritPriority="-10">
-            <param name="renderBundle">blank</param>
+            <param name="renderBundle">The render bundle</param>
         </comment>
         <comment location="RenderBundleEncoderDraw" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Draw" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderDrawIndexed" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.DrawIndexed" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderDrawIndexedIndirect" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.DrawIndexedIndirect" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderDrawIndirect" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.DrawIndirect" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderFinish" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Finish" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.InsertDebugMarker" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.PopDebugGroup" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.PushDebugGroup" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderSetBindGroup" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetBindGroup" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderSetIndexBuffer" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetIndexBuffer" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetLabel" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderSetPipeline" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetPipeline" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderSetVertexBuffer" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.SetVertexBuffer" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderAddRef" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.AddRef" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderBundleEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Release" inheritPriority="-10">
-            <param name="renderBundleEncoder">blank</param>
+            <param name="renderBundleEncoder">The render bundle encoder</param>
         </comment>
         <comment location="RenderPassEncoderBeginOcclusionQuery" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.BeginOcclusionQuery" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderDraw" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.Draw" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderDrawIndexed" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.DrawIndexed" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderDrawIndexedIndirect" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.DrawIndexedIndirect" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderDrawIndirect" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.DrawIndirect" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderEnd" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.End" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderEndOcclusionQuery" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.EndOcclusionQuery" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderExecuteBundles" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.ExecuteBundles" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderInsertDebugMarker" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.InsertDebugMarker" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderPopDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.PopDebugGroup" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderPushDebugGroup" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.PushDebugGroup" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetBindGroup" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetBindGroup" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetBlendConstant" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetBlendConstant" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetIndexBuffer" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetIndexBuffer" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetLabel" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetLabel" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetPipeline" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetPipeline" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetScissorRect" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetScissorRect" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetStencilReference" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetStencilReference" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetVertexBuffer" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetVertexBuffer" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderSetViewport" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.SetViewport" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderAddRef" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.AddRef" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPassEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.Release" inheritPriority="-10">
-            <param name="renderPassEncoder">blank</param>
+            <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
         <comment location="RenderPipelineGetBindGroupLayout" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle." inheritPriority="-10">
-            <param name="renderPipeline">blank</param>
+            <param name="renderPipeline">The render pipeline</param>
         </comment>
         <comment location="RenderPipelineSetLabel" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.SetLabel" inheritPriority="-10">
-            <param name="renderPipeline">blank</param>
+            <param name="renderPipeline">The render pipeline</param>
         </comment>
         <comment location="RenderPipelineAddRef" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.AddRef" inheritPriority="-10">
-            <param name="renderPipeline">blank</param>
+            <param name="renderPipeline">The render pipeline</param>
         </comment>
         <comment location="RenderPipelineRelease" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.Release" inheritPriority="-10">
-            <param name="renderPipeline">blank</param>
+            <param name="renderPipeline">The render pipeline</param>
         </comment>
         <comment location="SamplerSetLabel" inheritFrom="WebGpuSharp.FFI.SamplerHandle.SetLabel" inheritPriority="-10">
-            <param name="sampler">blank</param>
+            <param name="sampler">The sampler</param>
         </comment>
         <comment location="SamplerAddRef" inheritFrom="WebGpuSharp.FFI.SamplerHandle.AddRef" inheritPriority="-10">
-            <param name="sampler">blank</param>
+            <param name="sampler">The sampler</param>
         </comment>
         <comment location="SamplerRelease" inheritFrom="WebGpuSharp.FFI.SamplerHandle.Release" inheritPriority="-10">
-            <param name="sampler">blank</param>
+            <param name="sampler">The sampler</param>
         </comment>
         <comment location="ShaderModuleGetCompilationInfo" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.GetCompilationInfo" inheritPriority="-10">
-            <param name="shaderModule">blank</param>
+            <param name="shaderModule">The shader module</param>
         </comment>
         <comment location="ShaderModuleGetCompilationInfo2" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle." inheritPriority="-10">
-            <param name="shaderModule">blank</param>
+            <param name="shaderModule">The shader module</param>
         </comment>
         <comment location="ShaderModuleSetLabel" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.SetLabel" inheritPriority="-10">
-            <param name="shaderModule">blank</param>
+            <param name="shaderModule">The shader module</param>
         </comment>
         <comment location="ShaderModuleAddRef" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.AddRef" inheritPriority="-10">
-            <param name="shaderModule">blank</param>
+            <param name="shaderModule">The shader module</param>
         </comment>
         <comment location="ShaderModuleRelease" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.Release" inheritPriority="-10">
-            <param name="shaderModule">blank</param>
+            <param name="shaderModule">The shader module</param>
         </comment>
         <comment location="SurfaceConfigure" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Configure" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfaceGetCapabilities" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.GetCapabilities" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfaceGetCurrentTexture" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.GetCurrentTexture" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfacePresent" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Present" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfaceSetLabel" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.SetLabel" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfaceUnconfigure" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Unconfigure" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfaceAddRef" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.AddRef" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="SurfaceRelease" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Release" inheritPriority="-10">
-            <param name="surface">blank</param>
+            <param name="surface">The surface</param>
         </comment>
         <comment location="TextureCreateView" inheritFrom="WebGpuSharp.FFI.TextureHandle.CreateView" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureDestroy" inheritFrom="WebGpuSharp.FFI.TextureHandle.Destroy" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetDepthOrArrayLayers" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetDepthOrArrayLayers" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetDimension" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetDimension" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetFormat" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetFormat" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetHeight" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetHeight" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetMipLevelCount" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetMipLevelCount" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetSampleCount" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetSampleCount" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetUsage" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetUsage" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureGetWidth" inheritFrom="WebGpuSharp.FFI.TextureHandle.GetWidth" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureSetLabel" inheritFrom="WebGpuSharp.FFI.TextureHandle.SetLabel" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureAddRef" inheritFrom="WebGpuSharp.FFI.TextureHandle.AddRef" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
         <comment location="TextureRelease" inheritFrom="WebGpuSharp.FFI.TextureHandle.Release" inheritPriority="-10">
-            <param name="texture">blank</param>
+            <param name="texture">The texture</param>
         </comment>
-        <comment location="TextureViewSetLabel" inheritFrom="WebGpuSharp.FFI.TextureHandle.ViewSetLabel" inheritPriority="-10">
-            <param name="textureView">blank</param>
+        <comment location="TextureViewSetLabel" inheritFrom="WebGpuSharp.FFI.TextureViewHandle.SetLabel" inheritPriority="-10">
+            <param name="textureView">The texture view</param>
         </comment>
-        <comment location="TextureViewAddRef" inheritFrom="WebGpuSharp.FFI.TextureHandle.ViewAddRef" inheritPriority="-10">
-            <param name="textureView">blank</param>
+        <comment location="TextureViewAddRef" inheritFrom="WebGpuSharp.FFI.TextureViewHandle.AddRef" inheritPriority="-10">
+            <param name="textureView">The texture view</param>
         </comment>
-        <comment location="TextureViewRelease" inheritFrom="WebGpuSharp.FFI.TextureHandle.ViewRelease" inheritPriority="-10">
-            <param name="textureView">blank</param>
+        <comment location="TextureViewRelease" inheritFrom="WebGpuSharp.FFI.TextureViewHandle.Release" inheritPriority="-10">
+            <param name="textureView">The texture view</param>
         </comment>
     </group>
 </group>
