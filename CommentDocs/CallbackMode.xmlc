@@ -9,13 +9,13 @@ public enum CallbackMode
 	AllowProcessEvents = 2,
 	AllowSpontaneous = 3,
 } -->
-<group prefix="WebGpuSharp">
+<group prefix="WebGpuSharp.">
     <comment location="CallbackMode">
         <summary>            
             The callback mode to use when calling a asynchronous function.
         </summary>
     </comment>
-    <group prefix="CallbackMode">
+    <group prefix="CallbackMode.">
         <comment location="WaitAnyOnly">
 			<summary>
 				fire when the asynchronous operation's future is passed to a call to 

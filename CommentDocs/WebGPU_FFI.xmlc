@@ -478,6 +478,12 @@
         <comment location="QuerySetRelease" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Release" inheritPriority="-10">
             <param name="querySet">The query set</param>
         </comment>
+        <comment location="QuerySetRelease" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Release" inheritPriority="-10">
+            <param name="querySet">The query set</param>
+        </comment>
+        <comment location="QuerySetGetType" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.WebGpuGetType" inheritPriority="-10">
+            <param name="querySet">The query set</param>
+        </comment>
         <comment location="QueueOnSubmittedWorkDone" inheritFrom="WebGpuSharp.FFI.QueueHandle.OnSubmittedWorkDone" inheritPriority="-10">
             <param name="queue">The queue</param>
         </comment>
@@ -622,7 +628,7 @@
         <comment location="RenderPassEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.Release" inheritPriority="-10">
             <param name="renderPassEncoder">The render pass encoder</param>
         </comment>
-        <comment location="RenderPipelineGetBindGroupLayout" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle." inheritPriority="-10">
+        <comment location="RenderPipelineGetBindGroupLayout" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.GetBindGroupLayout" inheritPriority="-10">
             <param name="renderPipeline">The render pipeline</param>
         </comment>
         <comment location="RenderPipelineSetLabel" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.SetLabel" inheritPriority="-10">

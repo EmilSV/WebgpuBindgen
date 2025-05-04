@@ -62,7 +62,6 @@ foreach (var csEnum in enums)
 foreach (var csStaticClass in staticClasses)
 {
     var staticClassWriter = new CSStaticClassWriter();
-
     await staticClassWriter.Write(csStaticClass, new CSWriteConfig
     {
         OutputDirectory = outputDirectory,

@@ -50,7 +50,7 @@ public QuerySetHandle(nuint ptr)=> _ptr = ptr;
 } -->
 <group prefix="WebGpuSharp.FFI.">
     <comment location="QuerySetHandle">
-        <summary>Handle to a query set. It can be created with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateQuerySet"></see>.</summary>
+        <summary>Handle to a query set. It can be created with <see cref="WebGpuSharp.FFI.DeviceHandle.CreateQuerySet"/>.</summary>
     </comment>
     <group prefix="QuerySetHandle.">
         <comment location="GetCount">
@@ -61,5 +61,20 @@ public QuerySetHandle(nuint ptr)=> _ptr = ptr;
             <summary>Sets a label on the QuerySet.</summary>
             <param name="label">The label to set.</param>
         </comment>
+        <comment location="WebGpuGetType">
+            <summary>Specifying the type of queries managed by the <see cref="WebGpuSharp.FFI.QuerySetHandle"/>.</summary>
+			<returns>
+				Two possible values:
+				<list
+				type="bullet">
+				<item>
+					<description><see cref="WebGpuSharp.QueryType.Occlusion">Occlusion</see> The <see cref="WebGpuSharp.FFI.QuerySetHandle"/> manages occlusion queries.</description>
+				</item>
+				<item>
+					<description><see cref="WebGpuSharp.QueryType.Timestamp">Timestamp</see> The <see cref="WebGpuSharp.FFI.QuerySetHandle"/> manages timestamp queries.</description>
+				</item>
+			</list>
+			</returns>
+		</comment>
     </group>
 </group>

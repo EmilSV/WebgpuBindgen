@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Security.Cryptography.X509Certificates;
 using CapiGenerator.CSModel;
 using ClangSharp;
@@ -7,6 +8,11 @@ namespace WebgpuBindgen;
 
 public static class RemoveNonRefHandler
 {
+    private static readonly ImmutableHashSet<string> EnumSyncMembers = [
+        "WebGpuSharp.WGSLLanguageFeatureName",
+        "WebGpuSharp.FeatureName",
+    ];
+
     public static void DeepFindStructs(ICSType? typeInstance, HashSet<CSStruct> structs, HashSet<CSEnum> enums, HashSet<CSStaticClass> staticClasses)
     {
         if (typeInstance == null)
@@ -191,16 +197,19 @@ public static class RemoveNonRefHandler
             structType.Methods.RemoveWhere(i => !refStructType.Methods.Any(j => CompareTypeNames(j.Name, i.Name)));
         }
 
-        var featureName = enumStartingPoint.Find(i => i.Name == "FeatureName");
-
-        if (featureName != null)
+        foreach (var enumToSync in EnumSyncMembers)
         {
-            var translationResultRefFeatureName = translationResultRef.Enums.First(i => i.Name == "FeatureName");
-            if (translationResultRefFeatureName != null)
+            var enumType = translationResult.Enums.Find(i => i.GetFullName() == enumToSync);
+            if (enumType != null)
             {
-                featureName.Values.RemoveWhere(i => !translationResultRefFeatureName.Values.Any(j => CompareTypeNames(j.Name, i.Name)));
+                var refEnumType = translationResultRef.Enums.FirstOrDefault(i => i.GetFullName() == enumToSync);
+                if (refEnumType != null)
+                {
+                    enumType.Values.RemoveWhere(i => !refEnumType.Values.Any(j => CompareTypeNames(j.Name, i.Name)));
+                }
             }
         }
+
 
         var deepFindStructsHashSet = new HashSet<CSStruct>();
         var deepFindEnumsHashSet = new HashSet<CSEnum>();

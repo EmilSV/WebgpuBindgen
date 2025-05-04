@@ -114,6 +114,21 @@ public static class MainTranslationFlow
             commentAssigner.AssignComment(specDocLookup);
         }
 
+        foreach (var csEnum in enums)
+        {
+            csEnum.Namespace ??= "WebGpuSharp";
+        }
+
+        foreach (var csStaticClass in staticClasses)
+        {
+            csStaticClass.Namespace ??= "WebGpuSharp.FFI";
+        }
+
+        foreach (var csStruct in structs)
+        {
+            csStruct.Namespace ??= "WebGpuSharp";
+        }
+
         return new TranslationResult
         {
             StaticClasses = staticClasses,

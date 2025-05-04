@@ -1,4 +1,6 @@
+using System.Collections.Frozen;
 using System.Collections.Immutable;
+using System.Diagnostics;
 using CapiGenerator.CSModel;
 using static CapiGenerator.CSModel.CSClassMemberModifierConsts;
 
@@ -26,6 +28,7 @@ public static class AddHandlerMethods
 
             var typeNameWithoutHandle = item.Name[0..^"Handle".Length];
 
+
             var methodsToAdd = staticClass.Methods
                 .Where(
                     i => i.Parameters.Count > 0 &&
@@ -39,7 +42,7 @@ public static class AddHandlerMethods
 
                 if (BannedMethodsNames.Contains(name))
                 {
-                    continue;
+                    name = $"WebGpu{name}";
                 }
 
                 var parameter = method.Parameters.Skip(1).ToArray();

@@ -8,7 +8,7 @@ public enum QueryType
 	Occlusion = 1,
 	Timestamp = 2,
 } -->
-<group prefix="WebGpuSharp.">
+<group prefix=" ">
     <comment location="QueryType">
         <summary> </summary>
     </comment>

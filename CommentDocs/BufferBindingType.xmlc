@@ -4,6 +4,7 @@
 	</comment>
 	<group prefix="BufferBindingType.">
 		<comment location="Undefined">
+			<summary> No buffer binding type is provided. </summary>
 		</comment>
 		<comment location="Uniform">
 			<summary>A buffer for uniform values</summary>
@@ -13,6 +14,12 @@
 		</comment>
 		<comment location="ReadOnlyStorage">
 			<summary>A storage buffer. The buffer can only be read in the shader</summary>
+		</comment>
+		<comment location="BindingNotUsed">
+			<summary>
+				 Indicates that this <see cref="WebGpuSharp.BufferBindingLayout">BufferBindingLayout</see> member of
+				 its parent <see cref="WebGpuSharp.BindGroupLayoutEntry">BindGroupLayoutEntry</see> is not used.
+			</summary>
 		</comment>
 	</group>
 </group>

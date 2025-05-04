@@ -1,14 +1,19 @@
-<group prefix="WebGpuSharp.AdapterType.">
-    <comment location="DiscreteGPU">
-        <summary>Discrete GPU with separate CPU/GPU memory.</summary>
+<group prefix="WebGpuSharp.">
+    <comment location="AdapterType">
+        <summary>The type of GPU adapter.</summary>
     </comment>
-    <comment location="IntegratedGPU">
-        <summary>Integrated GPU with shared CPU/GPU memory.</summary>
-    </comment>
-    <comment location="CPU">
-        <summary>Cpu / Software Rendering.</summary>
-    </comment>
-    <comment location="Unknown">
-        <summary>Unknown or other</summary>
-    </comment>
+    <group prefix="AdapterType.">
+        <comment location="DiscreteGPU">
+            <summary>Discrete GPU with separate CPU/GPU memory.</summary>
+        </comment>
+        <comment location="IntegratedGPU">
+            <summary>Integrated GPU with shared CPU/GPU memory.</summary>
+        </comment>
+        <comment location="CPU">
+            <summary>Cpu / Software Rendering.</summary>
+        </comment>
+        <comment location="Unknown">
+            <summary>Unknown or other</summary>
+        </comment>
+    </group>
 </group>
