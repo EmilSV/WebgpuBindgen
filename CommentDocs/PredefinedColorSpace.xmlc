@@ -1,0 +1,19 @@
+<group prefix="WebGpuSharp.">
+    <comment location="PredefinedColorSpace">
+        <summary>            
+            Color spaces supported on the web.
+        </summary>
+    </comment>
+    <group prefix="PredefinedColorSpace.">
+        <comment location="SRGB">
+            <summary>                
+                The sRGB color space.
+            </summary>
+        </comment>
+        <comment location="DisplayP3">
+            <summary>                
+                The Display P3 color space.
+            </summary>
+        </comment>
+    </group>
+</group>

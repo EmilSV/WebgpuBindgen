@@ -11,6 +11,9 @@ public static class RemoveNonRefHandler
     private static readonly ImmutableHashSet<string> EnumSyncMembers = [
         "WebGpuSharp.WGSLLanguageFeatureName",
         "WebGpuSharp.FeatureName",
+        "WebGpuSharp.LoadOp",
+        "WebGpuSharp.TextureAspect",
+        "WebGpuSharp.TextureFormat",
     ];
 
     public static void DeepFindStructs(ICSType? typeInstance, HashSet<CSStruct> structs, HashSet<CSEnum> enums, HashSet<CSStaticClass> staticClasses)

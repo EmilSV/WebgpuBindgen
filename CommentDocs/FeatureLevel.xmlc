@@ -1,0 +1,29 @@
+<!-- using System;
+using System.Runtime.InteropServices;
+
+namespace WebGpuSharp;
+
+public enum FeatureLevel
+{
+	Undefined = 0,
+	Compatibility = 1,
+	Core = 2,
+} -->
+<group prefix="WebGpuSharp">
+    <comment location="FeatureLevel">
+        <summary>            
+            FeatureLevel is used to indicate the feature level of a WebGPU device.
+        </summary>
+    </comment>
+    <group prefix="FeatureLevel.">
+        <comment location="Undefined">
+            <summary>Feature level is undefined.</summary>
+        </comment>
+        <comment location="Compatibility">
+            <summary>Compatibility feature level.</summary>
+        </comment>
+        <comment location="Core">
+            <summary>Core feature level.</summary>
+        </comment>
+    </group>
+</group>

@@ -1,23 +1,13 @@
-<!-- using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp;
-
-public enum QueryType
-{
-	Occlusion = 1,
-	Timestamp = 2,
-} -->
-<group prefix=" ">
+<group prefix="WebGpuSharp.">
     <comment location="QueryType">
-        <summary> </summary>
+        <summary>Type of query contained in a <see cref="WebGpuSharp.QuerySet"/>.</summary>
     </comment>
     <group prefix="QueryType.">
         <comment location="Occlusion">
-            <summary></summary>
+            <summary>Query returns a single 64-bit number, serving as an occlusion boolean.</summary>
         </comment>
         <comment location="Timestamp">
-            <summary></summary>
+            <summary>Query returns a 64-bit number indicating the GPU-timestamp where all previous commands have finished executing.</summary>
         </comment>
     </group>
 </group>

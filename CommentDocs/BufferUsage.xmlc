@@ -18,18 +18,62 @@ public enum BufferUsage : ulong
 	Indirect = 256,
 	QueryResolve = 512,
 } -->
-
-<group prefix="WebGpuSharp">
-	<comment location="BufferUsage">
-		<summary> Describes how a buffer is expected to be used.</summary>
-	</comment>
-	<group prefix="BufferUsage.">
-		<comment location="MapRead">
-			<summary> 
-				The buffer can be mapped for reading, for example when calling mapAsync() with
-				a mode of GPUMapMode.READ. This flag may only be combined with
-				GPUBufferUsage.COPY_DST. 
+<group prefix="WebGpuSharp.">
+    <comment location="BufferUsage">
+        <summary> Describes how a buffer is expected to be used.</summary>
+    </comment>
+    <group prefix="BufferUsage.">
+        <comment location="MapRead">
+            <summary>                
+                The buffer can be mapped for reading, for example when calling MapAsync() with
+                a mode of GPUMapMode.READ. This flag may only be combined with
+                GPUBufferUsage.COPY_DST.
+            </summary>
+        </comment>
+        <comment location="MapWrite">
+            <summary>                
+                Allow a buffer to be mapped for writing using <see cref="WebGpuSharp.Buffer.MapAsync"/> +<see cref="WebGpuSharp.Buffer.GetMappedRange"/>. This does not include creating a buffer with MappedAtCreation set.
+            </summary>
+        </comment>
+		<comment location="CopySrc">
+			<summary>                
+				Allow a buffer to be the source buffer for a <see cref="WebGpuSharp.CommandEncoder.CopyBufferToBuffer"/> or <see cref="WebGpuSharp.CommandEncoder.CopyBufferToTexture"/> operation.
 			</summary>
 		</comment>
-	</group>
+		<comment location="CopyDst">
+			<summary>
+				Allow a buffer to be the destination buffer for a <see cref="WebGpuSharp.CommandEncoder.CopyBufferToBuffer"/>, <see cref="WebGpuSharp.CommandEncoder.CopyTextureToBuffer"/>,  <see cref="WebGpuSharp.CommandEncoder.ClearBuffer"/> or <see cref="WebGpuSharp.Queue.WriteBuffer"/> operation.
+			</summary>
+		</comment>
+		<comment location="Index">
+			<summary>
+				Allow a buffer to be the index buffer in a draw operation.
+			</summary>
+		</comment>
+		<comment location="Vertex">
+			<summary>
+				Allow a buffer to be the vertex buffer in a draw operation.
+			</summary>
+		</comment>
+		<comment location="Uniform">
+			<summary>
+				Allow a buffer to be a <see cref="WebGpuSharp.BufferBindingType.Uniform"/> inside a bind group.
+			</summary>
+		</comment>
+		<comment location="Storage">
+			<summary>
+				Allow a buffer to be a <see cref="WebGpuSharp.BufferBindingType.Storage"/> inside a bind group.
+			</summary>
+		</comment>
+		<comment location="Indirect">
+			<summary>
+				Allow a buffer to be the indirect buffer in an indirect draw call.
+			</summary>
+		</comment>
+		<comment location="QueryResolve">
+			<summary>
+				Allow a buffer to be the destination buffer for a <see cref="WebGpuSharp.CommandEncoder.ResolveQuerySet"/> operation
+			</summary>
+		</comment>
+    </group>
 </group>

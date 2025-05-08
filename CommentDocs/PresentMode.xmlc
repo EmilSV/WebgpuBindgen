@@ -4,7 +4,7 @@
 			Describes when and in which order frames are presented on the screen when <see cref="WebGpuSharp.Surface.Present"/> is called.
 		</summary>
 	</comment>
-	<group prefix="WebGpuSharp.PresentMode.">
+	<group prefix="PresentMode.">
 		<comment location="Fifo">
 			<summary>
 				The presentation of the image to the user waits for the next vertical blanking period to update in a first-in, first-out manner.

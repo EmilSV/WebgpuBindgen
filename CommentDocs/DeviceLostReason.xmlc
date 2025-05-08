@@ -29,5 +29,8 @@ public enum DeviceLostReason
 		<comment location="FailedCreation">
 			<summary>The device was lost because it failed to be created.</summary>
 		</comment>
+		<comment location="CallbackCancelled">
+			<summary>The device was lost because the callback was cancelled.</summary>
+		</comment>
 </group>
 </group>

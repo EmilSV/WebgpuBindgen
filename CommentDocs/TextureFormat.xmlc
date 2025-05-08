@@ -3,7 +3,7 @@
         <summary>            
             Underlying texture data format.
             
-            If there is a conversion in the format (such as srgb -> linear),
+            If there is a conversion in the format (such as srgb -&gt; linear),
             the conversion listed here is for loading from texture in a shader. When writing to the texture,
             the opposite conversion takes place.
         </summary>
@@ -283,6 +283,18 @@
             <summary>Block compressed texture. 16 bytes per block. <see cref="WebGpuSharp.FeatureName.TextureCompressionASTC"/> must be enabled to use this texture format.</summary>
         </comment>
         <comment location="ASTC10x10UnormSrgb">
+            <summary>Block compressed texture. 16 bytes per block. <see cref="WebGpuSharp.FeatureName.TextureCompressionASTC"/> must be enabled to use this texture format.</summary>
+        </comment>
+        <comment location="ASTC12x10Unorm">
+            <summary>Block compressed texture. 16 bytes per block. <see cref="WebGpuSharp.FeatureName.TextureCompressionASTC"/> must be enabled to use this texture format.</summary>
+        </comment>
+        <comment location="ASTC12x10UnormSrgb">
+            <summary>Block compressed texture. 16 bytes per block. <see cref="WebGpuSharp.FeatureName.TextureCompressionASTC"/> must be enabled to use this texture format.</summary>
+        </comment>
+        <comment location="ASTC12x12Unorm">
+            <summary>Block compressed texture. 16 bytes per block. <see cref="WebGpuSharp.FeatureName.TextureCompressionASTC"/> must be enabled to use this texture format.</summary>
+        </comment>
+        <comment location="ASTC12x12UnormSrgb">
             <summary>Block compressed texture. 16 bytes per block. <see cref="WebGpuSharp.FeatureName.TextureCompressionASTC"/> must be enabled to use this texture format.</summary>
         </comment>
         <comment location="R16Unorm">

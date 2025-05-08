@@ -1,8 +1,13 @@
-<group prefix="WebGPUSharp.">
+<group prefix="WebGpuSharp.">
     <comment location="TextureViewDimension">
         <summary>Dimensions of a particular texture view.</summary>
     </comment>
     <group prefix="TextureViewDimension.">
+        <comment location="Undefined">
+            <summary>
+                The texture view dimension is undefined.
+            </summary>
+        </comment>
         <comment location="D1">
             <summary> The texture is viewed as a 1-dimensional image. Corresponding WGSL types: <list
                     type="bullet">

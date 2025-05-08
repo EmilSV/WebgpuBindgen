@@ -1,16 +1,15 @@
 <group prefix="WebGpuSharp.">
 	<comment location="CompilationInfoRequestStatus">
+		<summary>
+			CompilationInfoRequestStatus is used to indicate the status of a GetCompilationInfo	 request.
+		</summary>
 	</comment>
 	<group prefix="CompilationInfoRequestStatus.">
 		<comment location="Success">
+			<summary>Compilation succeeded.</summary>
 		</comment>
-		<comment location="InstanceDropped">
-		</comment>
-		<comment location="Error">
-		</comment>
-		<comment location="DeviceLost">
-		</comment>
-		<comment location="Unknown">
+		<comment location="CallbackCancelled">
+			<summary>Compilation was cancelled</summary>
 		</comment>
 	</group>
 </group>

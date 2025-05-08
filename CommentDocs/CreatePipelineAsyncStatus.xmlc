@@ -1,0 +1,32 @@
+<!-- 
+namespace WebGpuSharp;
+
+public enum CreatePipelineAsyncStatus
+{
+	Success = 1,
+	CallbackCancelled = 2,
+	ValidationError = 3,
+	InternalError = 4,
+} -->
+
+<group prefix="WebGpuSharp.">
+	<comment location="CreatePipelineAsyncStatus">
+		<summary>
+			CreatePipelineAsyncStatus is used to indicate the status of a CreateRenderPipelineAsync or CreateComputePipelineAsync request.
+		</summary>
+	</comment>
+	<group prefix="CreatePipelineAsyncStatus.">
+		<comment location="Success">
+			<summary>Pipeline creation succeeded.</summary>
+		</comment>
+		<comment location="CallbackCancelled">
+			<summary>Pipeline creation was cancelled</summary>
+		</comment>
+		<comment location="ValidationError">
+			<summary>Pipeline creation failed due to validation error.</summary>
+		</comment>
+		<comment location="InternalError">
+			<summary>Pipeline creation failed due to internal error.</summary>
+		</comment>
+	</group>
+</group>

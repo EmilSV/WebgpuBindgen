@@ -25,4 +25,9 @@ public enum CullMode
 	<comment location="CullMode">
 		<summary> The face culling mode. </summary>
 	</comment>
+	<group prefix="CullMode.">
+		<comment location="Undefined">
+			<summary> The face culling mode is not defined. </summary>
+		</comment>
+	</group>
 </group>

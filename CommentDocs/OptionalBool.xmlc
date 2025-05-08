@@ -1,15 +1,24 @@
-<!-- using System;
-using System.Runtime.InteropServices;
-
-namespace WebGpuSharp;
-
-public enum OptionalBool
-{
-	False = 0,
-	True = 1,
-	Undefined = 2,
-} -->
-
-
-<group>
+<group prefix="WebGpuSharp.">
+    <comment location="OptionalBool">
+        <summary>            
+            An enum representing an optional boolean value.
+        </summary>
+    </comment>
+    <group prefix="OptionalBool.">
+        <comment location="False">
+            <summary>                
+                The value is false.
+            </summary>
+        </comment>
+        <comment location="True">
+            <summary>                
+                The value is true.
+            </summary>
+        </comment>
+        <comment location="Undefined">
+            <summary>                
+                The value is undefined.
+            </summary>
+        </comment>
+    </group>
 </group>
