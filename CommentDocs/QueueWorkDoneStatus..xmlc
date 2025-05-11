@@ -23,6 +23,11 @@ public enum QueueWorkDoneStatus
                 The work done event was fired successfully.
             </summary>
         </comment>
+        <comment location="CallbackCancelled">
+            <summary>                
+                The callback was cancelled. 
+            </summary>
+        </comment>
         <comment location="InstanceDropped">
             <summary>                
                 The work done event was fired, but the instance was dropped before the event could fire.

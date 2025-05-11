@@ -3,14 +3,14 @@ using System.Runtime.InteropServices;
 
 namespace WebGpuSharp;
 
+/// <summary>
+/// The status of a wait operation.
+/// </summary>
 public enum WaitStatus
 {
 	Success = 1,
 	TimedOut = 2,
-	UnsupportedTimeout = 3,
-	UnsupportedCount = 4,
-	UnsupportedMixedSources = 5,
-	Unknown = 6,
+	Error = 3,
 } -->
 
 
@@ -18,4 +18,15 @@ public enum WaitStatus
 	<comment location="WaitStatus">
 		<summary>The status of a wait operation.</summary>
 	</comment>
+	<group prefix="WaitStatus.">
+		<comment location="Success">
+			<summary>The wait operation was successful.</summary>
+		</comment>
+		<comment location="TimedOut">
+			<summary>The wait operation timed out.</summary>
+		</comment>
+		<comment location="Error">
+			<summary>An error occurred during the wait operation.</summary>
+		</comment>
+	</group>
 </group>

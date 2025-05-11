@@ -19,6 +19,17 @@ public enum TextureSampleType
         </summary>
     </comment>
     <group prefix="TextureSampleType.">
+		<comment location="BindingNotUsed">
+			<summary>
+				Indicates that this <see cref="WebGpuSharp.TextureBindingLayout"/> member of
+				its parent <see cref="WebGpuSharp.BindGroupLayoutEntry"/> is not used.
+			</summary>
+		</comment>
+		<comment location="StorageTextureAccess">
+			<summary>            
+				Specific type of a sample in a texture binding.
+			</summary>
+		</comment>
         <comment location="Undefined">
 			<summary>
 				No value is passed for this argument.

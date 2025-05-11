@@ -23,6 +23,11 @@ public enum BufferUsage : ulong
         <summary> Describes how a buffer is expected to be used.</summary>
     </comment>
     <group prefix="BufferUsage.">
+		<comment location="None">
+			<summary>
+				No flags set. This is the default value.
+			</summary>
+		</comment>
         <comment location="MapRead">
             <summary>                
                 The buffer can be mapped for reading, for example when calling MapAsync() with

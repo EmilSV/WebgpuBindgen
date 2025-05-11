@@ -20,5 +20,8 @@
         <comment location="Unknown">
             <summary>An unknown error occurred.</summary>
         </comment>
+        <comment location="CallbackCancelled">
+            <summary>The callback was cancelled.</summary>
+        </comment>
     </group>
 </group>

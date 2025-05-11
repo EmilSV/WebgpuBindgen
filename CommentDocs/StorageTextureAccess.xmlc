@@ -1,15 +1,4 @@
-<!-- using System;
-using System.Runtime.InteropServices;
 
-namespace WebGpuSharp;
-
-public enum StorageTextureAccess
-{
-	Undefined = 0,
-	WriteOnly = 1,
-	ReadOnly = 2,
-	ReadWrite = 3,
-} -->
 <group prefix="WebGpuSharp.">
     <comment location="StorageTextureAccess">
         <summary>            
@@ -19,7 +8,13 @@ public enum StorageTextureAccess
         </summary>
     </comment>
     <group prefix="StorageTextureAccess.">
-        <comment location="Undefined">
+		<comment location="BindingNotUsed">
+			<summary>
+				Indicates that this <see cref="WebGpuSharp.StorageTextureBindingLayout"/> member of
+				its parent <see cref="WebGpuSharp.BindGroupLayoutEntry"/> is not used.
+			</summary>
+		</comment>
+		<comment location="Undefined">
             <summary>No value is passed for this argument</summary>
         </comment>
         <comment location="WriteOnly">

@@ -14,6 +14,7 @@ public static class RemoveNonRefHandler
         "WebGpuSharp.LoadOp",
         "WebGpuSharp.TextureAspect",
         "WebGpuSharp.TextureFormat",
+        "WebGpuSharp.TextureUsage",
     ];
 
     public static void DeepFindStructs(ICSType? typeInstance, HashSet<CSStruct> structs, HashSet<CSEnum> enums, HashSet<CSStaticClass> staticClasses)

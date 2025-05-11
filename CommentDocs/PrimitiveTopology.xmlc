@@ -36,4 +36,11 @@ public enum PrimitiveTopology
 			Primitive type the input mesh is composed of.
 		</summary>
 	</comment>
+	<group prefix="PrimitiveTopology.">
+		<comment location="Undefined">
+			<summary>
+				Primitive topology is not defined.
+			</summary>
+		</comment>
+	</group>
 </group>

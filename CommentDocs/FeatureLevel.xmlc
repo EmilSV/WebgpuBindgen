@@ -9,7 +9,7 @@ public enum FeatureLevel
 	Compatibility = 1,
 	Core = 2,
 } -->
-<group prefix="WebGpuSharp">
+<group prefix="WebGpuSharp.">
     <comment location="FeatureLevel">
         <summary>            
             FeatureLevel is used to indicate the feature level of a WebGPU device.

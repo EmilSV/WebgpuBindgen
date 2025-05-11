@@ -37,5 +37,10 @@ public enum RequestDeviceStatus
                 The status of the request is unknown.
             </summary>
         </comment>
+        <comment location="CallbackCancelled">
+            <summary>                
+                The callback was cancelled.
+            </summary>
+        </comment>
     </group>
 </group>

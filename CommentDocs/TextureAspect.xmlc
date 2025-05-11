@@ -36,4 +36,11 @@ public enum TextureAspect
             Kind of data the texture holds.
         </summary>
     </comment>
+	<group prefix="TextureAspect.">
+		<comment location="Undefined">
+			<summary>
+				Texture aspect is not defined.
+			</summary>
+		</comment>
+	</group>
 </group>

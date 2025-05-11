@@ -17,6 +17,12 @@ public enum SamplerBindingType
         </summary>
     </comment>
     <group prefix="SamplerBindingType.">
+		<comment location="BindingNotUsed">
+			<summary>
+				Indicates that this <see cref="WebGpuSharp.SamplerBindingLayout"/> member of
+     			its parent <see cref="WebGpuSharp.BindGroupLayoutEntry"/> is not used.
+			</summary>
+		</comment>
 		<comment location="Undefined">
 			<summary>No sampler binding type specified.</summary>
 		</comment>
