@@ -83,28 +83,28 @@ public TextureHandle(nuint ptr)=> _ptr = ptr;
 			<summary>
 				Returns the depth or layer count of this Texture.
 
-				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size.DepthOrArrayLayers"/> that was specified when creating the texture.
+				This is always equal to the <see cref="TextureDescriptorFFI.Size"/>.<see cref="Extent3D.DepthOrArrayLayers">DepthOrArrayLayers</see> that was specified when creating the texture.
 			</summary>
 		</comment>
 		<comment location="GetDimension">
 			<summary>
 				Returns the dimension of this Texture.
 
-				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Dimension"/> that was specified when creating the texture.
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI"/>.<see cref="Extent3D.Dimension">Dimension</see> that was specified when creating the texture.
 			</summary>
 		</comment>
 		<comment location="GetFormat">
 			<summary>
 				Returns the format of this Texture.
 
-				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Format"/> that was specified when creating the texture.
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI"/>.<see cref="Extent3D.Format">Format</see> that was specified when creating the texture.
 			</summary>
 		</comment>
 		<comment location="GetHeight">
 			<summary>
 				Returns the height of this Texture.
 
-				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size.Height"/> that was specified when creating the texture.
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI"/>.<see cref="Extent3D.Height">Height</see> that was specified when creating the texture.
 			</summary>
 		</comment>
 		<comment location="GetMipLevelCount">
@@ -128,7 +128,7 @@ public TextureHandle(nuint ptr)=> _ptr = ptr;
 			<summary>
 				Returns the width of this Texture.
 
-				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size.Width"/> that was specified when creating the texture.
+				This is always equal to the <see cref="WebGpuSharp.FFI.TextureDescriptorFFI.Size"/>.<see cref="Extent3D.Width">Width</see> that was specified when creating the texture.
 			</summary>
 		</comment>
 		<comment location="SetLabel">
