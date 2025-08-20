@@ -1,6 +1,6 @@
 <group prefix="WebGpuSharp.">
     <comment location="FeatureName">
-        <summary>
+        <summary>            
             Features that are not guaranteed to be supported. If you want to use a feature,
             you need to first verify that the adapter supports the feature. If the adapter does not
             support the feature, requesting a device with it enabled will fail.
@@ -8,7 +8,7 @@
     </comment>
     <group prefix="FeatureName.">
         <comment location="DepthClipControl">
-            <summary>
+            <summary>                
                 By default, polygon depth is clipped to 0-1 range before/during rasterization.
                 Anything outside of that range is rejected, and respective fragments are not
                 touched. With this extension, we can disabling clipping. That allows shadow map
@@ -24,7 +24,7 @@
         </summary>
     </comment>
     <comment location="Depth32FloatStencil8">
-        <summary> Allows for explicit creation of textures of format <see cref="WebGpuSharp.TextureFormat.Depth32FloatStencil8"/>
+        <summary> Allows for explicit creation of textures of format <see cref="WebGpuSharp.TextureFormat.Depth32FloatStencil8"/>            
             .
             Supported platforms:
         <list type="bullet">
@@ -50,15 +50,15 @@
         This feature allows the use of
         
     <see cref="WebGpuSharp.RenderPassDescriptor.TimestampWrites"/>
-    <see cref="WebGpuSharp.ComputePassDescriptor.TimestampWrites"/>
+    <see cref="WebGpuSharp.ComputePassDescriptor.TimestampWrites"/>        
         to write out timestamps.
         
         For arbitrary timestamp write commands on encoders refer to
-    <see cref="WebGpuSharp.FeatureName.TimestampQueryInsideEncoders"/>. For arbitrary timestamp write commands on passes refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsidePasses"/>
+    <see cref="WebGpuSharp.FeatureName.TimestampQueryInsideEncoders"/>. For arbitrary timestamp write commands on passes refer to <see cref="WebGpuSharp.FeatureName.TimestampQueryInsidePasses"/>        
         .
         
         They must be resolved using
-    <see cref="WebGpuSharp.CommandEncoder.ResolveQuerySet"/>
+    <see cref="WebGpuSharp.CommandEncoder.ResolveQuerySet"/>        
         into a buffer, the timestamps results is in nanoseconds and stored as 64bit integers. Multiple timestamps can then be diffed to get the time for operations between them to finish.
         
         Supported Platforms:
@@ -82,11 +82,11 @@
         Compressed textures sacrifice some quality in exchange for significantly reduced bandwidth usage.
         
         Support for this feature guarantees availability of
-    <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for BCn formats. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/>
+    <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for BCn formats. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/>        
         may enable additional usages.
         
         This feature guarantees availability of sliced-3d textures for BC formats when combined with
-    <see cref="WebGpuSharp.FeatureName.TextureCompressionBcSliced3d"/>
+    <see cref="WebGpuSharp.FeatureName.TextureCompressionBcSliced3d"/>        
         .
         
         Supported Platforms:
@@ -108,9 +108,9 @@
         Compressed textures sacrifice some quality in exchange for significantly reduced bandwidth usage.
         
         Support for this feature guarantees availability of
-    <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/>
+    <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/>        
         for ETC2 formats.
-    <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/>
+    <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/>        
         may enable additional usages.
         
         Supported Platforms:
@@ -131,7 +131,7 @@
         Compressed textures sacrifice some quality in exchange for significantly reduced bandwidth usage.
         
         Support for this feature guarantees availability of
-    <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for ASTC formats with Unorm/UnormSrgb channel type. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/>
+    <see cref="Webgpu.TextureUsage.CopySrc"/>, <see cref="Webgpu.TextureUsage.CopyDst"/> or <see cref="Webgpu.TextureUsage.TextureBinding"/> for ASTC formats with Unorm/UnormSrgb channel type. <see cref="WebGpuSharp.FeatureName.TextureAdapterSpecificFormatFeatures"/>        
         may enable additional usages.
         
         Supported Platforms:
@@ -193,7 +193,7 @@
 <comment location="RG11B10UfloatRenderable">
     <summary>        
         Allows for usage of textures of format
-    <see cref="WebGpuSharp.TextureFormat.Rg11b10Ufloat"/>
+    <see cref="WebGpuSharp.TextureFormat.Rg11b10Ufloat"/>        
         as a render target.
         
         Supported platforms:
@@ -207,7 +207,7 @@
 <comment location="BGRA8UnormStorage">
     <summary>        
         Allows the
-    <see cref="WebGpuSharp.TextureUsage.StorageBinding"/> usage on textures with format <see cref="WebGpuSharp.TextureFormat.BGRA8Unorm"/>
+    <see cref="WebGpuSharp.TextureUsage.StorageBinding"/> usage on textures with format <see cref="WebGpuSharp.TextureFormat.BGRA8Unorm"/>        
         .
         
         Supported Platforms:
@@ -253,23 +253,22 @@
         This feature must be used in combination with TEXTURE_COMPRESSION_BC to enable 3D textures with BC compression. It does not enable the BC formats by itself.
     </summary>
 </comment>
-<comment location="TextureCompressionASTCSliced3D">
-</comment>
+<comment location="TextureCompressionASTCSliced3D"/>
 <comment location="Float32Blendable">
-	<summary>
-		Allows textures with
-		formats "r32float", "rg32float", and "rgba32float" to be blendable.
-	</summary>
+    <summary>        
+        Allows textures with
+        formats "r32float", "rg32float", and "rgba32float" to be blendable.
+    </summary>
 </comment>
 <comment location="ClipDistances">
-	<summary>
-		Allows setting user-defined clip distances in vertex shader outputs. 
-	</summary>
+    <summary>        
+        Allows setting user-defined clip distances in vertex shader outputs.
+    </summary>
 </comment>
 <comment location="Subgroups">
-	<summary>
-		Subgroups enable SIMD-level parallelism by allowing threads in a workgroup to communicate and perform collective math operations (e.g., summing 16 numbers).
-	</summary>
+    <summary>        
+        Subgroups enable SIMD-level parallelism by allowing threads in a workgroup to communicate and perform collective math operations (e.g., summing 16 numbers).
+    </summary>
 </comment>
 <comment location="TextureCompressionASTCSliced3D">
     <summary>        
@@ -277,6 +276,14 @@
         
         This feature must be used in combination with TEXTURE_COMPRESSION_ASTCS to enable 3D textures with ASTCS compression. It does not enable the ASTCS formats by itself.
     </summary>
+</comment>
+<comment location="CoreFeaturesAndLimits">
+    <summary>        
+        Allows all Core WebGPU features and limits to be used.
+    <remarks>        
+        This is currently available on all adapters and enabled automatically on all devices even if not requested.
+    </remarks>
+</summary>
 </comment>
 </group>
 </group>

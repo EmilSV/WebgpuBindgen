@@ -319,7 +319,7 @@
             <summary>Red, green, blue, and alpha. 16 bit integer per channel. [0, 65535] converted to/from float [-1, 1] in shader. <see cref="WebGpuSharp.FeatureName.TextureFormat16BitNorm"/> must be enabled to use this texture format.</summary>
         </comment>
         <comment location="NV12">
-            <summary>YUV 4:2:0 chroma subsampled format. Contains two planes: 0: Single 8 bit channel luminance. 1: Dual 8 bit channel chrominance at half width and half height. Valid view formats for luminance are TextureFormat::R8Unorm. Valid view formats for chrominance are TextureFormat::Rg8Unorm. Width and height must be even. <see cref="WebGpuSharp.FeatureName.TextureFormatNv12"/> must be enabled to use this texture format.</summary>
+            <summary>YUV 4:2:0 chroma subsampled format. Contains two planes: 0: Single 8 bit channel luminance. 1: Dual 8 bit channel chrominance at half width and half height. Valid view formats for luminance are <see cref="WebGpuSharp.TextureFormat.R8Unorm"/>. Valid view formats for chrominance are <see cref="WebGpuSharp.TextureFormat.Rg8Unorm"/>. Width and height must be even. <see cref="WebGpuSharp.FeatureName.TextureFormatNv12"/> must be enabled to use this texture format.</summary>
         </comment>
     </group>
 </group>

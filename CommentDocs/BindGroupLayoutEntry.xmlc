@@ -1,6 +1,10 @@
 <group prefix="WebGpuSharp.">
-	<comment location="BindGroupLayoutEntry">
-		<summary> Describes a single resource binding within a <see
-				cref="WebGpuSharp.BindGroupLayout" />. </summary>
-	</comment>
+    <comment location="BindGroupLayoutEntry">
+        <summary> Describes a single resource binding within a <see cref="WebGpuSharp.BindGroupLayout"/>. </summary>
+    </comment>
+    <group prefix="BindGroupLayoutEntry.">
+        <comment location="BindingArraySize">
+            <summary>If non-zero, this entry defines a binding array with this size.</summary>
+        </comment>
+    </group>
 </group>

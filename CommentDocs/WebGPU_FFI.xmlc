@@ -88,7 +88,7 @@
                 structure.
                 After calling this function, using the members will lead to undefined behavior.
             </summary>
-            <param name="value">The <see cref="WebGpuSharp.FFI.AdapterInfoFFI"/> to free.</param>
+            <param name="adapterInfo">The <see cref="WebGpuSharp.FFI.AdapterInfoFFI"/> to free.</param>
         </comment>
         <comment location="CreateInstance">
             <summary>                
@@ -104,7 +104,7 @@
                 structure.
                 After calling this function, using the members will lead to undefined behavior.
             </summary>
-            <param name="value">The <see cref="WebGpuSharp.FFI.SupportedFeaturesFFI"/> to free.</param>
+            <param name="supportedFeatures">The <see cref="WebGpuSharp.FFI.SupportedFeaturesFFI"/> to free.</param>
         </comment>
         <comment location="SurfaceCapabilitiesFreeMembers">
             <summary>                
@@ -122,6 +122,7 @@
                 structure.
                 After calling this function, using the members will lead to undefined behavior.
             </summary>
+            <param name="surfaceCapabilities">The <see cref="WebGpuSharp.FFI.SurfaceCapabilitiesFFI"/> to free.</param>
         </comment>
         <comment location="SurfaceDescriptorFreeMembers">
             <summary>                
@@ -145,7 +146,7 @@
                 structure.
                 After calling this function, using the members will lead to undefined behavior.
             </summary>
-            <param name="value">The <see cref="WebGpuSharp.FFI.SupportedWGSLLanguageFeaturesFFI"/> to free.</param>
+            <param name="supportedWGSLLanguageFeatures">The <see cref="WebGpuSharp.FFI.SupportedWGSLLanguageFeaturesFFI"/> to free.</param>
         </comment>
         <comment location="AdapterGetFeatures" inheritFrom="WebGpuSharp.FFI.AdapterHandle.GetFeatures" inheritPriority="-10">
             <param name="adapter">The adapter to query.</param>
