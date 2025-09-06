@@ -16,7 +16,9 @@
                 "${workspaceFolder}/webgpu_ref.h",
                 "${workspaceFolder}/WebGpuSharp/src/generatedCode",
                 "${workspaceFolder}/webgpu_spec.json",
-                "${workspaceFolder}/CommentDocs"
+                "${workspaceFolder}/CommentDocs",
+                "${workspaceFolder}/dawn_codegen.json"
+                
             ],
             "cwd": "${workspaceFolder}/WebgpuBindgen",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console

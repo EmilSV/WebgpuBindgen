@@ -1,5 +1,6 @@
 using CapiGenerator.Writer;
 using WebgpuBindgen;
+using WebgpuBindgen.DawnCodegenJson;
 using WebgpuBindgen.XmlComments;
 
 string headerFile = Path.GetFullPath(args[0]);
@@ -7,6 +8,7 @@ string headerRefFile = Path.GetFullPath(args[1]);
 string outputDirectory = Path.GetFullPath(args[2]);
 string? jsonFile = args.Length > 2 ? Path.GetFullPath(args[3]) : null;
 XmlCommentDocs? doc = args.Length > 3 ? await XmlCommentDocs.Create(Path.GetFullPath(args[4])) : null;
+DawnCodegenDocs? dawnCodegenDocs = args.Length > 4 ? await DawnCodegenDocs.LoadFromFileAsync(Path.GetFullPath(args[5])) : null;
 
 var specDocLookup = await SpecLoader.LoadSpecDocLookup(jsonFile);
 var translationResult = await MainTranslationFlow.Translate(headerFile, specDocLookup);

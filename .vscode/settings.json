@@ -2,6 +2,8 @@
     "cSpell.words": [
         "Bindgen",
         "Capi",
+        "emscripten",
+        "Jsrepr",
         "Setlike",
         "Texel",
         "texels",
