@@ -17,6 +17,8 @@ namespace WebgpuBindgen.DawnCodegenJson;
 [JsonDerivedType(typeof(CodegenObject), typeDiscriminator: "object")]
 [JsonDerivedType(typeof(CallbackInfo), typeDiscriminator: "callback info")]
 [JsonDerivedType(typeof(CallbackFunction), typeDiscriminator: "callback function")]
+[JsonDerivedType(typeof(Typedef), typeDiscriminator: "typedef")]
+[JsonDerivedType(typeof(Constant), typeDiscriminator: "constant")]
 public class CodegenItem
 {
     [JsonExtensionData]

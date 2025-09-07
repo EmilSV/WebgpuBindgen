@@ -5,7 +5,7 @@ namespace WebgpuBindgen.DawnCodegenJson;
 
 public class Function : CodegenItem
 {
-    public required string Returns { get; init; }
+    public ReturnType? Returns { get; init; }
     [JsonPropertyName("_comment")]
     public string? Comment { get; init; }
     public ImmutableArray<Arg> Args { get; init; }
