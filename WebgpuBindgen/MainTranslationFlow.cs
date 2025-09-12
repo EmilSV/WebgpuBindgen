@@ -3,6 +3,7 @@ using CapiGenerator.CSModel;
 using CapiGenerator.Parser;
 using CapiGenerator.Translator;
 using CppAst;
+using WebgpuBindgen.DawnCodegenJson;
 using WebgpuBindgen.SpecDocRepresentation;
 
 namespace WebgpuBindgen;
@@ -11,7 +12,7 @@ namespace WebgpuBindgen;
 public static class MainTranslationFlow
 {
     public static async Task<TranslationResult> Translate(
-        string headerFilePath, SpecDocLookup? specDocLookup)
+        string headerFilePath, SpecDocLookup? specDocLookup, DawnCodegenDoc? dawnCodegenDoc)
     {
         string headerPath = FakeCStdHeader.CreateFakeStdHeaderFolder();
 
@@ -101,6 +102,10 @@ public static class MainTranslationFlow
         if (specDocLookup != null)
         {
             await DefaultFixer.FixDefaults(structs, specDocLookup);
+        }
+        if(dawnCodegenDoc != null)
+        {
+            DefaultFixerDawnCodegenDoc.Fix(structs, staticClasses, enums, dawnCodegenDoc);
         }
         await StringViewFixer.FixStringViewClassMembers(structs, staticClasses);
         await StructFixer.AddDefaultValueFromStructFelids(structs);

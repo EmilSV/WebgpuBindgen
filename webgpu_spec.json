@@ -733,6 +733,51 @@
         "extAttrs": [],
         "special": "",
         "readonly": true
+      },
+      {
+        "type": "attribute",
+        "name": "subgroupMinSize",
+        "idlType": {
+          "type": "attribute-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "unsigned long"
+        },
+        "extAttrs": [],
+        "special": "",
+        "readonly": true
+      },
+      {
+        "type": "attribute",
+        "name": "subgroupMaxSize",
+        "idlType": {
+          "type": "attribute-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "unsigned long"
+        },
+        "extAttrs": [],
+        "special": "",
+        "readonly": true
+      },
+      {
+        "type": "attribute",
+        "name": "isFallbackAdapter",
+        "idlType": {
+          "type": "attribute-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "boolean"
+        },
+        "extAttrs": [],
+        "special": "",
+        "readonly": true
       }
     ],
     "extAttrs": [
@@ -1074,7 +1119,39 @@
           "union": false,
           "idlType": "DOMString"
         },
-        "default": null,
+        "default": {
+          "type": "string",
+          "value": "core"
+        },
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "\"Feature level\" for the adapter request.\n",
+              "The allowed "
+            ]
+          },
+          {
+            "tag": "dfn",
+            "type": "dfn",
+            "text": "feature level string",
+            "for": ""
+          },
+          {
+            "tag": "text",
+            "items": [
+              " values are:\n",
+              "<dl dfn-type=dfn dfn-for=\"feature level string\">\n",
+              ": <dfn noexport>\"core\"</dfn>\n",
+              "No effect.\n",
+              ": <dfn noexport>\"compatibility\"</dfn>\n",
+              "No effect.\n",
+              "Note:\n",
+              "This value is reserved for future use as a way to opt into additional validation restrictions.\n",
+              "Applications should not use this value at this time."
+            ]
+          }
+        ],
         "required": false
       },
       {
@@ -1095,6 +1172,24 @@
       {
         "type": "field",
         "name": "forceFallbackAdapter",
+        "extAttrs": [],
+        "idlType": {
+          "type": "dictionary-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "boolean"
+        },
+        "default": {
+          "type": "boolean",
+          "value": false
+        },
+        "required": false
+      },
+      {
+        "type": "field",
+        "name": "xrCompatible",
         "extAttrs": [],
         "idlType": {
           "type": "dictionary-type",
@@ -1239,21 +1334,6 @@
             "arguments": []
           }
         ],
-        "special": "",
-        "readonly": true
-      },
-      {
-        "type": "attribute",
-        "name": "isFallbackAdapter",
-        "idlType": {
-          "type": "attribute-type",
-          "extAttrs": [],
-          "generic": "",
-          "nullable": false,
-          "union": false,
-          "idlType": "boolean"
-        },
-        "extAttrs": [],
         "special": "",
         "readonly": true
       },
@@ -1636,6 +1716,10 @@
     "values": [
       {
         "type": "enum-value",
+        "value": "core-features-and-limits"
+      },
+      {
+        "type": "enum-value",
         "value": "depth-clip-control"
       },
       {
@@ -1697,6 +1781,22 @@
       {
         "type": "enum-value",
         "value": "dual-source-blending"
+      },
+      {
+        "type": "enum-value",
+        "value": "subgroups"
+      },
+      {
+        "type": "enum-value",
+        "value": "texture-formats-tier1"
+      },
+      {
+        "type": "enum-value",
+        "value": "texture-formats-tier2"
+      },
+      {
+        "type": "enum-value",
+        "value": "primitive-index"
       }
     ],
     "extAttrs": []
@@ -1717,24 +1817,7 @@
           "union": false,
           "idlType": "EventHandler"
         },
-        "extAttrs": [
-          {
-            "type": "extended-attribute",
-            "name": "Exposed",
-            "rhs": {
-              "type": "identifier-list",
-              "value": [
-                {
-                  "value": "Window"
-                },
-                {
-                  "value": "Worker"
-                }
-              ]
-            },
-            "arguments": []
-          }
-        ],
+        "extAttrs": [],
         "special": "",
         "readonly": false
       }
@@ -4409,7 +4492,7 @@
             "linkType": "definition",
             "displayText": null,
             "path": [
-              "image copy"
+              "texel copy"
             ]
           },
           {
@@ -4720,6 +4803,14 @@
       },
       {
         "type": "enum-value",
+        "value": "r16unorm"
+      },
+      {
+        "type": "enum-value",
+        "value": "r16snorm"
+      },
+      {
+        "type": "enum-value",
         "value": "r16uint"
       },
       {
@@ -4757,6 +4848,14 @@
       {
         "type": "enum-value",
         "value": "r32float"
+      },
+      {
+        "type": "enum-value",
+        "value": "rg16unorm"
+      },
+      {
+        "type": "enum-value",
+        "value": "rg16snorm"
       },
       {
         "type": "enum-value",
@@ -4825,6 +4924,14 @@
       {
         "type": "enum-value",
         "value": "rg32float"
+      },
+      {
+        "type": "enum-value",
+        "value": "rgba16unorm"
+      },
+      {
+        "type": "enum-value",
+        "value": "rgba16snorm"
       },
       {
         "type": "enum-value",
@@ -6061,74 +6168,7 @@
           "idlType": "GPUBufferBindingLayout"
         },
         "default": null,
-        "comment": [
-          {
-            "tag": "text",
-            "items": [
-              "When "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": "provided",
-            "path": [
-              "map",
-              "exist"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              ", indicates the "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": null,
-            "path": [
-              "binding resource type"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " for this "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUBindGroupLayoutEntry"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "\n",
-              "is "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUBufferBinding"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "."
-            ]
-          }
-        ],
+        "comment": [],
         "required": false
       },
       {
@@ -6144,74 +6184,7 @@
           "idlType": "GPUSamplerBindingLayout"
         },
         "default": null,
-        "comment": [
-          {
-            "tag": "text",
-            "items": [
-              "When "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": "provided",
-            "path": [
-              "map",
-              "exist"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              ", indicates the "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": null,
-            "path": [
-              "binding resource type"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " for this "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUBindGroupLayoutEntry"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "\n",
-              "is "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUSampler"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "."
-            ]
-          }
-        ],
+        "comment": [],
         "required": false
       },
       {
@@ -6227,74 +6200,7 @@
           "idlType": "GPUTextureBindingLayout"
         },
         "default": null,
-        "comment": [
-          {
-            "tag": "text",
-            "items": [
-              "When "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": "provided",
-            "path": [
-              "map",
-              "exist"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              ", indicates the "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": null,
-            "path": [
-              "binding resource type"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " for this "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUBindGroupLayoutEntry"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "\n",
-              "is "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUTextureView"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "."
-            ]
-          }
-        ],
+        "comment": [],
         "required": false
       },
       {
@@ -6310,74 +6216,7 @@
           "idlType": "GPUStorageTextureBindingLayout"
         },
         "default": null,
-        "comment": [
-          {
-            "tag": "text",
-            "items": [
-              "When "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": "provided",
-            "path": [
-              "map",
-              "exist"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              ", indicates the "
-            ]
-          },
-          {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": null,
-            "path": [
-              "binding resource type"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " for this "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUBindGroupLayoutEntry"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "\n",
-              "is "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUTextureView"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "."
-            ]
-          }
-        ],
+        "comment": [],
         "required": false
       },
       {
@@ -6397,22 +6236,26 @@
           {
             "tag": "text",
             "items": [
-              "When "
+              "Exactly one of these members must be set, indicating the binding type.\n",
+              "The contents of the member specify options specific to that type.\n",
+              "The corresponding resource in "
             ]
           },
           {
-            "tag": "docLink",
-            "linkType": "definition",
-            "displayText": "provided",
+            "tag": "typeLink",
+            "linkType": "function",
+            "IsInternalState": false,
+            "displayText": null,
             "path": [
-              "map",
-              "exist"
+              "GPUDevice",
+              "createBindGroup()"
             ]
           },
           {
             "tag": "text",
             "items": [
-              ", indicates the "
+              " requires\n",
+              "the corresponding "
             ]
           },
           {
@@ -6426,38 +6269,7 @@
           {
             "tag": "text",
             "items": [
-              " for this "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUBindGroupLayoutEntry"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "\n",
-              "is "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUExternalTexture"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              "."
+              " for this binding."
             ]
           }
         ],
@@ -7313,7 +7125,23 @@
           "generic": "",
           "nullable": false,
           "union": false,
+          "idlType": "GPUTexture"
+        },
+        {
+          "type": "typedef-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
           "idlType": "GPUTextureView"
+        },
+        {
+          "type": "typedef-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "GPUBuffer"
         },
         {
           "type": "typedef-type",
@@ -7465,6 +7293,21 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
+              "GPUTexture"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ", "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
               "GPUTextureView"
             ]
           },
@@ -7480,7 +7323,22 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUExternalTexture"
+              "GPUBuffer"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ", "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUBufferBinding"
             ]
           },
           {
@@ -7495,7 +7353,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUBufferBinding"
+              "GPUExternalTexture"
             ]
           },
           {
@@ -7723,7 +7581,7 @@
               "type": "dictionary-type",
               "extAttrs": [],
               "generic": "",
-              "nullable": false,
+              "nullable": true,
               "union": false,
               "idlType": "GPUBindGroupLayout"
             }
@@ -7734,7 +7592,7 @@
           {
             "tag": "text",
             "items": [
-              "A list of "
+              "A list of optional "
             ]
           },
           {
@@ -7749,7 +7607,8 @@
           {
             "tag": "text",
             "items": [
-              "s the pipeline will use. Each element corresponds to a\n"
+              "s the pipeline will use. Each element corresponds\n",
+              "to a "
             ]
           },
           {
@@ -7778,8 +7637,8 @@
           {
             "tag": "text",
             "items": [
-              ", with the `N`th element corresponding with\n",
-              "`@group(N)`."
+              ", with the `N`th element corresponding\n",
+              "with `@group(N)`."
             ]
           }
         ],
@@ -11735,11 +11594,19 @@
     "values": [
       {
         "type": "enum-value",
+        "value": "uint8"
+      },
+      {
+        "type": "enum-value",
         "value": "uint8x2"
       },
       {
         "type": "enum-value",
         "value": "uint8x4"
+      },
+      {
+        "type": "enum-value",
+        "value": "sint8"
       },
       {
         "type": "enum-value",
@@ -11751,11 +11618,19 @@
       },
       {
         "type": "enum-value",
+        "value": "unorm8"
+      },
+      {
+        "type": "enum-value",
         "value": "unorm8x2"
       },
       {
         "type": "enum-value",
         "value": "unorm8x4"
+      },
+      {
+        "type": "enum-value",
+        "value": "snorm8"
       },
       {
         "type": "enum-value",
@@ -11767,11 +11642,19 @@
       },
       {
         "type": "enum-value",
+        "value": "uint16"
+      },
+      {
+        "type": "enum-value",
         "value": "uint16x2"
       },
       {
         "type": "enum-value",
         "value": "uint16x4"
+      },
+      {
+        "type": "enum-value",
+        "value": "sint16"
       },
       {
         "type": "enum-value",
@@ -11783,6 +11666,10 @@
       },
       {
         "type": "enum-value",
+        "value": "unorm16"
+      },
+      {
+        "type": "enum-value",
         "value": "unorm16x2"
       },
       {
@@ -11791,11 +11678,19 @@
       },
       {
         "type": "enum-value",
+        "value": "snorm16"
+      },
+      {
+        "type": "enum-value",
         "value": "snorm16x2"
       },
       {
         "type": "enum-value",
         "value": "snorm16x4"
+      },
+      {
+        "type": "enum-value",
+        "value": "float16"
       },
       {
         "type": "enum-value",
@@ -11856,6 +11751,10 @@
       {
         "type": "enum-value",
         "value": "unorm10-10-10-2"
+      },
+      {
+        "type": "enum-value",
+        "value": "unorm8x4-bgra"
       }
     ],
     "extAttrs": []
@@ -12211,9 +12110,9 @@
     "extAttrs": [],
     "partial": false
   },
-  "GPUImageDataLayout": {
+  "GPUTexelCopyBufferLayout": {
     "type": "dictionary",
-    "name": "GPUImageDataLayout",
+    "name": "GPUTexelCopyBufferLayout",
     "inheritance": null,
     "members": [
       {
@@ -12236,23 +12135,23 @@
           {
             "tag": "text",
             "items": [
-              "The offset, in bytes, from the beginning of the image data source (such as a\n"
+              "The offset, in bytes, from the beginning of the texel data source (such as a\n"
             ]
           },
           {
             "tag": "typeLink",
             "linkType": "property",
             "IsInternalState": false,
-            "displayText": "GPUImageCopyBuffer.buffer",
+            "displayText": "GPUTexelCopyBufferInfo.buffer",
             "path": [
-              "GPUImageCopyBuffer",
+              "GPUTexelCopyBufferInfo",
               "buffer"
             ]
           },
           {
             "tag": "text",
             "items": [
-              ") to the start of the image data\n",
+              ") to the start of the texel data\n",
               "within that source."
             ]
           }
@@ -12394,7 +12293,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageDataLayout",
+              "GPUTexelCopyBufferLayout",
               "rowsPerImage"
             ]
           },
@@ -12410,7 +12309,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageDataLayout",
+              "GPUTexelCopyBufferLayout",
               "bytesPerRow"
             ]
           },
@@ -12470,10 +12369,10 @@
     "extAttrs": [],
     "partial": false
   },
-  "GPUImageCopyBuffer": {
+  "GPUTexelCopyBufferInfo": {
     "type": "dictionary",
-    "name": "GPUImageCopyBuffer",
-    "inheritance": "GPUImageDataLayout",
+    "name": "GPUTexelCopyBufferInfo",
+    "inheritance": "GPUTexelCopyBufferLayout",
     "members": [
       {
         "type": "field",
@@ -12492,7 +12391,7 @@
           {
             "tag": "text",
             "items": [
-              "A buffer which either contains image data to be copied or will store the image data being\n",
+              "A buffer which either contains texel data to be copied or will store the texel data being\n",
               "copied, depending on the method it is being passed to."
             ]
           }
@@ -12503,9 +12402,9 @@
     "extAttrs": [],
     "partial": false
   },
-  "GPUImageCopyTexture": {
+  "GPUTexelCopyTextureInfo": {
     "type": "dictionary",
-    "name": "GPUImageCopyTexture",
+    "name": "GPUTexelCopyTextureInfo",
     "inheritance": null,
     "members": [
       {
@@ -12560,7 +12459,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyTexture",
+              "GPUTexelCopyTextureInfo",
               "texture"
             ]
           },
@@ -12628,7 +12527,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyTexture",
+              "GPUTexelCopyTextureInfo",
               "texture"
             ]
           },
@@ -12645,10 +12544,10 @@
     "extAttrs": [],
     "partial": false
   },
-  "GPUImageCopyTextureTagged": {
+  "GPUCopyExternalImageDestInfo": {
     "type": "dictionary",
-    "name": "GPUImageCopyTextureTagged",
-    "inheritance": "GPUImageCopyTexture",
+    "name": "GPUCopyExternalImageDestInfo",
+    "inheritance": "GPUTexelCopyTextureInfo",
     "members": [
       {
         "type": "field",
@@ -12698,7 +12597,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyTextureTagged",
+              "GPUCopyExternalImageDestInfo",
               "colorSpace"
             ]
           },
@@ -12757,7 +12656,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyExternalImage",
+              "GPUCopyExternalImageSourceInfo",
               "source"
             ]
           },
@@ -12777,7 +12676,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyTextureTagged",
+              "GPUCopyExternalImageDestInfo",
               "premultipliedAlpha"
             ]
           },
@@ -12809,9 +12708,9 @@
     "extAttrs": [],
     "partial": false
   },
-  "GPUImageCopyExternalImageSource": {
+  "GPUCopyExternalImageSource": {
     "type": "typedef",
-    "name": "GPUImageCopyExternalImageSource",
+    "name": "GPUCopyExternalImageSource",
     "idlType": {
       "type": "typedef-type",
       "extAttrs": [],
@@ -12879,9 +12778,9 @@
     },
     "extAttrs": []
   },
-  "GPUImageCopyExternalImage": {
+  "GPUCopyExternalImageSourceInfo": {
     "type": "dictionary",
-    "name": "GPUImageCopyExternalImage",
+    "name": "GPUCopyExternalImageSourceInfo",
     "inheritance": null,
     "members": [
       {
@@ -12894,7 +12793,7 @@
           "generic": "",
           "nullable": false,
           "union": false,
-          "idlType": "GPUImageCopyExternalImageSource"
+          "idlType": "GPUCopyExternalImageSource"
         },
         "default": null,
         "comment": [
@@ -12909,7 +12808,7 @@
             "linkType": "definition",
             "displayText": null,
             "path": [
-              "image copy"
+              "texel copy"
             ]
           },
           {
@@ -13010,7 +12909,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyExternalImage",
+              "GPUCopyExternalImageSourceInfo",
               "origin"
             ]
           },
@@ -13225,6 +13124,94 @@
           },
           {
             "type": "argument",
+            "name": "destination",
+            "extAttrs": [],
+            "idlType": {
+              "type": "argument-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUBuffer"
+            },
+            "default": null,
+            "optional": false,
+            "variadic": false
+          },
+          {
+            "type": "argument",
+            "name": "size",
+            "extAttrs": [],
+            "idlType": {
+              "type": "argument-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUSize64"
+            },
+            "default": null,
+            "optional": true,
+            "variadic": false
+          }
+        ],
+        "extAttrs": [],
+        "comment": [
+          {
+            "tag": "text",
+            "items": [
+              "Shorthand, equivalent to "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": "copyBufferToBuffer(source, 0, destination, 0, size)",
+            "path": [
+              "GPUCommandEncoder",
+              "copyBufferToBuffer(source, sourceOffset, destination, destinationOffset, size)"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
+            ]
+          }
+        ],
+        "special": ""
+      },
+      {
+        "type": "operation",
+        "name": "copyBufferToBuffer",
+        "idlType": {
+          "type": "return-type",
+          "extAttrs": [],
+          "generic": "",
+          "nullable": false,
+          "union": false,
+          "idlType": "undefined"
+        },
+        "arguments": [
+          {
+            "type": "argument",
+            "name": "source",
+            "extAttrs": [],
+            "idlType": {
+              "type": "argument-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUBuffer"
+            },
+            "default": null,
+            "optional": false,
+            "variadic": false
+          },
+          {
+            "type": "argument",
             "name": "sourceOffset",
             "extAttrs": [],
             "idlType": {
@@ -13284,7 +13271,7 @@
               "idlType": "GPUSize64"
             },
             "default": null,
-            "optional": false,
+            "optional": true,
             "variadic": false
           }
         ],
@@ -13476,7 +13463,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyBuffer"
+              "idlType": "GPUTexelCopyBufferInfo"
             },
             "default": null,
             "optional": false,
@@ -13492,7 +13479,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyTexture"
+              "idlType": "GPUTexelCopyTextureInfo"
             },
             "default": null,
             "optional": false,
@@ -13663,7 +13650,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyTexture"
+              "idlType": "GPUTexelCopyTextureInfo"
             },
             "default": null,
             "optional": false,
@@ -13679,7 +13666,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyBuffer"
+              "idlType": "GPUTexelCopyBufferInfo"
             },
             "default": null,
             "optional": false,
@@ -13851,7 +13838,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyTexture"
+              "idlType": "GPUTexelCopyTextureInfo"
             },
             "default": null,
             "optional": false,
@@ -13867,7 +13854,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyTexture"
+              "idlType": "GPUTexelCopyTextureInfo"
             },
             "default": null,
             "optional": false,
@@ -14586,7 +14573,14 @@
           {
             "type": "argument",
             "name": "dynamicOffsetsData",
-            "extAttrs": [],
+            "extAttrs": [
+              {
+                "type": "extended-attribute",
+                "name": "AllowShared",
+                "rhs": null,
+                "arguments": []
+              }
+            ],
             "idlType": {
               "type": "argument-type",
               "extAttrs": [],
@@ -16625,30 +16619,32 @@
           "extAttrs": [],
           "generic": "",
           "nullable": false,
-          "union": false,
-          "idlType": "GPUTextureView"
+          "union": true,
+          "idlType": [
+            {
+              "type": "dictionary-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUTexture"
+            },
+            {
+              "type": "dictionary-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUTextureView"
+            }
+          ]
         },
         "default": null,
         "comment": [
           {
             "tag": "text",
             "items": [
-              "A "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUTextureView"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " describing the texture "
+              "Describes the texture "
             ]
           },
           {
@@ -16662,8 +16658,49 @@
           {
             "tag": "text",
             "items": [
-              " that will be output to for this\n",
-              "color attachment."
+              " that will be output to for this color attachment.\n",
+              "The "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "subresource"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is determined by calling "
+            ]
+          },
+          {
+            "tag": "abstractOpLink",
+            "text": "get as texture view",
+            "displayText": null
+          },
+          {
+            "tag": "text",
+            "items": [
+              "("
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPURenderPassColorAttachment",
+              "view"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ")."
             ]
           }
         ],
@@ -16734,30 +16771,32 @@
           "extAttrs": [],
           "generic": "",
           "nullable": false,
-          "union": false,
-          "idlType": "GPUTextureView"
+          "union": true,
+          "idlType": [
+            {
+              "type": "dictionary-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUTexture"
+            },
+            {
+              "type": "dictionary-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUTextureView"
+            }
+          ]
         },
         "default": null,
         "comment": [
           {
             "tag": "text",
             "items": [
-              "A "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUTextureView"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " describing the texture "
+              "Describes the texture "
             ]
           },
           {
@@ -16771,8 +16810,8 @@
           {
             "tag": "text",
             "items": [
-              " that will receive the resolved\n",
-              "output for this color attachment if "
+              " that will receive the resolved output for this color\n",
+              "attachment if "
             ]
           },
           {
@@ -16788,8 +16827,49 @@
           {
             "tag": "text",
             "items": [
-              " is\n",
-              "multisampled."
+              " is multisampled.\n",
+              "The "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "subresource"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is determined by calling "
+            ]
+          },
+          {
+            "tag": "abstractOpLink",
+            "text": "get as texture view",
+            "displayText": null
+          },
+          {
+            "tag": "text",
+            "items": [
+              "("
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPURenderPassColorAttachment",
+              "resolveTarget"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ")."
             ]
           }
         ],
@@ -17028,30 +17108,32 @@
           "extAttrs": [],
           "generic": "",
           "nullable": false,
-          "union": false,
-          "idlType": "GPUTextureView"
+          "union": true,
+          "idlType": [
+            {
+              "type": "dictionary-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUTexture"
+            },
+            {
+              "type": "dictionary-type",
+              "extAttrs": [],
+              "generic": "",
+              "nullable": false,
+              "union": false,
+              "idlType": "GPUTextureView"
+            }
+          ]
         },
         "default": null,
         "comment": [
           {
             "tag": "text",
             "items": [
-              "A "
-            ]
-          },
-          {
-            "tag": "typeLink",
-            "linkType": "property",
-            "IsInternalState": false,
-            "displayText": null,
-            "path": [
-              "GPUTextureView"
-            ]
-          },
-          {
-            "tag": "text",
-            "items": [
-              " describing the texture "
+              "Describes the texture "
             ]
           },
           {
@@ -17065,8 +17147,50 @@
           {
             "tag": "text",
             "items": [
-              " that will be output to\n",
-              "and read from for this depth/stencil attachment."
+              " that will be output to and read from for this\n",
+              "depth/stencil attachment.\n",
+              "The "
+            ]
+          },
+          {
+            "tag": "docLink",
+            "linkType": "definition",
+            "displayText": null,
+            "path": [
+              "subresource"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              " is determined by calling "
+            ]
+          },
+          {
+            "tag": "abstractOpLink",
+            "text": "get as texture view",
+            "displayText": null
+          },
+          {
+            "tag": "text",
+            "items": [
+              "("
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "property",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPURenderPassDepthStencilAttachment",
+              "view"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              ")."
             ]
           }
         ],
@@ -19195,7 +19319,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyTexture"
+              "idlType": "GPUTexelCopyTextureInfo"
             },
             "default": null,
             "optional": false,
@@ -19227,7 +19351,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageDataLayout"
+              "idlType": "GPUTexelCopyBufferLayout"
             },
             "default": null,
             "optional": false,
@@ -19401,7 +19525,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyExternalImage"
+              "idlType": "GPUCopyExternalImageSourceInfo"
             },
             "default": null,
             "optional": false,
@@ -19417,7 +19541,7 @@
               "generic": "",
               "nullable": false,
               "union": false,
-              "idlType": "GPUImageCopyTextureTagged"
+              "idlType": "GPUCopyExternalImageDestInfo"
             },
             "default": null,
             "optional": false,
@@ -19471,7 +19595,7 @@
             "IsInternalState": false,
             "displayText": null,
             "path": [
-              "GPUImageCopyTextureTagged"
+              "GPUCopyExternalImageDestInfo"
             ]
           },
           {
@@ -20635,7 +20759,24 @@
           {
             "tag": "text",
             "items": [
-              " are to be displayed."
+              " are to be displayed.\n",
+              "Note: If an implementation doesn't support HDR WebGPU canvases, it should also not expose this member, to allow for feature detection. See "
+            ]
+          },
+          {
+            "tag": "typeLink",
+            "linkType": "function",
+            "IsInternalState": false,
+            "displayText": null,
+            "path": [
+              "GPUCanvasContext",
+              "getConfiguration()"
+            ]
+          },
+          {
+            "tag": "text",
+            "items": [
+              "."
             ]
           }
         ],

@@ -1,10 +1,12 @@
 using System.Collections.Immutable;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace WebgpuBindgen.DawnCodegenJson;
 
-public class DawnCodegenDocs
+public class DawnCodegenDoc
 {
     private class FilteringDictionaryConverter : JsonConverter<ImmutableDictionary<string, CodegenItem>>
     {
@@ -76,13 +78,13 @@ public class DawnCodegenDocs
 
     public readonly ImmutableDictionary<string, CodegenItem> Items;
 
-    public DawnCodegenDocs(ImmutableDictionary<string, CodegenItem> items)
+    public DawnCodegenDoc(ImmutableDictionary<string, CodegenItem> items)
     {
         Items = items;
     }
 
 
-    public static async Task<DawnCodegenDocs> LoadFromFileAsync(string path)
+    public static async Task<DawnCodegenDoc> LoadFromFileAsync(string path)
     {
         try
         {
@@ -97,7 +99,7 @@ public class DawnCodegenDocs
                     new FilteringDictionaryConverter()
                 }
             });
-            return new DawnCodegenDocs(items ?? throw new JsonException("Failed to deserialize DawnCodegenDocs from JSON file."));
+            return new DawnCodegenDoc(items ?? throw new JsonException("Failed to deserialize DawnCodegenDocs from JSON file."));
         }
         catch (JsonException ex)
         {
@@ -105,6 +107,29 @@ public class DawnCodegenDocs
             Console.WriteLine($"Path: {ex.Path}");
             throw;
         }
+    }
+
+    public static string ToDawnCodegenName(string name)
+    {
+        const string WEBGPU_PREFIX = "WGPU";
+        const string FFI_SUFFIX = "FFI";
+        const string HANDLE_SUFFIX = "Handle";
+
+        name = name.StartsWith(WEBGPU_PREFIX) ? name[WEBGPU_PREFIX.Length..] : name;
+        name = name.EndsWith(FFI_SUFFIX) ? name[..^FFI_SUFFIX.Length] : name;
+        name = name.EndsWith(HANDLE_SUFFIX) ? name[..^HANDLE_SUFFIX.Length] : name;
+        var sb = new StringBuilder();
+        for (int i = 0; i < name.Length; i++)
+        {
+            char c = name[i];
+            if (char.IsUpper(c) && i > 0)
+            {
+                sb.Append(' ');
+            }
+            sb.Append(char.ToLower(c));
+        }
+
+        return sb.ToString();
     }
 }
 

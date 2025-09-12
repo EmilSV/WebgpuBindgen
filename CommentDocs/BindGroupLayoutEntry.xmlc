@@ -6,5 +6,25 @@
         <comment location="BindingArraySize">
             <summary>If non-zero, this entry defines a binding array with this size.</summary>
         </comment>
+        <comment location="Buffer">
+            <summary>
+                When provided, indicates the binding resource type for this <see cref="BindGroupLayoutEntry"/> is BufferBinding.
+            </summary>
+        </comment>
+        <comment location="Sampler">
+            <summary>
+                When provided, indicates the binding resource type for this <see cref="BindGroupLayoutEntry"/> is <see cref="WebGpuSharp.Sampler"/>.
+            </summary>
+        </comment>
+        <comment location="Texture">
+            <summary>
+                When provided, indicates the binding resource type for this <see cref="BindGroupLayoutEntry"/> is <see cref="TextureView"/>.
+            </summary>
+        </comment>
+        <comment location="StorageTexture">
+            <summary>
+                When provided, indicates the binding resource type for this <see cref="BindGroupLayoutEntry"/> is a storage texture.
+            </summary>
+        </comment>
     </group>
 </group>
