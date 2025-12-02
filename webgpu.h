@@ -149,6 +149,7 @@ typedef struct WGPUTextureViewImpl* WGPUTextureView WGPU_OBJECT_ATTRIBUTE;
 // Structure forward declarations
 struct WGPUAdapterPropertiesD3D;
 struct WGPUAdapterPropertiesVk;
+struct WGPUAdapterPropertiesWGPU;
 struct WGPUBindGroupDynamicBindingArray;
 struct WGPUBlendComponent;
 struct WGPUBufferBindingLayout;
@@ -296,7 +297,7 @@ struct WGPUSharedFenceExportInfo;
 struct WGPUSharedTextureMemoryAHardwareBufferProperties;
 struct WGPUSharedTextureMemoryBeginAccessDescriptor;
 struct WGPUSharedTextureMemoryDmaBufDescriptor;
-struct WGPUSharedTextureMemoryEndAccessState;
+struct WGPUSharedTextureMemoryMetalEndAccessState;
 struct WGPUSurfaceDescriptor;
 struct WGPUTexelCopyBufferInfo;
 struct WGPUTexelCopyTextureInfo;
@@ -314,6 +315,7 @@ struct WGPUDeviceDescriptor;
 struct WGPUPipelineLayoutDescriptor;
 struct WGPURenderPassPixelLocalStorage;
 struct WGPUSharedTextureMemoryDescriptor;
+struct WGPUSharedTextureMemoryEndAccessState;
 struct WGPUSharedTextureMemoryProperties;
 struct WGPUTextureViewDescriptor;
 struct WGPUVertexState;
@@ -554,6 +556,7 @@ typedef enum WGPUFeatureName {
     WGPUFeatureName_TextureFormatsTier1 = 0x00000013,
     WGPUFeatureName_TextureFormatsTier2 = 0x00000014,
     WGPUFeatureName_PrimitiveIndex = 0x00000015,
+    WGPUFeatureName_TextureComponentSwizzle = 0x00000016,
     WGPUFeatureName_DawnInternalUsages = 0x00050000,
     WGPUFeatureName_DawnMultiPlanarFormats = 0x00050001,
     WGPUFeatureName_DawnNative = 0x00050002,
@@ -611,8 +614,9 @@ typedef enum WGPUFeatureName {
     WGPUFeatureName_ChromiumExperimentalSubgroupMatrix = 0x00050037,
     WGPUFeatureName_SharedFenceEGLSync = 0x00050038,
     WGPUFeatureName_DawnDeviceAllocatorControl = 0x00050039,
-    WGPUFeatureName_TextureComponentSwizzle = 0x0005003A,
-    WGPUFeatureName_ChromiumExperimentalBindless = 0x0005003C,
+    WGPUFeatureName_ChromiumExperimentalBindless = 0x0005003A,
+    WGPUFeatureName_AdapterPropertiesWGPU = 0x0005003B,
+    WGPUFeatureName_SharedBufferMemoryD3D12SharedMemoryFileMappingHandle = 0x0005003C,
     WGPUFeatureName_Force32 = 0x7FFFFFFF
 } WGPUFeatureName WGPU_ENUM_ATTRIBUTE;
 
@@ -815,6 +819,7 @@ typedef enum WGPUSType {
     WGPUSType_SurfaceSourceXCBWindow = 0x00000009,
     WGPUSType_SurfaceColorManagement = 0x0000000A,
     WGPUSType_RequestAdapterWebXROptions = 0x0000000B,
+    WGPUSType_TextureComponentSwizzleDescriptor = 0x0000000C,
     WGPUSType_CompatibilityModeLimits = 0x00020000,
     WGPUSType_TextureBindingViewDimensionDescriptor = 0x00020001,
     WGPUSType_EmscriptenSurfaceSourceCanvasHTMLSelector = 0x00040000,
@@ -888,14 +893,16 @@ typedef enum WGPUSType {
     WGPUSType_RenderPassDescriptorResolveRect = 0x00050044,
     WGPUSType_RequestAdapterWebGPUBackendOptions = 0x00050045,
     WGPUSType_DawnFakeDeviceInitializeErrorForTesting = 0x00050046,
-    WGPUSType_TextureComponentSwizzleDescriptor = 0x00050047,
-    WGPUSType_SharedTextureMemoryD3D11BeginState = 0x00050048,
-    WGPUSType_DawnConsumeAdapterDescriptor = 0x00050049,
-    WGPUSType_BindGroupLayoutDynamicBindingArray = 0x0005004A,
-    WGPUSType_DynamicBindingArrayLimits = 0x0005004B,
-    WGPUSType_BindGroupDynamicBindingArray = 0x0005004C,
-    WGPUSType_TexelBufferBindingEntry = 0x0005004D,
-    WGPUSType_TexelBufferBindingLayout = 0x0005004E,
+    WGPUSType_SharedTextureMemoryD3D11BeginState = 0x00050047,
+    WGPUSType_DawnConsumeAdapterDescriptor = 0x00050048,
+    WGPUSType_BindGroupLayoutDynamicBindingArray = 0x00050049,
+    WGPUSType_DynamicBindingArrayLimits = 0x0005004A,
+    WGPUSType_BindGroupDynamicBindingArray = 0x0005004B,
+    WGPUSType_TexelBufferBindingEntry = 0x0005004C,
+    WGPUSType_TexelBufferBindingLayout = 0x0005004D,
+    WGPUSType_SharedTextureMemoryMetalEndAccessState = 0x0005004E,
+    WGPUSType_AdapterPropertiesWGPU = 0x0005004F,
+    WGPUSType_SharedBufferMemoryD3D12SharedMemoryFileMappingHandleDescriptor = 0x00050050,
     WGPUSType_Force32 = 0x7FFFFFFF
 } WGPUSType WGPU_ENUM_ATTRIBUTE;
 
@@ -1154,6 +1161,8 @@ typedef enum WGPUWGSLLanguageFeatureName {
     WGPUWGSLLanguageFeatureName_SizedBindingArray = 0x00050005,
     WGPUWGSLLanguageFeatureName_TexelBuffers = 0x00050006,
     WGPUWGSLLanguageFeatureName_ChromiumPrint = 0x00050007,
+    WGPUWGSLLanguageFeatureName_UniformBufferStandardLayout = 0x00050008,
+    WGPUWGSLLanguageFeatureName_SubgroupId = 0x00050009,
     WGPUWGSLLanguageFeatureName_ChromiumTestingUnimplemented = 0x00050000,
     WGPUWGSLLanguageFeatureName_ChromiumTestingUnsafeExperimental = 0x00050001,
     WGPUWGSLLanguageFeatureName_ChromiumTestingExperimental = 0x00050002,
@@ -1444,6 +1453,20 @@ typedef struct WGPUAdapterPropertiesVk {
         /*.sType=*/WGPUSType_AdapterPropertiesVk _wgpu_COMMA \
     }) _wgpu_COMMA \
     /*.driverVersion=*/0 _wgpu_COMMA \
+})
+
+// Can be chained in WGPUAdapterInfo
+typedef struct WGPUAdapterPropertiesWGPU {
+    WGPUChainedStruct chain;
+    WGPUBackendType backendType;
+} WGPUAdapterPropertiesWGPU WGPU_STRUCTURE_ATTRIBUTE;
+
+#define WGPU_ADAPTER_PROPERTIES_WGPU_INIT _wgpu_MAKE_INIT_STRUCT(WGPUAdapterPropertiesWGPU, { \
+    /*.chain=*/_wgpu_MAKE_INIT_STRUCT(WGPUChainedStruct, { \
+        /*.next=*/NULL _wgpu_COMMA \
+        /*.sType=*/WGPUSType_AdapterPropertiesWGPU _wgpu_COMMA \
+    }) _wgpu_COMMA \
+    /*.backendType=*/WGPUBackendType_Undefined _wgpu_COMMA \
 })
 
 // Can be chained in WGPUBindGroupDescriptor
@@ -3724,20 +3747,18 @@ typedef struct WGPUSharedTextureMemoryDmaBufDescriptor {
     /*.planes=*/NULL _wgpu_COMMA \
 })
 
-typedef struct WGPUSharedTextureMemoryEndAccessState {
-    WGPUChainedStruct * nextInChain;
-    WGPUBool initialized;
-    size_t fenceCount;
-    WGPUSharedFence const * fences;
-    uint64_t const * signaledValues;
-} WGPUSharedTextureMemoryEndAccessState WGPU_STRUCTURE_ATTRIBUTE;
+// Can be chained in WGPUSharedTextureMemoryEndAccessState
+typedef struct WGPUSharedTextureMemoryMetalEndAccessState {
+    WGPUChainedStruct chain;
+    WGPUFuture commandsScheduledFuture;
+} WGPUSharedTextureMemoryMetalEndAccessState WGPU_STRUCTURE_ATTRIBUTE;
 
-#define WGPU_SHARED_TEXTURE_MEMORY_END_ACCESS_STATE_INIT _wgpu_MAKE_INIT_STRUCT(WGPUSharedTextureMemoryEndAccessState, { \
-    /*.nextInChain=*/NULL _wgpu_COMMA \
-    /*.initialized=*/WGPU_FALSE _wgpu_COMMA \
-    /*.fenceCount=*/0 _wgpu_COMMA \
-    /*.fences=*/NULL _wgpu_COMMA \
-    /*.signaledValues=*/NULL _wgpu_COMMA \
+#define WGPU_SHARED_TEXTURE_MEMORY_METAL_END_ACCESS_STATE_INIT _wgpu_MAKE_INIT_STRUCT(WGPUSharedTextureMemoryMetalEndAccessState, { \
+    /*.chain=*/_wgpu_MAKE_INIT_STRUCT(WGPUChainedStruct, { \
+        /*.next=*/NULL _wgpu_COMMA \
+        /*.sType=*/WGPUSType_SharedTextureMemoryMetalEndAccessState _wgpu_COMMA \
+    }) _wgpu_COMMA \
+    /*.commandsScheduledFuture=*/WGPU_FUTURE_INIT _wgpu_COMMA \
 })
 
 typedef struct WGPUSurfaceDescriptor {
@@ -4002,6 +4023,22 @@ typedef struct WGPUSharedTextureMemoryDescriptor {
     /*.label=*/WGPU_STRING_VIEW_INIT _wgpu_COMMA \
 })
 
+typedef struct WGPUSharedTextureMemoryEndAccessState {
+    WGPUChainedStruct * nextInChain;
+    WGPUBool initialized;
+    size_t fenceCount;
+    WGPUSharedFence const * fences;
+    uint64_t const * signaledValues;
+} WGPUSharedTextureMemoryEndAccessState WGPU_STRUCTURE_ATTRIBUTE;
+
+#define WGPU_SHARED_TEXTURE_MEMORY_END_ACCESS_STATE_INIT _wgpu_MAKE_INIT_STRUCT(WGPUSharedTextureMemoryEndAccessState, { \
+    /*.nextInChain=*/NULL _wgpu_COMMA \
+    /*.initialized=*/WGPU_FALSE _wgpu_COMMA \
+    /*.fenceCount=*/0 _wgpu_COMMA \
+    /*.fences=*/NULL _wgpu_COMMA \
+    /*.signaledValues=*/NULL _wgpu_COMMA \
+})
+
 typedef struct WGPUSharedTextureMemoryProperties {
     WGPUChainedStruct * nextInChain;
     WGPUTextureUsage usage;
@@ -4123,42 +4160,6 @@ typedef struct WGPURenderPipelineDescriptor {
     /*.multisample=*/WGPU_MULTISAMPLE_STATE_INIT _wgpu_COMMA \
     /*.fragment=*/NULL _wgpu_COMMA \
 })
-
-// WGPURenderPassDescriptorMaxDrawCount is deprecated.
-// Use WGPURenderPassMaxDrawCount instead.
-typedef WGPURenderPassMaxDrawCount WGPURenderPassDescriptorMaxDrawCount;
-
-// WGPUShaderModuleSPIRVDescriptor is deprecated.
-// Use WGPUShaderSourceSPIRV instead.
-typedef WGPUShaderSourceSPIRV WGPUShaderModuleSPIRVDescriptor;
-
-// WGPUShaderModuleWGSLDescriptor is deprecated.
-// Use WGPUShaderSourceWGSL instead.
-typedef WGPUShaderSourceWGSL WGPUShaderModuleWGSLDescriptor;
-
-// WGPUSurfaceDescriptorFromAndroidNativeWindow is deprecated.
-// Use WGPUSurfaceSourceAndroidNativeWindow instead.
-typedef WGPUSurfaceSourceAndroidNativeWindow WGPUSurfaceDescriptorFromAndroidNativeWindow;
-
-// WGPUSurfaceDescriptorFromMetalLayer is deprecated.
-// Use WGPUSurfaceSourceMetalLayer instead.
-typedef WGPUSurfaceSourceMetalLayer WGPUSurfaceDescriptorFromMetalLayer;
-
-// WGPUSurfaceDescriptorFromWaylandSurface is deprecated.
-// Use WGPUSurfaceSourceWaylandSurface instead.
-typedef WGPUSurfaceSourceWaylandSurface WGPUSurfaceDescriptorFromWaylandSurface;
-
-// WGPUSurfaceDescriptorFromWindowsHWND is deprecated.
-// Use WGPUSurfaceSourceWindowsHWND instead.
-typedef WGPUSurfaceSourceWindowsHWND WGPUSurfaceDescriptorFromWindowsHWND;
-
-// WGPUSurfaceDescriptorFromXcbWindow is deprecated.
-// Use WGPUSurfaceSourceXCBWindow instead.
-typedef WGPUSurfaceSourceXCBWindow WGPUSurfaceDescriptorFromXcbWindow;
-
-// WGPUSurfaceDescriptorFromXlibWindow is deprecated.
-// Use WGPUSurfaceSourceXlibWindow instead.
-typedef WGPUSurfaceSourceXlibWindow WGPUSurfaceDescriptorFromXlibWindow;
 
 #ifdef __cplusplus
 extern "C" {
