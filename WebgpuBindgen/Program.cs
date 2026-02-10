@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using CapiGenerator.Writer;
 using WebgpuBindgen;
 using WebgpuBindgen.DawnCodegenJson;
@@ -46,7 +47,21 @@ foreach (var csStruct in structs)
 
 StructFixer.AddNextInChainDocs(translationResult.Structs);
 StructFixer.AddAddRefAndReleaseDocs(translationResult.Structs);
+
+{
+    var staticClass = staticClasses[0];
+    var method = staticClass.Methods.FirstOrDefault(m => m.Name?.EndsWith("AddRef") ?? false);
+    Debugger.Break();
+}
+
 doc?.AssignComment(translationResult);
+
+
+{
+    var staticClass = staticClasses[0];
+    var method = staticClass.Methods.FirstOrDefault(m => m.Name?.EndsWith("AddRef") ?? false);
+    Debugger.Break();
+}
 
 foreach (var csEnum in enums)
 {

@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using CapiGenerator.CModel;
 using CapiGenerator.CSModel;
 using CapiGenerator.CSModel.ConstantToken;
+using CapiGenerator.UtilTypes;
 using static CapiGenerator.CSModel.CSClassMemberModifierConsts;
 
 namespace WebgpuBindgen;
@@ -908,6 +909,13 @@ public static class StructFixer
                 WebGPU objects, as the implementation maintains internal references as needed.
                 """
             });
+            addRefMethod.Comments.Return = new()
+            {
+                Description =
+                $"""
+                The same {name} instance with an incremented reference count.
+                """
+            };
 
             var releaseMethod = item.Methods.FirstOrDefault(i => i.Name?.Equals("Release", StringComparison.OrdinalIgnoreCase) == true);
             if (releaseMethod is null)
@@ -935,5 +943,39 @@ public static class StructFixer
                 """
             });
         }
+    }
+
+    public static Task MakeAddRefReturnSelf(List<CSStruct> structs)
+    {
+        foreach (var item in structs)
+        {
+            if (!item.Name.EndsWith("Handle", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            var addRefMethod = item.Methods.FirstOrDefault(i => i.Name?.Equals("AddRef", StringComparison.OrdinalIgnoreCase) == true);
+            if (addRefMethod is null)
+            {
+                continue;
+            }
+
+            var currentBodyText = addRefMethod.Body!.Value;
+            var format = currentBodyText.Format;
+            format = format.Replace("=>", string.Empty);
+
+            format =
+            $$"""
+                {
+                    {{format}}
+                    return this;
+                }
+            """;
+
+            addRefMethod.ReturnType = new CSTypeInstance(item);
+            addRefMethod.Body = new LazyFormatString(format, currentBodyText.Args.ToArray());
+        }
+
+        return Task.CompletedTask;
     }
 }

@@ -168,6 +168,7 @@
         </comment>
         <comment location="AdapterAddRef" inheritFrom="WebGpuSharp.FFI.AdapterHandle.AddRef" inheritPriority="-10">
             <param name="adapter">The adapter to add reference to</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="AdapterRelease" inheritFrom="WebGpuSharp.FFI.AdapterHandle.Release" inheritPriority="-10">
             <param name="adapter">The adapter to release</param>
@@ -177,6 +178,7 @@
         </comment>
         <comment location="BindGroupAddRef" inheritFrom="WebGpuSharp.FFI.BindGroupHandle.AddRef" inheritPriority="-10">
             <param name="bindGroup">The bind group to increase the reference counter on</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="BindGroupRelease" inheritFrom="WebGpuSharp.FFI.BindGroupHandle.Release" inheritPriority="-10">
             <param name="bindGroup">The bind group to decreased the reference counter on</param>
@@ -186,6 +188,7 @@
         </comment>
         <comment location="BindGroupLayoutAddRef" inheritFrom="WebGpuSharp.FFI.BindGroupLayoutHandle.AddRef" inheritPriority="-10">
             <param name="bindGroupLayout">The bind group layout to increase the reference counter on</param>
+                <returns priority="-20"></returns>
         </comment>
         <comment location="BindGroupLayoutRelease" inheritFrom="WebGpuSharp.FFI.BindGroupLayoutHandle.Release" inheritPriority="-10">
             <param name="bindGroupLayout">The bind group layout to decreased the reference counter on</param>
@@ -228,6 +231,7 @@
         </comment>
         <comment location="BufferAddRef" inheritFrom="WebGpuSharp.FFI.BufferHandle.AddRef" inheritPriority="-10">
             <param name="buffer">The buffer to increase the reference counter on</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="BufferRelease" inheritFrom="WebGpuSharp.FFI.BufferHandle.Release" inheritPriority="-10">
             <param name="buffer">The buffer to decreased the reference counter on</param>
@@ -237,6 +241,7 @@
         </comment>
         <comment location="CommandBufferAddRef" inheritFrom="WebGpuSharp.FFI.CommandBufferHandle.AddRef" inheritPriority="-10">
             <param name="commandBuffer">The command buffer to increase the reference counter on</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="CommandBufferRelease" inheritFrom="WebGpuSharp.FFI.CommandBufferHandle.Release" inheritPriority="-10">
             <param name="commandBuffer">The command buffer to decreased the reference counter on</param>
@@ -285,6 +290,7 @@
         </comment>
         <comment location="CommandEncoderAddRef" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.AddRef" inheritPriority="-10">
             <param name="commandEncoder">The command encoder to increase the reference counter on</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="CommandEncoderRelease" inheritFrom="WebGpuSharp.FFI.CommandEncoderHandle.Release" inheritPriority="-10">
             <param name="commandEncoder">The command encoder to decreased the reference counter on</param>
@@ -319,6 +325,7 @@
         </comment>
         <comment location="ComputePassEncoderAddRef" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.AddRef" inheritPriority="-10">
             <param name="computePassEncoder">The compute pass encoder</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="ComputePassEncoderRelease" inheritFrom="WebGpuSharp.FFI.ComputePassEncoderHandle.Release" inheritPriority="-10">
             <param name="computePassEncoder">The compute pass encoder</param>
@@ -331,6 +338,7 @@
         </comment>
         <comment location="ComputePipelineAddRef" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.AddRef" inheritPriority="-10">
             <param name="computePipeline">The compute pipeline</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="ComputePipelineRelease" inheritFrom="WebGpuSharp.FFI.ComputePipelineHandle.Release" inheritPriority="-10">
             <param name="computePipeline">The compute pipeline</param>
@@ -421,6 +429,7 @@
         </comment>
         <comment location="DeviceAddRef" inheritFrom="WebGpuSharp.FFI.DeviceHandle.AddRef" inheritPriority="-10">
             <param name="device">The device</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="DeviceRelease" inheritFrom="WebGpuSharp.FFI.DeviceHandle.Release" inheritPriority="-10">
             <param name="device">The device</param>
@@ -448,6 +457,7 @@
         </comment>
         <comment location="InstanceAddRef" inheritFrom="WebGpuSharp.FFI.InstanceHandle.AddRef" inheritPriority="-10">
             <param name="instance">The instance</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="InstanceRelease" inheritFrom="WebGpuSharp.FFI.InstanceHandle.Release" inheritPriority="-10">
             <param name="instance">The instance</param>
@@ -457,6 +467,7 @@
         </comment>
         <comment location="PipelineLayoutAddRef" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.AddRef" inheritPriority="-10">
             <param name="pipelineLayout">The pipeline layout</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="PipelineLayoutRelease" inheritFrom="WebGpuSharp.FFI.PipelineLayoutHandle.Release" inheritPriority="-10">
             <param name="pipelineLayout">The pipeline layout</param>
@@ -475,6 +486,7 @@
         </comment>
         <comment location="QuerySetAddRef" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.AddRef" inheritPriority="-10">
             <param name="querySet">The query set</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="QuerySetRelease" inheritFrom="WebGpuSharp.FFI.QuerySetHandle.Release" inheritPriority="-10">
             <param name="querySet">The query set</param>
@@ -505,6 +517,7 @@
         </comment>
         <comment location="QueueAddRef" inheritFrom="WebGpuSharp.FFI.QueueHandle.AddRef" inheritPriority="-10">
             <param name="queue">The queue</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="QueueRelease" inheritFrom="WebGpuSharp.FFI.QueueHandle.Release" inheritPriority="-10">
             <param name="queue">The queue</param>
@@ -514,6 +527,7 @@
         </comment>
         <comment location="RenderBundleAddRef" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.AddRef" inheritPriority="-10">
             <param name="renderBundle">The render bundle</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="RenderBundleRelease" inheritFrom="WebGpuSharp.FFI.RenderBundleHandle.Release" inheritPriority="-10">
             <param name="renderBundle">The render bundle</param>
@@ -559,6 +573,7 @@
         </comment>
         <comment location="RenderBundleEncoderAddRef" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.AddRef" inheritPriority="-10">
             <param name="renderBundleEncoder">The render bundle encoder</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="RenderBundleEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderBundleEncoderHandle.Release" inheritPriority="-10">
             <param name="renderBundleEncoder">The render bundle encoder</param>
@@ -625,6 +640,7 @@
         </comment>
         <comment location="RenderPassEncoderAddRef" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.AddRef" inheritPriority="-10">
             <param name="renderPassEncoder">The render pass encoder</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="RenderPassEncoderRelease" inheritFrom="WebGpuSharp.FFI.RenderPassEncoderHandle.Release" inheritPriority="-10">
             <param name="renderPassEncoder">The render pass encoder</param>
@@ -637,6 +653,7 @@
         </comment>
         <comment location="RenderPipelineAddRef" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.AddRef" inheritPriority="-10">
             <param name="renderPipeline">The render pipeline</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="RenderPipelineRelease" inheritFrom="WebGpuSharp.FFI.RenderPipelineHandle.Release" inheritPriority="-10">
             <param name="renderPipeline">The render pipeline</param>
@@ -646,6 +663,7 @@
         </comment>
         <comment location="SamplerAddRef" inheritFrom="WebGpuSharp.FFI.SamplerHandle.AddRef" inheritPriority="-10">
             <param name="sampler">The sampler</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="SamplerRelease" inheritFrom="WebGpuSharp.FFI.SamplerHandle.Release" inheritPriority="-10">
             <param name="sampler">The sampler</param>
@@ -661,6 +679,7 @@
         </comment>
         <comment location="ShaderModuleAddRef" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.AddRef" inheritPriority="-10">
             <param name="shaderModule">The shader module</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="ShaderModuleRelease" inheritFrom="WebGpuSharp.FFI.ShaderModuleHandle.Release" inheritPriority="-10">
             <param name="shaderModule">The shader module</param>
@@ -685,6 +704,7 @@
         </comment>
         <comment location="SurfaceAddRef" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.AddRef" inheritPriority="-10">
             <param name="surface">The surface</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="SurfaceRelease" inheritFrom="WebGpuSharp.FFI.SurfaceHandle.Release" inheritPriority="-10">
             <param name="surface">The surface</param>
@@ -724,6 +744,7 @@
         </comment>
         <comment location="TextureAddRef" inheritFrom="WebGpuSharp.FFI.TextureHandle.AddRef" inheritPriority="-10">
             <param name="texture">The texture</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="TextureRelease" inheritFrom="WebGpuSharp.FFI.TextureHandle.Release" inheritPriority="-10">
             <param name="texture">The texture</param>
@@ -733,6 +754,7 @@
         </comment>
         <comment location="TextureViewAddRef" inheritFrom="WebGpuSharp.FFI.TextureViewHandle.AddRef" inheritPriority="-10">
             <param name="textureView">The texture view</param>
+            <returns priority="-20"></returns>
         </comment>
         <comment location="TextureViewRelease" inheritFrom="WebGpuSharp.FFI.TextureViewHandle.Release" inheritPriority="-10">
             <param name="textureView">The texture view</param>
