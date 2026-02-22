@@ -51,7 +51,6 @@ StructFixer.AddAddRefAndReleaseDocs(translationResult.Structs);
 {
     var staticClass = staticClasses[0];
     var method = staticClass.Methods.FirstOrDefault(m => m.Name?.EndsWith("AddRef") ?? false);
-    Debugger.Break();
 }
 
 doc?.AssignComment(translationResult);
@@ -60,7 +59,6 @@ doc?.AssignComment(translationResult);
 {
     var staticClass = staticClasses[0];
     var method = staticClass.Methods.FirstOrDefault(m => m.Name?.EndsWith("AddRef") ?? false);
-    Debugger.Break();
 }
 
 foreach (var csEnum in enums)
