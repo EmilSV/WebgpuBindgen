@@ -1,0 +1,22 @@
+<group prefix="WebGpuSharp.">
+	<comment>
+		<summary location="TextureComponentSwizzle">
+			When accessed by a shader, the red/green/blue/alpha channels are replaced
+			by the value corresponding to the component specified in r, g, b, and a.
+		</summary>
+	</comment>
+	<group prefix="TextureComponentSwizzle.">
+		<comment location="R">
+			<summary> The value that replaces the red channel in the shader.</summary>
+		</comment>
+		<comment location="G">
+			<summary> The value that replaces the green channel in the shader.</summary>
+		</comment>
+		<comment location="B">
+			<summary> The value that replaces the blue channel in the shader.</summary>
+		</comment>
+		<comment location="A">
+			<summary> The value that replaces the alpha channel in the shader.</summary>
+		</comment>
+	</group>
+</group>

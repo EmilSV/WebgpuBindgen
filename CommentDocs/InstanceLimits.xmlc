@@ -1,0 +1,10 @@
+<group prefix="WebGpuSharp.">
+	<comment location="InstanceLimits">
+		<summary></summary>
+	</comment>
+	<group prefix="InstanceLimits.">
+		<comment location="TimedWaitAnyMaxCount">
+			<summary>The maximum number <see cref="FutureWaitInfo"/> supported in a call to <see cref="InstanceHandle.WaitAny"/> with <code>timeoutNS &gt; 0</code></summary>
+		</comment>
+	</group>
+</group>

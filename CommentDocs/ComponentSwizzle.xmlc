@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<group prefix="WebGpuSharp.">
+    <comment>
+        <summary location="ComponentSwizzle">            
+			Used by <see cref="WebGpuSharp.TextureComponentSwizzle"/> to specify how the components of a texture are swizzled when accessed by a shader.
+        </summary>
+    </comment>
+    <group prefix="ComponentSwizzle.">
+		<comment location="Undefined">
+            <summary>Indicates no value is passed for this argument.</summary>
+        </comment>
+        <comment location="Zero">
+            <summary>Force its value to 0.</summary>
+        </comment>
+        <comment location="One">
+            <summary>Force its value to 1.</summary>
+        </comment>
+        <comment location="R">
+            <summary>Take its value from the red channel of the texture.</summary>
+        </comment>
+        <comment location="G">
+            <summary>Take its value from the green channel of the texture.</summary>
+        </comment>
+        <comment location="B">
+            <summary>Take its value from the blue channel of the texture.</summary>
+        </comment>
+        <comment location="A">
+            <summary>Take its value from the alpha channel of the texture.</summary>
+        </comment>		
+    </group>
+</group>

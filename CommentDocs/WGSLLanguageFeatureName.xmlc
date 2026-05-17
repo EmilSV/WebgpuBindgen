@@ -68,6 +68,5 @@ public enum WGSLLanguageFeatureName
                 Similarly, if pa is a pointer to an array, then pa[i] is a reference to the memory locations for the i’th element of the array pa points to.
             </summary>
         </comment>
-        <comment location="SizedBindingArray"/>
     </group>
 </group>

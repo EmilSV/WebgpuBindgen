@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group prefix="WebGpuSharp.">
+    <comment location="CompatibilityModeLimits">
+        <summary>            
+            Limit specifically for compatibility mode. You can read more at <see href="https://webgpufundamentals.org/webgpu/lessons/webgpu-compatibility-mode.html">WebGPU Fundamentals Compatibility Mode</see>.
+        </summary>
+    </comment>
+    <group prefix="CompatibilityModeLimits.">
+        <comment location="MaxStorageBuffersInVertexStage">
+            <summary>                
+                Maximum number of storage buffers that can be accessed from the vertex stage in compatibility mode.
+                Defaults to 0.
+            </summary>
+        </comment>
+        <comment location="MaxStorageTexturesInVertexStage">
+            <summary>
+                Maximum number of storage textures that can be accessed from the vertex stage in compatibility mode.
+                Defaults to 0.
+            </summary>
+        </comment>
+        <comment location="MaxStorageBuffersInFragmentStage">
+            <summary>
+                Maximum number of storage buffers that can be accessed from the fragment stage in compatibility mode.
+                Defaults to 4.
+            </summary>
+        </comment>
+        <comment location="MaxStorageTexturesInFragmentStage">
+            <summary>
+                Maximum number of storage textures that can be accessed from the fragment stage in compatibility mode.
+                Defaults to 4.
+            </summary>
+        </comment>
+    </group>
+</group>
