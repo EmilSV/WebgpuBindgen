@@ -978,4 +978,20 @@ public static class StructFixer
 
         return Task.CompletedTask;
     }
+
+    public static Task FixFieldWithSameNameAsStruct(List<CSStruct> structs)
+    {
+        foreach (var item in structs)
+        {
+            var fieldWithSameName = item.Fields.FirstOrDefault(i => i.Name == item.Name);
+            if (fieldWithSameName is null)
+            {
+                continue;
+            }
+
+            fieldWithSameName.Name += "Value";
+        }
+
+        return Task.CompletedTask;
+    }
 }
