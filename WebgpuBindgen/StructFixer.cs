@@ -189,10 +189,10 @@ public static class StructFixer
             var objectType = new CSTypeInstance(CSPrimitiveType.Instances.Object);
             var nullableObjectType = new CSTypeInstance(CSPrimitiveType.Instances.Object) { IsNullable = true };
 
-            newStruct.Interfaces.Add(new("IEquatable<{0}>", () => newStruct.Name));
+            newStruct.AddInterface(new("IEquatable<{0}>", () => newStruct.Name));
 
-            newStruct.Fields.Add(new(PRIVATE | READONLY, uIntPtrType, "_ptr"));
-            newStruct.Fields.Add(new(PUBLIC | STATIC, newStructType, "Null")
+            newStruct.AddField(new(PRIVATE | READONLY, uIntPtrType, "_ptr"));
+            newStruct.AddField(new(PUBLIC | STATIC, newStructType, "Null")
             {
                 GetterBody = new(" => new(nuint.Zero);"),
                 Comments = new()
@@ -204,13 +204,13 @@ public static class StructFixer
                 },
             });
 
-            newStruct.Constructors.Add(new(PUBLIC, [(uIntPtrType, "ptr")])
+            newStruct.AddConstructor(new(PUBLIC, [(uIntPtrType, "ptr")])
             {
                 Body = "=> _ptr = ptr;",
             });
 
 
-            newStruct.Methods.AddRange([
+            newStruct.AddMethods([
                 new(PUBLIC | STATIC | EXPLICIT, uIntPtrType, [(newStructType, "handle")])
                 {
                     Body = "=> handle._ptr;",
@@ -569,7 +569,7 @@ public static class StructFixer
             }
 
 
-            item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
+            item.AddConstructor(new(PUBLIC, CSParameter.EmptyParameters)
             {
                 Body = "{}",
             });
@@ -596,7 +596,7 @@ public static class StructFixer
                 body1.AppendLine($"this.{fieldName} = {parameterName};");
             }
 
-            item.Constructors.Add(new(PUBLIC, parameters.ToArray())
+            item.AddConstructor(new(PUBLIC, parameters.ToArray())
             {
                 Body = body1.ToString(),
             });
@@ -614,7 +614,7 @@ public static class StructFixer
                 body2.AppendLine($"this.{fieldName} = {parameterName};");
             }
 
-            item.Constructors.Add(new(PUBLIC, parameters.ToArray())
+            item.AddConstructor(new(PUBLIC, parameters.ToArray())
             {
                 Body = body2.ToString(),
             });
@@ -639,7 +639,7 @@ public static class StructFixer
             }
 
 
-            item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
+            item.AddConstructor(new(PUBLIC, CSParameter.EmptyParameters)
             {
                 Body = "{}",
             });
@@ -843,8 +843,8 @@ public static class StructFixer
             {
                 Description =
                 """
-                Enables struct-chaining, a pattern that extends existing structs with new members while 
-                maintaining API compatibility. Each extension struct must be properly initialized with 
+                Enables struct-chaining, a pattern that extends existing structs with new members while
+                maintaining API compatibility. Each extension struct must be properly initialized with
                 correct sType values and linked together. For detailed information about struct-chaining,
                 see: <see href="https://webgpu-native.github.io/webgpu-headers/StructChaining.html"/>
                 """
@@ -904,8 +904,8 @@ public static class StructFixer
                 WebGPU objects are refcounted. Each call to <see cref="AddRef"/> must be balanced with a corresponding
                 call to <see cref="Release"/> when the reference is no longer needed. Objects returned directly from
                 the API start with a reference count of 1.
-                
-                Applications don't need to maintain refs to WebGPU objects that are internally used by other 
+
+                Applications don't need to maintain refs to WebGPU objects that are internally used by other
                 WebGPU objects, as the implementation maintains internal references as needed.
                 """
             });
@@ -937,7 +937,7 @@ public static class StructFixer
                 $"""
                 It's unsafe to use an object after its reference count has reached zero, even if other
                 WebGPU objects internally reference it.
-                
+
                 Applications must call <see cref="Release"/> on all {name} references they own before losing the pointer.
                 Failing to balance <see cref="AddRef"/> and <see cref="Release"/> calls will result in memory leaks or use-after-free errors.
                 """

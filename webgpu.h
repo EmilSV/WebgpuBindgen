@@ -654,8 +654,7 @@ typedef enum WGPUFeatureName {
     WGPUFeatureName_OpaqueYCbCrAndroidForExternalTexture = 0x0005003E,
     WGPUFeatureName_Unorm16Filterable = 0x0005003F,
     WGPUFeatureName_RenderPassRenderArea = 0x00050040,
-    WGPUFeatureName_DawnNativeSpontaneousQueueEvents = 0x00050041,
-    WGPUFeatureName_AdapterPropertiesDrm = 0x00050042,
+    WGPUFeatureName_AdapterPropertiesDrm = 0x00050041,
     WGPUFeatureName_Force32 = 0x7FFFFFFF
 } WGPUFeatureName WGPU_ENUM_ATTRIBUTE;
 
@@ -1206,6 +1205,7 @@ typedef enum WGPUWGSLLanguageFeatureName {
     WGPUWGSLLanguageFeatureName_TextureAndSamplerLet = 0x00000007,
     WGPUWGSLLanguageFeatureName_SubgroupUniformity = 0x00000008,
     WGPUWGSLLanguageFeatureName_TextureFormatsTier1 = 0x00000009,
+    WGPUWGSLLanguageFeatureName_LinearIndexing = 0x0000000A,
     WGPUWGSLLanguageFeatureName_ChromiumTestingUnimplemented = 0x00050000,
     WGPUWGSLLanguageFeatureName_ChromiumTestingUnsafeExperimental = 0x00050001,
     WGPUWGSLLanguageFeatureName_ChromiumTestingExperimental = 0x00050002,
@@ -1219,7 +1219,6 @@ typedef enum WGPUWGSLLanguageFeatureName {
     WGPUWGSLLanguageFeatureName_BufferView = 0x0005000B,
     WGPUWGSLLanguageFeatureName_FilteringParameters = 0x0005000C,
     WGPUWGSLLanguageFeatureName_SwizzleAssignment = 0x0005000D,
-    WGPUWGSLLanguageFeatureName_LinearIndexing = 0x0005000E,
     WGPUWGSLLanguageFeatureName_Force32 = 0x7FFFFFFF
 } WGPUWGSLLanguageFeatureName WGPU_ENUM_ATTRIBUTE;
 

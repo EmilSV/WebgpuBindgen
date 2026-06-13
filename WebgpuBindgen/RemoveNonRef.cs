@@ -186,8 +186,8 @@ public static class RemoveNonRefHandler
                 continue;
             }
 
-            staticClass.Fields.RemoveWhere(i => !refStaticClass.Fields.Any(j => CompareTypeNames(j.Name, i.Name)));
-            staticClass.Methods.RemoveWhere(i => !refStaticClass.Methods.Any(j => CompareTypeNames(j.Name, i.Name)));
+            staticClass.RemoveAllFields(i => !refStaticClass.Fields.Any(j => CompareTypeNames(j.Name, i.Name)));
+            staticClass.RemoveAllMethods(i => !refStaticClass.Methods.Any(j => CompareTypeNames(j.Name, i.Name)));
         }
 
         foreach (var structType in structStartingPoint)
@@ -198,7 +198,7 @@ public static class RemoveNonRefHandler
                 continue;
             }
 
-            structType.Methods.RemoveWhere(i => !refStructType.Methods.Any(j => CompareTypeNames(j.Name, i.Name)));
+            structType.RemoveAllMethods(i => !refStructType.Methods.Any(j => CompareTypeNames(j.Name, i.Name)));
         }
 
         foreach (var enumToSync in EnumSyncMembers)
@@ -209,7 +209,7 @@ public static class RemoveNonRefHandler
                 var refEnumType = translationResultRef.Enums.FirstOrDefault(i => i.GetFullName() == enumToSync);
                 if (refEnumType != null)
                 {
-                    enumType.Values.RemoveWhere(i => !refEnumType.Values.Any(j => CompareTypeNames(j.Name, i.Name)));
+                    enumType.RemoveAllValues(i => !refEnumType.Values.Any(j => CompareTypeNames(j.Name, i.Name)));
                 }
             }
         }

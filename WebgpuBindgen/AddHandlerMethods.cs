@@ -54,7 +54,7 @@ public static class AddHandlerMethods
 
                 newMethod.EnrichingDataStore.Set(new FromStaticFFIMethodData() { Method = method });
 
-                item.Methods.Add(newMethod);
+                item.AddMethod(newMethod);
             }
         }
 
