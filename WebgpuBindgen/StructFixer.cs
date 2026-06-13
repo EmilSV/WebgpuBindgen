@@ -189,10 +189,10 @@ public static class StructFixer
             var objectType = new CSTypeInstance(CSPrimitiveType.Instances.Object);
             var nullableObjectType = new CSTypeInstance(CSPrimitiveType.Instances.Object) { IsNullable = true };
 
-            newStruct.AddInterface(new("IEquatable<{0}>", () => newStruct.Name));
+            newStruct.Interfaces.Add(new("IEquatable<{0}>", () => newStruct.Name));
 
-            newStruct.AddField(new(PRIVATE | READONLY, uIntPtrType, "_ptr"));
-            newStruct.AddField(new(PUBLIC | STATIC, newStructType, "Null")
+            newStruct.Fields.Add(new(PRIVATE | READONLY, uIntPtrType, "_ptr"));
+            newStruct.Fields.Add(new(PUBLIC | STATIC, newStructType, "Null")
             {
                 GetterBody = new(" => new(nuint.Zero);"),
                 Comments = new()
@@ -204,13 +204,13 @@ public static class StructFixer
                 },
             });
 
-            newStruct.AddConstructor(new(PUBLIC, [(uIntPtrType, "ptr")])
+            newStruct.Constructors.Add(new(PUBLIC, [(uIntPtrType, "ptr")])
             {
                 Body = "=> _ptr = ptr;",
             });
 
 
-            newStruct.AddMethods([
+            newStruct.Methods.AddRange([
                 new(PUBLIC | STATIC | EXPLICIT, uIntPtrType, [(newStructType, "handle")])
                 {
                     Body = "=> handle._ptr;",
@@ -569,7 +569,7 @@ public static class StructFixer
             }
 
 
-            item.AddConstructor(new(PUBLIC, CSParameter.EmptyParameters)
+            item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
             {
                 Body = "{}",
             });
@@ -596,7 +596,7 @@ public static class StructFixer
                 body1.AppendLine($"this.{fieldName} = {parameterName};");
             }
 
-            item.AddConstructor(new(PUBLIC, parameters.ToArray())
+            item.Constructors.Add(new(PUBLIC, parameters.ToArray())
             {
                 Body = body1.ToString(),
             });
@@ -614,7 +614,7 @@ public static class StructFixer
                 body2.AppendLine($"this.{fieldName} = {parameterName};");
             }
 
-            item.AddConstructor(new(PUBLIC, parameters.ToArray())
+            item.Constructors.Add(new(PUBLIC, parameters.ToArray())
             {
                 Body = body2.ToString(),
             });
@@ -639,7 +639,7 @@ public static class StructFixer
             }
 
 
-            item.AddConstructor(new(PUBLIC, CSParameter.EmptyParameters)
+            item.Constructors.Add(new(PUBLIC, CSParameter.EmptyParameters)
             {
                 Body = "{}",
             });

@@ -38,7 +38,7 @@ public static class StringViewFixer
             )])
         };
 
-        stringViewStruct.AddField(NullValueField);
+        stringViewStruct.Fields.Add(NullValueField);
 
         static bool IsPointer(CSTypeInstance type)
         {

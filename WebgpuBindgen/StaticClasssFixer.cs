@@ -9,16 +9,16 @@ public static class StaticClassFixer
         foreach (var item in staticClasses)
         {
             var method = item.Methods.First(i => i.Name?.EndsWith("GetProcAddress") ?? false);
-            item.RemoveMethod(method);
+            item.Methods.Remove(method);
 
             var method2 = item.Methods.FirstOrDefault(i => i.Name?.EndsWith("GetProcAddress2") ?? false);
             if (method2 != null)
             {
-                item.RemoveMethod(method2);
+                item.Methods.Remove(method2);
             }
 
             var field = item.Fields.First(i => i.Name?.EndsWith("SKIP_PROCS") ?? false);
-            item.RemoveField(field);
+            item.Fields.Remove(field);
         }
 
         return Task.CompletedTask;

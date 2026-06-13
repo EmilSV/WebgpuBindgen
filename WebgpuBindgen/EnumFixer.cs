@@ -15,7 +15,7 @@ public static class EnumFixer
             var force32BitItem = item.Values.FirstOrDefault(i => i.Name.EndsWith("_Force32"));
             if (force32BitItem != null)
             {
-                item.RemoveValue(force32BitItem);
+                item.Values.Remove(force32BitItem);
             }
             foreach (var value in item.Values)
             {
@@ -118,7 +118,7 @@ public static class EnumFixer
             enums.Add(newEnumType);
             foreach (var field in fields)
             {
-                newEnumType.AddValue(new()
+                newEnumType.Values.Add(new()
                 {
                     Name = field.Name,
                     Expression = field.DefaultValue.ToCSConstantExpression()!
@@ -141,7 +141,7 @@ public static class EnumFixer
 
         foreach (var (staticClass, field) in staticClassFieldsToRemove)
         {
-            staticClass.RemoveField(field);
+            staticClass.Fields.Remove(field);
         }
 
         structs.RemoveAll(flagStructsToRemove.Contains);
