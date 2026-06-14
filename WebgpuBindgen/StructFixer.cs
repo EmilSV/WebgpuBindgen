@@ -697,7 +697,7 @@ public static class StructFixer
                     !HasRequiredMembers(x.Type)).ToList();
             foreach (var member in members)
             {
-                var memberTypeName = member.Type.Type.TryGetName(out var name) ? name : null;
+                var memberTypeName = member.Type?.Type?.TryGetName(out var name) ?? false ? name : null;
                 if (memberTypeName is null)
                 {
                     continue;

@@ -74,8 +74,8 @@ public static class MainTranslationFlow
         List<CSStruct> structs = new();
 
         staticClasses.AddRange(translationUnit.GetCSStaticClassesEnumerable());
-        enums.AddRange(translationUnit.GetCSEnumEnumerable());
-        structs.AddRange(translationUnit.GetCSStructEnumerable());
+        enums.AddRange(translationUnit.GetCSEnumsEnumerable());
+        structs.AddRange(translationUnit.GetCSStructsEnumerable());
 
         await EnumFixer.FixFlagEnums(enums, structs, staticClasses);
         await EnumFixer.FixEnums(enums);
@@ -105,7 +105,7 @@ public static class MainTranslationFlow
         {
             await DefaultFixer.FixDefaults(structs, specDocLookup);
         }
-        if(dawnCodegenDoc != null)
+        if (dawnCodegenDoc != null)
         {
             DefaultFixerDawnCodegenDoc.Fix(structs, staticClasses, enums, dawnCodegenDoc);
         }

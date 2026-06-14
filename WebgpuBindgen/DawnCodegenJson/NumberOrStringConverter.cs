@@ -39,7 +39,7 @@ public class NumberOrStringConverter : JsonConverter<NumberOrString>
             case { } when value.TryGetValue(out double doubleValue):
                 writer.WriteNumberValue(doubleValue);
                 break;
-            case { } when value.TryGetValue(out string str):
+            case { } when value.TryGetValue(out string? str):
                 writer.WriteStringValue(str);
                 break;
             case { } when value.GetValueType() == NumberOrString.Type.Null:
